@@ -46,36 +46,54 @@ public class RegisterCommand implements Command{
                         
                        HttpSession session = request.getSession();
                        
-                       
-                        boolean isAtLeast8 = Password.length() >= 6;
-                        boolean isaMax128 = Password.length() <= 128;
-                        boolean hasUppercase = !Password.equals(Password.toLowerCase());
-                        boolean hasLowercase = !Password.equals(Password.toUpperCase());
-                        boolean hasNumeric = Password.matches("[0-9]");
+                       boolean Structure = Password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
+                       /*
+                        boolean isAtLeast8 = Password.matches("^*.{8,}$");
+                        boolean hasUppercase = Password.matches("^?=.*?[A-Z]$");
+                        boolean hasLowercase = Password.matches("^?=.*?[a-z]$");
+                        boolean hasNumeric = Password.matches("^?=.*?[0-9]$");
                         boolean hasNoSpaces = !Password.contains(" ");
-                        //Check that it doesn't contain AND or NOT
+                       */
+                       
+                        //Check that it doesn't contain AND or NOT removed lower case ones 
+                        //since where cause problems with passwords like LegendandStrike45 as a example. 
                         boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
-                
+                        
+                        if(!Structure){
+                            String error = "Your Password must be atleast more than 8 in Length, one Digit, "
+                                    + "one Upper-Case, one Lower-case and no Spaces";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                            }
+                        
+                        if(!noConditions){
+                            String error = "Your Password must not contain any conditions e.g AND/OR";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                            }
+                        
+                         if(!noUsername){
+                            String error = "Your Password must not contain Your UserName";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                            }
+                        /*
                         if(!isAtLeast8){
                             String error = "Your Password is too Short must be more than 6 Characters";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                              }
-                        if(!isaMax128){
-                            String error = "Your Password is too Long must be less than 128 Characters";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
+                        
                 
                         if(!hasUppercase) {
-                            String error = "Your Password must contain one uppercase letter";
+                            String error = "Your Password must contain one Uppercase letter";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }
                 
                         if(!hasLowercase){
-                            String error = "Your Password must contain one lowercase letter";
+                            String error = "Your Password must contain one owercase letter";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }
@@ -93,7 +111,7 @@ public class RegisterCommand implements Command{
                             }
                 
                         if(!noConditions){
-                            String error = "Your Password must not contain any conditions e.g and/or";
+                            String error = "Your Password must not contain any conditions e.g AND/OR";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }
@@ -104,9 +122,12 @@ public class RegisterCommand implements Command{
                             forwardToJsp = "RegRetry.jsp";
                             }
                         
+                        
                        
-                       if(isAtLeast8 && isaMax128 && hasUppercase && hasLowercase && hasNoSpaces && noConditions && noUsername)
-                       {
+                       if(isAtLeast8 && hasUppercase && hasLowercase && hasNoSpaces && noConditions && noUsername)
+                       */
+                        if(Structure && noConditions && noUsername)
+                        {
                         byte[] salt = getSalt();
                             
                         MessageDigest md = MessageDigest.getInstance("SHA-512");
