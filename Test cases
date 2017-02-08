@@ -1,0 +1,7 @@
+Test cases for Log in and register
+
+Test case1: User name and password being the same. Should not be the same.
+Test case2: Password is at least 8 characters long and less than 126 chars. long and at least one uppercase letter, one lowercase and one number.
+Test case3: No 2 users can have the same username/email.
+Test case4: User can log in with either email or username.
+Test case5: Password does not contain conditions (and/or) or any spaces.
