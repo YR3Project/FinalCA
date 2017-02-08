@@ -42,4 +42,8 @@ public interface UsersDaoInterface {
      */
     public Users getUserbyName(String name);
     
+    public String GetName(String email);
+    /*
+    for getting name to use in login functions so user can log-in with both email and there name
+    */
 }

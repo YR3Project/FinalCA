@@ -30,15 +30,17 @@ public class LoginCommand implements Command{
         
                 String forwardToJsp = "";
         
-                String UserName = request.getParameter("username");
+                String Entry1 = request.getParameter("username");
                 String Password = request.getParameter("password");
                 
-                if (UserName != null && Password != null && !UserName.equals("") && !Password.equals(""))
+                if (Entry1 != null && Password != null && !Entry1.equals("") && !Password.equals(""))
                 {
                     try
                     {
                         HttpSession session = request.getSession();
                         UsersDao userDao = new UsersDao("finalprojecttest");
+                        //this is so they can use there email as well as the username.
+                        String UserName = userDao.GetName(Entry1);
                         
                         Users one = userDao.getUserbyName(UserName);
                         String Duedate = one.getDue();

@@ -206,6 +206,45 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         
         return u;
     }
+
+    @Override
+    public String GetName(String email) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String name = null;
+        try{
+            con = getConnection();
+
+            String query = "Select username from users Where email = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+              name = rs.getString("username");
+            }
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the GetName() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the GetName() method: " + e.getMessage());
+            }
+        }
+        
+        return name;
+    }
     
     }
 
