@@ -34,7 +34,7 @@ Authors Aleks, Ben
             <form action="FrontController" method="post">
                 Username  : <span><input name="userName" size=30 type="text" /> </span>
                 Password  :  <span><input name="password" size=30 type="password" /> </span>
-                Email  : <span> <input name="Email" size=30 type="text" />  </span>
+                Email  : <span> <input name="email" size=30 type="text" />  </span>
                   
                 <input type="submit" value="Register" />
                 <!-- Include a hidden field to identify what the user wants to do -->
