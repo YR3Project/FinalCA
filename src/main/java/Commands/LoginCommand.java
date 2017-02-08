@@ -32,6 +32,7 @@ public class LoginCommand implements Command{
         
                 String Entry1 = request.getParameter("username");
                 String Password = request.getParameter("password");
+                String UserName = null;
                 
                 if (Entry1 != null && Password != null && !Entry1.equals("") && !Password.equals(""))
                 {
@@ -40,8 +41,12 @@ public class LoginCommand implements Command{
                         HttpSession session = request.getSession();
                         UsersDao userDao = new UsersDao("finalprojecttest");
                         //this is so they can use there email as well as the username.
-                        String UserName = userDao.GetName(Entry1);
-                        
+                        if(Entry1.contains("@")){
+                          UserName = userDao.GetName(Entry1);
+                        }
+                        else if(!Entry1.contains("@")){
+                          UserName = Entry1;
+                        }
                         Users one = userDao.getUserbyName(UserName);
                         String Duedate = one.getDue();
                         DateFormat df = new SimpleDateFormat("dd/MM/yy");

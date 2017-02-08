@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         
-        <title>Failure Register Customer</title>
+        <title>Account Failure</title>
     </head>
     <body>
         <%@ include file="Includes/nav.jsp" %>
@@ -28,7 +28,7 @@
                   String type = (String) Type;
             %>
             <p>
-                A problem has appeared with<%=type%> For User: <%=User%>
+                A problem has appeared with <%=type%> For User: <%=User%>
                 please check if all your values are added in correctly.
             </p>
             <%
