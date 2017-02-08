@@ -47,22 +47,23 @@ public class RegisterCommand implements Command{
                        HttpSession session = request.getSession();
                        
                        
-                        boolean isAtLeast8 = Password.length() >= 8;
+                        boolean isAtLeast8 = Password.length() >= 6;
                         boolean isaMax128 = Password.length() <= 128;
                         boolean hasUppercase = !Password.equals(Password.toLowerCase());
                         boolean hasLowercase = !Password.equals(Password.toUpperCase());
                         boolean hasNumeric = Password.matches("[0-9]");
                         boolean hasNoSpaces = !Password.contains(" ");
-                        boolean noConditions = !(Password.contains("AND") || Password.contains("NOT") || Password.contains("not") || Password.contains("and"));//Check that it doesn't contain AND or NOT
+                        //Check that it doesn't contain AND or NOT
+                        boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
                 
                         if(!isAtLeast8){
-                            String error = "Your Password is too Short";
+                            String error = "Your Password is too Short must be more than 6 Characters";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                              }
                         if(!isaMax128){
-                            String error = "Your Password is too Long";
+                            String error = "Your Password is too Long must be less than 128 Characters";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }

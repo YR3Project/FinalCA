@@ -78,8 +78,10 @@ public class LoginCommand implements Command{
                             else if(result == null)
                             {
                                 
-                                session.setAttribute("userFailed", result);   
-                                forwardToJsp = "loginFailed.jsp";
+                                String msg = "Login";
+                                session.setAttribute("Type", msg);
+                                session.setAttribute("AccountFail", UserName);  
+                                forwardToJsp = "AccountFail.jsp";
                             }
                        
                     }

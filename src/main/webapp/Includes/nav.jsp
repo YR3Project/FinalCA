@@ -13,7 +13,7 @@
     <nav>
         <ul>
 
-            <li><a href="Item_Page_home.jsp">Browse shop</a></li>
+           
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
 
@@ -21,20 +21,20 @@
                         Users successUser = (Users) Value2;
 
                 %>
-            <li><a href="viewProfile.jsp">View your own profile</a></li>
-            <li><a href="editUser.jsp">Edit your Profile</a></li>
-            <li><a href="logout.jsp">Log Out</a></li>
+                <li><a href ="League.jsp">League Of Legends</a></li>
+                <li><a href ="Wow.jsp">World of Warcraft</a></li>
+                <li><a href="logout.jsp">Log Out</a></li>
                 <%  
                     int a = successUser.getAdmin();
                     if (a!=0) {
                 %>
-            <li><a href="viewProfiles.jsp">View other Users</a></li>  
+                   <li><a href="viewProfiles.jsp">View other Users</a></li>  
                 <%
                     }
                 %>
         </ul>
     </nav>
-                <p>Logged in as <%=(successUser.getUserName())%></p>
+           <p>Logged in as <%=(successUser.getUserName())%></p>
         <%
         } else {
         %>
