@@ -1,8 +1,3 @@
-<%-- 
-    Document   : error
-    Created on : 25-Oct-2016, 12:21:33
-    Author     : Ben
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

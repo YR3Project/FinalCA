@@ -23,7 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /*
-Author Aleks,Ben
+Author Ben
 */
 
 public class RegisterCommand implements Command{

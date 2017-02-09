@@ -21,7 +21,7 @@ import java.util.Date;
 
 /**
  *
- * Author Aleks,Ben
+ * Author Ben
  */
 public class LoginCommand implements Command{
 
