@@ -83,3 +83,13 @@ CREATE TABLE article (
 INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `Game`, `DateAdded`) VALUES
 (1, 1, 'StatWiseGameWise is born!', 'Yes Indeed! The website is finally born! You all better enjoy your time here', 'def', '2017-02-06'),
 (2, 3, 'New Article', 'word word word word word word word word word word word word word word word word word word word word word word word word', 'def', '2017-02-07');
+
+CREATE TABLE comments (
+CommentID int(6) NOT NULL PRIMARY KEY,
+ArticleID int(4) NOT NULL,
+CAuthor int(4) NOT NULL,
+CommentText int(2000) NOT NULL,
+DateAdded date NOT NULL,
+FOREIGN KEY (ArticleID) REFERENCES article(ArticleID),
+FOREIGN KEY (CAuthor) REFERENCES users(userID)
+);
