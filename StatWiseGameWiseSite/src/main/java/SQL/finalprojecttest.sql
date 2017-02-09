@@ -71,7 +71,7 @@ ALTER TABLE `users`
 
 CREATE TABLE article (
   ArticleID int(4) NOT NULL PRIMARY KEY,
-  AuthorID int(6) NOT NULL,
+  AuthorID int(4) NOT NULL,
   Title varchar(50) NOT NULL,
   ArticleText varchar(2000) NOT NULL,
   DateAdded date NOT NULL,
@@ -79,6 +79,6 @@ CREATE TABLE article (
   KEY `AuthorID` (`AuthorID`)
 )
 
-INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticlePhoto`, `ArticleText`, `DateAdded`) VALUES
+INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `DateAdded`) VALUES
 (1, 1, 'StatWiseGameWise is born!', 'Yes Indeed! The website is finally born! You all better enjoy your time here', '2017-02-06'),
 (2, 3, 'New Article', 'word word word word word word word word word word word word word word word word word word word word word word word word', '2017-02-07');

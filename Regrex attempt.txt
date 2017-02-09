@@ -1,0 +1,58 @@
+ /*
+   final Pattern hasUppercase = Pattern.compile("[A-Z]");
+                       final Pattern hasLowercase = Pattern.compile("[a-z]");
+                       final Pattern hasNumber = Pattern.compile("\\d");
+                       final Pattern hasMin = Pattern.compile("4,");
+                       final Pattern hasMax = Pattern.compile(",30");
+                       final Pattern hasNoSpaces = Pattern.compile("[^-\\s]");
+  */
+
+/*
+if(!hasMin.matcher(Password).find())
+  {
+    String error = "Your Password is too Short must be more than 6 Characters";
+    session.setAttribute("Complexity", error);
+    forwardToJsp = "RegRetry.jsp";
+   }
+                        
+if(!hasMax.matcher(Password).find())
+  {
+  String error = "Your Password is too Long must be less than 128 Characters";
+  session.setAttribute("Complexity", error);
+  forwardToJsp = "RegRetry.jsp";
+  }
+                        
+if(!hasUppercase.matcher(Password).find())
+   {
+    String error = "Your Password must contain one uppercase letter";
+     session.setAttribute("Complexity", error);
+      forwardToJsp = "RegRetry.jsp";
+    }
+                        
+if(!hasLowercase.matcher(Password).find())
+   {
+     String error = "Your Password must contain one lowercase letter";
+     session.setAttribute("Complexity", error);
+     forwardToJsp = "RegRetry.jsp";
+    }
+                        
+                        if (!hasNumber.matcher(Password).find()) 
+                        {
+                           String error = "Your Password must contain Numbers";
+                           session.setAttribute("Complexity", error);
+                           forwardToJsp = "RegRetry.jsp";
+                        }
+                        
+                        if(!noUsername){
+                            String error = "Your Password must not contain Your UserName";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                        }
+                        
+                        if(!hasNoSpaces.matcher(Password).find())
+                        {
+                          String error = "Your Password must not contain any Spaces";
+                          session.setAttribute("Complexity", error);
+                          forwardToJsp = "RegRetry.jsp"; 
+                        } 
+*/
