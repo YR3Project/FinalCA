@@ -33,7 +33,7 @@ public class LoginCommand implements Command{
                 String Entry1 = request.getParameter("username");
                 String Password = request.getParameter("password");
                 String UserName = null;
-                
+                //ChrisTest
                 if (Entry1 != null && Password != null && !Entry1.equals("") && !Password.equals(""))
                 {
                     try
