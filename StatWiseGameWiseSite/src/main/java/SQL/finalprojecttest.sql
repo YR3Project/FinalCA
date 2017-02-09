@@ -74,7 +74,7 @@ CREATE TABLE article (
   AuthorID int(4) NOT NULL,
   Title varchar(50) NOT NULL,
   ArticleText varchar(2000) NOT NULL,
-  Game Varchar(3) NOT NULL;
+  Game Varchar(3) NOT NULL,
   DateAdded date NOT NULL,
   FOREIGN KEY (AuthorID) REFERENCES users(userID)
   KEY `AuthorID` (`AuthorID`)
