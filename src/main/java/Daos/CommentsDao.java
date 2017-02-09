@@ -24,11 +24,11 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     }
 
     @Override
-    public String setComment(int authorID, int commentID, String comment, String date) {
+    public Comments setComment(int authorID, int commentID, String comment, String date) {
             Connection con = null;
             PreparedStatement ps = null;
-           
-
+            Comments c = null;
+            ResultSet rs = null;
             try{
                 con = getConnection();
 
@@ -38,7 +38,11 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
                 ps.setInt(2, commentID);
                 ps.setString(3, comment);
                 ps.setString(4, date);
-                
+                rs = ps.executeQuery();
+                while(rs.next())
+                {
+                    c = new Comments(rs.getInt("authorID"), rs.getInt("commentID"), rs.getString("comment"), rs.getString("date"));
+                }
                
 
             }catch (SQLException e) {
@@ -58,6 +62,22 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
 
                 }
             }
+            return c;
+    }
+
+    @Override
+    public Comments getAuthor(int authorID, int commentID, String comment) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Comments editComment(int authorID, int commentID, String comment) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Comments deleteComment(int authorID, int commentID, String comment, String date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

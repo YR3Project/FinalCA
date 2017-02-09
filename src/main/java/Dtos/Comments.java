@@ -9,14 +9,14 @@ import Daos.*;
 public class Comments {
     public int commentID;
     public int articleID;
-    public int cAutor;
+    public int cAuthor;
     public String commentText;
     public String date;
 
-    public Comments(int commentID, int articleID, int cAutor, String commentText, String date) {
+    public Comments(int commentID, int articleID, int cAuthor, String commentText, String date) {
         this.commentID = commentID;
         this.articleID = articleID;
-        this.cAutor = cAutor;
+        this.cAuthor = cAuthor;
         this.commentText = commentText;
         this.date = date;
     }
@@ -47,12 +47,12 @@ public class Comments {
         this.articleID = articleID;
     }
 
-    public int getcAutor() {
-        return cAutor;
+    public int getcAuthor() {
+        return cAuthor;
     }
 
-    public void setcAutor(int cAutor) {
-        this.cAutor = cAutor;
+    public void setcAuthor(int cAuthor) {
+        this.cAuthor = cAuthor;
     }
 
     public String getCommentText() {
@@ -73,6 +73,6 @@ public class Comments {
 
     @Override
     public String toString() {
-        return "Comments{" + "commentID=" + commentID + ", articleID=" + articleID + ", cAutor=" + cAutor + ", commentText=" + commentText + ", date=" + date + '}';
+        return "Comments{" + "commentID=" + commentID + ", articleID=" + articleID + ", cAuthor=" + cAuthor + ", commentText=" + commentText + ", date=" + date + '}';
     }
 }
