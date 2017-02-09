@@ -3,7 +3,7 @@ package Commands;
 
 /**
  *
- * Author Ben , Aleks, Chris
+ * Author Ben , Chris
  */
 public class CommandFactory {
    public Command createCommand(String action)
