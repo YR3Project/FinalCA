@@ -14,13 +14,13 @@ import Dtos.Comments;
 import java.util.ArrayList;
 public interface CommentsDaoInterface {
     
-    public Comments setComment(int authorID, int commentID, String comment, String date);
+    public Comments setComment(int commentID, int articleID, int cAuthor, String commentText, String date);
     
-    public Comments getAuthor(int authorID, int commentID, String comment);
+    public Comments getAuthor(int commentID, int articleID, int cAuthor, String commentText, String date);
     
-    public Comments editComment(int authorID, int commentID, String comment);
+    public Comments editComment(int commentID, int articleID, int cAuthor, String commentText, String date);
     
-    public Comments deleteComment(int authorID, int commentID, String comment, String date);
+    public Comments deleteComment(int commentID, int articleID, int cAuthor, String commentText, String date);
     
     
 }

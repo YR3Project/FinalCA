@@ -24,13 +24,6 @@ public class Comments {
     public Comments() {
     }
 
-    public Comments(int commentID, int articleID, String commentText, String date) {
-        this.commentID = commentID;
-        this.articleID = articleID;
-        this.commentText = commentText;
-        this.date = date;
-    }
-
     public int getCommentID() {
         return commentID;
     }
@@ -75,4 +68,5 @@ public class Comments {
     public String toString() {
         return "Comments{" + "commentID=" + commentID + ", articleID=" + articleID + ", cAuthor=" + cAuthor + ", commentText=" + commentText + ", date=" + date + '}';
     }
+    
 }
