@@ -7,4 +7,40 @@ and open the template in the editor.
     Created on : 02-Feb-2017, 19:23:51
 ;;    Author     : PC
 */
-
+body
+{
+    background-color:#062952;
+}
+nav
+{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+ul li a .homenav, .leaguenav, .worldnav
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ul li a
+{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+}
+ul li
+{
+    
+    border-style:solid;
+    border-color:#062952;
+    box-shadow: 1px 2px 1px blue;
+    margin-left:3em;
+    list-style-type: none;
+    display: inline;
+}
+ul #reglog
+{
+    float:right;
+    padding-right: 50px;
+}

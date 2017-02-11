@@ -8,8 +8,19 @@
     </head>
     <div id="wrapper">
             <h1>Stat-Tacking Website</h1>
-             <%@ include file="Includes/nav.jsp" %>
+            <%@ include file="Includes/nav.jsp" %>
 
+            <p>t</p>
+            <p>t</p>
+            <p>t</p>
+            <p>t</p>
+            <p>t</p>
+            <p>t</p>
+            <p>t</p>
+        
+            
+            
+            
             
             <%@ include file="Includes/footer.jsp" %>
         </div>
