@@ -16,6 +16,10 @@ public class CommandFactory {
         {
             return new RegisterCommand();
         }
+        else if(action.equals("comment"))
+        {
+            return new SetCommentCommand();
+        }
         return null;
     }
 }

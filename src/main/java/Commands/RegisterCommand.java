@@ -5,8 +5,8 @@
  */
 package Commands;
 
-import Daos.UsersDao;
-import Dtos.Users;
+import Daos.*;
+import Dtos.*;
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
