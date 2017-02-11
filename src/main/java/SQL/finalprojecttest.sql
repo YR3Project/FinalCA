@@ -118,3 +118,11 @@ DateAdded date NOT NULL,
 FOREIGN KEY (ArticleID) REFERENCES article(ArticleID),
 FOREIGN KEY (CAuthor) REFERENCES users(userID)
 );
+CREATE TABLE report (
+ReportID int(6) NOT NULL PRIMARY KEY,
+CommentID int(6) NOT NULL,
+UserID int(4) NOT NULL,
+Reason VARCHAR(2000) NOT NULL,
+FOREIGN KEY (CommentID) REFERENCES comments(CommentID),
+FOREIGN KEY (UserID) REFERENCES users(userID)
+);
