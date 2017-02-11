@@ -22,13 +22,31 @@ public interface CommentsDaoInterface {
      * @param date
      * @return An comment object
      */
-    public Comments setComment(int commentID, int articleID, int cAuthor, String commentText, String date);
-    
+    public boolean setComment(int commentID, int articleID, int cAuthor, String commentText, String date);
+    /**
+     * 
+     * @param cAuthor
+     * @return All comments made by the author
+     */
     public Comments getAuthor(int cAuthor);
     
-    public Comments editComment(int commentID, int articleID, int cAuthor, String commentText, String date);
+    /**
+     * 
+     * @param commentID
+     * @param commentText
+     * @return Edits a comment 
+     */
     
-    public Comments deleteComment(int commentID, int articleID, int cAuthor, String commentText, String date);
+    public Comments editComment(int commentID, String commentText);
+    
+    /**
+     * 
+     * @param commentID
+     * @param articleID
+     * @return Returns true or false which will either delete the comment or it won't
+     *  
+     */
+    public boolean deleteComment(int commentID, int articleID);
     
     
 }

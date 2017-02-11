@@ -30,9 +30,9 @@ public interface UsersDaoInterface {
      */
     public Users LogingInUser(String name, String password);
 
-     /*
+     /**
     @param username
-    @return byte[] for slat necessary for loging in to user account
+    @return byte[] for slat necessary for logging in to user account
     */
     public byte[] GetCAlSalt(String username);
     

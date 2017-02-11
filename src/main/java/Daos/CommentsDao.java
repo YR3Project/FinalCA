@@ -34,11 +34,12 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     * @return Sets the comment set by a user
     */
     @Override
-    public Comments setComment(int commentID, int articleID, int cAuthor, String commentText, String date) {
+    public boolean setComment(int commentID, int articleID, int cAuthor, String commentText, String date) {
             Connection con = null;
             PreparedStatement ps = null;
             Comments c = null;
             ResultSet rs = null;
+            int rowsAffected = 0;
             try{
                 con = getConnection();
 
@@ -49,11 +50,10 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
                 ps.setInt(3, cAuthor);
                 ps.setString(4, commentText);
                 ps.setString(5, date);
-                rs = ps.executeQuery();
-                while(rs.next())
-                {
-                    c = new Comments(rs.getInt("commentID"), rs.getInt("ArticleID"), rs.getInt("cAuthor"), rs.getString("commentText"), rs.getString("DateAdded"));
-                }
+                
+                //Updates the rowsAffected variable to 1 if the insert works
+                rowsAffected = ps.executeUpdate();
+                
                
 
             }catch (SQLException e) {
@@ -73,7 +73,16 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
 
                 }
             }
-            return c;
+            //Check to see if the insert went through
+            if(rowsAffected > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
     }
 
     /**
@@ -120,15 +129,86 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
         
         return c;
     }
-
+    /**
+     * Users who made their comment should be able to edit them as should admins and mods
+     * @param commentID
+     * @param commentText
+     * @return Edits the users comment
+     */
     @Override
-    public Comments editComment(int commentID, int articleID, int cAuthor, String commentText, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Comments editComment(int commentID, String commentText) {
+            Connection con = null;
+            PreparedStatement ps = null;
+            Comments c = null;
+            ResultSet rs = null;
+                try{
+                    con = getConnection();
+
+                    String query = "Insert Comments SET (CommentText) WHERE commentID = ?";
+                    ps = con.prepareStatement(query);
+                    ps.setString(1, commentText);
+                    ps.setInt(2, commentID);
+
+
+                }catch (SQLException e) {
+                    System.out.println("Exception occured in the editComment() method: " + e.getMessage());
+
+                } finally {
+                    try {
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (con != null) {
+                            freeConnection(con);
+                        }
+                    } catch (SQLException e) {
+                        System.out.println("Exception occured in the finally section of the editComment() method");
+                        e.getMessage();
+
+                    }
+                }
+            return c;    
     }
-
+    /**
+     * Putting in a comment ID deletes the comment thats inside the article using the articleID
+     * @param commentID
+     * @return Deletes the users comment
+     */
     @Override
-    public Comments deleteComment(int commentID, int articleID, int cAuthor, String commentText, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean deleteComment(int commentID, int articleID) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+        try {
+            con = getConnection();
+
+            String query = "DELETE FROM comments where commentID = ? AND articleID = ";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, commentID);
+            ps.setInt(2, articleID);
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the deleteComment() method: " + e.getMessage());
+        } finally {
+            try {
+
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the deleteComment() method: " + e.getMessage());
+            }
+        }
+        if (rowsAffected < 0) {
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
     
