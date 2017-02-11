@@ -33,10 +33,17 @@ public interface CommentsDaoInterface {
     /**
      * 
      * @param commentID
+     * @param articleID
+     * @return Gets an author based on the commentID and articleID
+     */
+    public String getAuthorByCommentID(int commentID, int articleID);
+ 
+    /**
+     * 
+     * @param commentID
      * @param commentText
      * @return Edits a comment 
      */
-    
     public Comments editComment(int commentID, String commentText);
     
     /**

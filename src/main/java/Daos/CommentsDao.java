@@ -210,6 +210,51 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
         }
         
     }
+    /**
+     * 
+     * @param commentID
+     * @param articleID
+     * @return AuthorID and their comments
+     */
+    @Override
+    public String getAuthorByCommentID(int commentID, int articleID) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String author = null;
+        try {
+            con = getConnection();
+
+            String query = "SELECT authorID, commentText FROM comments where commentID = ? or articleID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, commentID);
+            ps.setInt(2, articleID);
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                author = rs.getString("CAuthor");
+                
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the deleteComment() method: " + e.getMessage());
+        } finally {
+            try {
+
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the deleteComment() method: " + e.getMessage());
+            }
+        }
+        
+        return author;
+        
+    }
 
     
     
