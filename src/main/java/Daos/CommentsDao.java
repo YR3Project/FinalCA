@@ -43,13 +43,13 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
             try{
                 con = getConnection();
 
-                String query = "Insert INTO comments ( ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,?,?)";
+                String query = "Insert INTO comments (CommentID, ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,?,?,?)";
                 ps = con.prepareStatement(query);
-                
-                ps.setInt(1,1);
-                ps.setInt(2, cAuthor);
-                ps.setString(3, commentText);
-                ps.setString(4, "01/01/01");
+                ps.setInt(1,commentID);
+                ps.setInt(2,articleID);
+                ps.setInt(3, cAuthor);
+                ps.setString(4, commentText);
+                ps.setString(5, date);
                 
                 //Updates the rowsAffected variable to 1 if the insert works
                 rowsAffected = ps.executeUpdate();

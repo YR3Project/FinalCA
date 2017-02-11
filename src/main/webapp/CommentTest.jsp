@@ -18,6 +18,9 @@
             Comment: <input type="text" name="comment">
             
             userID: <input type="text" name="userID">
+            Article <input type="text" name="article">
+            Date <input type="text" name="date">
+            commentID <input type="text" name="commentID">
             <input type="submit" value="Comment" />
             <!-- Include a hidden field to identify what the user wants to do -->
             <input type="hidden" name ="action" value="comment" />

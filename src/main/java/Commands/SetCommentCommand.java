@@ -34,15 +34,22 @@ public class SetCommentCommand implements Command{
         
         String comment = request.getParameter("comment");
         String id = request.getParameter("userID");
-        
+        String article = request.getParameter("article");
+        String date = request.getParameter("date");
+        String commentID = request.getParameter("commentID");
         try
         {
+            int trueID = Integer.parseInt(id);
+            int trueArticle = Integer.parseInt(article);
+            int commentI = Integer.parseInt(commentID);
             HttpSession session = request.getSession();
             CommentsDao comDao = new CommentsDao("finalprojecttest");
             
-            boolean action = comDao.setComment(0, 0, 0, comment, id);
+            boolean action = comDao.setComment(commentI, trueArticle, trueID, comment, date);
             if(action == true)
             {
+                
+                session.setAttribute("commentSuccess", "comment");
                 forwardToJsp = "index.jsp";
             }
         }

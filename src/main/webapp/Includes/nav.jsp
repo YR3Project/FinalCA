@@ -15,10 +15,11 @@
             <li><a href="index.jsp"><span class="homenav">Home</span></a></li>
             <li><a href="League.jsp"><span class="leaguenav">League Of Legends</span></a></li>
             <li><a href="Wow.jsp"><span class="worldnav">World of Warcraft</span></a></li>
+            <li><a href="CommentTest.jsp">test</a></li>
            
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
-
+                    Object Value3 = session.getAttribute("commentSuccess");
                     if (Value2!= null) {
                         Users successUser = (Users) Value2;
 
