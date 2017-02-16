@@ -256,6 +256,40 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
         
     }
 
+    @Override
+    public Comments getAllCommentsByArticleID(int articleID) {
+            Connection con = null;
+            PreparedStatement ps = null;
+            Comments c = null;
+            ResultSet rs = null;
+                try{
+                    con = getConnection();
+
+                    String query = "SELECT CommentText,CAuthor FROM Comments WHERE articleID = ?";
+                    ps = con.prepareStatement(query);
+                    ps.setInt(1, articleID);
+
+                }catch (SQLException e) {
+                    System.out.println("Exception occured in the getAllCommentsByArticleID() method: " + e.getMessage());
+
+                } finally {
+                    try {
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (con != null) {
+                            freeConnection(con);
+                        }
+                    } catch (SQLException e) {
+                        System.out.println("Exception occured in the finally section of the getAllCommentsByArticleID() method");
+                        e.getMessage();
+
+                    }
+                }
+            return c;    
+        
+    }
+
     
     
 }
