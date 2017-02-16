@@ -16,6 +16,7 @@
             <li><a href="League.jsp"><span class="leaguenav">League Of Legends</span></a></li>
             <li><a href="Wow.jsp"><span class="worldnav">World of Warcraft</span></a></li>
             <li><a href="CommentTest.jsp">test</a></li>
+            <li><a href="riot.php">rfsd</a></li>
            
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");

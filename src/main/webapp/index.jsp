@@ -19,7 +19,10 @@
             <p>t</p>
         
             
+            <input type="text" name="sumName" />
+            <input type="submit" value="riotApi" />
             
+           <input type="hidden" name ="action" value="riotApi" />
             
             
             <%@ include file="Includes/footer.jsp" %>

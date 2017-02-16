@@ -9,10 +9,19 @@ package Daos;
  *
  * @author Chris
  */
-import Commands.*;
-import java.util.Map;
-
+import java.util.ArrayList;
+import com.google.gson.*;
+import net.rithms.riot.constant.Region;
+import net.rithms.riot.dto.Summoner.Summoner;
+import net.rithms.riot.api.RiotApi;
+import net.rithms.riot.api.RiotApiException;
 
 public interface RiotApiDaoInterface {
+    
+    /**
+     * @param Users name
+     * @return Users details
+     */
+    public String summonerName(String name);
     
 }
