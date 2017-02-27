@@ -20,6 +20,10 @@ public class CommandFactory {
         {
             return new SetCommentCommand();
         }
+        else if(action.equals("postArtc"))
+        {
+            return new PostArticleCommand();
+        }
         return null;
     }
 }

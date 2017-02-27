@@ -143,7 +143,7 @@ public class RegisterCommand implements Command{
 			String generatedPassword = sb.toString();
 
                             
-                       UsersDao userDao = new UsersDao("finalprojecttest");
+                       UsersDao userDao = new UsersDao("swgw");
                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
                        Date createdate = new Date();
                        Date expiredate = new Date();

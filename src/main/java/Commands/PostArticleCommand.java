@@ -22,46 +22,37 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
-Author Ben
-*/
-
-public class SetCommentCommand implements Command{   
+public class PostArticleCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
-        
-        String comment = request.getParameter("comment");
+
+        String content = request.getParameter("comment");
         String id = request.getParameter("userID");
-        String article = request.getParameter("article");
-        String date = request.getParameter("date");
-        String commentID = request.getParameter("commentID");
-        try
-        {
+        String title = request.getParameter("title");
+        String game = request.getParameter("game");
+        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        Date date = new Date();
+        try {
             int trueID = Integer.parseInt(id);
-            int trueArticle = Integer.parseInt(article);
-            int commentI = Integer.parseInt(commentID);
             HttpSession session = request.getSession();
-            CommentsDao comDao = new CommentsDao("swgw");
-            
-            boolean action = comDao.setComment(commentI, trueArticle, trueID, comment, date);
-            if(action == true)
-            {
-                
-                session.setAttribute("commentSuccess", "comment");
+            ArticleDao aDao = new ArticleDao("finalprojecttest");
+
+            boolean action = aDao.PostArticle(trueID, title, content, game, df.format(date));
+            if (action == true) {
+
+                session.setAttribute("articleSuccess", "article");
                 forwardToJsp = "index.jsp";
             }
+        } catch (InputMismatchException e) {
+
+            forwardToJsp = "error.jsp";
+
+            HttpSession session = request.getSession();
+
+            session.setAttribute("errorMessage", "Text was supplied for parameters is not the right type.");
         }
-        catch (InputMismatchException e)
-                    {
-                        
-                        forwardToJsp = "error.jsp";
-                        
-                        HttpSession session = request.getSession();
-                        
-                        session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
-                    }
         return forwardToJsp;
     }
 }
