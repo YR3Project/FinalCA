@@ -4,7 +4,7 @@ package Daos;
  *
  * @author Ben
  */
-import Daos.Dao;
+
 import Dtos.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

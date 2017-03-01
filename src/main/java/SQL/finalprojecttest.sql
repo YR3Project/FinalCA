@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 CREATE TABLE article (
   ArticleID int(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   AuthorID int(4) NOT NULL,
@@ -7,6 +8,29 @@ CREATE TABLE article (
   ArticleText varchar(2000) NOT NULL,
   DateAdded date NOT NULL
   FOREIGN KEY (`AuthorID`) REFERENCES `users` (`userID`); 
+=======
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `finalprojecttest`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article`
+--
+
+CREATE TABLE `article` (
+  `ArticleID` int(4) NOT NULL AUTO_INCREMENT,
+  `AuthorID` int(4) NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  `ArticleText` varchar(2000) NOT NULL,
+  `DateAdded` date NOT NULL
+>>>>>>> origin/master
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

@@ -20,10 +20,7 @@ public class CommandFactory {
         {
             return new SetCommentCommand();
         }
-        else if(action.equals("riotApi"))
-        {
-            return new RiotApiCommand();
-        }
+        
         return null;
     }
 }

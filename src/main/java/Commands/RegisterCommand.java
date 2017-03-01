@@ -152,7 +152,7 @@ public class RegisterCommand implements Command{
                         c.add(Calendar.DATE, 10);
                         expiredate = c.getTime();
                        
-                       boolean Action = userDao.RegistorUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
+                       boolean Action = userDao.RegisterUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
                        
                        if(Action == true){
                           Users user = userDao.getUserbyName(UserName);
