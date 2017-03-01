@@ -4,6 +4,7 @@ package Daos;
  *
  * @author Ben
  */
+import Daos.Dao;
 import Dtos.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,20 +19,8 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         super(databaseName);
     }
 
-   
-   /**
-     * @param uname
-     * @param pass
-     * @param fname
-     * @param lname
-     * @param addre
-     * @param email
-     * @param Created
-     * @param Due
-     * @return true or false
-     */
-    @Override
-    public boolean RegistorUser(String uname, String pass, String email, byte[] salt, String Created, String Due) {
+   /*
+    public int RegisterUser(Users u) {
         Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -41,20 +30,21 @@ public class UsersDao extends Dao implements UsersDaoInterface {
 
             String query = "Insert into users (username, email, password, admin, salt, Created, Due) values(?,?,?,?,?,?,?)";
             ps = con.prepareStatement(query);
-            ps.setString(1, uname);
-            ps.setString(2, email);
-            ps.setString(3, pass);
+            
+            ps.setString(1, u.getUserName());
+            ps.setString(2, u.getEmail());
+            ps.setString(3, u.getPassword());
             ps.setInt(4, 0);   
-            ps.setBytes(5, salt);
-            ps.setString(6, Created);
-            ps.setString(7, Due);
+            ps.setBytes(5, u.getSalt());
+            ps.setString(6, u.getCreated());
+            ps.setString(7, u.getDue());
             
                    
             rowsAffected = ps.executeUpdate(); 
             
         }catch (SQLException e) {
             System.out.println("Exception occured in the RegistorUser() method: " + e.getMessage());
-            
+            rowsAffected = -1;
         } finally {
             try {
                 if (ps != null) {
@@ -69,14 +59,22 @@ public class UsersDao extends Dao implements UsersDaoInterface {
                 
             }
         }
-        if(rowsAffected > 0)
-        {
-        return true;
-        }
-        else{
-            return false;
-        }
+        return rowsAffected;
     }
+    */
+   /**
+     * @param uname
+     * @param pass
+     * @param fname
+     * @param lname
+     * @param addre
+     * @param email
+     * @param Created
+     * @param Due
+     * @return true or false
+     */
+    
+    
 
     /**
      * @param name
@@ -245,6 +243,61 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         
         return name;
     }
+
+    @Override
+    public int RegisterUser(Users u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean RegisterUser(String uname, String pass, String email, byte[] salt, String Created, String Due) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+        
+        try{
+            con = getConnection();
+
+            String query = "Insert into users (username, email, password, admin, salt, Created, Due) values(?,?,?,?,?,?,?)";
+            ps = con.prepareStatement(query);
+            ps.setString(1, uname);
+            ps.setString(2, email);
+            ps.setString(3, pass);
+            ps.setInt(4, 0);   
+            ps.setBytes(5, salt);
+            ps.setString(6, Created);
+            ps.setString(7, Due);
+            
+                   
+            rowsAffected = ps.executeUpdate(); 
+            
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the RegistorUser() method: " + e.getMessage());
+            
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the RegistorUser() method");
+                e.getMessage();
+                
+            }
+        }
+        if(rowsAffected > 0)
+        {
+        return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    
     
     }
 

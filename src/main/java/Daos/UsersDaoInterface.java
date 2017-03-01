@@ -13,15 +13,24 @@ import java.util.ArrayList;
 public interface UsersDaoInterface {
 
     /**
+     * 
+     * @param u
+     * @return 
+     */
+    public int RegisterUser(Users u);
+    /**
+     * 
      * @param uname
      * @param pass
      * @param email
      * @param salt
      * @param Created
-     * @return A boolean whether or not the user was created
+     * @param Due
+     * @return 
      */
-    public boolean RegistorUser(String uname, String pass, String email, byte[] salt, String Created, String Due);
     
+    
+    public boolean RegisterUser(String uname, String pass, String email, byte[] salt, String Created, String Due);
     /**
      * 
      * @param name
@@ -46,4 +55,6 @@ public interface UsersDaoInterface {
     /*
     for getting name to use in login functions so user can log-in with both email and there name
     */
+    
+
 }
