@@ -36,12 +36,11 @@
             ArrayList <Article> allArticles = new ArrayList (aDao.getAllArticles());
             for(int i=0; i<allArticles.size(); i++){
                         %>
-                        <h3><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>
+                        <h3><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
                         <p><%=(allArticles.get(i)).getArticleText()%></p>
                 <% 
                    } 
                     %>
-        %>
         <%@ include file="Includes/footer.jsp" %>
     </div>
 </body>

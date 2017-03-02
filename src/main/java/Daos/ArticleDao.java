@@ -170,7 +170,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
             
             while(rs.next())
             {
-                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("Game"), rs.getString("ArticleText"), rs.getString("DateAdded"));
+                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("ArticleText"), rs.getString("Game"), rs.getString("DateAdded"));
                 articles.add(a);
             }
         }catch (SQLException e) {

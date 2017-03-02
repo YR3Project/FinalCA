@@ -8,19 +8,9 @@ public class Article {
     private String game;
     private String date;
     
-    public Article() {
-    }
 
     public Article(int articleID, int authorID, String title, String articleText, String game, String date) {
         this.articleID = articleID;
-        this.authorID = authorID;
-        this.title = title;
-        this.articleText = articleText;
-        this.game = game;
-        this.date = date;
-    }
-
-    public Article(int authorID, String title, String articleText, String game, String date) {
         this.authorID = authorID;
         this.title = title;
         this.articleText = articleText;

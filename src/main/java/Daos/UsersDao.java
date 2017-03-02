@@ -255,7 +255,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select username from users Where id = ?";
+            String query = "Select username from users Where userID = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, ID);
             rs = ps.executeQuery(); 
