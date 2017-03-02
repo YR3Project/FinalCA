@@ -93,7 +93,7 @@ public class ChangeCommand implements Command{
                                 
                                 
                             
-                            UsersDao userDao = new UsersDao("finalprojecttest");
+                            UsersDao userDao = new UsersDao("swgw");
                         
                                 byte[] oldsalt = userDao.GetCAlSalt(UserName);
                             
