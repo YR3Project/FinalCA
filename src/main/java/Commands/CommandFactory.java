@@ -12,14 +12,17 @@ public class CommandFactory {
         {
             return new LoginCommand();
         }
+        
         else if(action.equals("register"))
         {
             return new RegisterCommand();
         }
+        
         else if(action.equals("comment"))
         {
             return new SetCommentCommand();
         }
+        
         else if(action.equals("postArtc"))
         {
             return new PostArticleCommand();
@@ -27,3 +30,4 @@ public class CommandFactory {
         return null;
     }
 }
+
