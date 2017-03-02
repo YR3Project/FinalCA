@@ -9,6 +9,7 @@
     <div id="wrapper">
         <h1>Stat-Tacking Website</h1>
         <%@ include file="Includes/nav.jsp" %>
+        
         <%    Object Value4 = session.getAttribute("CurrentUser");
             if (Value4 != null) {
                 Users successUser2 = (Users) Value4;
@@ -43,7 +44,8 @@
         <%
             }
         %>
-        <%@ include file="Includes/footer.jsp" %>
+        
     </div>
 </body>
+<%@ include file="Includes/footer.jsp" %>
 </html>
