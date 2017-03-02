@@ -6,6 +6,7 @@ package Daos;
  */
 
 import Dtos.Users;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -334,6 +335,67 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         }
         
         return name;
+    }
+
+    @Override
+    public boolean EditProfile(String username, String email, int id) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET username = ?, email = ? Where userID = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, email);
+            ps.setInt(3, id);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ChangePassword method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the EditProfile method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean AddProfilePic(InputStream photo, int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean ChangePassword(String newpass, String oldpass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean ChangeSalt(byte[] newsalt, byte[] oldsalt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean ChangeDates(String Username, String cdate, String ddate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     }

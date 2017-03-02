@@ -8,18 +8,18 @@ package Commands;
 public class CommandFactory {
    public Command createCommand(String action)
     {
-        if(action.equals("login"))
-        {
-            return new LoginCommand();
-        }
-        else if(action.equals("register"))
-        {
-            return new RegisterCommand();
-        }
-        else if(action.equals("comment"))
-        {
-            return new SetCommentCommand();
-        }
+       switch (action) {
+           case "login":
+               return new LoginCommand();
+           case "register":
+               return new RegisterCommand();
+           case "comment":
+               return new SetCommentCommand();
+           case "edit":
+               return new EditCommand();
+           default:
+               break;
+       }
         
         return null;
     }

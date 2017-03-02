@@ -7,6 +7,7 @@ package Daos;
  * @author Ben
  */
 import Dtos.Users;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -57,4 +58,38 @@ public interface UsersDaoInterface {
     */
     
     public String GetAuthorByID(int ID);
+    
+     public boolean EditProfile(String username, String email, int id);
+    //allows the user to edit their profile}
+     
+      /**
+     * @param photo
+     * @param id
+     * @return true or false based on whether the profile picture was uploaded
+     * Successfully to the database
+     **/
+     public boolean AddProfilePic(InputStream photo, int id);
+     //allow user to give themselves a custom picture to use on there account.
+     
+    /**
+    @param pass
+    @return true or false based on if the password has been changed
+    */
+    public boolean ChangePassword(String newpass, String oldpass );
+    
+    /**
+    @param newsalt
+    @param oldsalt
+    @return replaces the recorded byte[] in the database when user changes there password
+    */
+    public boolean ChangeSalt(byte[] newsalt, byte[] oldsalt);
+
+    /**
+    @param username 
+    @param cdate 
+    @param ddate
+    @return true or false based on whether it changed the dates for creation and expire/due in the database
+    */
+    public boolean ChangeDates(String Username, String cdate, String ddate);
+    
 }

@@ -6,24 +6,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="${pageContext.request.contextPath}/css/nav.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <nav>
         <ul>
-            <li><a href="index.jsp"><span class="homenav">Home</span></a></li>
-            <li><a href="Lol-Section.jsp"><span class="leaguenav">League Of Legends</span></a></li>
-            <li><a href="Wow-Section.jsp"><span class="worldnav">World of Warcraft</span></a></li>
-            <li><a href="CommentTest.jsp">test</a></li>
+
            
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
-                    Object Value3 = session.getAttribute("commentSuccess");
+
                     if (Value2!= null) {
                         Users successUser = (Users) Value2;
 
                 %>
-                
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="viewProfile.jsp">View your own profile</a></li>
+                <li><a href ="Lol-Section.jsp">League Of Legends</a></li>
+                <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                <li><a href="CommentTest.jsp">test</a></li>
                 <li><a href="logout.jsp">Log Out</a></li>
                 <%  
                     int a = successUser.getAdmin();
@@ -33,16 +34,16 @@
                 <%
                     }
                 %>
-      
-   
-           <p>Logged in as <%=(successUser.getUserName())%></p>
-           
-            <%
-            } else {
-            %>
-            <span id="reglog"><li><a href="LoginForm.jsp">Login</a></li></span>
-            <span id="reglog"><li><a href="registration.jsp">Register</a></li></span>
         </ul>
+    </nav>
+           
+        <%
+        } else {
+        %>
+                   <li><a href="index.jsp">Home</a></li>      
+ <span id="reglog"><li><a href="LoginForm.jsp">Login</a></li>
+<span id="reglog"><li><a href="registration.jsp">Register</a></li>
+</ul>
 </nav>
 <%
     }
