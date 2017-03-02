@@ -31,16 +31,17 @@
    
         
         <img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" width="120" height="100" />
-        <ul>
-            <li><a href='ChangePic.jsp'>Change profile Picture</a></li>
-        </ul>    
+        
+           
+            <a href='ChangePic.jsp' class="button">Change profile Picture</a>
+            
              
              
         <h1><%=successUser.getUserName()%>'s Profile</h1>
-        <ul>
-            <li><a href='editUser.jsp'>Edit Your Profile</a></li>
-            <li><a href='ChangePassword.jsp'>Change Password</a></li>
-        </ul>
+        
+            <a href='editUser.jsp' class="button">Edit Your Profile</a>
+            <a href='ChangePassword.jsp' class="button">Change Password</a>
+        
         
         <table>
             <tr><%

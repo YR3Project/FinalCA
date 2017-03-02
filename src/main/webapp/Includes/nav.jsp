@@ -10,7 +10,8 @@
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
     </head>
     <nav>
-        <ul>
+        <header id="navcontainer">
+        <ul id="navlist">
 
            
                 <%
@@ -20,10 +21,14 @@
                         Users successUser = (Users) Value2;
 
                 %>
-                <li><a href="index.jsp">Home</a></li>
+                <li id="active"><a href="index.jsp" id="current">Home</a></li>
                 <li><a href="viewProfile.jsp">View your own profile</a></li>
-                <li><a href ="Lol-Section.jsp">League Of Legends</a></li>
-                <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                <li><a href ="">Twitch-Area</a>
+                 <ul>
+                       <li><a href ="Lol-Section.jsp">League Of Legends</a>
+                       <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                        </ul>
+                 </li>   
                 <li><a href="CommentTest.jsp">test</a></li>
                 <li><a href="logout.jsp">Log Out</a></li>
                 <%  
@@ -35,6 +40,7 @@
                     }
                 %>
         </ul>
+        </header>
     </nav>
            
         <%
