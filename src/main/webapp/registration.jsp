@@ -21,18 +21,18 @@
             <p>Form to Register customers (Using servlet)</p>
             <div class="login_form">
             <form action="FrontController" method="post">
-                Username  :  <input name="userName" size=30 type="text" />  
+                Username  :  <input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/>  
                 <br />
                 <p id="pass">
-                Password  : <input name="password" size=30 type="password" /> 
+                Password  : <input name="password" size=30 type="password" placeholder="Password" required/> 
                 </p>
                 
                 <p id="email">
-                    Email  : <span><input name="email" size=30 type="email" /> </span>
+                    Email  : <span><input name="email" size=30 type="email" maxlength="30" placeholder="Email" required/> </span>
                 </p>
                 
                 
-                <input type="submit" value="Register" />
+                <input type="submit" formtarget="_blank" value="Register" />
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="register" />
             </form>

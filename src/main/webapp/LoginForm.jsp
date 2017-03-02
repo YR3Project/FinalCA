@@ -30,9 +30,9 @@
                 %>
             <p>Form to Login customers (Using servlet)</p>
             <form action="FrontController" method="post">
-                <span id='name'> Username  :</span> <span id='textbox'>  <input name="username" size=30 type="text" /> </span>
-                <span id='name'> Password  : </span> <span id='textbox'>  <input name="password" size=20 type="password" /> </span>
-                <span id='name'>  <input type="submit" value="Login" /></span>
+                <span id='name'> Username  :</span> <span id='textbox'>  <input name="username" size=30 type="text" maxlength="30" placeholder="Username" required/> </span>
+                <span id='name'> Password  : </span> <span id='textbox'>  <input name="password" size=20 type="password" placeholder="Password" required/> </span>
+                <span id='name'>  <input type="submit"  value="Login" /></span>
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="login" />
             </form>

@@ -33,16 +33,16 @@
             <form action="FrontController" method="post">
                 <table>
                     <tr>
-                        <td> UserName : </td><td> <input name="name" size=30 type="text" /> </td> 
+                        <td> UserName : </td><td> <input name="name" size=30 type="text" maxlength="20" placeholder="UserName" required/> </td> 
                     </tr>
                     <tr>
-                        <td> oldPassword : </td><td> <input name="oldpass" size=30 type="password" /> </td> 
+                        <td> oldPassword : </td><td> <input name="oldpass" size=30 type="password" placeholder="Old Password" required/> </td> 
                     </tr>
                     <tr>
-                        <td> NewPassword  : </td><td> <input name="newpass" size=30 type="password" /> </td> 
+                        <td> NewPassword  : </td><td> <input name="newpass" size=30 type="password" placeholder="New Password" required/> </td> 
                     </tr>
                     <tr>
-                        <td> ConfirmPassword  : </td><td> <input name="compass" size=30 type="password" /> </td> 
+                        <td> ConfirmPassword  : </td><td> <input name="compass" size=30 type="password" placeholder="Re-Enter New Password" required/> </td> 
                     </tr>
                 </table>
                 <input type="submit" value="Change Password" />

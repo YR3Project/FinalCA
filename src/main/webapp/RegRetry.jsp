@@ -32,9 +32,9 @@ Authors Aleks, Ben
                 The following problem seems to have happened during your registration :  <%=(SecurityMeassage)%>.
             </p>
             <form action="FrontController" method="post">
-                Username  : <span><input name="userName" size=30 type="text" /> </span>
-                Password  :  <span><input name="password" size=30 type="password" /> </span>
-                Email  : <span> <input name="email" size=30 type="text" />  </span>
+                Username  : <span><input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/> </span>
+                Password  :  <span><input name="password" size=30 type="password" placeholder="Password" required/> </span>
+                Email  : <span> <input name="email" size=30 type="text" maxlength="30" placeholder="Email" required/>  </span>
                   
                 <input type="submit" value="Register" />
                 <!-- Include a hidden field to identify what the user wants to do -->

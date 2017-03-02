@@ -19,9 +19,9 @@
         <h1>Edit <%=successUser.getUserName() %>'s Profile</h1>
         <form action="FrontController" method="post">
                 
-            <span id='name'> Username  :</span> <span id='textbox'><input name="username" value="<%=successUser.getUserName() %>" size=30 type="text" /> </span>
+            <span id='name'> Username  :</span> <span id='textbox'><input name="username" value="<%=successUser.getUserName() %>" size=30 type="text" maxlength="20" required/> </span>
                     <br />
-            <span id='name'> Email  :</span>  <span id='textbox'><input name="email" size=30 value="<%=successUser.getEmail() %>" type="text" /> </span>
+            <span id='name'> Email  :</span>  <span id='textbox'><input name="email" size=30 value="<%=successUser.getEmail() %>" type="text" maxlength="30" required/> </span>
             <span id='name'><input type="submit" value="Update" /></span>
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="edit" />

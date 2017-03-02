@@ -42,13 +42,13 @@
                 %>
             <p>Change Details(Using servlet)</p>
             <form action="FrontController" method="post">
-                <span id='name'>UserName :  </span><span id='textbox'><input name="name" size=30 type="text" /> </span>
+                <span id='name'>UserName :  </span><span id='textbox'><input name="name" size=30 type="text" maxlength="20" placeholder="Username" required/> </span>
                  <br />
-                <span id='name'>oldPassword :</span> <span id='textbox'> <input name="oldpass" size=30 type="password" />  </span>
+                <span id='name'>oldPassword :</span> <span id='textbox'> <input name="oldpass" size=30 type="password" placeholder="Old Password" required/>  </span>
                 <br />
-                <span id='name'>NewPassword   :</span><span id='textbox'> <input name="newpass" size=30 type="password" /> </span>
+                <span id='name'>NewPassword   :</span><span id='textbox'> <input name="newpass" size=30 type="password" placeholder="New Password" required/> </span>
                 <br />
-                <span id='name'>ConfirmPassword  :</span> <span id='textbox'><input name="compass" size=30 type="password" /> </span>
+                <span id='name'>ConfirmPassword  :</span> <span id='textbox'><input name="compass" size=30 type="password" placeholder="Re-enter New Password" required/> </span>
                   
                 <span id='textbox'> <input type="submit" value="Change Password" /></span>
                 <!-- Include a hidden field to identify what the user wants to do -->
