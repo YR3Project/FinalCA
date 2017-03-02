@@ -92,4 +92,10 @@ public interface UsersDaoInterface {
     */
     public boolean ChangeDates(String Username, String cdate, String ddate);
     
+    
+     /**
+    @param pass
+    @returns salt when changing password
+    */
+    public byte[] GetCAlSaltch(String pass);
 }

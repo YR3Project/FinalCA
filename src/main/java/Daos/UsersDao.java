@@ -385,17 +385,162 @@ public class UsersDao extends Dao implements UsersDaoInterface {
 
     @Override
     public boolean ChangePassword(String newpass, String oldpass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET password = ? Where password = ? ";
+            ps = con.prepareStatement(query);
+            ps.setString(1, newpass);
+            ps.setString(2, oldpass);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ChangePassword method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ChangePassword method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean ChangeSalt(byte[] newsalt, byte[] oldsalt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET Salt = ? Where Salt = ? ";
+            ps = con.prepareStatement(query);
+            ps.setBytes(1, newsalt);
+            ps.setBytes(2, oldsalt);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ChangePassword method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ChangePassword method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean ChangeDates(String Username, String cdate, String ddate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET Due = ?, Created = ? Where username = ? ";
+            ps = con.prepareStatement(query);
+            ps.setString(1, ddate);
+             ps.setString(2, cdate);
+            ps.setString(3, Username);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ChangeDueDate method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ChangeDueDate method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public byte[] GetCAlSaltch(String pass) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        byte[] salt = null;
+        try{
+            con = getConnection();
+
+            String query = "Select Salt from users Where password = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1, pass);
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+                salt = rs.getBytes("salt");
+            }
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the GetCAlSaltch() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the GetCAlSaltch() method: " + e.getMessage());
+            }
+        }
+        
+        return salt;
     }
     
     }

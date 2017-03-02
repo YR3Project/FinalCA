@@ -17,6 +17,8 @@ public class CommandFactory {
                return new SetCommentCommand();
            case "edit":
                return new EditCommand();
+           case "change":
+               return new ChangeCommand();
            default:
                break;
        }
