@@ -43,7 +43,7 @@ public class SetCommentCommand implements Command{
             int trueArticle = Integer.parseInt(article);
             int commentI = Integer.parseInt(commentID);
             HttpSession session = request.getSession();
-            CommentsDao comDao = new CommentsDao("finalprojecttest");
+            CommentsDao comDao = new CommentsDao("swgw");
             
             boolean action = comDao.setComment(commentI, trueArticle, trueID, comment, date);
             if(action == true)

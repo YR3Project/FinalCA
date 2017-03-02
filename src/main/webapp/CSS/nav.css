@@ -1,17 +1,38 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* plstest
-    Created on : 02-Feb-2017, 19:23:51
-;;    Author     : PC
-*/
+
 body
 {
-    background-color:#062952;
-    color: white;
+    background-color:#e6e6fa;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Varela Round', sans-serif;
 }
+
+article {
+  width: 70%;
+  border: 1px solid black;
+  background-color: #cccccc;
+  padding: 15px;
+  margin: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 22px
+}
+
+p {
+  font-size: 20px;
+  line-height: 30px;
+  text-align: left;
+  font-family: 'Varela Round', sans-serif;
+}
+
+
+footer {
+  width: 100%;
+  border: 1px;
+  background-color: #cccccc;
+  font-size: 20px;
+  padding: 30px
+}
+
 nav
 {
     padding-top: 10px;
@@ -23,6 +44,7 @@ ul li a .homenav, .leaguenav, .worldnav
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 ul li a
 {
@@ -39,9 +61,16 @@ ul li
     margin-left:3em;
     list-style-type: none;
     display: inline;
+    background-color: Black;
+    font-family: 'Varela Round', sans-serif;
 }
 ul #reglog
 {
     float:right;
     padding-right: 50px;
+}
+
+
+.mainscreen {
+
 }

@@ -39,7 +39,7 @@ public class LoginCommand implements Command{
                     try
                     {
                         HttpSession session = request.getSession();
-                        UsersDao userDao = new UsersDao("finalprojecttest");
+                        UsersDao userDao = new UsersDao("swgw");
                         //this is so they can use there email as well as the username.
                         if(Entry1.contains("@")){
                           UserName = userDao.GetName(Entry1);

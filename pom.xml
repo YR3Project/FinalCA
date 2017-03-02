@@ -25,11 +25,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.taycaldwell</groupId>
-            <artifactId>riot-api-java</artifactId>
-            <version>3.9.0</version>
-        </dependency>
+        
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

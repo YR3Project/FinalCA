@@ -12,8 +12,8 @@
     <nav>
         <ul>
             <li><a href="index.jsp"><span class="homenav">Home</span></a></li>
-            <li><a href="League.jsp"><span class="leaguenav">League Of Legends</span></a></li>
-            <li><a href="WowCharStats.php"><span class="worldnav">World of Warcraft</span></a></li>
+            <li><a href="Lol-Section.jsp"><span class="leaguenav">League Of Legends</span></a></li>
+            <li><a href="Wow-Section.jsp"><span class="worldnav">World of Warcraft</span></a></li>
             <li><a href="CommentTest.jsp">test</a></li>
            
                 <%
