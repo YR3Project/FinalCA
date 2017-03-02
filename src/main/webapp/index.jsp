@@ -7,6 +7,7 @@
         <title>Stat-Tacking Website</title>
     </head>
     <div id="wrapper">
+        <body>
         <h1>Stat-Tacking Website</h1>
         <%@ include file="Includes/nav.jsp" %>
         

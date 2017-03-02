@@ -27,7 +27,7 @@
             
 %> 
 
-<div><a href="index.jsp">Back to index</a></div>
+<div><a href="index.jsp" class="button">Back to index</a></div>
 <%@ include file="Includes/footer.jsp" %>
         </div>
     </body>

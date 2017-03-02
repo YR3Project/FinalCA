@@ -46,9 +46,9 @@
         <%
         } else {
         %>
-                   <li><a href="index.jsp">Home</a></li>      
- <span id="reglog"><li><a href="LoginForm.jsp">Login</a></li>
-<span id="reglog"><li><a href="registration.jsp">Register</a></li>
+ <li><a href="index.jsp">Home</a></li>      
+<li><a href="LoginForm.jsp">Login</a></li>
+<li><a href="registration.jsp">Register</a></li>
 </ul>
 </nav>
 <%
