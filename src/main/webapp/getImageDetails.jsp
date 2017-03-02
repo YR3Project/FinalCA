@@ -10,7 +10,7 @@ the reason why i did not do this in a command is the difficulty i had when tryin
 <%
     //Setting up connection
  String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/finalprojecttest";
+        String url = "jdbc:mysql://localhost:3306/swgw";
         String username = "root";
         String password = "";
         Connection con = null;
