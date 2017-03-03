@@ -28,18 +28,19 @@ public class PostArticleCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
-        String content = request.getParameter("comment");
-        String id = request.getParameter("userID");
-        String title = request.getParameter("title");
-        String game = request.getParameter("game");
-        DateFormat df = new SimpleDateFormat("dd/MM/yy");
-        Date date = new Date();
+
         try {
-            int trueID = Integer.parseInt(id);
-            
+            String content = request.getParameter("content");
+            String title = request.getParameter("title");
+            String game = request.getParameter("game");
+            DateFormat df = new SimpleDateFormat("dd/MM/yy");
+            Date date = new Date();
+            Object Value = session.getAttribute("CurrentUser");
+            Users successUser = (Users) Value;
+            int id = successUser.getUserID();
             ArticleDao aDao = new ArticleDao("swgw");
 
-            boolean action = aDao.PostArticle(trueID, title, content, game, df.format(date));
+            boolean action = aDao.PostArticle(id, title, content, game, df.format(date));
             if (action == true) {
 
                 session.setAttribute("articleSuccess", "article");

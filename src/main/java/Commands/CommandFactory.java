@@ -19,6 +19,8 @@ public class CommandFactory {
                return new EditCommand();
            case "change":
                return new ChangeCommand();
+           case "postArtc":
+               return new PostArticleCommand();
            
            default:
                break;

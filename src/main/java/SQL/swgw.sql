@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 
 CREATE TABLE article (
-  ArticleID int(4) NOT NULL PRIMARY KEY,
+  ArticleID int(4) NOT NULL PRIMARY KEY ,
   AuthorID int(4) NOT NULL,
   Title varchar(50) NOT NULL,
   ArticleText varchar(2000) NOT NULL,
@@ -48,7 +48,7 @@ INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `Game`, 
 --
 
 CREATE TABLE `comments` (
-  `CommentID` int(6) NOT NULL,
+  `CommentID` int(6) NOT NULL AUTO_INCREMENT,
   `ArticleID` int(4) NOT NULL,
   `CAuthor` int(4) NOT NULL,
   `CommentText` varchar(2000) NOT NULL,

@@ -39,7 +39,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Insert into article (authorid, title, game, articletext, dateadded) values(?,?,?,?,?)";
+            String query = "Insert into article (authorid, title, articletext, game, dateadded) values(?,?,?,?,?)";
             ps = con.prepareStatement(query);
             ps.setInt(1, authorID);
             ps.setString(2, title);
