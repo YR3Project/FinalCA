@@ -26,22 +26,21 @@ SET time_zone = "+00:00";
 -- Table structure for table `article`
 --
 
-CREATE TABLE `article` (
-  `ArticleID` int(4) NOT NULL,
-  `AuthorID` int(4) NOT NULL,
-  `Title` varchar(50) NOT NULL,
-  `ArticleText` varchar(2000) NOT NULL,
-  `DateAdded` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `article`
---
+CREATE TABLE article (
+  ArticleID int(4) NOT NULL PRIMARY KEY,
+  AuthorID int(4) NOT NULL,
+  Title varchar(50) NOT NULL,
+  ArticleText varchar(2000) NOT NULL,
+  Game Varchar(3) NOT NULL,
+  DateAdded date NOT NULL,
+  FOREIGN KEY (AuthorID) REFERENCES users(userID)
+  KEY `AuthorID` (`AuthorID`)
+);
 
-INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `DateAdded`) VALUES
-(1, 1, 'StatWiseGameWise is born!', 'Yes Indeed! The website is finally born! You all better enjoy your time here', '2017-02-06'),
-(2, 3, 'New Article', 'word word word word word word word word word word word word word word word word word word word word word word word word', '2017-02-07');
-
+INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `Game`, `DateAdded`) VALUES
+(1, 1, 'StatWiseGameWise is born!', 'Yes Indeed! The website is finally born! You all better enjoy your time here', 'def', '2017-02-06'),
+(2, 3, 'New Article', 'word word word word word word word word word word word word word word word word word word word word word word word word', 'def', '2017-02-07');
 -- --------------------------------------------------------
 
 --
