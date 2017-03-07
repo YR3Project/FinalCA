@@ -16,8 +16,7 @@ Authors Aleks, Ben
     </head>
     <body>
     <div id="wrapper"> 
-        <a href="registration.html">Back to Form</a>
-        <a href="index.jsp">Back to index</a>
+        
         <h1>Try-Again</h1>
        <%@ include file="Includes/nav.jsp" %> 
         <%
@@ -28,6 +27,7 @@ Authors Aleks, Ben
                 String SecurityMeassage = (String) Value;
             
             %>
+            
             <p>
                 The following problem seems to have happened during your registration :  <%=(SecurityMeassage)%>.
             </p>
@@ -40,6 +40,9 @@ Authors Aleks, Ben
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="register" />
             </form>
+            <a href="registration.jsp" class="button">Back to Form</a>
+
+            <a href="index.jsp" class="button">Back to index</a>
             <%
               }  
             %>

@@ -18,8 +18,10 @@ import java.security.SecureRandom;
 import java.security.NoSuchProviderException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -135,7 +137,28 @@ public class RegisterCommand implements Command{
                        
                        if(isAtLeast8 && hasUppercase && hasLowercase && hasNoSpaces && noConditions && noUsername)
                        */
-                        if(Structure && noConditions && noUsername)
+                        UsersDao userDao = new UsersDao("swgw");
+
+                        
+                        boolean Checkemail = true;
+                                
+                        ArrayList<Users> Accounts = userDao.GetAllUsers();
+                        
+                        for(int x = 0; x < Accounts.size(); x++)
+                        {
+                            if(Email.equals(Accounts.get(x).getEmail()))
+                            {
+                                Checkemail = true;
+                            }
+                            else
+                            {
+                               Checkemail = false;
+                            }
+                            
+                        }
+                        
+                        
+                        if(Structure && noConditions && noUsername && Checkemail == false)
                         {
                         byte[] salt = getSalt();
                             
@@ -152,7 +175,7 @@ public class RegisterCommand implements Command{
 			String generatedPassword = sb.toString();
 
                             
-                       UsersDao userDao = new UsersDao("swgw");
+                       
                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
                        Date createdate = new Date();
                        Date expiredate = new Date();
@@ -240,7 +263,14 @@ public class RegisterCommand implements Command{
                             
                             forwardToJsp = "AccountFail.jsp";
                        }
+                       
                      }
+                     else
+                       {
+                         String error = "Your Email Already exists ";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";  
+                       }
                     }
                     catch (InputMismatchException e)
                     {

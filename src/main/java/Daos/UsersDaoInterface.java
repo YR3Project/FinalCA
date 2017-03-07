@@ -72,7 +72,8 @@ public interface UsersDaoInterface {
      //allow user to give themselves a custom picture to use on there account.
      
     /**
-    @param pass
+     * @param newpass
+    @param oldpass
     @return true or false based on if the password has been changed
     */
     public boolean ChangePassword(String newpass, String oldpass );
@@ -85,7 +86,7 @@ public interface UsersDaoInterface {
     public boolean ChangeSalt(byte[] newsalt, byte[] oldsalt);
 
     /**
-    @param username 
+    @param Username 
     @param cdate 
     @param ddate
     @return true or false based on whether it changed the dates for creation and expire/due in the database
@@ -95,7 +96,10 @@ public interface UsersDaoInterface {
     
      /**
     @param pass
-    @returns salt when changing password
+    @return salt when changing password
     */
     public byte[] GetCAlSaltch(String pass);
+    
+    
+    public ArrayList<Users>GetAllUsers();
 }

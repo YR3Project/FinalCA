@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class UsersDao extends Dao implements UsersDaoInterface {
 
@@ -541,6 +540,47 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         }
         
         return salt;
+    }
+
+    @Override
+    public ArrayList<Users> GetAllUsers() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Users> users = new ArrayList();
+        Users u = null;
+        
+        try{
+            con = getConnection();
+
+            String query = "Select * from users";
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+                 u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
+                users.add(u);
+            }
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the getAllUsers() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the getAllUsers() method: " + e.getMessage());
+            }
+        }
+        
+        return users;
     }
     
     }
