@@ -7,6 +7,7 @@ package Commands;
 
 import Daos.*;
 import Dtos.*;
+
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,16 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /*
 Author Ben
@@ -155,14 +164,76 @@ public class RegisterCommand implements Command{
                        boolean Action = userDao.RegisterUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
                        
                        if(Action == true){
-                          Users user = userDao.getUserbyName(UserName);
+                           
+                           Users user = userDao.getUserbyName(UserName);
                           session.setAttribute("RegSuccess", user); 
                           
                           forwardToJsp = "registrationSuccessful.jsp"; 
+                           
+                           /*
+                        // Recipient's email ID needs to be mentioned.
+                        String to = "ben.rose76@gmail.com";//change accordingly
+
+                        // Sender's email ID needs to be mentioned
+                        String from = "statwisegamewise@yahoo.com";//change accordingly
+                        final String eusername = "statwisegamewise@yahoo.com";//change accordingly
+                        final String epassword = "Finalcaproject";//change accordingly
+
+                        // Assuming you are sending email through relay.jangosmtp.net
+                        String host = "smtp.mail.yahoo.com";
+
+                        Properties props = new Properties();
+                        props.put("mail.smtp.auth", "true");
+                        props.put("mail.smtp.starttls.enable", "true");
+                        props.put("mail.smtp.host", host);
+                        props.put("mail.smtp.port", "465");
+
+                        // Get the Session object.
+                        Session emailsession = Session.getInstance(props,
+                        new javax.mail.Authenticator() {
+                        @Override
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(eusername, epassword);
+                        }
+                    });
+
+                try {
+                         // Create a default MimeMessage object.
+                        Message message = new MimeMessage(emailsession);
+
+                        // Set From: header field of the header.
+                        message.setFrom(new InternetAddress(from));
+
+                        // Set To: header field of the header.
+                        message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(to));
+
+                        // Set Subject: header field
+                        message.setSubject("Testing Subject");
+
+                        // Now set the actual message
+                        message.setText("Hello, this is sample for to check send "
+                        + "email using JavaMailAPI ");
+
+                        // Send message
+                        Transport.send(message);
+
+
+
+                    } catch (MessagingException mex) {
+                                mex.printStackTrace();
+                    }
+                          
+                            String msg = "Check your Email For confirmation of account";
+                            session.setAttribute("ChangeSuccess", msg); 
+                          
+                            forwardToJsp = "LoginForm.jsp";
+                            */
+
                        }
                        else if(Action == false)
                        {
-                            String msg = "Registration" + Email + generatedPassword + salt + df.format(createdate) + df.format(expiredate);
+                            String msg = " Registration ";
                             session.setAttribute("Type", msg);
                             session.setAttribute("AccountFail", UserName); 
                            
