@@ -8,7 +8,8 @@
     <div id="wrapper">
         <h1>Stat-Tacking Website</h1>
         <%@ include file="Includes/nav.jsp" %>
-        <%                    Object Value4 = session.getAttribute("CurrentUser");
+        <%                    
+            Object Value4 = session.getAttribute("CurrentUser");
             if (Value4 != null) {
                 Users successUser2 = (Users) Value4;
                 int a2 = successUser2.getAdmin();
@@ -17,7 +18,7 @@
         <h3>Write an Article</h3>
         <form action="FrontController" method="post">
             <span id='title'> Title: </span> <span id='textbox'>  <input name="title" size=30 type="text" /> </span>
-            <span id='content'> Text: </span> <span id='textbox'>  <input name="content" size=20 type="password" /> </span>
+            <span id='content'> Text: </span> <span id='textbox'>  <input name="content" size=50 type="text" /> </span>
             <select name="game">
                 <option value="def">General</option>
                 <option value="wow">World of Warcraft</option>

@@ -27,29 +27,26 @@ public class PostArticleCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
-
-        String content = request.getParameter("comment");
-        String id = request.getParameter("userID");
+        HttpSession session = request.getSession();
         String title = request.getParameter("title");
+        String content = request.getParameter("content");
         String game = request.getParameter("game");
-        DateFormat df = new SimpleDateFormat("dd/MM/yy");
-        Date date = new Date();
         try {
-            int trueID = Integer.parseInt(id);
-            HttpSession session = request.getSession();
-            ArticleDao aDao = new ArticleDao("finalprojecttest");
+            DateFormat df = new SimpleDateFormat("dd/MM/yy");
+            Date date = new Date();
+            Object Value2 = session.getAttribute("CurrentUser");
+            Users successUser = (Users) Value2;
+            int id = successUser.getUserID();
 
-            boolean action = aDao.PostArticle(trueID, title, content, game, df.format(date));
+            ArticleDao aDao = new ArticleDao("swgw");
+
+            boolean action = aDao.PostArticle(id, title, content, game, df.format(date));
             if (action == true) {
-
-                session.setAttribute("articleSuccess", "article");
                 forwardToJsp = "index.jsp";
             }
         } catch (InputMismatchException e) {
 
             forwardToJsp = "error.jsp";
-
-            HttpSession session = request.getSession();
 
             session.setAttribute("errorMessage", "Text was supplied for parameters is not the right type.");
         }
