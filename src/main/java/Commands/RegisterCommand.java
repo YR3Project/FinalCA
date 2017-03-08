@@ -196,7 +196,7 @@ public class RegisterCommand implements Command{
                            
                            /*
                             try {
-                                int SendingEmail  = generateAndSendEmail(Email,Password);
+                                Mail.generateAndSendEmail(Email,Password);
                             
                            
                             String msg = "Check your Email For confirmation of account";
