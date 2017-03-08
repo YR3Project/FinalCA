@@ -7,6 +7,8 @@ package Commands;
 
 import Daos.*;
 import Dtos.*;
+import Mail.*;
+import static Mail.Mail.generateAndSendEmail;
 
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
@@ -187,13 +189,25 @@ public class RegisterCommand implements Command{
                        boolean Action = userDao.RegisterUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
                        
                        if(Action == true){
-                         
+                           Users user = userDao.getUserbyName(UserName);
+                          session.setAttribute("RegSuccess", user); 
+                          
+                          forwardToJsp = "registrationSuccessful.jsp"; 
+                           
+                           /*
+                            try {
+                                int SendingEmail  = generateAndSendEmail(Email,Password);
                             
+                           
                             String msg = "Check your Email For confirmation of account";
                             session.setAttribute("ChangeSuccess", msg); 
                           
                             forwardToJsp = "LoginForm.jsp";
                             
+                            } catch (MessagingException ex) {
+                                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            */
 
                        }
                        else if(Action == false)

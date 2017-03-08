@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Mail;
 import java.util.Properties;
 import javax.mail.Message;
@@ -54,7 +50,7 @@ public class Mail {
  
 		// Enter your correct gmail UserID and Password
 		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", "ben.rose76@gmail.com", "");
+		transport.connect("smtp.gmail.com", "swgwwebsite@gmail.com", "passqwer12");
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
                 return 0;
