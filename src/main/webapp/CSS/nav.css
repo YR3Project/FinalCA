@@ -1,47 +1,3 @@
-wrapper
-{
-  max-width: 300px;
-  background-color: transparent;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-  } 
-body
-{
-    
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Varela Round', sans-serif;
-}
-
-article {
-  width: 70%;
-  border: 1px solid black;
-  background-color: #cccccc;
-  padding: 15px;
-  margin: 15%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  font-size: 22px
-}
-
-p {
-  font-size: 20px;
-  line-height: 30px;
-  text-align: left;
-  font-family: 'Varela Round', sans-serif;
-}
-
-
-footer {
-  width: 100%;
-  border: 1px;
-  background-color: #cccccc;
-  font-size: 20px;
-  padding: 30px
-}
-
 #navcontainer ul
 {
 list-style-type: none;
@@ -120,6 +76,20 @@ a.button {
     text-decoration: none;
     color: initial;
 }
+
+wrapper
+{
+  max-width: 300px;
+  background-color: transparent;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  } 
+
+
+
 
 #Articles
 {
