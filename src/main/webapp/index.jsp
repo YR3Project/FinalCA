@@ -8,8 +8,9 @@
     </head>
     <div id="wrapper">
         
-        <h1>Stat-Tacking Website</h1>
+
         <%@ include file="Includes/nav.jsp" %>
+        <h1>Stat-Tacking Website</h1>
         
         <%    Object Value4 = session.getAttribute("CurrentUser");
             if (Value4 != null) {
@@ -40,12 +41,13 @@
             ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
             for (int i = 0; i < allArticles.size(); i++) {
         %>
+        <div class="Articles">
         <h3><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
         <p><%=(allArticles.get(i)).getArticleText()%></p>
         <%
             }
         %>
-        
+        </div>
     </div>
 </body>
 <%@ include file="Includes/footer.jsp" %>

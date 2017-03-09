@@ -41,6 +41,9 @@
                 </p>
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="login" />
+                <p>
+                <a href='registration.jsp' class="button">Don't Have a Account? Sign-Up</a>
+                </p>
             </form>
 
             <%@ include file="Includes/footer.jsp" %>

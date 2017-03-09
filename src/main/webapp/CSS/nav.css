@@ -1,7 +1,16 @@
-
+wrapper
+{
+  max-width: 300px;
+  background-color: transparent;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  } 
 body
 {
-    background-color:#e6e6fa;
+    
     -webkit-font-smoothing: antialiased;
     font-family: 'Varela Round', sans-serif;
 }
@@ -111,3 +120,16 @@ a.button {
     text-decoration: none;
     color: initial;
 }
+
+#Articles
+{
+width: 100%;
+            background: #fff;
+            font-size: .8em;
+            height: 100%;
+            left: 0;
+            padding: 1.5em;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
