@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PostArticleCommand implements Command {
+public class EditArticleCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {

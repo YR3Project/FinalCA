@@ -48,4 +48,7 @@ public interface UsersDaoInterface {
     */
     
     public String GetAuthorByID(int ID);
+    
+    
+    public String getCAuthor(int cAuthor);
 }

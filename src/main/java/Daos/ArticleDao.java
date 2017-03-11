@@ -36,13 +36,12 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Insert into article (authorid, title, articletext, game, dateadded) values(?,?,?,?,?)";
+            String query = "Insert into article (authorid, title, articletext, game, dateadded) values(?,?,?,?,NOW())";
             ps = con.prepareStatement(query);
             ps.setInt(1, authorID);
             ps.setString(2, title);
             ps.setString(3, articleText);
             ps.setString(4, game);   
-            ps.setString(5, date);
             
             rowsAffected = ps.executeUpdate(); 
             
@@ -161,7 +160,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article";
+            String query = "Select * from article ORDER BY DateAdded desc";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
