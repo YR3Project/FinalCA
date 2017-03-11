@@ -20,15 +20,18 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
 
    
    /**
-     * @param authorID
-     * @param title
-     * @param articleText
-     * @param game
-     * @param date
-     * @return A boolean to show whether or not the article was posted
+     * @param uname
+     * @param pass
+     * @param fname
+     * @param lname
+     * @param addre
+     * @param email
+     * @param Created
+     * @param Due
+     * @return true or false
      */
     @Override
-    public boolean PostArticle(int authorID, String title, String articleText, String game) {
+    public boolean PostArticle(int authorID, String title, String articleText, String game, String date) {
         Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -36,12 +39,13 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Insert into article (authorid, title, articletext, game, dateadded) values(?,?,?,?,NOW())";
+            String query = "Insert into article (authorid, title, articletext, game, dateadded) values(?,?,?,?,?)";
             ps = con.prepareStatement(query);
             ps.setInt(1, authorID);
             ps.setString(2, title);
             ps.setString(3, articleText);
             ps.setString(4, game);   
+            ps.setString(5, date);
             
             rowsAffected = ps.executeUpdate(); 
             
@@ -160,7 +164,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article ORDER BY DateAdded desc";
+            String query = "Select * from article";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
@@ -198,7 +202,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try {
             con = getConnection();
 
-            String query = "UPDATE article SET Title = ?, Game =?, Articletext = ? Where ArticleID = ? ";
+            String query = "UPDATE article SET title = ?, game =?, text = ?  Where ArticleID = ? ";
             ps = con.prepareStatement(query);
             ps.setString(1, title);
             ps.setString(2, game);
@@ -305,3 +309,5 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         return rowsAffected > 0;
     }
     }
+
+

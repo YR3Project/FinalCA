@@ -583,46 +583,6 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         return users;
     }
     
-    @Override
-    //Reason it returns all of the columns is for a report system
-    public String getCAuthor(int cAuthor) {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String author = null;
-        try{
-            con = getConnection();
-
-            String query = "Select username from users where userID = ?";
-            ps = con.prepareStatement(query);
-            ps.setInt(1, cAuthor);
-            rs = ps.executeQuery(); 
-            
-            while(rs.next())
-            {
-                author = rs.getString("username");
-            }
-        }catch (SQLException e) {
-            System.out.println("Exception occured in the getAuthor() method: " + e.getMessage());
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    freeConnection(con);
-                }
-            } catch (SQLException e) {
-                System.out.println("Exception occured in the finally section of the getAuthor() method: " + e.getMessage());
-            }
-        }
-        
-        return author;
-    }
-    
     }
 
 

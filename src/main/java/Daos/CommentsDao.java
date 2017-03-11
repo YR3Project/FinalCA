@@ -26,6 +26,7 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
 
     /**
     * Returns the authors of comments
+    * @param commentID
     * @param articleID
     * @param cAuthor
     * @param commentText
@@ -33,7 +34,7 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     * @return Sets the comment set by a user
     */
     @Override
-    public boolean setComment(int articleID, int cAuthor, String commentText) {
+    public boolean setComment(int commentID, int articleID, int cAuthor, String commentText, String date) {
             Connection con = null;
             PreparedStatement ps = null;
             Comments c = null;
@@ -42,15 +43,19 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
             try{
                 con = getConnection();
 
-                String query = "Insert INTO comments (ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,NOW())";
+                String query = "Insert INTO comments (CommentID, ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,?,?,?)";
                 ps = con.prepareStatement(query);
-                ps.setInt(1,articleID);
-                ps.setInt(2, cAuthor);
-                ps.setString(3, commentText);
+                ps.setInt(1,commentID);
+                ps.setInt(2,articleID);
+                ps.setInt(3, cAuthor);
+                ps.setString(4, commentText);
+                ps.setString(5, date);
                 
                 //Updates the rowsAffected variable to 1 if the insert works
                 rowsAffected = ps.executeUpdate();
                 
+               
+
             }catch (SQLException e) {
                 System.out.println("Exception occured in the setComment() method: " + e.getMessage());
 
@@ -87,22 +92,22 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     */
     @Override
     //Reason it returns all of the columns is for a report system
-    public String getAuthor(int cAuthor) {
+    public Comments getAuthor(int cAuthor) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String author = null;
+        Comments c = null;
         try{
             con = getConnection();
 
-            String query = "Select username from users where userID = ?";
+            String query = "Select * from Comments Where cAuthor = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, cAuthor);
             rs = ps.executeQuery(); 
             
             while(rs.next())
             {
-                author = rs.getString("username");
+                c = new Comments(rs.getInt("commentID"), rs.getInt("ArticleID"), rs.getInt("cAuthor"), rs.getString("commentText"), rs.getString("DateAdded"));
             }
         }catch (SQLException e) {
             System.out.println("Exception occured in the getAuthor() method: " + e.getMessage());
@@ -122,52 +127,8 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
             }
         }
         
-        return author;
+        return c;
     }
-    
-    /**
-     * @param articleID
-     * @return comments by articleID
-     */
-    @Override
-    public ArrayList<Comments> getCommentsByArticle(int articleID) {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Comments c = null;
-        ArrayList<Comments> comments = new ArrayList();
-        try {
-            con = getConnection();
-
-            String query = "SELECT * FROM comments where articleID = ?";
-            ps = con.prepareStatement(query);
-            ps.setInt(1, articleID);
-            rs = ps.executeQuery();
-            while(rs.next())
-            {
-                c = new Comments(rs.getInt("CommentID"), rs.getInt("ArticleID"), rs.getInt("cAuthor"), rs.getString("CommentText"), rs.getString("DateAdded"));
-                comments.add(c);
-            }
-            
-        } catch (SQLException e) {
-            System.out.println("Exception occured in the getCommentsByArticle() method: " + e.getMessage());
-        } finally {
-            try {
-
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    freeConnection(con);
-                }
-            } catch (SQLException e) {
-                System.out.println("Exception occurred in the final section of the getCommentsByArticle() method: " + e.getMessage());
-            }
-        }
-        
-        return comments;
-    }
-    
     /**
      * Users who made their comment should be able to edit them as should admins and mods
      * @param commentID
@@ -292,7 +253,43 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
         }
         
         return author;
+        
     }
 
+    @Override
+    public Comments getAllCommentsByArticleID(int articleID) {
+            Connection con = null;
+            PreparedStatement ps = null;
+            Comments c = null;
+            ResultSet rs = null;
+                try{
+                    con = getConnection();
+
+                    String query = "SELECT CommentText,CAuthor FROM Comments WHERE articleID = ?";
+                    ps = con.prepareStatement(query);
+                    ps.setInt(1, articleID);
+
+                }catch (SQLException e) {
+                    System.out.println("Exception occured in the getAllCommentsByArticleID() method: " + e.getMessage());
+
+                } finally {
+                    try {
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (con != null) {
+                            freeConnection(con);
+                        }
+                    } catch (SQLException e) {
+                        System.out.println("Exception occured in the finally section of the getAllCommentsByArticleID() method");
+                        e.getMessage();
+
+                    }
+                }
+            return c;    
+        
+    }
+
+    
     
 }

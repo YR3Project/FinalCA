@@ -175,6 +175,9 @@ public class RegisterCommand implements Command{
                             sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
 			}
 			String generatedPassword = sb.toString();
+
+                            
+                       
                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
                        Date createdate = new Date();
                        Date expiredate = new Date();

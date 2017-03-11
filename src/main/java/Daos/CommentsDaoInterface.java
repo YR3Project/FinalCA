@@ -15,19 +15,20 @@ import java.util.ArrayList;
 public interface CommentsDaoInterface {
     
     /**
+     * @param commentID
      * @param articleID
      * @param cAuthor
      * @param commentText
      * @param date
      * @return An comment object
      */
-    public boolean setComment(int articleID, int cAuthor, String commentText);
+    public boolean setComment(int commentID, int articleID, int cAuthor, String commentText, String date);
     /**
      * 
      * @param cAuthor
      * @return All comments made by the author
      */
-    public String getAuthor(int cAuthor);
+    public Comments getAuthor(int cAuthor);
     
     /**
      * 
@@ -55,10 +56,10 @@ public interface CommentsDaoInterface {
     public boolean deleteComment(int commentID, int articleID);
     
     /**
-<<<<<<< HEAD
+     * 
      * @param articleID
-     * @return comments by articleID
+     * @return All the comments that are in the article
      */
-    public ArrayList<Comments> getCommentsByArticle(int articleID);
-
+    public Comments getAllCommentsByArticleID(int articleID);
+    
 }

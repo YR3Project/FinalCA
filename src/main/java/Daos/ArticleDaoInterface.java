@@ -20,9 +20,7 @@ public interface ArticleDaoInterface {
      * @param date
      * @return A boolean to show whether or not the article was posted
      */
-
-    public boolean PostArticle(int authorID, String title, String articleText, String game);
-
+    public boolean PostArticle(int authorID, String title, String articleText, String game, String date);
     
     /**
      * @return all articles related to WoW

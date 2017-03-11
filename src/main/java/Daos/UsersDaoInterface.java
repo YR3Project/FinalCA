@@ -59,9 +59,6 @@ public interface UsersDaoInterface {
     
     public String GetAuthorByID(int ID);
     
-    
-    public String getCAuthor(int cAuthor);
-
      public boolean EditProfile(String username, String email, int id);
     //allows the user to edit their profile}
      
@@ -105,5 +102,4 @@ public interface UsersDaoInterface {
     
     
     public ArrayList<Users>GetAllUsers();
-
 }

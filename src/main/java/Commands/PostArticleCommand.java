@@ -28,18 +28,22 @@ public class PostArticleCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
-        String game = request.getParameter("game");
-        try {
-            Object Value2 = session.getAttribute("CurrentUser");
-            Users successUser = (Users) Value2;
-            int id = successUser.getUserID();
 
+        try {
+            String content = request.getParameter("content");
+            String title = request.getParameter("title");
+            String game = request.getParameter("game");
+            DateFormat df = new SimpleDateFormat("dd/MM/yy");
+            Date date = new Date();
+            Object Value = session.getAttribute("CurrentUser");
+            Users successUser = (Users) Value;
+            int id = successUser.getUserID();
             ArticleDao aDao = new ArticleDao("swgw");
 
-            boolean action = aDao.PostArticle(id, title, content, game);
+            boolean action = aDao.PostArticle(id, title, content, game, df.format(date));
             if (action == true) {
+
+                session.setAttribute("articleSuccess", "article");
                 forwardToJsp = "index.jsp";
             }
         } catch (InputMismatchException e) {

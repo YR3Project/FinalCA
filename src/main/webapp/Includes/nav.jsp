@@ -37,7 +37,6 @@
                        <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
                         </ul>
                  </li>   
-                <li><a href="CommentTest.jsp">test</a></li>
                 <li><a href="logout.jsp">Log Out</a></li>
                 <%  
                     int a = successUser.getAdmin();
