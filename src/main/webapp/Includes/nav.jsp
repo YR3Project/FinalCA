@@ -46,7 +46,7 @@
                  </li>
       </ul>
                  <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.jsp"><span class="glyphicon glyphicon-user">Log Out</a></li>
+                <li><a href="logout.jsp"><span class="glyphicon glyphicon-user"> Log-Out</a></li>
                  </ul>
                
         </ul>
@@ -59,8 +59,8 @@
  <li><a href="index.jsp">Home</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-<li><a href="LoginForm.jsp"><span class="glyphicon glyphicon-user"></span>Login</a></li>
-<li><a href="registration.jsp"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+<li><a href="LoginForm.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<li><a href="registration.jsp"><span class="glyphicon glyphicon-user"></span> Register</a></li>
 </ul>
 </nav>
 <%
