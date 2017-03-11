@@ -22,9 +22,11 @@
         <h1>Stat-Tacking Website</h1>
         </header>
         
-        <%    Object Value4 = session.getAttribute("CurrentUser");
+        <%  
+            Users successUser2 = new Users();
+            Object Value4 = session.getAttribute("CurrentUser");
             if (Value4 != null) {
-                Users successUser2 = (Users) Value4;
+                successUser2 = (Users) Value4;
                 int a2 = successUser2.getAdmin();
                 if (a2 != 0) {
                     int id = successUser2.getUserID();
@@ -63,6 +65,7 @@
         <%
             ArticleDao aDao = new ArticleDao("swgw");
             UsersDao author = new UsersDao("swgw");
+            CommentsDao cDao = new CommentsDao("swgw");
             ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
             for (int i = 0; i < allArticles.size(); i++) {
         %>
@@ -74,8 +77,91 @@
         </div>
         </section>
         <%
+                if (allArticles.get(i).getAuthorID() == successUser2.getUserID()) {
+            %>
+            <section>
+            <form name="del" action="FrontController" method="post">
+                <p>
+                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
+                </p>
+                <p>
+                <input type="submit" value="Delete Article" />
+                </p>
+                <p>
+                <input type="hidden" name="action" value="delArtc" />
+                </p>
+            </form>
+
+            <form name="editform" id="editform" action="FrontController" method="post">
+                <p>
+                <span id='title'> Title: </span> <span id='textbox'>  <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" /> </span>
+                </p>
+                <p>
+                <textarea rows="4" cols="50" name="content" form="editform"></textarea>
+                </p>
+                <p>
+                <select name="game">
+                    <option value="def">General</option>
+                    <option value="wow">World of Warcraft</option>
+                    <option value="lol">League of Legends</option>
+                </select>
+                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
+                <input type="submit" value="Edit" />
+                <input type="hidden" name="action" value="editArtc" />
+                </p>
+            </form>
+            </section>
+        <%
             }
         %>
+         <%
+                int artID = (allArticles.get(i)).getArticleID();
+                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                for (int j = 0; j < allComments.size(); j++) {
+            %>
+            <section>
+            <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> on <%=(allComments.get(j)).getDate()%>
+            <p><%=(allComments.get(j)).getCommentText()%></p>
+            </section>
+            <%
+            if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
+            %>
+            <section>
+            <form name="delc" action="FrontController" method="post">
+                <p>
+                <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
+                </p>
+                <p>
+                <input type="submit" value="Delete Comment" />
+                </p>
+                <p>
+                <input type="hidden" name="action" value="delComm" />
+                </p>
+            </form>
+            <%
+                }
+                }
+                if (Value4 != null) {
+            %>
+            <section>
+            <h3>Leave a Comment</h3>
+            <form action="FrontController" method="post">
+                <p>
+                <span id='content'> Text: </span> <span id='textbox'>  <input name="comment" size=50 type="text" /> </span>
+                </p>
+                <p>
+                <span id='post'>  <input type="submit" value="Post" /> </span>
+                </p>
+                <p>
+                <input type="hidden" name="action" value="writeComm" />
+                </p>
+                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
+            </form>
+            </section>
+            <%
+                    }
+                }
+            %>
         <section>
         <h3>Most popular Streamer Currently</h3>
         <script src= "http://player.twitch.tv/js/embed/v1.js"></script>

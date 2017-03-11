@@ -24,44 +24,32 @@ import java.util.logging.Logger;
 
 /*
 Author Ben
-*/
-
-public class SetCommentCommand implements Command{   
+ */
+public class WriteCommentCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
-        
+        HttpSession session = request.getSession();
         String comment = request.getParameter("comment");
-        String id = request.getParameter("userID");
-        String article = request.getParameter("article");
-        String date = request.getParameter("date");
-        String commentID = request.getParameter("commentID");
-        try
-        {
-            int trueID = Integer.parseInt(id);
-            int trueArticle = Integer.parseInt(article);
-            int commentI = Integer.parseInt(commentID);
-            HttpSession session = request.getSession();
+        int artID = Integer.parseInt(request.getParameter("artID"));
+        try {
+            Object Value2 = session.getAttribute("CurrentUser");
+            Users successUser = (Users) Value2;
+            int id = successUser.getUserID();
             CommentsDao comDao = new CommentsDao("swgw");
-            
-            boolean action = comDao.setComment(trueID, trueID, commentID);
-            if(action == true)
-            {
-                
+            boolean action = comDao.setComment(artID, id, comment);
+            if (action == true) {
+
                 session.setAttribute("commentSuccess", "comment");
                 forwardToJsp = "index.jsp";
             }
+        } catch (InputMismatchException e) {
+
+            forwardToJsp = "error.jsp";
+
+            session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
         }
-        catch (InputMismatchException e)
-                    {
-                        
-                        forwardToJsp = "error.jsp";
-                        
-                        HttpSession session = request.getSession();
-                        
-                        session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
-                    }
         return forwardToJsp;
     }
 }

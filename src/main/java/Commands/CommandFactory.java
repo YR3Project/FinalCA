@@ -21,7 +21,12 @@ public class CommandFactory {
                return new ChangeCommand();
            case "postArtc":
                return new PostArticleCommand();
-           
+           case "editArtc":
+               return new EditArticleCommand();
+           case "delArtc":
+               return new DeleteArticleCommand();
+            case "delComm":
+               return new DeleteCommentCommand();
            default:
                break;
        }

@@ -22,28 +22,21 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PostArticleCommand implements Command {
+public class EditArticleCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
-
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String game = request.getParameter("game");
+        int id = Integer.parseInt(request.getParameter("artID"));
         try {
-            String content = request.getParameter("content");
-            String title = request.getParameter("title");
-            String game = request.getParameter("game");
-            DateFormat df = new SimpleDateFormat("dd/MM/yy");
-            Date date = new Date();
-            Object Value = session.getAttribute("CurrentUser");
-            Users successUser = (Users) Value;
-            int id = successUser.getUserID();
             ArticleDao aDao = new ArticleDao("swgw");
 
-            boolean action = aDao.PostArticle(id, title, title, game);
+            boolean action = aDao.EditArticle(id, title, game, content);
             if (action == true) {
-
-                session.setAttribute("articleSuccess", "article");
                 forwardToJsp = "index.jsp";
             }
         } catch (InputMismatchException e) {
