@@ -22,31 +22,33 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PostArticleCommand implements Command {
+/*
+Author Ben
+ */
+public class WriteCommentCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
-        String game = request.getParameter("game");
+        String comment = request.getParameter("comment");
+        int artID = Integer.parseInt(request.getParameter("artID"));
         try {
             Object Value2 = session.getAttribute("CurrentUser");
             Users successUser = (Users) Value2;
             int id = successUser.getUserID();
-
-            ArticleDao aDao = new ArticleDao("swgw");
-
-            boolean action = aDao.PostArticle(id, title, content, game);
+            CommentsDao comDao = new CommentsDao("swgw");
+            boolean action = comDao.setComment(artID, id, comment);
             if (action == true) {
+
+                session.setAttribute("commentSuccess", "comment");
                 forwardToJsp = "index.jsp";
             }
         } catch (InputMismatchException e) {
 
             forwardToJsp = "error.jsp";
 
-            session.setAttribute("errorMessage", "Text was supplied for parameters is not the right type.");
+            session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
         }
         return forwardToJsp;
     }

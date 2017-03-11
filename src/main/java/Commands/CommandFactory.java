@@ -18,14 +18,22 @@ public class CommandFactory {
             return new RegisterCommand();
         }
         
-        else if(action.equals("comment"))
+        else if(action.equals("writeComm"))
         {
-            return new SetCommentCommand();
+            return new WriteCommentCommand();
         }
         
         else if(action.equals("postArtc"))
         {
             return new PostArticleCommand();
+        }
+        else if(action.equals("editArtc"))
+        {
+            return new EditArticleCommand();
+        }
+        else if(action.equals("delArtc"))
+        {
+            return new DeleteArticleCommand();
         }
         return null;
     }

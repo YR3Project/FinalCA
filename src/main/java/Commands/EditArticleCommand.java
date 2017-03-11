@@ -31,16 +31,11 @@ public class EditArticleCommand implements Command {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
         String game = request.getParameter("game");
+        int id = Integer.parseInt(request.getParameter("artID"));
         try {
-            DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-            Date date = new Date();
-            Object Value2 = session.getAttribute("CurrentUser");
-            Users successUser = (Users) Value2;
-            int id = successUser.getUserID();
-
             ArticleDao aDao = new ArticleDao("swgw");
 
-            boolean action = aDao.PostArticle(id, title, content, game, df.format(date));
+            boolean action = aDao.EditArticle(id, title, game, content);
             if (action == true) {
                 forwardToJsp = "index.jsp";
             }

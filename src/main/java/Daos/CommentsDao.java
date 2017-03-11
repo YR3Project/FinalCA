@@ -33,7 +33,7 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     * @return Sets the comment set by a user
     */
     @Override
-    public boolean setComment(int articleID, int cAuthor, String commentText, String date) {
+    public boolean setComment(int articleID, int cAuthor, String commentText) {
             Connection con = null;
             PreparedStatement ps = null;
             Comments c = null;
@@ -42,12 +42,11 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
             try{
                 con = getConnection();
 
-                String query = "Insert INTO comments (ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,?,?)";
+                String query = "Insert INTO comments (ArticleID, cAuthor, CommentText, DateAdded) values(?,?,?,NOW())";
                 ps = con.prepareStatement(query);
                 ps.setInt(1,articleID);
                 ps.setInt(2, cAuthor);
                 ps.setString(3, commentText);
-                ps.setString(4, date);
                 
                 //Updates the rowsAffected variable to 1 if the insert works
                 rowsAffected = ps.executeUpdate();

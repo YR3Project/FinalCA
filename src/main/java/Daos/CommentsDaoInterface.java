@@ -21,7 +21,7 @@ public interface CommentsDaoInterface {
      * @param date
      * @return An comment object
      */
-    public boolean setComment(int articleID, int cAuthor, String commentText, String date);
+    public boolean setComment(int articleID, int cAuthor, String commentText);
     /**
      * 
      * @param cAuthor

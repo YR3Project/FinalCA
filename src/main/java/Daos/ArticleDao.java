@@ -28,7 +28,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
      * @return A boolean to show whether or not the article was posted
      */
     @Override
-    public boolean PostArticle(int authorID, String title, String articleText, String game, String date) {
+    public boolean PostArticle(int authorID, String title, String articleText, String game) {
         Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -198,7 +198,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try {
             con = getConnection();
 
-            String query = "UPDATE article SET title = ?, game =?, text = ?  Where ArticleID = ? ";
+            String query = "UPDATE article SET Title = ?, Game =?, Articletext = ? Where ArticleID = ? ";
             ps = con.prepareStatement(query);
             ps.setString(1, title);
             ps.setString(2, game);
