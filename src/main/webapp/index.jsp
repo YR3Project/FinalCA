@@ -8,9 +8,10 @@
     </head>
     <div id="wrapper">
         
-
+        <header>
         <%@ include file="Includes/nav.jsp" %>
         <h1>Stat-Tacking Website</h1>
+        </header>
         
         <%    Object Value4 = session.getAttribute("CurrentUser");
             if (Value4 != null) {
@@ -19,6 +20,7 @@
                 if (a2 != 0) {
                     int id = successUser2.getUserID();
         %>
+        <article>
         <h3>Write an Article</h3>
         <form action="FrontController" method="post">
             <span id='title'> Title: </span> <span id='textbox'>  <input name="title" size=30 type="text" /> </span>
@@ -47,8 +49,9 @@
         <%
             }
         %>
+        </article>
         </div>
-    </div>
+    
 </body>
 <%@ include file="Includes/footer.jsp" %>
 </html>

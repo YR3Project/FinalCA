@@ -7,10 +7,12 @@
 <html>
     <head>
         <link href="${pageContext.request.contextPath}/css/nav.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/Common.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
+        <link
     </head>
     <nav>
-        <header id="navcontainer">
+        <div  id="navcontainer">
         <ul id="navlist">
 
            
@@ -40,7 +42,7 @@
                     }
                 %>
         </ul>
-        </header>
+        </div>
     </nav>
            
         <%

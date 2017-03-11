@@ -77,29 +77,3 @@ a.button {
     color: initial;
 }
 
-wrapper
-{
-  max-width: 300px;
-  background-color: transparent;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-  } 
-
-
-
-
-#Articles
-{
-width: 100%;
-            background: #fff;
-            font-size: .8em;
-            height: 100%;
-            left: 0;
-            padding: 1.5em;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }

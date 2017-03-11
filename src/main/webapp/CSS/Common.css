@@ -1,0 +1,33 @@
+#wrapper {
+	width: 100%;
+        max-width: 60.000em;
+        max-height: 21.875em;
+	margin: 0 auto; 
+	background-color: #00000;
+}
+
+.header{
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 2;
+}
+header h1 {
+	margin: 0;
+	font-size: 4.4285em;
+}
+
+article {
+	padding: 0;
+	width: 80%;
+	float: left;
+	background-color: #C8C8C8;
+}
+
+article h2 {
+	font-size: 1.71428em;
+	margin-bottom: 0;
+	color: #d60201;
+}
+
