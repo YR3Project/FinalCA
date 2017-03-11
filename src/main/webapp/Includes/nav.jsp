@@ -5,12 +5,18 @@
 <%@page language="java"%>
 <!DOCTYPE html>
 <html>
-    <head>
+
         <link href="${pageContext.request.contextPath}/css/nav.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/Common.css" rel="stylesheet" type="text/css"/>
+       <link href="CSS/Common.css" rel="stylesheet" type="text/css"/>
+        
+            <!--Wow factor: I used jquery and imported a little cssfrom bootstrap for the drop down navigation bar ( useful for the two icon it gives
+            for login and sign-up--> 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
-        <link
-    </head>
+
+
     <nav>
         <div  id="navcontainer">
         <ul id="navlist">

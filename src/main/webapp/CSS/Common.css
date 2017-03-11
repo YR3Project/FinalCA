@@ -1,9 +1,167 @@
+@charset "utf-8";
+/*This brings in some fonts for use there is also webkit,moz, ms, o so the slidshow will work in all browsers*/
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:300);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+*, *:before, *:after {
+  margin:0;
+  padding:0;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+/*This is the main box for the sideshow */
+#gal {
+  position:relative;
+  width: 90%;
+  height:300px;
+  margin:0 auto;
+  background:white;
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:   translate3d(0, 0, 0);
+  -ms-transform:    translate3d(0, 0, 0);
+  -o-transform:     translate3d(0, 0, 0);
+  transform:        translate3d(0, 0, 0);
+}
+//setting up the locations for the slides and there buttons
+#gal ul {list-style-type:none;}
+input[type="radio"] {
+  position:absolute;
+  left:0;
+  display:block;
+  width:40px;
+  height:75px;
+  border:0;
+  outline:none;
+  cursor:pointer;
+  opacity:0;
+  z-index:9;
+}
+input[value="one"] {top:0;}
+input[value="two"] {top:75px;}
+input[value="three"] {top:150px;}
+input[value="four"] {top:225px;}
+input[type="radio"] + label {
+  position:absolute;
+  left:0;
+  width:40px;
+  height:75px;
+  background:#333;
+  z-index:7;
+  -webkit-transition:left .1s, width .1s;
+  -moz-transition:left .1s, width .1s;
+  -ms-transition:left .1s, width .1s;
+  -o-transition:left .1s, width .1s;
+  transition:left .1s, width .1s;
+}
+input[value="one"] + label {top:0;}
+input[value="two"] + label {top:75px;}
+input[value="three"] + label {top:150px;}
+input[value="four"] + label {top:225px;}
+[class*="entypo-"]:before {
+  position:absolute;
+  font-family: 'entypo', sans-serif;
+}
+label[class*="entypo-"]:before {
+  top:25px;
+  left:15px;
+  font-size:1.5rem;
+  color:white;
+}
+a[class*="entypo-"]:before {
+  top:3px;
+  left:3px;
+  font-size:1.5rem;
+  color:#333;
+}
+a:hover[class*="entypo-"]:before {
+  color:tomato;
+}
+figure, figure img, figcaption {
+  position:absolute;
+  top:0;
+  right:0;
+}
+figure {
+  bottom:0;
+  left:0;
+  width:800px;
+  height:600px;
+  display:block;
+  overflow:hidden;
+}
+figure img {
+  bottom:0;
+  left:0;
+  display:block;
+  width:800px;
+  height:300px;
+  -webkit-transform:translateX(800px);
+  -moz-transform:translateX(800px);
+  -ms-transform:translateX(800px);
+  -o-transform:translateX(800px);
+  transform:translateX(800px);
+  -webkit-transition:all .15s;
+  -moz-transition:all .15s;
+  -o-transition:all .15s;
+  transition:all .15s;
+}
+figcaption {
+  display:block;
+  width:300px;
+  height:300px;
+  padding-top:100px;
+  background:transparent;
+  text-align:right;
+  z-index:1;
+  -webkit-transform:translateX(300px);
+  -moz-transform:translateX(300px);
+  -ms-transform:translateX(300px);
+  -o-transform:translateX(300px);
+  transform:translateX(300px);
+  -webkit-transition:all .25s;
+  -moz-transition:all .25s;
+  -o-transition:all .25s;
+  transition:all .25s;
+}
+h4 {
+  display:inline-block;
+  padding:0 15px;
+  background:tomato;
+  color:white;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight:300;
+  font-size:1.5rem;
+}
+figcaption nav ul {display:inline-block;padding:3px 15px;background:white;}
+figcaption nav ul li {display:inline-block;margin-left:5px;}
+figcaption nav ul li a {position:relative;display:block;width:30px;height:30px;text-decoration:none;color:white;}
+figcaption p {display:inline-block;padding:5px 15px;background:white;font-family: 'Titillium Web', sans-serif;font-weight:300;color:#333;}
+
+input[type="radio"]:checked + label {left:-17px;width:75px;background:tomato;}
+input[type="radio"]:checked + label:before {font-size:2.5rem;top:15px;left:28px;}
+input[type="radio"]:checked ~ figure img {
+  -webkit-transform:translatex(0px);
+  -moz-transform:translatex(0px);
+  -ms-transform:translatex(0px);
+  -o-transform:translatex(0px);
+  transform:translatex(0px);
+}
+input[type="radio"]:checked ~ figure figcaption {
+  -webkit-transform:translateX(0px);
+  -moz-transform:translateX(0px);
+  -ms-transform:translateX(0px);
+  -o-transform:translateX(0px);
+  transform:translateX(0px);
+  z-index:8;
+}
+
 #wrapper {
 	width: 100%;
-        max-width: 60.000em;
+        max-width: 90.000em;
         max-height: 21.875em;
 	margin: 0 auto; 
-	background-color: #00000;
+	background-color: #C8C8C8;
+        
 }
 
 .header{
@@ -25,9 +183,39 @@ article {
 	background-color: #C8C8C8;
 }
 
-article h2 {
+article h3 {
 	font-size: 1.71428em;
 	margin-bottom: 0;
 	color: #d60201;
 }
 
+body {
+	font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+        background-image: url(../Images/background.jpg);
+}
+
+footer {
+	padding: 0.625em 0;
+        padding-left: 60px;
+        padding-top: 40px;
+	background-color: #C8C8C8;
+	clear: both; 
+}
+
+picture img{                    
+    display:block;                    
+    width: 100%;
+
+}
+
+section{
+    padding-left: 200px;
+}
+
+section, footer, aside, article, figure {
+	display: block;
+}
