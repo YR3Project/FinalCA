@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="Dtos.*"%>
 <%@page import="Daos.*"%>
@@ -6,25 +5,39 @@
 <%@page language="java"%>
 <!DOCTYPE html>
 <html>
-    <head>
+
+        <link href="${pageContext.request.contextPath}/css/nav.css" rel="stylesheet" type="text/css"/>
+       <link href="CSS/Common.css" rel="stylesheet" type="text/css"/>
+        
+            <!--Wow factor: I used jquery and imported a little cssfrom bootstrap for the drop down navigation bar ( useful for the two icon it gives
+            for login and sign-up--> 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/main.css" rel="stylesheet" type="text/css"/>
-    </head>
+
+
     <nav>
-        <ul>
-            <li><a href="index.jsp"><span class="homenav">Home</span></a></li>
-            <li><a href="League.jsp"><span class="leaguenav">League Of Legends</span></a></li>
-            <li><a href="Wow.jsp"><span class="worldnav">World of Warcraft</span></a></li>
-            <li><a href="CommentTest.jsp">test</a></li>
+        <div  id="navcontainer">
+        <ul id="navlist">
+
            
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
-                    Object Value3 = session.getAttribute("commentSuccess");
+
                     if (Value2!= null) {
                         Users successUser = (Users) Value2;
 
                 %>
-                
+                <li id="active"><a href="index.jsp" id="current">Home</a></li>
+                <li><a href="viewProfile.jsp">View your own profile</a></li>
+                <li><a href ="">Twitch-Area</a>
+                 <ul>
+                       <li><a href ="Lol-Section.jsp">League Of Legends</a>
+                       <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                        </ul>
+                 </li>   
+                <li><a href="CommentTest.jsp">test</a></li>
                 <li><a href="logout.jsp">Log Out</a></li>
                 <%  
                     int a = successUser.getAdmin();
@@ -34,15 +47,17 @@
                 <%
                     }
                 %>
-      
-   
-           <p>Logged in as <%=(successUser.getUserName())%></p>
-            <%
-            } else {
-            %>
-            <span id="reglog"><li><a href="LoginForm.jsp">Login</a></li></span>
-            <span id="reglog"><li><a href="registration.jsp">Register</a></li></span>
         </ul>
+        </div>
+    </nav>
+           
+        <%
+        } else {
+        %>
+ <li><a href="index.jsp">Home</a></li>      
+<li><a href="LoginForm.jsp">Login</a></li>
+<li><a href="registration.jsp">Register</a></li>
+</ul>
 </nav>
 <%
     }

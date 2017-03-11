@@ -16,8 +16,8 @@
     <body>
         <%@ include file="Includes/nav.jsp" %>
         <div id="wrapper">
-        <a href="registration.html">Back to Form</a>
-        <a href="index.jsp">Back to index</a>
+       <a href="javascript:history.back()" class="button">Back to Form</a>
+         <a href='index.jsp' class="button">Back to index</a>
         <h1>Failed to Register User</h1>
         <%
              Object Value = session.getAttribute("AccountFail");

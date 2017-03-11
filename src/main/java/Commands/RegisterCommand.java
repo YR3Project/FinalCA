@@ -7,6 +7,9 @@ package Commands;
 
 import Daos.*;
 import Dtos.*;
+import Mail.*;
+import static Mail.Mail.generateAndSendEmail;
+
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +20,20 @@ import java.security.SecureRandom;
 import java.security.NoSuchProviderException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /*
 Author Ben
@@ -126,7 +139,28 @@ public class RegisterCommand implements Command{
                        
                        if(isAtLeast8 && hasUppercase && hasLowercase && hasNoSpaces && noConditions && noUsername)
                        */
-                        if(Structure && noConditions && noUsername)
+                        UsersDao userDao = new UsersDao("swgw");
+
+                        
+                        boolean Checkemail = true;
+                                
+                        ArrayList<Users> Accounts = userDao.GetAllUsers();
+                        
+                        for(int x = 0; x < Accounts.size(); x++)
+                        {
+                            if(Email.equals(Accounts.get(x).getEmail()))
+                            {
+                                Checkemail = true;
+                            }
+                            else
+                            {
+                               Checkemail = false;
+                            }
+                            
+                        }
+                        
+                        
+                        if(Structure && noConditions && noUsername && Checkemail == false)
                         {
                         byte[] salt = getSalt();
                             
@@ -141,9 +175,6 @@ public class RegisterCommand implements Command{
                             sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
 			}
 			String generatedPassword = sb.toString();
-
-                            
-                       UsersDao userDao = new UsersDao("swgw");
                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
                        Date createdate = new Date();
                        Date expiredate = new Date();
@@ -152,24 +183,47 @@ public class RegisterCommand implements Command{
                         c.add(Calendar.DATE, 10);
                         expiredate = c.getTime();
                        
-                       boolean Action = userDao.RegistorUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
+                       boolean Action = userDao.RegisterUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
                        
                        if(Action == true){
-                          Users user = userDao.getUserbyName(UserName);
+                           Users user = userDao.getUserbyName(UserName);
                           session.setAttribute("RegSuccess", user); 
                           
                           forwardToJsp = "registrationSuccessful.jsp"; 
+                           
+                           /*
+                            try {
+                                Mail.generateAndSendEmail(Email,Password);
+                            
+                           
+                            String msg = "Check your Email For confirmation of account";
+                            session.setAttribute("ChangeSuccess", msg); 
+                          
+                            forwardToJsp = "LoginForm.jsp";
+                            
+                            } catch (MessagingException ex) {
+                                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            */
+
                        }
                        else if(Action == false)
                        {
-                            String msg = "Registration" + Email + generatedPassword + salt + df.format(createdate) + df.format(expiredate);
+                            String msg = " Registration ";
                             session.setAttribute("Type", msg);
                             session.setAttribute("AccountFail", UserName); 
                            
                             
                             forwardToJsp = "AccountFail.jsp";
                        }
+                       
                      }
+                     else
+                       {
+                         String error = "Your Email Already exists ";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";  
+                       }
                     }
                     catch (InputMismatchException e)
                     {

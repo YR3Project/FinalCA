@@ -295,5 +295,4 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
     }
 
     
-    
 }

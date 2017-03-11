@@ -55,9 +55,10 @@ public interface CommentsDaoInterface {
     public boolean deleteComment(int commentID, int articleID);
     
     /**
+<<<<<<< HEAD
      * @param articleID
      * @return comments by articleID
      */
     public ArrayList<Comments> getCommentsByArticle(int articleID);
-    
+
 }

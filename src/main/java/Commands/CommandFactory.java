@@ -8,33 +8,28 @@ package Commands;
 public class CommandFactory {
    public Command createCommand(String action)
     {
-        if(action.equals("login"))
-        {
-            return new LoginCommand();
-        }
+
+       switch (action) {
+           case "login":
+               return new LoginCommand();
+           case "register":
+               return new RegisterCommand();
+           case "writeComm":
+               return new WriteCommentCommand();
+           case "edit":
+               return new EditCommand();
+           case "change":
+               return new ChangeCommand();
+           case "postArtc":
+               return new PostArticleCommand();
+           case "editArtc":
+               return new EditArticleCommand();
+           case "delArtc":
+               return new DeleteArticleCommand();
+           default:
+               break;
+       }
         
-        else if(action.equals("register"))
-        {
-            return new RegisterCommand();
-        }
-        
-        else if(action.equals("writeComm"))
-        {
-            return new WriteCommentCommand();
-        }
-        
-        else if(action.equals("postArtc"))
-        {
-            return new PostArticleCommand();
-        }
-        else if(action.equals("editArtc"))
-        {
-            return new EditArticleCommand();
-        }
-        else if(action.equals("delArtc"))
-        {
-            return new DeleteArticleCommand();
-        }
         return null;
     }
 }

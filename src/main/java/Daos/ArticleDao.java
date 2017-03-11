@@ -305,5 +305,3 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         return rowsAffected > 0;
     }
     }
-
-

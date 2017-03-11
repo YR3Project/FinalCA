@@ -1,47 +1,81 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* plstest
-    Created on : 02-Feb-2017, 19:23:51
-;;    Author     : PC
-*/
-body
+#navcontainer ul
 {
     background-color:#062952;
     color: white;
+list-style-type: none;
 }
-nav
+
+
+#navcontainer ul li
 {
-    padding-top: 10px;
-    padding-bottom: 20px;
+float: left;
+position: relative;
 }
-ul li a .homenav, .leaguenav, .worldnav
+
+#navcontainer ul
 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+padding-left: 0;
+margin-left: 0;
+background-color: #282828;
+color: red;
+float: left;
+width: 100%;
+font-family: arial, helvetica, sans-serif;
 }
-ul li a
+
+#navcontainer ul li { display: inline; }
+
+#navcontainer ul li a
 {
+padding: 0.2em 3em;
+background-color: #282828;
+color: white;
+text-decoration: none;
+float: left;
+
+}
+
+#navcontainer ul li a:hover
+{
+background-color: #F60018;
+color: #FFFFFF;
+}
+
+#navcontainer ul li ul
+{
+display: none;
+}
+
+
+#navcontainer ul li:hover ul
+{
+display:block;
+position: absolute;
+width:167px;
+}  
+
+#navcontainer ul li ul li
+{
+ padding: 0.25em;
+}
+/*This creates a slow Highligthing effect when hovering over a link */
+a:hover {
+    color:#FFFFFF;
+    background:#666666;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+} 
+a:active {
+    color:#7E07A9;
+    background:#FF4500;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
     text-decoration: none;
-    font-size: 1.2em;
-    color: white;
+    color: initial;
 }
-ul li
-{
-    
-    border-style:solid;
-    border-color:#062952;
-    box-shadow: 1px 2px 1px blue;
-    margin-left:3em;
-    list-style-type: none;
-    display: inline;
-}
-ul #reglog
-{
-    float:right;
-    padding-right: 50px;
-}
+
