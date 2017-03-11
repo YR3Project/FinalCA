@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/form.css" rel="stylesheet" type="text/css"/>
     </head>
+     <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">
             <h1>Login-Form</h1>

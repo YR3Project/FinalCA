@@ -40,8 +40,7 @@
             Text:
             </p>
             <p>
-            <textarea rows="4" cols="50" name="content" form="Article">
-            Enter text here...</textarea>
+            <textarea rows="4" cols="50" name="content" form="Article"></textarea>
             </p>
             <p>
             <select name="game">
@@ -66,6 +65,7 @@
             ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
             for (int i = 0; i < allArticles.size(); i++) {
         %>
+        <article>
         <section>    
         <div class="Articles">
         <h3><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
@@ -75,7 +75,7 @@
         <%
             }
         %>
-        
+        <section>
         <h3>Most popular Streamer Currently</h3>
         <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="HomeStream"></div>
@@ -88,8 +88,8 @@
                 var player = new Twitch.Player("HomeStream", options);
                 player.setVolume(0);
         </script>
-        
-        </article>
+        </section>
+     </article>
         
     
 </body>

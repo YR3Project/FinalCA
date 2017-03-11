@@ -17,11 +17,17 @@
         <link href="CSS/nav.css" rel="stylesheet" type="text/css"/>
 
 
-    <nav>
-        <div  id="navcontainer">
-        <ul id="navlist">
-
-           
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
 
@@ -31,21 +37,18 @@
                 %>
                 <li id="active"><a href="index.jsp" id="current">Home</a></li>
                 <li><a href="viewProfile.jsp">View your own profile</a></li>
-                <li><a href ="">Twitch-Area</a>
-                 <ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
+                    <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
                        <li><a href ="Lol-Section.jsp">League Of Legends</a>
                        <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
                         </ul>
-                 </li>   
-                <li><a href="logout.jsp">Log Out</a></li>
-                <%  
-                    int a = successUser.getAdmin();
-                    if (a!=0) {
-                %>
-                   <li><a href="viewProfiles.jsp">View other Users</a></li>  
-                <%
-                    }
-                %>
+                 </li>
+      </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout.jsp"><span class="glyphicon glyphicon-user">Log Out</a></li>
+                 </ul>
+               
         </ul>
         </div>
     </nav>
@@ -53,9 +56,11 @@
         <%
         } else {
         %>
- <li><a href="index.jsp">Home</a></li>      
-<li><a href="LoginForm.jsp">Login</a></li>
-<li><a href="registration.jsp">Register</a></li>
+ <li><a href="index.jsp">Home</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="LoginForm.jsp"><span class="glyphicon glyphicon-user"></span>Login</a></li>
+<li><a href="registration.jsp"><span class="glyphicon glyphicon-user"></span>Register</a></li>
 </ul>
 </nav>
 <%

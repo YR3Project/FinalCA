@@ -22,7 +22,7 @@
   -o-transform:     translate3d(0, 0, 0);
   transform:        translate3d(0, 0, 0);
 }
-//setting up the locations for the slides and there buttons
+/*setting up the locations for the slides and there buttons */
 #gal ul {list-style-type:none;}
 input[type="radio"] {
   position:absolute;
@@ -178,9 +178,9 @@ header h1 {
 
 article {
 	padding: 0;
-	width: 80%;
+	width: 100%;
 	float: left;
-	background-color: #C8C8C8;
+	background-color: #6e7175;
 }
 
 article h3 {
@@ -220,6 +220,3 @@ section, footer, aside, article, figure {
 	display: block;
 }
 
-#HomeStream{
-    padding-left: 200px;
-}
