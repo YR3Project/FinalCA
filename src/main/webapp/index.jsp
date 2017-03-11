@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Stat-Tacking Website</title>
     </head>
-    <div id="wrapper">
+    <div id="wrapper">l
         
         <header>
         <%@ include file="Includes/nav.jsp" %>
