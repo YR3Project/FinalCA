@@ -57,6 +57,13 @@
         } else {
         %>
  <li><a href="index.jsp">Home</a></li>
+ <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
+                    <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                       <li><a href ="Lol-Section.jsp">League Of Legends</a>
+                       <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                        </ul>
+                 </li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li><a href="LoginForm.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -6,10 +6,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         
-        <div id="wrapper">
-        </head>        
-        <%@ include file="Includes/nav.jsp" %> 
+        </head> 
+        <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+     <%@ include file="Includes/Slideshow.php" %>
+     <body>
+         <div id="wrapper">
+             <header> 
+                 <h1>Your Profile:</h1>
+        <%@ include file="Includes/nav.jsp" %>
+             </header>
+             <article>  
         <%
             Object Value3 = session.getAttribute("EditSuccess");
             
@@ -42,17 +50,19 @@
             <a href='editUser.jsp' class="button">Edit Your Profile</a>
             <a href='ChangePassword.jsp' class="button">Change Password</a>
         
-        
+            <div style="overflow-x:auto;">
         <table>
             <tr><%
                     if(isAdmin!=0){
                     %>
-                <th>ID</th>
+                    
+                    <th>ID</th>
+                
                     <%
                     }
                     %>
-                <th>UserName</th>
-                <th>Email</th>
+                    <th>UserName</th>
+                    <th>Email</th>
             </tr>
             <tr>
                 <%
@@ -60,19 +70,25 @@
                     %>
             
                 <td><%=successUser.getUserID()%></td>
+            <br>
                     <%
                     }
                     %>
                 <td><%=successUser.getUserName()%></td>
+                <br>
                 <td><%=successUser.getEmail()%></td>
 
             </tr>
         </table>
+                </div>
                             <%
                     if(isAdmin!=0){
                     %>
-                    <p><%=successUser.getUserName()%> is an administrator on this site.</p>
+                    <h3><%=successUser.getUserName()%> is an administrator on this site.</h3>
                     <!--placeholder-->
+                    <p>
+                        <!--for spacing-->
+                    </p>
                     
                 <%
                     }
@@ -91,9 +107,10 @@
             <%
                 }
                 %>
-                
+             </article>
+             <%@ include file="Includes/footer.jsp" %>
         </div>
     
     </body>
-    <%@ include file="Includes/footer.jsp" %>
+    
 </html>

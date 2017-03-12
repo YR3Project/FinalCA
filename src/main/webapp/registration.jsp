@@ -12,15 +12,23 @@
         <meta charset="UTF-8">
         <link href="css/form.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
     </head>
+    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+     <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">
+            <header>
+            <%@include file="Includes/nav.jsp" %>
             <h1>Registration</h1>
-        <%@include file="Includes/nav.jsp" %>
-        <div class="mainscreen">
-            <p>Form to Register customers (Using servlet)</p>
-            <div class="login_form">
+            </header>
+            <article>
+               
+        
+       
+            
             <form action="FrontController" method="post">
+                <p>SIGN-UP NOW</p>
                 <p>
                 Username  :  <input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/>  
                 </p>
@@ -38,10 +46,13 @@
                 <input type="hidden" name ="action" value="register" />
                 
             </form>
-            </div>
-        </div>
+            </article>
         <%@ include file="Includes/footer.jsp" %>
-        </div>
+            </div>
+
+        
+            
+        
     </body>
 </html>
 

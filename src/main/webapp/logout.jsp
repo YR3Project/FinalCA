@@ -13,6 +13,8 @@
                 window.location = "index.jsp";
             </script>
     </head>
+    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+     <%@ include file="Includes/Slideshow.php" %>
     <body>
         <%
             Object Value = session.getAttribute("CurrentUser");

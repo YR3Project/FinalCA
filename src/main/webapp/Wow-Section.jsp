@@ -6,12 +6,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Wow-Section</title>
- <div id="wrapper">
+ 
  </head>
-    
+    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+     <%@ include file="Includes/Slideshow.php" %>
     <body>
+        <div id="wrapper">
+        <header>
         <h1>Welcome to World of Warcraft</h1>
-        <%@ include file="Includes/nav.jsp" %> 
+        <%@ include file="Includes/nav.jsp" %>
+        </header>
+        <article>
+            <section>
     
         
              <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
@@ -59,6 +65,8 @@
                 var player = new Twitch.Player("Wow3", options);
                 player.setVolume(0);
                 </script>
+            </section>
+        </article>
                 
  </div>
     </body>

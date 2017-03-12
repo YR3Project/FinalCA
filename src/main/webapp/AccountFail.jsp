@@ -13,12 +13,17 @@
         
         <title>Account Failure</title>
     </head>
+    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+     <%@ include file="Includes/Slideshow.php" %>
     <body>
-        <%@ include file="Includes/nav.jsp" %>
+        <header>
+                <h1>Failed to Register User</h1>
+            <%@ include file="Includes/nav.jsp" %>
+        </header>
         <div id="wrapper">
        <a href="javascript:history.back()" class="button">Back to Form</a>
          <a href='index.jsp' class="button">Back to index</a>
-        <h1>Failed to Register User</h1>
+
         <%
              Object Value = session.getAttribute("AccountFail");
              Object Type = session.getAttribute("Type");
