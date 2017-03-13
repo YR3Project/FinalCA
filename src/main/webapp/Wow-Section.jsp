@@ -47,7 +47,7 @@
                 var options = {
                     width: 720,
                     height: 500,
-                    channel: "towelliee",
+                    channel: "boetargg",
                 };
                 var player = new Twitch.Player("Wow2", options);
                 player.setVolume(0);

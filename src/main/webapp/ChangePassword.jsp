@@ -5,14 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-       <link href="css/form.css" rel="stylesheet" type="text/css"/>
+       <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
     <body>
-         <div id="wrapper"> 
+         <div id="wrapper">
+             <header>
              <h1>Password Change</h1>
-            <%@ include file="Includes/nav.jsp" %> 
+            <%@ include file="Includes/nav.jsp" %>
+             </header>
+             <article>
             
             <%
             Object Value3 = session.getAttribute("ChangeFail");
@@ -42,8 +45,9 @@
                 session.removeAttribute("Expired");
                 session.setAttribute("Expired", "");
                 %>
-            <p>Change Details(Using servlet)</p>
+            
             <form action="FrontController" method="post">
+                <p>HERE IS WHERE YOU CHANGE YOUR PASSWORD</p>
                 <p>
                 <span id='name'>UserName :  </span><span id='textbox'><input name="name" size=30 type="text" maxlength="20" placeholder="Username" required/> </span>
                 </p>
@@ -60,8 +64,9 @@
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="change" />
             </form>
-            
+             </article>
+            <%@ include file="Includes/footer.jsp" %>
         </div>
     </body>
-    <%@ include file="Includes/footer.jsp" %>
+    
 </html>

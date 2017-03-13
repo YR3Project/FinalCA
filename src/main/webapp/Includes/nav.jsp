@@ -40,13 +40,13 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp">League Of Legends</a>
+                       <li><a href ="Lol-Section.jsp">League of Legends</a>
                        <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
                         </ul>
                  </li>
       </ul>
                  <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.jsp"><span class="glyphicon glyphicon-user"> Log-Out</a></li>
+                <li><a href="logout.jsp"><img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" height="40" width="40" /> Log-Out</a></li>
                  </ul>
                
         </ul>
@@ -60,7 +60,7 @@
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp">League Of Legends</a>
+                       <li><a href ="Lol-Section.jsp">League of Legends</a>
                        <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
                         </ul>
                  </li>

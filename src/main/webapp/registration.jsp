@@ -10,7 +10,6 @@
     <head>
         <title>Registration - Form</title>
         <meta charset="UTF-8">
-        <link href="css/form.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -46,6 +45,7 @@
                 <input type="hidden" name ="action" value="register" />
                 
             </form>
+          
             </article>
         <%@ include file="Includes/footer.jsp" %>
             </div>

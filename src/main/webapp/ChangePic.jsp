@@ -26,7 +26,7 @@
                 neededid = successUser.getUserID();
             %>
             <p>Form to Register customers (Using servlet)</p>
-            <div class="login_form">
+            <div class="Pic-Form">
             <form action="uploadServlet" method="post" enctype="multipart/form-data">
                 
                 <td>Portrait Photo: <input type="file" name="photo" size="50"/>

@@ -25,7 +25,7 @@
             {
                 String message = (String) Value3;
                 %>
-                <br/><p><% out.println(message); %></p>
+                <br/><h3><% out.println(message); %></h3>
                 
                 <%
             }
@@ -47,8 +47,7 @@
              
         <h1><%=successUser.getUserName()%>'s Profile</h1>
         
-            <a href='editUser.jsp' class="button">Edit Your Profile</a>
-            <a href='ChangePassword.jsp' class="button">Change Password</a>
+           
         
             <div style="overflow-x:auto;">
         <table>
@@ -106,7 +105,11 @@
         </p>
             <%
                 }
+                session.removeAttribute("EditSuccess");
+                session.setAttribute("EditSuccess", "");
                 %>
+            <a href='editUser.jsp' class="button">Edit Your Profile</a>
+            <a href='ChangePassword.jsp' class="button">Change Password</a>
              </article>
              <%@ include file="Includes/footer.jsp" %>
         </div>

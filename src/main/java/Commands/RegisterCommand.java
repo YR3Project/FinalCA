@@ -91,54 +91,7 @@ public class RegisterCommand implements Command{
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }
-                        /*
-                        if(!isAtLeast8){
-                            String error = "Your Password is too Short must be more than 6 Characters";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                             }
-                        
-                
-                        if(!hasUppercase) {
-                            String error = "Your Password must contain one Uppercase letter";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
-                
-                        if(!hasLowercase){
-                            String error = "Your Password must contain one owercase letter";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
-                        
-                        if(!hasNumeric){
-                            String error = "Your Password must contain Numbers";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                        }
-                
-                        if(!hasNoSpaces){
-                            String error = "Your Password must not contain any Spaces";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
-                
-                        if(!noConditions){
-                            String error = "Your Password must not contain any conditions e.g AND/OR";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
-                        
-                        if(!noUsername){
-                            String error = "Your Password must not contain Your UserName";
-                            session.setAttribute("Complexity", error);
-                            forwardToJsp = "RegRetry.jsp";
-                            }
-                        
-                        
-                       
-                       if(isAtLeast8 && hasUppercase && hasLowercase && hasNoSpaces && noConditions && noUsername)
-                       */
+
                         UsersDao userDao = new UsersDao("swgw");
 
                         
@@ -190,8 +143,10 @@ public class RegisterCommand implements Command{
                        
                        if(Action == true){
                            Users user = userDao.getUserbyName(UserName);
-                          session.setAttribute("RegSuccess", user); 
+                          session.setAttribute("RegSuccess", user);
+                          session.setAttribute("PicId", user);
                           
+                  
                           forwardToJsp = "registrationSuccessful.jsp"; 
                            
                            /*

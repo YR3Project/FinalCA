@@ -247,7 +247,65 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
-tr:hover{background-color:#f5f5f5}
+tr:hover{
+    background-color:#f5f5f5;
+}
+
+
+/* Mobile */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2){
+     #gal { display: none; } /* dosent allow slideshow to appear on mobile */ 
+    
+    header h1 {
+          font-size: 2.6em; 
+     }
+     
+     form {
+         width: 300px;
+
+     }
+     
+     input {
+         width: 275px;
+     }
+     
+     .button{
+         width: 275px;
+     }
+     
+     article h3{
+         font-size: 2.71428em;
+     }
+
+}
+  
+
+ /* Tablet */ 
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+     
+   #gal { 
+       display: block; /* displays the slideshow everywhere else */
+   } 
+    
+   
+    article{
+        font-size: 1.3em;
+    }
+ 
+    footer{
+        font-size: 1.2em;
+    }
+
+}
+
+
+
 
 
 

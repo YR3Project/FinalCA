@@ -13,8 +13,8 @@ public class CommandFactory {
                return new LoginCommand();
            case "register":
                return new RegisterCommand();
-           case "comment":
-               return new SetCommentCommand();
+           case "writeComm":
+               return new WriteCommentCommand();
            case "edit":
                return new EditCommand();
            case "change":
