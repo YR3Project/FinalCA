@@ -248,13 +248,23 @@ section{
 }
 
 #commentTitle{
-    background-color:lightgray;
+    background-color:lightblue;
     font-size: 1.2em;
+}
+
+#leavecommentsection{
+    padding-left: 250px;
 }
 
 #title{
     background-color:lightgray;
 }
+
+#leavecomment{
+    background-color:lightblue;
+    font-size: 1.5em;
+}
+
 
 
 section, footer, aside, article, figure {

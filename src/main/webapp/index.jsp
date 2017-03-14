@@ -60,21 +60,22 @@
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
             <p>
-            Title: <input name="title" size=30 type="text" /> 
+            Title: 
             </p>
+            <input name="title" size=30 type="text" /> 
             <p>
             Text:
             </p>
-            <p>
+            
             <textarea rows="4" cols="50" name="content" form="Article"></textarea>
-            </p>
-            <p>
+           
+            <br />
             <select name="game">
                 <option value="def">General</option>
                 <option value="wow">World of Warcraft</option>
                 <option value="lol">League of Legends</option>
             </select>
-            </p>
+            
             
             <input type="submit" value="Post" />
             
@@ -122,18 +123,19 @@
                 <div id="MainForms2">
             <form name="editform" id="editform" action="FrontController" method="post">
                 <p>
-                Title:<input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" />
+                Title:
                 </p>
-                <p>
+                <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" />
+                <br />
                 <textarea rows="4" cols="50" name="content" form="editform"></textarea>
-                </p>
-                <p>
+                <br />
+                
                 <select name="game">
                     <option value="def">General</option>
                     <option value="wow">World of Warcraft</option>
                     <option value="lol">League of Legends</option>
                 </select>
-                </p>
+               
                 <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
                 <input type="submit" value="Edit" />
                 <input type="hidden" name="action" value="editArtc" />
@@ -150,7 +152,7 @@
                 for (int j = 0; j < allComments.size(); j++) {
             %>
             <section class id="commentsection">
-                <h3 class id="commentTitle">Comments</h3>
+                <h3 class id="commentTitle">Comment</h3>
                 <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="getImageDetails.jsp?your_id=<%=(allComments.get(j)).getcAuthor()%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
             <p><%=(allComments.get(j)).getCommentText()%></p>
             </section>
@@ -175,13 +177,15 @@
                 }
                 if (Value4 != null) {
             %>
-            <section>
+            <section class id="leavecommentsection">
                
-            <h3 class id="title">Leave a Comment</h3>
+            <h3 class id="leavecomment">Leave a Comment</h3>
+            
             <form action="FrontController" method="post">
                 <p>
-                <span id='content'> Text: </span> <span id='textbox'>  <input name="comment" size=50 type="text" /> </span>
+                Text:
                 </p>
+                <input name="comment" size=50 type="text" />
                 
                 <input type="submit" value="Post" />
                
