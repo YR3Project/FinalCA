@@ -29,10 +29,15 @@ public class PostArticleCommand implements Command {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
 
-        try {
+        
             String content = request.getParameter("content");
             String title = request.getParameter("title");
             String game = request.getParameter("game");
+            
+            if (content != null && title != null &&  game != null && !content.equals("") && !title.equals("") && !game.equals(""))
+             {
+            
+         try {
             DateFormat df = new SimpleDateFormat("dd/MM/yy");
             Date date = new Date();
             Object Value = session.getAttribute("CurrentUser");
@@ -52,6 +57,14 @@ public class PostArticleCommand implements Command {
 
             session.setAttribute("errorMessage", "Text was supplied for parameters is not the right type.");
         }
+        
+       }else
+                {
+                    
+                    forwardToJsp = "error.jsp";
+                    
+                    session.setAttribute("errorMessage", "A parameter value required for Articles was missing");
+                }
         return forwardToJsp;
     }
 }

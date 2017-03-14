@@ -32,6 +32,9 @@ public class EditArticleCommand implements Command {
         String content = request.getParameter("content");
         String game = request.getParameter("game");
         int id = Integer.parseInt(request.getParameter("artID"));
+        
+         if (content != null && title != null &&  game != null && !content.equals("") && !title.equals("") && !game.equals(""))
+             {
         try {
             ArticleDao aDao = new ArticleDao("swgw");
 
@@ -45,6 +48,13 @@ public class EditArticleCommand implements Command {
 
             session.setAttribute("errorMessage", "Text was supplied for parameters is not the right type.");
         }
+            }else
+                {
+                    
+                    forwardToJsp = "error.jsp";
+                   
+                    session.setAttribute("errorMessage", "A parameter value required for Articles was missing");
+                }
         return forwardToJsp;
     }
 }

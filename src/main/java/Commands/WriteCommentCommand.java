@@ -33,6 +33,8 @@ public class WriteCommentCommand implements Command {
         HttpSession session = request.getSession();
         String comment = request.getParameter("comment");
         int artID = Integer.parseInt(request.getParameter("artID"));
+        if (comment != null  && !comment.equals("") )
+             {
         try {
             Object Value2 = session.getAttribute("CurrentUser");
             Users successUser = (Users) Value2;
@@ -50,6 +52,13 @@ public class WriteCommentCommand implements Command {
 
             session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
         }
+             }else
+                {
+                    
+                    forwardToJsp = "error.jsp";
+                    
+                    session.setAttribute("errorMessage", "A parameter value required for Commenting was missing");
+                }
         return forwardToJsp;
     }
 }

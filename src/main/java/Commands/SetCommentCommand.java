@@ -32,17 +32,20 @@ public class SetCommentCommand implements Command{
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String forwardToJsp = "";
         
+        HttpSession session = request.getSession();
         String comment = request.getParameter("comment");
         String id = request.getParameter("userID");
         String article = request.getParameter("article");
         String date = request.getParameter("date");
         String commentID = request.getParameter("commentID");
+        if (comment != null && article != null &&  date != null && !comment.equals("") && !article.equals("") && !date.equals(""))
+             {
         try
         {
             int trueID = Integer.parseInt(id);
             int trueArticle = Integer.parseInt(article);
             int commentI = Integer.parseInt(commentID);
-            HttpSession session = request.getSession();
+            
             CommentsDao comDao = new CommentsDao("swgw");
             
             boolean action = comDao.setComment(trueID, trueID, commentID);
@@ -58,10 +61,17 @@ public class SetCommentCommand implements Command{
                         
                         forwardToJsp = "error.jsp";
                         
-                        HttpSession session = request.getSession();
+                        session = request.getSession();
                         
                         session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
                     }
+             }else
+                {
+                    
+                    forwardToJsp = "error.jsp";
+                    
+                    session.setAttribute("errorMessage", "A parameter value required for Commenting was missing");
+                }
         return forwardToJsp;
     }
 }

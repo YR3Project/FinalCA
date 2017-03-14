@@ -201,6 +201,15 @@ public class RegisterCommand implements Command{
                            } catch (NoSuchProviderException ex) {
                                 Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
                             }
+                }else
+                {
+                    
+                    forwardToJsp = "error.jsp";
+                    
+                    HttpSession session = request.getSession();
+
+                    
+                    session.setAttribute("errorMessage", "A parameter value required for Registration was missing");
                 }
                 
                 

@@ -29,7 +29,7 @@
             
 %> 
 
-<div><a href="index.jsp" class="button">Back to index</a></div>
+<a href="javascript:history.back()" class="button">Back </a>
 <%@ include file="Includes/footer.jsp" %>
         </div>
     </body>
