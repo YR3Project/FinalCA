@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <title>Profile</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
@@ -37,10 +38,10 @@
                 Users successUser = (Users) Value4;
                 isAdmin = successUser.getAdmin();
         %>
-        <title>Profile</title>
+       
    
         
-        <img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" width="120" height="100" />
+        <img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" width="150" height="150" />
         
            
             <a href='ChangePic.jsp' class="button">Change profile Picture</a>

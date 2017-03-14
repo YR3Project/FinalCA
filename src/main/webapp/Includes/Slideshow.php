@@ -11,9 +11,9 @@
               <nav role='navigation'>
                 <p>MOBA of the Century</p>
                 <ul>
-                  <li><a href="https://www.facebook.com/leagueoflegends/?fref=ts" class="entypo-facebook-squared"></a></li>
-                  <li><a href="https://twitter.com/loleu" class="entypo-twitter"></a></li>
-                  <li><a href="https://plus.google.com/+leagueoflegends" class="entypo-gplus"></a></li>
+                  <li><a href="https://www.facebook.com/leagueoflegends/?fref=ts" class="entypo-facebook-squared" target="_blank"></a></li>
+                  <li><a href="https://twitter.com/loleu" class="entypo-twitter" target="_blank"></a></li>
+                  <li><a href="https://plus.google.com/+leagueoflegends" class="entypo-gplus" target="_blank"></a></li>
                 </ul>
               </nav>  
           </figcaption>
@@ -31,9 +31,9 @@
                 <p>Why not play?</p>
 
                 <ul>
-                  <li><a href="https://www.facebook.com/leagueoflegends/?fref=ts" class="entypo-facebook-squared"></a></li>
-                  <li><a href="https://twitter.com/loleu" class="entypo-twitter"></a></li>
-                  <li><a href="https://plus.google.com/+leagueoflegends" class="entypo-gplus"></a></li>
+                  <li><a href="https://www.facebook.com/leagueoflegends/?fref=ts" class="entypo-facebook-squared" target="_blank"></a></li>
+                  <li><a href="https://twitter.com/loleu" class="entypo-twitter" target="_blank"></a></li>
+                  <li><a href="https://plus.google.com/+leagueoflegends" class="entypo-gplus" target="_blank"></a></li>
                 </ul>
               </nav>  
           </figcaption>
@@ -50,9 +50,9 @@
               <nav role='navigation'>
                 <p>MMO to rule them all</p>
                 <ul>
-                  <li><a href="https://www.facebook.com/WorldofWarcraft.eu/?fref=ts" class="entypo-facebook-squared"></a></li>
-                  <li><a href="https://twitter.com/Warcraft?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="entypo-twitter"></a></li>
-                  <li><a href="https://plus.google.com/+Warcraft" class="entypo-gplus"></a></li>
+                  <li><a href="https://www.facebook.com/WorldofWarcraft.eu/?fref=ts" class="entypo-facebook-squared" target="_blank"></a></li>
+                  <li><a href="https://twitter.com/Warcraft?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="entypo-twitter" target="_blank"></a></li>
+                  <li><a href="https://plus.google.com/+Warcraft" class="entypo-gplus" target="_blank"></a></li>
                 </ul>
               </nav>  
           </figcaption>
@@ -68,9 +68,9 @@
               <nav role='navigation'>
                 <p>Come on Create A Character and Play</p>
                 <ul>
-                  <li><a href="https://www.facebook.com/WorldofWarcraft.eu/?fref=ts" class="entypo-facebook-squared"></a></li>
-                  <li><a href="https://twitter.com/Warcraft?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="entypo-twitter"></a></li>
-                  <li><a href="https://plus.google.com/+Warcraft" class="entypo-gplus"></a></li>
+                  <li><a href="https://www.facebook.com/WorldofWarcraft.eu/?fref=ts" class="entypo-facebook-squared" target="_blank"></a></li>
+                  <li><a href="https://twitter.com/Warcraft?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="entypo-twitter" target="_blank"></a></li>
+                  <li><a href="https://plus.google.com/+Warcraft" class="entypo-gplus" target="_blank"></a></li>
                 </ul>
               </nav>  
           </figcaption>
