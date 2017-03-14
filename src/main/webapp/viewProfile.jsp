@@ -17,7 +17,8 @@
                  <h1>Your Profile:</h1>
         <%@ include file="Includes/nav.jsp" %>
              </header>
-             <article>  
+             <article>
+                 <section>
         <%
             Object Value3 = session.getAttribute("EditSuccess");
             
@@ -45,7 +46,7 @@
             
              
              
-        <h1><%=successUser.getUserName()%>'s Profile</h1>
+        <h3><%=successUser.getUserName()%>'s Profile</h3>
         
            
         
@@ -108,8 +109,14 @@
                 session.removeAttribute("EditSuccess");
                 session.setAttribute("EditSuccess", "");
                 %>
+                <p>
             <a href='editUser.jsp' class="button">Edit Your Profile</a>
+                </p>
+                <p>
             <a href='ChangePassword.jsp' class="button">Change Password</a>
+                </p>
+            <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+                 </section>
              </article>
              <%@ include file="Includes/footer.jsp" %>
         </div>
