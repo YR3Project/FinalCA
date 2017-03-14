@@ -165,6 +165,7 @@ input[type="radio"]:checked ~ figure figcaption {
 }
 
 
+
 #wrapper {
 	width: 100%;
         max-width: 90.000em;
@@ -201,6 +202,12 @@ article h3 {
 	color: #d60201;
 }
 
+article p{
+    color: white;
+    font-size: 1.5em;
+}
+
+
 body {
 	font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	background-color: #42413C;
@@ -226,7 +233,29 @@ picture img{
 
 section{
     padding-left: 200px;
+    
 }
+/*
+.Articles{
+    width: 400px;
+    height: 200px;
+    border: 1px solid blue;
+}
+*/
+
+#commentsection{
+    padding-left: 250px;
+}
+
+#commentTitle{
+    background-color:lightgray;
+    font-size: 1.2em;
+}
+
+#title{
+    background-color:lightgray;
+}
+
 
 section, footer, aside, article, figure {
 	display: block;
@@ -250,6 +279,14 @@ th, td {
 tr:hover{
     background-color:#f5f5f5;
 }
+
+MainForms{
+        display: none;
+    }
+    
+    MainForms2{
+        display: none
+    }
 
 
 /* Mobile */
@@ -302,6 +339,7 @@ tr:hover{
         font-size: 1.2em;
     }
 
+    
 }
 
 

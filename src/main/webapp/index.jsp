@@ -6,12 +6,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+            
         <title>Stat-Tacking Website</title>
         
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
     <%@ include file="Includes/Slideshow.php" %>
-         
+    <script>
+        window.onload = function () {
+        document.getElementById('MainForms').style.display = 'none';
+            document.getElementById('more').onclick = function () {
+        if (this.checked)
+            document.getElementById('MainForms').style.display = 'block';
+        else
+            document.getElementById('MainForms').style.display = 'none';  
+    }
+    
+    document.getElementById('MainForms2').style.display = 'none';
+            document.getElementById('more2').onclick = function () {
+        if (this.checked)
+            document.getElementById('MainForms2').style.display = 'block';
+        else
+            document.getElementById('MainForms2').style.display = 'none';  
+    }
+    
+}
+    </script>    
     <body>
         
          
@@ -32,9 +52,12 @@
                     int id = successUser2.getUserID();
         %>
         <article>
-       
        <section>
-        <h3>Write an Article</h3>
+           <p>
+                <input id="more" type="checkbox">Add an Article</input>
+           </p>
+                <div id="MainForms">
+        <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
             <p>
             Title: <input name="title" size=30 type="text" /> 
@@ -52,12 +75,14 @@
                 <option value="lol">League of Legends</option>
             </select>
             </p>
-            <p>
-            <span id='post'>  <input type="submit" value="Post" /></span>
-            </p>
+            
+            <input type="submit" value="Post" />
+            
             <input type="hidden" name="action" value="postArtc" />
         </form>
+         </div>
         </section>
+      
         <%
                 }
             }
@@ -72,7 +97,7 @@
         <article>
         <section>    
         <div class="Articles">
-        <h3><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
+            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="getImageDetails.jsp?your_id=<%=(allArticles.get(i)).getAuthorID()%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
         <p><%=(allArticles.get(i)).getArticleText()%></p>
         </div>
         </section>
@@ -84,17 +109,20 @@
                 <p>
                 <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
                 </p>
-                <p>
+                
                 <input type="submit" value="Delete Article" />
-                </p>
+                
                 <p>
                 <input type="hidden" name="action" value="delArtc" />
                 </p>
             </form>
-
+                <p>
+                <input id="more2" type="checkbox">Edit </input>
+                </p>
+                <div id="MainForms2">
             <form name="editform" id="editform" action="FrontController" method="post">
                 <p>
-                <span id='title'> Title: </span> <span id='textbox'>  <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" /> </span>
+                Title:<input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" />
                 </p>
                 <p>
                 <textarea rows="4" cols="50" name="content" form="editform"></textarea>
@@ -105,11 +133,13 @@
                     <option value="wow">World of Warcraft</option>
                     <option value="lol">League of Legends</option>
                 </select>
+                </p>
                 <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
                 <input type="submit" value="Edit" />
                 <input type="hidden" name="action" value="editArtc" />
-                </p>
+                
             </form>
+                </div>
             </section>
         <%
             }
@@ -119,8 +149,9 @@
                 ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
                 for (int j = 0; j < allComments.size(); j++) {
             %>
-            <section>
-            <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> on <%=(allComments.get(j)).getDate()%>
+            <section class id="commentsection">
+                <h3 class id="commentTitle">Comments</h3>
+                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="getImageDetails.jsp?your_id=<%=(allComments.get(j)).getcAuthor()%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
             <p><%=(allComments.get(j)).getCommentText()%></p>
             </section>
             <%
@@ -131,39 +162,43 @@
                 <p>
                 <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
                 </p>
-                <p>
+                
                 <input type="submit" value="Delete Comment" />
-                </p>
+                
                 <p>
                 <input type="hidden" name="action" value="delComm" />
                 </p>
             </form>
+            </section>    
             <%
                 }
                 }
                 if (Value4 != null) {
             %>
             <section>
-            <h3>Leave a Comment</h3>
+               
+            <h3 class id="title">Leave a Comment</h3>
             <form action="FrontController" method="post">
                 <p>
                 <span id='content'> Text: </span> <span id='textbox'>  <input name="comment" size=50 type="text" /> </span>
                 </p>
-                <p>
-                <span id='post'>  <input type="submit" value="Post" /> </span>
-                </p>
+                
+                <input type="submit" value="Post" />
+               
                 <p>
                 <input type="hidden" name="action" value="writeComm" />
                 </p>
                 <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
             </form>
+                
             </section>
             <%
                     }
                 }
             %>
+          
         <section>
-        <h3>Most popular Streamer Currently</h3>
+        <h3 class id="title">Most popular Streamer Currently</h3>
         <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="HomeStream"></div>
                 <script type="text/javascript">
@@ -176,6 +211,7 @@
                 player.setVolume(0);
         </script>
         </section>
+        
         </article>
         <%@ include file="Includes/footer.jsp" %>
     </div>

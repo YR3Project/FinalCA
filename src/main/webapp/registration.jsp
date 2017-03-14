@@ -29,17 +29,17 @@
        
             
             <form action="FrontController" method="post">
-                <p>SIGN-UP NOW</p>
-                <p>
-                Username  :  <input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/>  
-                </p>
-                <p>
-                Password  : <input name="password" size=30 type="password" placeholder="Password" required/> 
-                </p>
+                <h3>SIGN-UP NOW</h3>
                 
-                <p>
+                Username  :  <input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/>  
+                
+                
+                Password  : <input name="password" size=30 type="password" placeholder="Password" required/> 
+                
+                
+               
                 Email  : <span><input name="email" size=30 type="email" maxlength="30" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/> </span>
-                </p>
+                
                 
                 
                 <input type="submit" formtarget="_blank" value="Register" />

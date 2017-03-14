@@ -37,16 +37,16 @@
                 %>
             
             <form action="FrontController" method="post">
-                <p>WELCOME BACK TO THE PARTY</p>
-                <p>
+                <h3>WELCOME BACK TO THE PARTY</h3>
+                
                 Username  :<input name="username" size=30 type="text" maxlength="30" placeholder="Username" required/> 
-                </p>
-                <p>
+                
+                
                 Password  : <input name="password" size=20 type="password" placeholder="Password" required/> 
-                </p>
-                <p>
+                
+                
                 <input type="submit"  value="Login" />
-                </p>
+                
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="login" />
                 <p>
