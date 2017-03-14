@@ -121,6 +121,7 @@
                 <input id="more2" type="checkbox">Edit </input>
                 </p>
                 <div id="MainForms2">
+                    <h3 class id="title">Edit an Article</h3>
             <form name="editform" id="editform" action="FrontController" method="post">
                 <p>
                 Title:
