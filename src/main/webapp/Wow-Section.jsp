@@ -20,7 +20,7 @@
         <article>
             <section>
     
-        
+                <h3 class id="title">Towelliee Stream</h3>
              <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Wow1"></div>
                 <script type="text/javascript">
@@ -41,7 +41,7 @@
                         width="350">
                 </iframe>
                 -->
-                
+                <h3 class id="title">Boetargg Stream</h3>
                  <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Wow2"></div>
                 <script type="text/javascript">
@@ -54,7 +54,7 @@
                 player.setVolume(0);
                 </script>
                 
-                
+                <h3 class id="title">Slootbag Stream</h3>
                 <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Wow3"></div>
                 <script type="text/javascript">

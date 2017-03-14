@@ -20,6 +20,7 @@
         </header>
         <article>
             <section>
+                <h3 class id="title">ESports Stream</h3>
                <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Lol1"></div>
                 <script type="text/javascript">
@@ -41,7 +42,7 @@
                 </iframe>
                 -->
                 
-                
+                <h3 class id="title">Imaqtpie Stream</h3>
                 <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Lol2"></div>
                 <script type="text/javascript">
@@ -55,14 +56,14 @@
                 </script>
                 
                 
-                
+                <h3 class id="title">Scarra Stream</h3>
                  <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Lol3"></div>
                 <script type="text/javascript">
                 var options = {
                     width: 720,
                     height: 500,
-                    channel: "mushisgosu",
+                    channel: "scarra",
                 };
                 var player = new Twitch.Player("Lol3", options);
                 player.setVolume(0);
