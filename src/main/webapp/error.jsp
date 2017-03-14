@@ -4,7 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+            <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
       
         <title>Error</title>
     </head>
@@ -12,8 +14,11 @@
      <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">
+         <header>    
         <h1>Something went wrong</h1>
-        <%@ include file="Includes/nav.jsp" %> 
+        <%@ include file="Includes/nav.jsp" %>
+         </header>
+         <article>
         <%
             
             Object msg = session.getAttribute("errorMessage");
@@ -22,15 +27,16 @@
             
 %>
 
-        <div> <%=error%> </div>
+        <h3> <%=error%> </h3>
         <%
           
             session.removeAttribute("errorMessage");
             
 %> 
 
-<a href="javascript:history.back()" class="button">Back </a>
+<a href="javascript:history.back()" class="button">Back</a>
 <%@ include file="Includes/footer.jsp" %>
+         </article>
         </div>
     </body>
 </html>

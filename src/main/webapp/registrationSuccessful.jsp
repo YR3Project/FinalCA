@@ -10,7 +10,8 @@ Author Aleks,Ben
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
        
         <title>Successful registered Customer</title>
     </head>

@@ -9,20 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+        <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <title>Account Failure</title>
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
     <body>
+        <div id="wrapper">
         <header>
                 <h1>Failed to Register User</h1>
             <%@ include file="Includes/nav.jsp" %>
         </header>
-        <div id="wrapper">
-       <a href="javascript:history.back()" class="button">Back to Form</a>
-         <a href='index.jsp' class="button">Back to index</a>
+        <article>
+      
 
         <%
              Object Value = session.getAttribute("AccountFail");
@@ -36,10 +37,15 @@
                 A problem has appeared with <%=type%> For User: <%=User%>
                 please check if all your values are added in correctly.
             </p>
+            <p>
+                 <a href="javascript:history.back()" class="button">Back to Form</a>
+                <a href='index.jsp' class="button">Back to index</a>
+            </p>
             <%
                 }
                 %>
                 <%@ include file="Includes/footer.jsp" %>
+        </article>
         </div>
     </body>
 </html>

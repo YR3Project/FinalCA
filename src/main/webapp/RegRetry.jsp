@@ -10,7 +10,8 @@ Authors Aleks, Ben
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         <link href="css/form.css" rel="stylesheet" type="text/css"/>
         <title>Try-Again</title>
     </head>

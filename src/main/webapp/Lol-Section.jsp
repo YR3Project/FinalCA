@@ -6,7 +6,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>LOL-Section</title>
-
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
