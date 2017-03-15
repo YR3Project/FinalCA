@@ -81,13 +81,13 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article where game = 'wow' OR game = 'def' ORDER BY DateAdded desc";
+            String query = "Select * from article where game = 'wow' ORDER BY DateAdded desc";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
             while(rs.next())
             {
-                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("Game"), rs.getString("ArticleText"), rs.getString("DateAdded"));
+                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("ArticleText"), rs.getString("Game"), rs.getString("DateAdded"));
                 articles.add(a);
             }
         }catch (SQLException e) {
@@ -121,13 +121,13 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article where game = 'lol' OR game = 'def' ORDER BY DateAdded desc";
+            String query = "Select * from article where game = 'lol' ORDER BY DateAdded desc";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
             while(rs.next())
             {
-                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("Game"), rs.getString("ArticleText"), rs.getString("DateAdded"));
+                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("ArticleText"), rs.getString("Game"), rs.getString("DateAdded"));
                 articles.add(a);
             }
         }catch (SQLException e) {

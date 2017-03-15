@@ -39,14 +39,15 @@
     <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">
-            <article>
+            
             <header>
                 <%@ include file="Includes/nav.jsp" %>
-                <img src="Images/logo.png" alt="logo" style="width:     70%; display: block; margin: 0 auto;"/>
+                
                 <h1>World of Warcraft Legion</h1>
             </header>
             
-                
+                <article>
+                    <img src="Images/logo.png" alt="logo" style="width:     70%; display: block; margin: 0 auto;"/>
                     <section>
                 <h2>View your Character</h2>
                 <p>View some of the statistics of your WoW Character!</p>
@@ -63,7 +64,7 @@
                         
                     </form>
                     </section>
-                </article>
+                
             <%    Users successUser2 = new Users();
                 Object Value4 = session.getAttribute("CurrentUser");
                 if (Value4 != null) {
@@ -72,7 +73,7 @@
                     if (a2 != 0) {
                         int id = successUser2.getUserID();
             %>
-            <article>
+            
 
                 <section>
                     <p>
@@ -109,7 +110,7 @@
                     ArrayList<Article> allArticles = new ArrayList(aDao.getWowArticles());
                     for (int i = 0; i < allArticles.size(); i++) {
                 %>
-                <article>
+                
                     <section>    
                         <div class="Articles">
                             <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
