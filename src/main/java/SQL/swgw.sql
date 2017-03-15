@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2017 at 08:12 PM
+-- Generation Time: Mar 15, 2017 at 11:12 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -40,8 +40,9 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `Game`, `DateAdded`) VALUES
-(1, 35, 'Return to the Broken Shore', 'Players return to the Broken Shore in Patch 7.2 with a vengeance, fighting the Legion with the help of the Armies of Legionfall. Blizzard explains all the different types of content coming in Patch 7.2 in their official preview.', 'def', '2017-02-06'),
-(2, 8, 'Riots Latest Release', 'Riot has revealed their newest champion rework today: Galio, The Colossus\r\n\r\n“I only wake up when it''s time to squash something. And I''m awake right now.” ', 'def', '2017-02-07');
+(1, 35, 'Return to the Broken Shore', 'Players return to the Broken Shore in Patch 7.2 with a vengeance, fighting the Legion with the help of the Armies of Legionfall. Blizzard explains all the different types of content coming in Patch 7.2 in their official preview.', 'wow', '2017-02-06'),
+(2, 8, 'Riots Latest Release', 'Riot has revealed their newest champion rework today: Galio, The Colossus\r\n\r\n“I only wake up when it''s time to squash something. And I''m awake right now.” ', 'lol', '2017-02-07'),
+(3, 35, 'Welcome to StatWiseGameWise', 'Welcome to StatWiseGameWise', 'def', '2017-03-15');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `ArticleID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ArticleID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `comments`
 --
