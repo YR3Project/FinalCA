@@ -37,6 +37,7 @@
                 %>
                 <li id="active"><a href="index.jsp" id="current">Home</a></li>
                 <li><a href="viewProfile.jsp">View your own profile</a></li>
+                <li><a href="WoWPage.jsp">World of Warcraft</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
