@@ -57,6 +57,7 @@
                         
                             Name: <input name="name" size=30 type="text" /> 
                         <br />
+                        <br />
                         
                             Realm: <input name="realm" size=30 type="text" /> 
                         <br />
