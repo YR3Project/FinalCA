@@ -1,5 +1,11 @@
 
-
+<%@page import="java.util.*"%>
+<%@page import="Dtos.*"%>
+<%@page import="Daos.*"%>
+<%@page import="javax.json.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.net.URL"%>
+<%@page import="LeagueAPI.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,6 +74,16 @@
                 var player = new Twitch.Player("Lol3", options);
                 player.setVolume(0);
                 </script>
+                  
+                <%
+                    RootObject r = new RootObject();
+                    //String champID = request.getParameter("champID");
+                    Champion champ = r.getChamp();
+                    %>
+                <p>
+                    <%=champ.getName()%>
+                    <%=champ.getTitle()%>
+                </p>
             </section>
         </article> 
         <%@ include file="Includes/footer.jsp" %>

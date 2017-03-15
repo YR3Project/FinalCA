@@ -44,6 +44,7 @@
                        <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
                         </ul>
                  </li>
+                 <li><a href="League-Section.jsp">testing</a></li>
       </ul>
                  <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.jsp"><img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" height="40" width="40" /> Log-Out</a></li>
