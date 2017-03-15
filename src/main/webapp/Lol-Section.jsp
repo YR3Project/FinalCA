@@ -26,6 +26,16 @@
         </header>
         <article>
             <section>
+                <h3 class id="title">Your League Champion</h3>
+                 <%
+                    RootObject r = new RootObject();
+                    //String champID = request.getParameter("champID");
+                    Champion champ = r.getChamp();
+                    %>
+                <p>
+                    <%=champ.getName()%>
+                    <%=champ.getTitle()%>
+                </p>
                 <h3 class id="title">ESports Stream</h3>
                <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="Lol1"></div>
@@ -75,15 +85,7 @@
                 player.setVolume(0);
                 </script>
                   
-                <%
-                    RootObject r = new RootObject();
-                    //String champID = request.getParameter("champID");
-                    Champion champ = r.getChamp();
-                    %>
-                <p>
-                    <%=champ.getName()%>
-                    <%=champ.getTitle()%>
-                </p>
+               
             </section>
         </article> 
         <%@ include file="Includes/footer.jsp" %>

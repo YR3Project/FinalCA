@@ -81,7 +81,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article where game = 'wow' ORDER BY DateAdded desc";
+            String query = "Select * from article where game = 'wow' or game = 'def' ORDER BY DateAdded desc";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
@@ -121,7 +121,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select * from article where game = 'lol' ORDER BY DateAdded desc";
+            String query = "Select * from article where game = 'lol' or game = 'def' ORDER BY DateAdded desc";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery(); 
             
