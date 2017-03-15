@@ -26,7 +26,7 @@
                 String message = (String) Value3;
             
             %>
-            <p><%=message%></p>
+            <h3><%=message%></h3>
             <%
                 }
                 session.removeAttribute("ChangeFail");
@@ -48,20 +48,20 @@
                 %>
             
             <form action="FrontController" method="post">
-                <p>HERE IS WHERE YOU CHANGE YOUR PASSWORD</p>
-                <p>
-                <span id='name'>UserName :  </span><span id='textbox'><input name="name" size=30 type="text" maxlength="20" placeholder="Username" required/> </span>
-                </p>
-                <p>
-                <span id='name'>oldPassword :</span> <span id='textbox'> <input name="oldpass" size=30 type="password" placeholder="Old Password" required/>  </span>
-                </p>
-                <p>
-                <span id='name'>NewPassword   :</span><span id='textbox'> <input name="newpass" size=30 type="password" placeholder="New Password" required/> </span>
-                </p>
-                <p>
-                <span id='name'>ConfirmPassword  :</span> <span id='textbox'><input name="compass" size=30 type="password" placeholder="Re-enter New Password" required/> </span>
-                </p>
-                <span id='textbox'> <input type="submit" value="Change Password" /></span>
+                <h3>HERE IS WHERE YOU CHANGE YOUR PASSWORD</h3>
+                
+                UserName :  <input name="name" size=30 type="text" maxlength="20" placeholder="Username" required/> 
+                <br />
+                
+                oldPassword : <input name="oldpass" size=30 type="password" placeholder="Old Password" required/>  
+                <br />
+                
+                NewPassword : <input name="newpass" size=30 type="password" placeholder="New Password" required/> 
+                <br />
+                
+                ConfirmPassword  : <input name="compass" size=30 type="password" placeholder="Re-enter New Password" required/> 
+                <br />
+                <input type="submit" value="Change Password" />
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="change" />
             </form>

@@ -25,11 +25,11 @@
                 %>
        
         <form action="FrontController" method="post">
-                 <p>READY TO EDIT YOUR PROFILE <%=successUser.getUserName() %></p>
-            <span id='name'> Username  :</span> <span id='textbox'><input name="username" value="<%=successUser.getUserName() %>" size=30 type="text" maxlength="20" required/> </span>
+                 <h3>READY TO EDIT YOUR PROFILE <%=successUser.getUserName() %></h3>
+            Username  :<input name="username" value="<%=successUser.getUserName() %>" size=30 type="text" maxlength="20" required/> </span>
                     <br />
-            <span id='name'> Email  :</span>  <span id='textbox'><input name="email" size=30 value="<%=successUser.getEmail() %>" type="text" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/> </span>
-            <span id='name'><input type="submit" value="Update" /></span>
+            Email  :</span>  <span id='textbox'><input name="email" size=30 value="<%=successUser.getEmail() %>" type="text" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+            <input type="submit" value="Update" />
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="edit" />
             </form>

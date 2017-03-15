@@ -16,8 +16,11 @@
      <%@ include file="Includes/Slideshow.php" %>
 <body>
      <div id="wrapper">
+         <header>
         <h1>Upload Profile Picture</h1>
         <%@include file="Includes/nav.jsp" %>
+         </header>
+         <article>
         <div class="mainscreen">
             <%
             Object user = session.getAttribute("CurrentUser");
@@ -43,6 +46,7 @@
                 }
                 %>
         </div>
+         </article>
         <%@ include file="Includes/footer.jsp" %>
         </div>
     </body>
