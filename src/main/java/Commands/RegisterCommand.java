@@ -95,7 +95,8 @@ public class RegisterCommand implements Command{
                         UsersDao userDao = new UsersDao("swgw");
 
                         
-                        boolean Checkemail = true;
+                        boolean Checkemail = false;
+                        boolean Checkname = false;
                                 
                         ArrayList<Users> Accounts = userDao.GetAllUsers();
                         
@@ -105,15 +106,19 @@ public class RegisterCommand implements Command{
                             {
                                 Checkemail = true;
                             }
-                            else
+                           
+ 
+                        }
+                        
+                        for(int x = 0; x < Accounts.size(); x++)
+                        {
+                         if(UserName.equals(Accounts.get(x).getUserName()))
                             {
-                               Checkemail = false;
+                                Checkname = true;
                             }
                             
                         }
-                        
-                        
-                        if(Structure && noConditions && noUsername && Checkemail == false)
+                        if(Structure && noConditions && noUsername && Checkemail == false && Checkname == false)
                         {
                         byte[] salt = getSalt();
                             
@@ -176,12 +181,18 @@ public class RegisterCommand implements Command{
                        }
                        
                      }
-                     else
+                        else if(Checkemail == true)
                        {
                          String error = "Your Email Already exists ";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";  
                        }
+                        else if(Checkname == true)
+                        {
+                          String error = "Your Username Already in use ";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";    
+                        }
                     }
                     catch (InputMismatchException e)
                     {

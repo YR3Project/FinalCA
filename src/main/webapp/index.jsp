@@ -7,7 +7,7 @@
          <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
             
-        <title>StatWiseGameWise</title>
+        <title>SWGW</title>
         
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
