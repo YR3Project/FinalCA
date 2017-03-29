@@ -16,10 +16,11 @@
     
     <dependencies>
         <dependency>
-            <groupId>org.simplejavamail</groupId>
-            <artifactId>simple-java-mail</artifactId>
-            <version>4.1.3</version>
-        </dependency>
+    <groupId>org.simplejavamail</groupId>
+    <artifactId>simple-java-mail</artifactId>
+    <version>4.2.1</version>
+   
+    </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -72,9 +73,16 @@
             <version>1.2.0</version>
         </dependency>
         <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+            <version>1.22.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-gmail</artifactId>
-            <version>v1-rev61-1.22.0</version>
+            <version>v1-rev62-1.22.0</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -82,6 +90,8 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        
     </dependencies>
 
     <build>

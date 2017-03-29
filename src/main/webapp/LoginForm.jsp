@@ -39,7 +39,7 @@
             <form action="FrontController" method="post">
                 <h3>WELCOME BACK TO THE PARTY</h3>
                 
-                Username  :<input name="username" size=30 type="text" maxlength="30" placeholder="Username" required/> 
+                Username  :<input name="username" size=30 type="text" maxlength="30" placeholder="Username" pattern="[A-Za-z0-9_]{1,15}$" required/> 
                 
                 
                 Password  : <input name="password" size=20 type="password" placeholder="Password" required/> 
