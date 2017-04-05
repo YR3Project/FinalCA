@@ -66,18 +66,18 @@ public class RegisterCommand implements Command{
                        HttpSession session = request.getSession();
                        
                        boolean Structure = Password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
-                       /*
-                        boolean isAtLeast8 = Password.matches("^*.{8,}$");
-                        boolean hasUppercase = Password.matches("^?=.*?[A-Z]$");
-                        boolean hasLowercase = Password.matches("^?=.*?[a-z]$");
-                        boolean hasNumeric = Password.matches("^?=.*?[0-9]$");
-                        boolean hasNoSpaces = !Password.contains(" ");
-                       */
+                       
                        
                         //Check that it doesn't contain AND or NOT removed lower case ones 
                         //since where cause problems with passwords like LegendandStrike45 as a example. 
                         boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
+                        
+                        if(UserName.length() < 3){
+                             String error = "Your UserName must be atleast more than 2 in Length";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                        }
                         
                         if(!Structure){
                             String error = "Your Password must be atleast more than 8 in Length, one Digit, "
