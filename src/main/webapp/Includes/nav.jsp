@@ -30,7 +30,7 @@
       <ul class="nav navbar-nav">
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
-
+                    UsersDao navaccount = new UsersDao("swgw");
                     if (Value2!= null) {
                         Users successUser = (Users) Value2;
 
@@ -48,7 +48,7 @@
                  
       </ul>
                  <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.jsp"><img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" height="40" width="40" /> Log-Out</a></li>
+                <li><a href="logout.jsp"><img src="<%=navaccount.GetPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
                  </ul>
                
         </ul>

@@ -1,4 +1,5 @@
- <div id="gal">
+<h1 id="secret">&zwnj;</h1> 
+<div id="gal">
   <nav class="galnav">
     <ul>
         <!--Creating The images and the effect with the buttons in the image-->

@@ -20,7 +20,7 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
     <body>
-        <script src="Includes/Validation.js"></script>
+        <script src="Includes/CommonValidation.js"></script>
         <div id="wrapper">
             <header>
             <%@include file="Includes/nav.jsp" %>
@@ -43,8 +43,8 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
                 Email  : <span><input name="email" size=30 type="email" maxlength="30" placeholder="Email" /><span id="emaillocation" style="color:red"></span><br>
                 
                 
-                
                 <input type="submit" id="btnSubmit" value="Register" />
+                
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="register" />
                 

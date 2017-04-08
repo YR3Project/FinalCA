@@ -582,6 +582,46 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         
         return users;
     }
+
+    @Override
+    public String GetPicPath(int id) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String pic = null;
+        try{
+            con = getConnection();
+
+            String query = "Select photo from users Where userID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+              pic = rs.getString("photo");
+            }
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the GetAuthorByID() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the GetAuthorByID() method: " + e.getMessage());
+            }
+        }
+        
+        return pic;
+    }
+
     
     }
 

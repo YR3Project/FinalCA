@@ -10,7 +10,7 @@
         <title>SWGW</title>
         
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
     <%@ include file="Includes/Slideshow.php" %>
     <script>
         window.onload = function () {
@@ -212,7 +212,7 @@
         <article>
         <section>    
         <div class="Articles">
-            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="getImageDetails.jsp?your_id=<%=(allArticles.get(i)).getAuthorID()%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
+            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
         <p><%=(allArticles.get(i)).getArticleText()%></p>
         </div>
         </section>
@@ -268,7 +268,7 @@
             %>
             <section class id="commentsection">
                 <h3 class id="commentTitle">Comment</h3>
-                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="getImageDetails.jsp?your_id=<%=(allComments.get(j)).getcAuthor()%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
+                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
             <p><%=(allComments.get(j)).getCommentText()%></p>
             </section>
             <%

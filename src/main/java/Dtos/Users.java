@@ -1,6 +1,6 @@
 
 package Dtos;
-//Author Aleks
+//Author Ben
 import java.util.Objects;
 
 public class Users implements Comparable<Users> {
@@ -12,6 +12,7 @@ public class Users implements Comparable<Users> {
     private String Salt;
     private String Created;
     private String Due;
+    private String PicPath;
 
     public Users() {
     }
@@ -35,6 +36,17 @@ public class Users implements Comparable<Users> {
         this.Salt = Salt;
         this.Created = Created;
         this.Due = Due;
+    }
+    
+    public Users(String UserName, String Email, String Password, int Admin, String Salt, String Created, String Due, String PicPath) {
+        this.UserName = UserName;
+        this.Email = Email;
+        this.Password = Password;
+        this.Admin = Admin;
+        this.Salt = Salt;
+        this.Created = Created;
+        this.Due = Due;
+        this.PicPath = PicPath;
     }
 
     public int getUserID() {
@@ -68,6 +80,9 @@ public class Users implements Comparable<Users> {
     public String getDue() {
         return Due;
     }
+    public String getPicPath() {
+        return PicPath;
+    }
 
     public void setUserID(int UserID) {
         this.UserID = UserID;
@@ -75,6 +90,10 @@ public class Users implements Comparable<Users> {
 
     public void setUserName(String UserName) {
         this.UserName = UserName;
+    }
+    
+    public void setPicPath(String PicPath) {
+        this.PicPath = PicPath;
     }
 
     public void setEmail(String Email) {

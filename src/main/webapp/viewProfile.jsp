@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         </head> 
-        <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
      <%@ include file="Includes/Slideshow.php" %>
      <body>
          <div id="wrapper">
@@ -33,6 +33,7 @@
                 <%
             }
             Object Value4 = session.getAttribute("CurrentUser");
+            UsersDao account = new UsersDao("swgw");
                 int isAdmin;
             if (Value4 != null) {
                 Users successUser = (Users) Value4;
@@ -41,7 +42,7 @@
        
    
         
-        <img src="getImageDetails.jsp?your_id=<%=successUser.getUserID()%>" width="150" height="150" />
+        <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
         
            
             <a href='ChangePic.jsp' class="button">Change profile Picture</a>
@@ -117,7 +118,7 @@
                 <p>
             <a href='ChangePassword.jsp' class="button">Change Password</a>
                 </p>
-            <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+            <h1 id="secret">&zwnj;</h1>
                  </section>
              </article>
              <%@ include file="Includes/footer.jsp" %>

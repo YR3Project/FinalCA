@@ -30,7 +30,7 @@ public class LoginCommand implements Command{
         
                 String forwardToJsp = "";
         
-                String Entry1 = request.getParameter("username");
+                String Entry1 = request.getParameter("userName");
                 String Password = request.getParameter("password");
                 String UserName = null;
                 //ChrisTest

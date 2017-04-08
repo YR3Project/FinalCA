@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author D00165195
+ * @author Chris
  */
 public class CommentsDao extends Dao implements CommentsDaoInterface{
 
@@ -288,6 +288,8 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
         
         return author;
     }
+    
+
 
     
 }

@@ -114,7 +114,7 @@
                 
                     <section>    
                         <div class="Articles">
-                            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> on <%=(allArticles.get(i)).getDate()%>
+                            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> <img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%>
                             <p><%=(allArticles.get(i)).getArticleText()%></p>
                         </div>
                     </section>
@@ -167,7 +167,7 @@
                     %>
                     <section class id="commentsection">
                 <h3 class id="commentTitle">Comment</h3>
-                        <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> on <%=(allComments.get(j)).getDate()%>
+                        <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%>
                         <p><%=(allComments.get(j)).getCommentText()%></p>
                     </section>
                     <%
