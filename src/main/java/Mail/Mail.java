@@ -1,58 +1,56 @@
 
 package Mail;
+import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.Message;
+import java.io.ByteArrayOutputStream;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.util.Enumeration;
 import java.util.Properties;
-import javax.mail.Message;
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
- 
-/**
- * @author Damian
- * 
- */
- 
+import javax.mail.internet.MimeMultipart;
 public class Mail {
- 
-	static Properties mailServerProperties;
-	static Session getMailSession;
-	static MimeMessage generateMailMessage;
- 
-	
- 
-	public static int generateAndSendEmail(String adress,String password) throws AddressException, MessagingException {
- 
-		// Step1
-		//System.out.println("\n 1st ===> setup Mail Server Properties..");
-		mailServerProperties = System.getProperties();
-		mailServerProperties.put("mail.smtp.port", "587");
-		mailServerProperties.put("mail.smtp.auth", "true");
-		mailServerProperties.put("mail.smtp.starttls.enable", "true");
-                
-		//System.out.println("Mail Server Properties have been setup successfully..");
- 
-		// Step2
-		//System.out.println("\n\n 2nd ===> get Mail Session..");
-		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
-		generateMailMessage = new MimeMessage(getMailSession);
-		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(adress));
-		generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(adress));
-		generateMailMessage.setSubject("Greetings from musicStream");
-		String emailBody = "Your new password has been generated " + "<br><br> Password : " + password;
-		generateMailMessage.setContent(emailBody, "text/html");
-		//System.out.println("Mail Session has been created successfully..");
- 
-		// Step3
-		//System.out.println("\n\n 3rd ===> Get Session and Send mail");
-		Transport transport = getMailSession.getTransport("smtp");
- 
-		// Enter your correct gmail UserID and Password
-		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", "swgwwebsite@gmail.com", "passqwer12");
-		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-		transport.close();
-                return 0;
-	}
+    // ...
+
+  /**
+   * Send an email from the user's mailbox to its recipient.
+   *
+   * @param service Authorized Gmail API instance.
+   * @param userId User's email address. The special value "me"
+   * can be used to indicate the authenticated user.
+   * @param email Email to be sent.
+   * @throws MessagingException
+   * @throws IOException
+   */
+  public static void sendMessage(Gmail service, String userId, MimeMessage email)
+      throws MessagingException, IOException {
+    Message message = createMessageWithEmail(email);
+    message = service.users().messages().send(userId, message).execute();
+
+    System.out.println("Message id: " + message.getId());
+    System.out.println(message.toPrettyString());
+  }
+  
+  public static Message createMessageWithEmail(MimeMessage email)
+      throws MessagingException, IOException {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    email.writeTo(baos);
+    String encodedEmail = Base64.encodeBase64URLSafeString(baos.toByteArray());
+    Message message = new Message();
+    message.setRaw(encodedEmail);
+    return message;
+  }
 }

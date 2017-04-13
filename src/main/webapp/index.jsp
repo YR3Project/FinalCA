@@ -10,7 +10,7 @@
         <title>SWGW</title>
         
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
     <%@ include file="Includes/Slideshow.php" %>
     <script>
         window.onload = function () {
@@ -52,7 +52,121 @@
                     int id = successUser2.getUserID();
         %>
         <article>
+            
        <section>
+           <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize-button" >Authorize</button>
+    <button id="signout-button" >Sign Out</button>
+    <script type="text/javascript">
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '937028544573-pgqdddnpmjp03vskjf04vr6bnvk4q5qc.apps.googleusercontent.com';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+
+      var authorizeButton = document.getElementById('authorize-button');
+      var signoutButton = document.getElementById('signout-button');
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          discoveryDocs: DISCOVERY_DOCS,
+          clientId: CLIENT_ID,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          signoutButton.onclick = handleSignoutClick;
+        });
+      }
+
+      /**
+       *  Called when the signed in status changes, to update the UI
+       *  appropriately. After a sign-in, the API is called.
+       */
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          authorizeButton.style.display = 'none';
+          signoutButton.style.display = 'block';
+          listLabels();
+        } else {
+          authorizeButton.style.display = 'block';
+          signoutButton.style.display = 'none';
+        }
+      }
+
+      /**
+       *  Sign in the user upon button click.
+       */
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+      }
+
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+      }
+
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node. Used to display the results of the API call.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+      function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+
+      /**
+       * Print all Labels in the authorized user's inbox. If no labels
+       * are found an appropriate message is printed.
+       */
+      function listLabels() {
+        gapi.client.gmail.users.labels.list({
+          'userId': 'me'
+        }).then(function(response) {
+          var labels = response.result.labels;
+          appendPre('Labels:');
+
+          if (labels && labels.length > 0) {
+            for (i = 0; i < labels.length; i++) {
+              var label = labels[i];
+              appendPre(label.name)
+            }
+          } else {
+            appendPre('No Labels found.');
+          }
+        });
+      }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
            <p>
                 <input id="more" type="checkbox">Add an Article</input>
            </p>
@@ -98,7 +212,7 @@
         <article>
         <section>    
         <div class="Articles">
-            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="getImageDetails.jsp?your_id=<%=(allArticles.get(i)).getAuthorID()%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
+            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
         <p><%=(allArticles.get(i)).getArticleText()%></p>
         </div>
         </section>
@@ -154,7 +268,7 @@
             %>
             <section class id="commentsection">
                 <h3 class id="commentTitle">Comment</h3>
-                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="getImageDetails.jsp?your_id=<%=(allComments.get(j)).getcAuthor()%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
+                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
             <p><%=(allComments.get(j)).getCommentText()%></p>
             </section>
             <%

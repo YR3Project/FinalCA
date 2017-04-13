@@ -7,7 +7,7 @@ package Daos;
 
 /**
  *
- * @author D00165195
+ * @author Chris
  */
 import Commands.*;
 import Dtos.Comments;
@@ -59,5 +59,6 @@ public interface CommentsDaoInterface {
      * @return comments by articleID
      */
     public ArrayList<Comments> getCommentsByArticle(int articleID);
-
+    
+    
 }

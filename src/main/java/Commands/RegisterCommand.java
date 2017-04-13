@@ -8,7 +8,7 @@ package Commands;
 import Daos.*;
 import Dtos.*;
 import Mail.*;
-import static Mail.Mail.generateAndSendEmail;
+
 
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +34,12 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.simplejavamail.email.Email;
+import org.simplejavamail.mailer.Mailer;
+import org.simplejavamail.mailer.config.ProxyConfig;
+import org.simplejavamail.mailer.config.ServerConfig;
+import org.simplejavamail.mailer.config.TransportStrategy;
+import org.simplejavamail.util.ConfigLoader;
 
 /*
 Author Ben
@@ -60,18 +66,18 @@ public class RegisterCommand implements Command{
                        HttpSession session = request.getSession();
                        
                        boolean Structure = Password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
-                       /*
-                        boolean isAtLeast8 = Password.matches("^*.{8,}$");
-                        boolean hasUppercase = Password.matches("^?=.*?[A-Z]$");
-                        boolean hasLowercase = Password.matches("^?=.*?[a-z]$");
-                        boolean hasNumeric = Password.matches("^?=.*?[0-9]$");
-                        boolean hasNoSpaces = !Password.contains(" ");
-                       */
+                       
                        
                         //Check that it doesn't contain AND or NOT removed lower case ones 
                         //since where cause problems with passwords like LegendandStrike45 as a example. 
                         boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
+                        
+                        if(UserName.length() < 3){
+                             String error = "Your UserName must be atleast more than 2 in Length";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                        }
                         
                         if(!Structure){
                             String error = "Your Password must be atleast more than 8 in Length, one Digit, "
@@ -153,22 +159,76 @@ public class RegisterCommand implements Command{
                           
                   
                           forwardToJsp = "registrationSuccessful.jsp"; 
-                           
-                           /*
-                            try {
-                                Mail.generateAndSendEmail(Email,Password);
-                            
-                           
-                            String msg = "Check your Email For confirmation of account";
-                            session.setAttribute("ChangeSuccess", msg); 
-                          
-                            forwardToJsp = "LoginForm.jsp";
-                            
-                            } catch (MessagingException ex) {
-                                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            */
+                          /*
+                          final String username = "ben.rose76@gmail.com";
 
+                          final String password = "Brandytiggiroxy2";
+
+ 
+
+        Properties props = new Properties();
+
+        props.put("mail.smtp.host", "smtp.gmail.com");
+
+        props.put("mail.smtp.socketFactory.port", "465");
+
+        props.put("mail.smtp.socketFactory.class",
+
+                "javax.net.ssl.SSLSocketFactory");
+
+        props.put("mail.smtp.auth", "true");
+
+        props.put("mail.smtp.port", "465");
+
+ 
+
+        Session session2 = Session.getDefaultInstance(props,
+
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+
+                        return new PasswordAuthentication(username,password);
+
+                    }
+
+                });
+
+ 
+
+        try {
+
+ 
+
+            Message message = new MimeMessage(session2);
+
+            message.setFrom(new InternetAddress("ben.rose76@gmail.com"));
+
+            message.setRecipients(Message.RecipientType.TO,
+
+                    InternetAddress.parse("ben.rose76@gmail.com"));
+
+            message.setSubject("Test JCG Example");
+
+            message.setText("Hi," +
+
+                    "This is a Test mail for JCG Example!");
+
+
+            Transport.send(message);
+
+ 
+
+            System.out.println("Mail sent succesfully!");
+
+ 
+
+        } catch (MessagingException e) {
+
+            throw new RuntimeException(e);
+
+        }
+        */
+                                
                        }
                        else if(Action == false)
                        {

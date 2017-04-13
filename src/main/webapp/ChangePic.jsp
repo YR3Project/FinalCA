@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
 </head>
-<h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
      <%@ include file="Includes/Slideshow.php" %>
 <body>
      <div id="wrapper">
@@ -30,11 +30,11 @@
                 Users successUser = (Users) user;
                 neededid = successUser.getUserID();
             %>
-            <p>Form to Register customers (Using servlet)</p>
+            <p>Profile Picture Upload</p>
             <div class="Pic-Form">
             <form action="uploadServlet" method="post" enctype="multipart/form-data">
                 
-                <td>Portrait Photo: <input type="file" name="photo" size="50"/>
+                <td>Portrait Photo: <input type="file" name="file" size="50"/>
                 <input type='hidden'  name='id' value='<%=neededid%>'/>   
 
                 <input type="submit" value="Change Picture" />

@@ -7,8 +7,44 @@ the reason why i did not do this in a command is the difficulty i had when tryin
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
+<%@ page import="java.io.*,java.sql.*,java.util.zip.*" %>
 <%
-    //Setting up connection
+ 
+String saveFile="";
+String contentType = request.getContentType();
+if((contentType != null)&&(contentType.indexOf("multipart/form-data") >= 0)){
+DataInputStream in = new DataInputStream(request.getInputStream());
+int formDataLength = request.getContentLength();
+byte dataBytes[] = new byte[formDataLength];
+int byteRead = 0;
+int totalBytesRead = 0;
+while(totalBytesRead < formDataLength){
+byteRead = in.read(dataBytes, totalBytesRead,formDataLength);
+totalBytesRead += byteRead;
+}
+String file = new String(dataBytes);
+saveFile = file.substring(file.indexOf("filename=\"") + 10);
+saveFile = saveFile.substring(0, saveFile.indexOf("\n"));
+saveFile = saveFile.substring(saveFile.lastIndexOf("\\") + 1,saveFile.indexOf("\""));
+int lastIndex = contentType.lastIndexOf("=");
+String boundary = contentType.substring(lastIndex + 1,contentType.length());
+int pos;
+pos = file.indexOf("filename=\"");
+pos = file.indexOf("\n", pos) + 1;
+pos = file.indexOf("\n", pos) + 1;
+pos = file.indexOf("\n", pos) + 1;
+int boundaryLocation = file.indexOf(boundary, pos) - 4;
+int startPos = ((file.substring(0, pos)).getBytes()).length;
+int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
+File ff = new File("Images/"+saveFile);
+FileOutputStream fileOut = new FileOutputStream(ff);
+fileOut.write(dataBytes, startPos, (endPos - startPos));
+fileOut.flush();
+fileOut.close();
+%><br><table border="2"><tr><td><b>You have successfully upload the file:</b>
+<%out.println(saveFile);%></td></tr></table>
+<%
+           //Setting up connection
  String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/swgw";
         String username = "root";
@@ -22,44 +58,21 @@ the reason why i did not do this in a command is the difficulty i had when tryin
             System.exit(1);
         } catch (SQLException ex2) {
             System.out.println("Connection failed " + ex2.getMessage());
-        }   
+        } 
     
     
-//geting current user Id    
-int img_id = Integer.parseInt(request.getParameter("your_id"));
-//Sql for getting image back and formating the stored blob into a readable image;
-ResultSet rs = null;
+    
 PreparedStatement pstmt = null;
-OutputStream oImage;
-try {
-pstmt = con.prepareStatement("Select photo from users where userID = ?");
-pstmt.setInt(1, img_id);
-rs = pstmt.executeQuery();
-    if(rs.next()) {
-        byte barray[] = rs.getBytes(1);
-        response.setContentType("image/gif");
-        oImage=response.getOutputStream();
-        oImage.write(barray);
-        oImage.flush();
-        oImage.close();
-    }
+pstmt = con.prepareStatement("insert into users(photo) values(?)");
+pstmt.setString(1, ff.getPath());
+int s = pstmt.executeUpdate();
+if(s>0){
+System.out.println("Uploaded successfully !");
 }
-catch(Exception ex){
-    //ex.printStackTrace();
-}finally {
-    try{
-    if(con!=null)
-       con.close();
-    }catch(Exception ex){
-       // ex.printStackTrace();
-    }
+else{
+System.out.println("Error!");
+}
 }
 
 
-
-
-        
-       
-    
 %>
-

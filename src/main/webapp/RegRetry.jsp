@@ -15,14 +15,16 @@ Authors Aleks, Ben
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <title>Try-Again</title>
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
      <%@ include file="Includes/Slideshow.php" %>
     <body>
+        <script src="Includes/CommonValidation.js"></script>
     <div id="wrapper"> 
         <header>
         <h1>Try-Again</h1>
        <%@ include file="Includes/nav.jsp" %>
         </header>
+   
         <article>
         <%
             Object Value = session.getAttribute("Complexity");
@@ -34,26 +36,25 @@ Authors Aleks, Ben
             %>
             
             
-            <form action="FrontController" method="post">
-                <h3>
-                The following problem seems to have happened during your registration :  <%=(SecurityMeassage)%>.
-                </h3>
-                Username  : 
-                <br />
-                <input name="userName" size=30 type="text" maxlength="20" placeholder="Username" required/>
+            <form name="reg" action="FrontController" method="post" onsubmit="return validateForm();">
+                <h3>SIGN-UP NOW</h3>
                 
-                Password  :  
-                <br />
-                <input name="password" size=30 type="password" placeholder="Password" required/>
+                Username  :  <input name="userName" id="txtUsername" size=30 type="text" maxlength="20" placeholder="Username"  /><span id="namelocation" style="color:red"></span><br>  
                 
-                Email  : 
-                <br />
-                <input name="email" size=30 type="text" maxlength="30" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
-                <input type="submit" value="Register" />
+                
+                Password  : <input name="password" id="txtPassword" size=30 type="password" placeholder="Password" /><span id="passwordlocation" style="color:red"></span><br>
+                Re-Enter Password: <input name="password2" id="txtConfirmPassword" size=30 type="password" placeholder="Re-Enter Password" /><span id="passwordlocation2" style="color:red"></span><br>
+                
+                
+               <!--[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$-->
+                Email  : <span><input name="email" size=30 type="email" maxlength="30" placeholder="Email" /><span id="emaillocation" style="color:red"></span><br>
+                
+                
+                
+                <input type="submit" id="btnSubmit" value="Register" />
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="register" />
-                 <a href="registration.jsp" class="button">Back to Form</a>
-                 <a href="index.jsp" class="button">Back to index</a>
+                
             </form>
             
             

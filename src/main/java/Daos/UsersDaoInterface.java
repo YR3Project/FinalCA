@@ -102,4 +102,10 @@ public interface UsersDaoInterface {
     
     
     public ArrayList<Users>GetAllUsers();
+    /**
+     * 
+     * @param id
+     * return Path to profile Picture
+     */
+    public String GetPicPath(int id);
 }
