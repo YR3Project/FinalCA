@@ -1,0 +1,79 @@
+#navcontainer ul
+{
+list-style-type: none;
+}
+
+
+#navcontainer ul li
+{
+float: left;
+position: relative;
+}
+
+#navcontainer ul
+{
+padding-left: 0;
+margin-left: 0;
+background-color: #282828;
+color: red;
+float: left;
+width: 100%;
+font-family: arial, helvetica, sans-serif;
+}
+
+#navcontainer ul li { display: inline; }
+
+#navcontainer ul li a
+{
+padding: 0.2em 3em;
+background-color: #282828;
+color: white;
+text-decoration: none;
+float: left;
+
+}
+
+#navcontainer ul li a:hover
+{
+background-color: #F60018;
+color: #FFFFFF;
+}
+
+#navcontainer ul li ul
+{
+display: none;
+}
+
+
+#navcontainer ul li:hover ul
+{
+display:block;
+position: absolute;
+width:167px;
+}  
+
+#navcontainer ul li ul li
+{
+ padding: 0.25em;
+}
+/*This creates a slow Highligthing effect when hovering over a link */
+a:hover {
+    color:#FFFFFF;
+    background:#666666;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+} 
+a:active {
+    color:#7E07A9;
+    background:#FF4500;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
