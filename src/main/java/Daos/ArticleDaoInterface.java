@@ -59,5 +59,11 @@ public interface ArticleDaoInterface {
      * @return A boolean to show whether or not the article was removed
      */
     public boolean deleteArticle(int articleID);
+    /**
+     * 
+     * @param id
+     * return Path to article Picture
+     */
+    public String GetPicPath(int id);
     
 }
