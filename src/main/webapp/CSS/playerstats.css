@@ -1,0 +1,14 @@
+#champ2, #champ, #champ3
+{
+    padding-top: .8em;
+    padding-bottom: .8em;
+}
+
+.loss, .damageTaken
+{
+    color:red;
+}
+.win, .damageDealt
+{
+    color:#66ff66
+}

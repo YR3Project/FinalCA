@@ -9,19 +9,19 @@ package LeagueAPI;
  *
  * @author PC
  */
-public class Champion {
-    protected String title;
-    protected String name;
-    
-    public Champion() {
+public class Player {
+    private int summonerID;
+    private String name;
+
+    public Player() {
     }
 
-    public String getTitle() {
-        return title;
+    public int getSummonerID() {
+        return summonerID;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSummonerID(int summonerID) {
+        this.summonerID = summonerID;
     }
 
     public String getName() {
@@ -31,8 +31,4 @@ public class Champion {
     public void setName(String name) {
         this.name = name;
     }
-
-    
-    
-    
 }

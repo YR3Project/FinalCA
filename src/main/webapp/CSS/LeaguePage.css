@@ -1,0 +1,28 @@
+ #inputName
+{
+    margin-top: 1em;
+    margin-bottom: .5em;
+    padding-left: .5em;
+}
+#look-up
+{
+    margin-left: 15em;
+}
+#submitLeague
+{
+    color:red;
+    padding-left: .1em;
+    padding-right: .1em;
+    padding-bottom: .1em;
+    padding-top: .1em;
+    margin-left: 5em;
+}
+#leagueName, #leagueRegion
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}

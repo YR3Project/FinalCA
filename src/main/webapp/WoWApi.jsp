@@ -38,6 +38,9 @@
             String [] races = {"0", "Human", "Orc", "Dwarf", "Night Elf", "Undead", "6", "Gnome", "8", "Goblin", "Blood Elf", "Draenei", "12", "13", "14", "15", "", "", "", "", "", "", "Worgen", "", "", "Pandaren"};
             String [] classes = {"Warlock", "Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Death Knight", "Shaman", "Mage", "", "Monk", "Druid", "Demon Hunter"};
             //String url = "http://render-api-eu.worldofwarcraft.com/static-render/" + character.getThumbnail();
+            RootObject rItems = new RootObject();
+            CharacterItem charItems = rItems.getItems();
+            
             %>
             
             
@@ -48,7 +51,7 @@
             <p> </p>
             <p><%=genderArray[gender]%></p>
             <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
-                
+            <p>ItemLvl<%=charItems.getAvgLvl()%></p>    
                 
             <%@ include file="Includes/footer.jsp" %>
         </div>
