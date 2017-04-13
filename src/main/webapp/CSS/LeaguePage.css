@@ -4,10 +4,7 @@
     margin-bottom: .5em;
     padding-left: .5em;
 }
-#look-up
-{
-    margin-left: 15em;
-}
+
 #submitLeague
 {
     color:red;
@@ -25,4 +22,8 @@
     padding-right: .5em;
     padding-top: .5em;
     padding-bottom: .5em;
+}
+#namebox
+{
+     color: blue;
 }

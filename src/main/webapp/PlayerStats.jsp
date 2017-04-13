@@ -16,7 +16,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         <link href="CSS/playerstats.css" rel="stylesheet" type="text/css"/>
-        <script src="Includes/KD.js"></script>
+        
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
         <script>
             
@@ -164,15 +164,7 @@
                     
                     
             
-                Users successUser2 = new Users();
-                Object Value4 = session.getAttribute("CurrentUser");
-                if (Value4 != null) 
-                {
-                    successUser2 = (Users) Value4;
-                    int a2 = successUser2.getAdmin();
-                    if (a2 != 0) 
-                    {
-                        int userid = successUser2.getUserID();
+                
             %>
         <article>
             <section>
@@ -217,9 +209,6 @@
         </article>
         </div>
                 <%@ include file="Includes/footer.jsp" %>
-            <%
-                    }
-                }
-            %>
+            
     </body>
 </html>
