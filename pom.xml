@@ -25,7 +25,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
         </dependency>
-        
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -75,6 +79,11 @@
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-gmail</artifactId>
             <version>v1-rev61-1.22.0</version>
+        </dependency>
+        <dependency>
+            <groupId>d</groupId>
+            <artifactId>d</artifactId>
+            <version>d</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
