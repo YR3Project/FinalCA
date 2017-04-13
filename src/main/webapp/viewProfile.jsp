@@ -45,7 +45,7 @@
         <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
         
            
-            <a href='ChangePic.jsp' class="button">Change profile Picture</a>
+            <a href='ChangeProfilePic.jsp' class="button">Change profile Picture</a>
             
              
              

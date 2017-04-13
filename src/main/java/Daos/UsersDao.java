@@ -602,7 +602,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
               pic = rs.getString("photo");
             }
         }catch (SQLException e) {
-            System.out.println("Exception occured in the GetAuthorByID() method: " + e.getMessage());
+            System.out.println("Exception occured in the GetPicPath() method: " + e.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -615,7 +615,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
                     freeConnection(con);
                 }
             } catch (SQLException e) {
-                System.out.println("Exception occured in the finally section of the GetAuthorByID() method: " + e.getMessage());
+                System.out.println("Exception occured in the finally section of the GetPicPath() method: " + e.getMessage());
             }
         }
         

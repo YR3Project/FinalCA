@@ -1,63 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
 
-https://www.tutorialspoint.com/servlets/servlets-file-uploading.htm
- */
-package Servlet;
+package Commands;
 
 import java.io.File;
-import java.io.FilePermission;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
- 
-@WebServlet("/uploadServlet")
-@MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
-public class FileUploadDBServlet extends HttpServlet {
-    /**
+
+/**
+ *
+ * @author ben
+ */
+public class ProfilePicCommand implements Command {
+     /**
      * Name of the directory where uploaded files will be saved, relative to
      * the web application directory.
      */
     private static final String SAVE_DIR = "Profiles";
-    FilePermission permission = new FilePermission("C:\\xampp\\tomcat\\temp", "write");
+
      
     // database connection settings
     private final String dbURL = "jdbc:mysql://localhost:3306/swgw";
     private final String dbUser = "root";
     private final String dbPass = "";
-    
-    
-    /**
-     * handles file upload
-     * @param request
-     * @param response
-     * @throws javax.servlet.ServletException
-     * @throws java.io.IOException
-     */
+
     @Override
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+
+    
         // gets absolute path of the web application
         String appPath = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\webapp\\Images";
         // constructs path of the directory to save uploaded file
         String savePath = appPath + File.separator + SAVE_DIR;
-        /*
-        String dataPath = "Images\\";
-        String
-         */
+
         // creates the save directory if it does not exists
         File fileSaveDir = new File(savePath);
         if (!fileSaveDir.exists()) {
@@ -79,12 +63,15 @@ public class FileUploadDBServlet extends HttpServlet {
        }catch(StringIndexOutOfBoundsException ex)
        {
            
-       }
+       } catch (IOException ex) {
+            Logger.getLogger(ProfilePicCommand.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(ProfilePicCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
    HttpSession session = request.getSession();
         String forwardToJsp = "";
+
         
-        InputStream inputStream = null; // input stream of the upload file
-         
         // obtains the upload file part in this multipart request
         int id = Integer.parseInt(ID);
 
@@ -102,7 +89,7 @@ public class FileUploadDBServlet extends HttpServlet {
             PreparedStatement statement = conn.prepareStatement(sql);
 
            
-                // fetches input stream of the upload file for the blob column and the id to point where to put it
+                // fetches input FilePath for the  column and the id to point where to put it
                 statement.setString(1, datapath);
                 statement.setInt(2, id);
 
@@ -137,7 +124,7 @@ public class FileUploadDBServlet extends HttpServlet {
                 }
             }
         }
-        response.sendRedirect(forwardToJsp);
+        return forwardToJsp;
     }
 
     /**
@@ -153,4 +140,5 @@ public class FileUploadDBServlet extends HttpServlet {
         }
         return "";
     }
-}
+    }
+

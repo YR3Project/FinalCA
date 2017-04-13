@@ -27,6 +27,10 @@ public class CommandFactory {
                return new DeleteArticleCommand();
             case "delComm":
                return new DeleteCommentCommand();
+            case "ProPic":
+                return new ProfilePicCommand();
+            case "ArtPic":
+                return new ArticlePicCommand();
            default:
                break;
        }

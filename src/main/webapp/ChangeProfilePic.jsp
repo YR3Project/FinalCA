@@ -32,14 +32,14 @@
             %>
             <p>Profile Picture Upload</p>
             <div class="Pic-Form">
-            <form action="uploadServlet" method="post" enctype="multipart/form-data">
+            <form action="FrontController" method="post" enctype="multipart/form-data">
                 
                 <td>Portrait Photo: <input type="file" name="file" size="50"/>
                 <input type='hidden'  name='id' value='<%=neededid%>'/>   
 
                 <input type="submit" value="Change Picture" />
                 <!-- Include a hidden field to identify what the user wants to do -->
-                <input type="hidden" name ="action" value="ChangePic" />
+                <input type="hidden" name="action" value="ProPic" />
             </form>
             </div>
             <%
