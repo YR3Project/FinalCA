@@ -6,8 +6,9 @@
 package LeagueAPI;
 
 import java.io.*;
-import com.google.gson.*;
+
 import java.net.*;
+import javax.json.*;
 
 
 /**
@@ -15,23 +16,36 @@ import java.net.*;
  * @author Chris
  */
 public class RootObject {
-   public Champion getChamp() throws MalformedURLException, IOException
-   {
-       URL url = new URL("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/23?api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
    
+   public Master getMaster() throws MalformedURLException, IOException
+   {
+       URL url = new URL("https://euw.api.riotgames.com/api/lol/EUW/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+       
        try(InputStream in = url.openStream();
                BufferedReader reader = new BufferedReader(
                new InputStreamReader(in, "UTF-8")))
-       {
-           Gson gson = new GsonBuilder().create();
-           
-           
-           Champion myObject = gson.fromJson(reader, Champion.class);
-           
-           myObject.getName();
-           
-           return myObject;
-       }
-   
-   }
+        {
+            Master master = new Master();
+            JsonReader jsonReader = Json.createReader(in);
+            
+            JsonObject jsonObject = jsonReader.readObject();
+            
+            jsonReader.close();
+            in.close();
+            
+            String jsonArrayTest = null;
+            for(int i = 0; i < 10; i++)
+            {
+                jsonArrayTest = jsonObject.getJsonArray("entries").getJsonObject(i).getString("playerOrTeamName");
+                master.setPlayerName(jsonArrayTest);
+            }
+            
+            master.getPlayerName();
+            master.getName();
+            master.getTier();
+            
+            return master;
+        }    
+    }
 }
+

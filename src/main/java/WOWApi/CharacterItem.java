@@ -9,12 +9,12 @@ package WOWApi;
  *
  * @author Chris
  */
-public class Item {
+public class CharacterItem {
     protected int id;
-    protected String desc;
+    protected int avgLvl;
     protected String name;
 
-    public Item() {
+    public CharacterItem() {
     }
 
     public int getId() {
@@ -25,13 +25,7 @@ public class Item {
         this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+    
 
     public String getName() {
         return name;
@@ -40,5 +34,12 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
-    
+    public int getAvgLvl()
+    {
+        return avgLvl;
+    }
+    public void setLvl(int avgLvl)
+    {
+        this.avgLvl = avgLvl;
+    }
 }

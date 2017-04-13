@@ -74,18 +74,18 @@ public class RootObject {
         
     }
     
-    public Item getItems() throws MalformedURLException, IOException
+    public CharacterItem getItems() throws MalformedURLException, IOException
     {
-        URL url = new URL("https://us.api.battle.net/wow/item/18803?locale=en_US&apikey=5vqst2ugb8xbbzyyhq3u5uebr3g9q6a2");
+        URL url = new URL("https://eu.api.battle.net/wow/character/Silvermoon/AleksMtr?fields=items&locale=en_GB&apikey=5vqst2ugb8xbbzyyhq3u5uebr3g9q6a2");
         try (InputStream in = url.openStream(); 
                 BufferedReader reader = new BufferedReader
         (new InputStreamReader(in, "UTF-8")))
         {
             Gson gson = new GsonBuilder().create();
             
-            Item myObject = gson.fromJson(reader, Item.class);
+            CharacterItem myObject = gson.fromJson(reader, CharacterItem.class);
             
-            myObject.getDesc();
+            myObject.getAvgLvl();
             myObject.getId();
            
             myObject.getName();
@@ -94,7 +94,7 @@ public class RootObject {
     }
     public CharacterProfile getChar(String realm, String name) throws MalformedURLException, IOException
     {
-        URL url = new URL("https://eu.api.battle.net/wow/character/"+realm+"/"+name+"?locale=en_GB&apikey=q4t5bsyufrehzx4a98wazgax79tbhbur");
+        URL url = new URL("https://eu.api.battle.net/wow/character/"+realm+"/"+name+"?fields=item&locale=en_GB&apikey=q4t5bsyufrehzx4a98wazgax79tbhbur");
         try (InputStream in = url.openStream(); 
                 BufferedReader reader = new BufferedReader
         (new InputStreamReader(in, "UTF-8")))
@@ -111,6 +111,7 @@ public class RootObject {
             myObject.getLevel();
             myObject.getGender();
             myObject.getFaction();
+            myObject.getAvglvl();
             
             return myObject;
             

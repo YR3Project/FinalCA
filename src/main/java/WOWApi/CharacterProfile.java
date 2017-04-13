@@ -21,10 +21,28 @@ public class CharacterProfile {
     protected int achPoints;
     protected int faction;
     protected int totalHonorableKills;
-
+    protected String items;
+    protected int avglvl;
+    
     public CharacterProfile() {
     }
-
+    
+    public String getItems()
+    {
+        return items;
+    }
+    public void setItems(String items)
+    {
+        this.items = items;
+    }
+    public int getAvglvl()
+    {
+        return avglvl;
+    }
+    public void setAvglvl(int avglvl)
+    {
+        this.avglvl = avglvl;
+    }
     public String getName() {
         return name;
     }

@@ -298,7 +298,11 @@ MainForms{
         display: none
     }
 
-
+#masterladder
+{
+    font-size: 1em;
+    padding: auto;
+}
 /* Mobile */
 @media only screen 
   and (min-device-width: 320px) 

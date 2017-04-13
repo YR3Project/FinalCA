@@ -28,7 +28,8 @@ public class CharacterDes implements JsonDeserializer<CharacterProfile>{
         final int points = jsonObject.get("achievementPoints").getAsInt();
         final int faction = jsonObject.get("faction").getAsInt();
         final int totalHonorableKills = jsonObject.get("totalHonorableKills").getAsInt();
-        
+        final JsonObject items = jsonObject.get("items").getAsJsonObject();
+        final int avglvl = items.get("averageItemLevel").getAsInt();
         
         
         CharacterProfile charc = new CharacterProfile();
@@ -44,6 +45,7 @@ public class CharacterDes implements JsonDeserializer<CharacterProfile>{
         charc.setName(name);
         charc.setRace(race);
         charc.setTotalHonorableKills(totalHonorableKills);
+        charc.setAvglvl(avglvl);
         
         return charc;
     }
