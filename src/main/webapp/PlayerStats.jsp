@@ -101,6 +101,11 @@
                     //player = po.getPlayer(name);
                     player = po.getPlayer(name, region);
                     int id = player.getSummonerID();
+                    //Gets the player tier division and points
+                    
+                    PlayerRank pr = new PlayerRank();
+                    PlayerRankObject pro = new PlayerRankObject();
+                    pr = pro.getPlayerRank(Integer.toString(id));
                     
                     //Get the champions name
                     stats = ro.getRankedStats(id, region);
@@ -168,8 +173,14 @@
             %>
         <article>
             <section>
-                
+                <h2>Your rank</h2>
                 <p>Player name: <%=player.getName()%>
+                <p>Player rank: <%=pr.getTierName()%> <%=pr.getTier()%> <%=pr.getDivision()%>
+                <p>League Points: <%=pr.getLeaguePoints()%>
+                <p>Player Wins: <%=pr.getWins()%>
+                <p>Player Losses: <%=pr.getLosses()%>
+                
+                
                 <h2>3 most recent champions played</h2>
                 <div id="champ">
                     <p>Champion name: <%=champ.getName()%> <%=champ.getTitle()%>
