@@ -1,6 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Dtos.*"%>
 <%@page import="Daos.*"%>
+<%@page import="LeagueAPI.*"%>
+<%@page import="WOWApi.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java"%>
 <!DOCTYPE html>
@@ -39,6 +41,7 @@
                 <li><a href="viewProfile.jsp">View your own profile</a></li>
                 <li><a href="WoWPage.jsp">World of Warcraft</a></li>
                 <li><a href="LeaguePage.jsp">League of Legends</a></li>
+                <li><a href="BattlePage.jsp">Battle System</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
