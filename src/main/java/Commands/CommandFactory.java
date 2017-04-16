@@ -31,6 +31,8 @@ public class CommandFactory {
                 return new ProfilePicCommand();
             case "ArtPic":
                 return new ArticlePicCommand();
+            case "battle":
+                return new BattleScoreCommand();
            default:
                break;
        }

@@ -18,10 +18,10 @@ public interface BattleSystemDaoInterface {
     
     /**
      * This method gets the champions value 
-     * @param id
-     * @return The champions value based on the ID 
+     * @param name
+     * @return The champions value based on the name
      */
-    public int getChampValue(int id);
+    public int getChampValue(String name);
     
     /**
      * This method gets the champions position or role
@@ -36,5 +36,6 @@ public interface BattleSystemDaoInterface {
      * @return The champions from a certain position 
      */
     public ArrayList<BattleSystem> getChampsBasedOnPosition(String position);
+    
     
 }

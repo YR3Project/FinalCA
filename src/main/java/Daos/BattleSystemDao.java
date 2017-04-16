@@ -56,7 +56,7 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
     }
 
     @Override
-    public int getChampValue(int id) {
+    public int getChampValue(String name) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -64,9 +64,9 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
         try
         {
             con = getConnection();
-            String query = "Select champValue from Battle WHERE ChampID = ?";
+            String query = "Select champValue from Battle WHERE ChampName = ?";
             ps = con.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setString(1, name);
             rs = ps.executeQuery();
             while(rs.next())
             {
@@ -181,4 +181,6 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
         
         return battle;
     }
+
+    
 }
