@@ -106,8 +106,8 @@ public class ForgotCommand implements Command{
                             UsersDao userDao = new UsersDao("swgw");
                         
                                
-                       boolean Action = userDao.ChangePassword(NewPassword, Email);
-                       boolean SaltAction = userDao.ChangePassword(NewPassword, Email);
+                       boolean Action = userDao.ForgotPassword(NewPassword, UserName);
+                       boolean SaltAction = userDao.ForgotPassSalt(newsalt, UserName);
                        
                        if(Action == true && SaltAction == true){
                            DateFormat df = new SimpleDateFormat("dd/MM/yy");

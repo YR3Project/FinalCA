@@ -19,63 +19,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         super(databaseName);
     }
 
-   /*
-    public int RegisterUser(Users u) {
-        Connection con = null;
-        PreparedStatement ps = null;
-        int rowsAffected = 0;
-        
-        try{
-            con = getConnection();
-
-            String query = "Insert into users (username, email, password, admin, salt, Created, Due) values(?,?,?,?,?,?,?)";
-            ps = con.prepareStatement(query);
-            
-            ps.setString(1, u.getUserName());
-            ps.setString(2, u.getEmail());
-            ps.setString(3, u.getPassword());
-            ps.setInt(4, 0);   
-            ps.setBytes(5, u.getSalt());
-            ps.setString(6, u.getCreated());
-            ps.setString(7, u.getDue());
-            
-                   
-            rowsAffected = ps.executeUpdate(); 
-            
-        }catch (SQLException e) {
-            System.out.println("Exception occured in the RegistorUser() method: " + e.getMessage());
-            rowsAffected = -1;
-        } finally {
-            try {
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    freeConnection(con);
-                }
-            } catch (SQLException e) {
-                System.out.println("Exception occured in the finally section of the RegistorUser() method");
-                e.getMessage();
-                
-            }
-        }
-        return rowsAffected;
-    }
-    */
-   /**
-     * @param uname
-     * @param pass
-     * @param fname
-     * @param lname
-     * @param addre
-     * @param email
-     * @param Created
-     * @param Due
-     * @return true or false
-     */
-    
-    
-
+ 
     /**
      * @param name
      * @param password
@@ -377,10 +321,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         }
     }
 
-    @Override
-    public boolean AddProfilePic(InputStream photo, int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public boolean ChangePassword(String newpass, String oldpass) {
@@ -622,7 +563,87 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         return pic;
     }
 
+    @Override
+    public boolean ForgotPassword(String newpass, String name) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET password = ? Where username = ? ";
+            ps = con.prepareStatement(query);
+            ps.setString(1, newpass);
+            ps.setString(2, name);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ForgotPassword method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ForgotPassword method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
+
+    @Override
+    public boolean ForgotPassSalt(byte[] newsalt, String name) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "UPDATE users SET Salt = ? Where username = ? ";
+            ps = con.prepareStatement(query);
+            ps.setBytes(1, newsalt);
+            ps.setString(2, name);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ForgotPassSalt method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ForgotPassSalt method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     }
 
 

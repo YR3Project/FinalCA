@@ -34,11 +34,11 @@
                 
                     <form action="PlayerStats.jsp" method="get" id="Article">
                         
-                        Name: <input name="name" id="leagueName" size=30 type="text" /> </span>
+                        Name: <input name="name" id="leagueName" size=30 type="text" /> 
                         <br />
                         <br />
                         
-                        Region: <input name="region" id="leagueRegion" size=30 type="text" /> </span>
+                        Region: <input name="region" id="leagueRegion" size=30 type="text" /> 
                         <br />
                             <input type="submit" value="View Your Profile" id="submitLeague"/>
                         

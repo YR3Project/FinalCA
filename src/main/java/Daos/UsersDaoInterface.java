@@ -62,14 +62,7 @@ public interface UsersDaoInterface {
      public boolean EditProfile(String username, String email, int id);
     //allows the user to edit their profile}
      
-      /**
-     * @param photo
-     * @param id
-     * @return true or false based on whether the profile picture was uploaded
-     * Successfully to the database
-     **/
-     public boolean AddProfilePic(InputStream photo, int id);
-     //allow user to give themselves a custom picture to use on there account.
+
      
     /**
      * @param newpass
@@ -84,7 +77,21 @@ public interface UsersDaoInterface {
     @return replaces the recorded byte[] in the database when user changes there password
     */
     public boolean ChangeSalt(byte[] newsalt, byte[] oldsalt);
-
+    
+    /**
+    @param newpass
+    @param name
+     @return true or false based on if the password has been changed
+    */
+    public boolean ForgotPassword(String newpass, String name);
+    
+    /**
+    @param newsalt
+    @param name
+    @return replaces the recorded byte[] in the database when user changes there password
+    */
+    public boolean ForgotPassSalt(byte[] newsalt, String name);
+    
     /**
     @param Username 
     @param cdate 
