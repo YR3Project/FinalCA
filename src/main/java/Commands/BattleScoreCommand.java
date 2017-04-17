@@ -17,13 +17,14 @@ public class BattleScoreCommand implements Command{
         String forwardToJsp = "";
         HttpSession session = request.getSession();
         //Gets the names of the champions selected
-        String topName = request.getParameter("topName");
-        String jungName = request.getParameter("jungName");
-        String midName = request.getParameter("midName");
-        String adcName = request.getParameter("adcName");
-        String supportName = request.getParameter("supportName");
+        String topName = request.getParameter("topChamp");
+        String jungName = request.getParameter("jungChamp");
+        String midName = request.getParameter("midChamp");
+        String adcName = request.getParameter("adcChamp");
+        String supportName = request.getParameter("supportChamp");
         
-        
+        if(topName != null && jungName != null && midName != null && adcName != null && supportName != null)
+        {
             try
             {
                 BattleSystemDao bDao = new BattleSystemDao("swgw");
@@ -36,9 +37,9 @@ public class BattleScoreCommand implements Command{
                 int adcValue = bDao.getChampValue(adcName);
                 int supportValue = bDao.getChampValue(supportName);
                 //Add the values up and divide by 5
-                int avg = (topValue + jungValue + midValue + adcValue + supportValue)/5;
+                double avg = (topValue + jungValue + midValue + adcValue + supportValue)/5;
 
-                if(avg == 0)
+                if(avg > 0)
                 {
                     session.setAttribute("battleSuccess", avg);
                     forwardToJsp = "BattleResult.jsp";
@@ -49,7 +50,13 @@ public class BattleScoreCommand implements Command{
                 forwardToJsp = "error.jsp";
                 session.setAttribute("errorMessage" , "There was an error with the results");
             }
+        }
         
+        else
+        {
+            session.setAttribute("errorMessage", "There was an error with the Champions selected");
+            forwardToJsp = "error.jsp";
+        }
         return forwardToJsp;
     }
     

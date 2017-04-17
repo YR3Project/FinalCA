@@ -29,17 +29,16 @@
                 
                 
                  <%
-                    RootObject r = new RootObject();
-                    //String champID = request.getParameter("champID");
+                    
                     
                     RankedStats stats = new RankedStats();
                     RankedObject ro = new RankedObject();
                     
                     PlayerObject po = new PlayerObject();
                     Player player = new Player();
-                    player = po.getPlayer("chips97");
+                   
                     int id = player.getSummonerID();
-                    stats = ro.getRankedStats(id);
+                    
                     
                     ServerStatus status = new ServerStatus();
                     ServerObject so = new ServerObject();

@@ -23,13 +23,13 @@
             {
                 Users successUser = (Users) Value2;
                 BattleSystem battlesystem = new BattleSystem();
-                int battlesystem2 = (Integer) Battle;
-                BattleSystemDao bDao = new BattleSystemDao();
+                double battlesystem2 = (Double) Battle;
+                double result = Math.ceil(battlesystem2);
                 
                 
         %>
-        <%=battlesystem.getChampName()%>
-            <% out.println(battlesystem2); %>
+        
+            <% out.println(result); %>
         <%
             }
         %>
