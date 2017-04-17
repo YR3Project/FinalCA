@@ -55,15 +55,7 @@
         
             <div style="overflow-x:auto;">
         <table>
-            <tr><%
-                    if(isAdmin!=0){
-                    %>
-                    
-                    <th>ID</th>
-                
-                    <%
-                    }
-                    %>
+            <tr>
                     <th>UserName</th>
                     <th>Email</th>
             </tr>

@@ -35,94 +35,31 @@ public class ForgotCommand implements Command{
         String forwardToJsp = "";
                 HttpSession session = request.getSession();
                 
-                String UserName = request.getParameter("name");
-                String Email = request.getParameter("email");
+                String UserName = request.getParameter("userName");
 
-                String NewPassword = request.getParameter("newpass");
-                String comPassword = request.getParameter("compass");
                 
-                if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals(""))
+                if(UserName.equals(""))
                 {
                     String msg = "you cannot leave any of the entries empty";
                     session.setAttribute("ChangeError", msg);
                     forwardToJsp = "ChangeError.jsp";
                 }
-                else if(!(NewPassword.equals(comPassword)))
-                {
-                 String msg = "Your newPassword must be the same for confirmPassword";
-                 session.setAttribute("ChangeError", msg);
-                 forwardToJsp = "ChangeError.jsp";
-                }
-                else{
+                else if(!(UserName.equals(""))){
                 
-                    try
-                    {
-                        boolean Structure = NewPassword.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
-                       
-                       
-                        //Check that it doesn't contain AND or NOT removed lower case ones 
-                        //since where cause problems with passwords like LegendandStrike45 as a example. 
-                        boolean noConditions = !(NewPassword.contains("AND") || NewPassword.contains("NOT")); //|| NewPassword.contains("not") || NewPassword.contains("and"))
-                        boolean noUsername = !(NewPassword.contains(UserName));
-                        
-                        if(!Structure){
-                            String error = "Your NewPassword must be atleast more than 8 in Length, one Digit, "
-                                    + "one Upper-Case, one Lower-case and no Spaces";
-                            session.setAttribute("ChangeFail", error);
-                            forwardToJsp = "ChangePassword.jsp";
-                            }
-                        
-                        if(!noConditions){
-                            String error = "Your NewPassword must not contain any conditions e.g AND/OR";
-                            session.setAttribute("ChangeFail", error);
-                            forwardToJsp = "ChangePassword.jsp";
-                            }
-                        
-                        if(!noUsername){
-                            String error = "Your NewPassword must not contain Your UserName";
-                            session.setAttribute("ChangeFail", error);
-                            forwardToJsp = "ChangePassword.jsp";
-                            }
-                        
-                       
-                       if(Structure && noConditions && noUsername)
-                        {
-                           byte[] newsalt = getSalt();
-                            
-                                MessageDigest md = MessageDigest.getInstance("SHA-512");
-                                md.update(newsalt);
-                                byte[] bytes = md.digest(NewPassword.getBytes());
-			
-                                StringBuilder sb1 = new StringBuilder();
-			
-                                for(int i=0; i< bytes.length ;i++)
-                                {
-                                    sb1.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-                                }
-                                String newgeneratedPassword = sb1.toString();
-                                
-                                
-                            
-                            UsersDao userDao = new UsersDao("swgw");
-                        
-                               
-                       boolean Action = userDao.ForgotPassword(NewPassword, UserName);
-                       boolean SaltAction = userDao.ForgotPassSalt(newsalt, UserName);
-                       
-                       if(Action == true && SaltAction == true){
-                           DateFormat df = new SimpleDateFormat("dd/MM/yy");
-                           Date createdate = new Date();
-                           Date expiredate = new Date();
-                           Calendar c = Calendar.getInstance(); 
-                                c.setTime(createdate); 
-                                c.add(Calendar.DATE, 1);
-                                expiredate = c.getTime();
-                          userDao.ChangeDates(UserName, df.format(createdate), df.format(expiredate));
-                                
-                          session.setAttribute("ChangeSuccess", "Your Password Has been Changed"); 
+                
+                    
+   
+                       UsersDao userDao = new UsersDao("swgw");
+                       String Email = userDao.GetEmail(UserName);
+                      
+                       if(Email != null){
+                           
+                          session.setAttribute("ChangeSuccess", "Check Email To Continue"); 
                           session.removeAttribute("CurrentUser");
-                          
-                          forwardToJsp = "LoginForm.jsp"; 
+                          session.setAttribute("UserName", UserName);
+                          session.setAttribute("Email", Email);
+                          forwardToJsp = "LoginForm.jsp";
+                        try{  
                         String EmailName = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
                         String EmailPassword = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
@@ -142,8 +79,8 @@ public class ForgotCommand implements Command{
                              return new PasswordAuthentication(username, password);
                          }
                      });
+                        
 
-                        try {
 
                                 Message message = new MimeMessage(mailsession);
                                 message.setFrom(new InternetAddress(username));
@@ -151,60 +88,36 @@ public class ForgotCommand implements Command{
                                         InternetAddress.parse(Email));
                                 message.setSubject("Registered Account");
                                 message.setText("Dear New Member,"
-                                        + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps t resovle ths"
-                                        + "Issue" + "\n\n Heres your Newpassword - " + NewPassword);
-
+                                        + "\n\n CLick Link to Recover Account!" );
+                                String content = "<a href='http://localhost:8080/StatwiseGameWiseSite/ChangeForgotPassword.jsp'>ChangePassword.com</a>";
+                                message.setContent(content, "text/html");
                                 Transport.send(message);
 
 
 
                         } catch (MessagingException e) {
                                 throw new RuntimeException(e);
-                        }
+                        }  catch (IOException ex) {
+                               Logger.getLogger(ForgotCommand.class.getName()).log(Level.SEVERE, null, ex);
+                           }
                         
                        }
-                       else if(Action == false && SaltAction == false)
+                       else if(Email == null)
                        {
-                           String msg = "Changing Password";
+                          String msg = "Forgot Password";
                           session.setAttribute("Type", msg);
                           session.setAttribute("AccountFail", UserName);
                           
                           forwardToJsp = "AccountFail.jsp";
                        }
-                    }
-                    }catch (InputMismatchException e)
-                    {
-                        
-                        forwardToJsp = "error.jsp";
-
-                        session.setAttribute("errorMessage", "Text was supplied for parameters is not he right type.");
-                    }
-                    catch (NoSuchAlgorithmException ex) {
-                              forwardToJsp = "error.jsp";
-
-                               session.setAttribute("errorMessage", "Something has gone wrong with hashing your password");
-                           } catch (NoSuchProviderException ex) {
-                                                Logger.getLogger(ChangeCommand.class.getName()).log(Level.SEVERE, null, ex);
-                                    }catch (NullPointerException ex) {
-                                                Logger.getLogger(ChangeCommand.class.getName()).log(Level.SEVERE, null, ex);
-                                    } catch (IOException ex) {
-                Logger.getLogger(ChangeCommand.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    
+                    
                
                     }
          return forwardToJsp;
     }
     
-    private byte[] getSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
-        //Always use a SecureRandom generator
-		SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-		//Create array for salt
-		byte[] salt = new byte[16];
-		//Get a random salt
-		sr.nextBytes(salt);
-		//return salt
-		return salt;
-    }
+   
     
     private static String readFileInputStream(String filename) throws IOException {
         

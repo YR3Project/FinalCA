@@ -57,6 +57,11 @@ public interface UsersDaoInterface {
     for getting name to use in login functions so user can log-in with both email and there name
     */
     
+    public String GetEmail(String name);
+    /*
+    for getting name to use in login functions so user can log-in with both email and there name
+    */
+    
     public String GetAuthorByID(int ID);
     
      public boolean EditProfile(String username, String email, int id);

@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Forgot</title>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
@@ -48,12 +48,13 @@
                 }
                 session.removeAttribute("Expired");
                 session.setAttribute("Expired", "");
-                Users User = new Users();
-               Object grabUser = session.getAttribute("CurrentUser");
-               if(grabUser != null){
-                 User = (Users) grabUser;
-                 String email = User.getEmail();
-                 String Username = User.getUserName();
+                
+               Object grabUseru = session.getAttribute("UserName");
+               Object grabUsere = session.getAttribute("Email");
+               if(grabUseru != null && grabUsere != null){
+                 String Username = (String) grabUseru;
+                 String email = (String) grabUsere;
+
                 %>
             
             <form action="FrontController" method="post">
@@ -62,11 +63,7 @@
                 <input name="name" type="hidden" value="<%=Username%>"/> 
 
                 <input name="email" type="hidden" value="<%=email%>"/> 
-                
-                
-                Old-Password : <input name="oldpass" size=30 type="password" placeholder="Old Password" required/>  
-                <br />
-                
+
                 New-Password : <input name="newpass" size=30 type="password" placeholder="New Password" required/> 
                 <br />
                 
@@ -74,7 +71,7 @@
                 <br />
                 <input type="submit" value="Change Password" />
                 <!-- Include a hidden field to identify what the user wants to do -->
-                <input type="hidden" name ="action" value="forgot" />
+                <input type="hidden" name ="action" value="forgotPassword" />
             </form>
              </article>
             <%@ include file="Includes/footer.jsp" %>
@@ -82,6 +79,7 @@
     </body>
     <%
         }
-        
+        session.removeAttribute("UserName");
+        session.removeAttribute("Email");
         %>
 </html>

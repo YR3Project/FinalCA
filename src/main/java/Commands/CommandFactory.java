@@ -35,6 +35,8 @@ public class CommandFactory {
                 return new BattleScoreCommand();
             case "forgot":
                 return new ForgotCommand();
+            case "forgotPassword":
+                return new ForgotPasswordCommand();
            default:
                break;
        }
