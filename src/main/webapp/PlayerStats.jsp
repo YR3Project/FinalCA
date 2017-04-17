@@ -169,7 +169,8 @@
                     
                     
             
-                
+              if(player != null && stats != null)
+              {
             %>
         <article>
             <section>
@@ -216,8 +217,18 @@
                     <p class="KD">KD Ratio: <span id="KD3"><%=formatter.format(kills3/deaths3)%></span>
                 </div>
             </section>
-                
+                 <%
+                    }
+                    else
+                    {
+                %>
+                    Your profile is unavailable at the moment
+                <%
+                    }
+                %>
         </article>
+               
+                
         </div>
                 <%@ include file="Includes/footer.jsp" %>
             
