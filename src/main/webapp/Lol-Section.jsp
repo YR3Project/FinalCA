@@ -55,10 +55,8 @@
                     
                 %>  
                 
-                <h1><%=stats.getMostDeaths()%></h1>
-                <h1><%=stats.getId()%></h1>
-                <h2><%=status.getName()%></h2>
-                <%=status.getStatus()%>
+                
+                
                 <h2>Challenger Ladder</h2>
                 <table id="challengerladder">
                     <thead>
