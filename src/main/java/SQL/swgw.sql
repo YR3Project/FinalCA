@@ -60,12 +60,13 @@ CREATE TABLE `battle` (
 -- Dumping data for table `battle`
 --
 
-INSERT INTO `battle` (`ChampID`, `ChampName`, `ChampValue`) VALUES
-(1, 'Vi', 52),
-(2, 'Jayce', 54),
-(3, 'Urgot', 42),
-(4, 'Janna', 50),
-(5, 'Viktor', 51);
+INSERT INTO `battle` (`ChampID`, `ChampName`, `ChampValue`, 'Position') VALUES
+(1, 'Vi', 52, 'Jung'),
+(2, 'Jayce', 54, 'Top'),
+(3, 'Urgot', 42, 'ADC'),
+(4, 'Janna', 50, 'Support'),
+(5, 'Viktor', 51, 'Mid'),
+(6, 'Malphite', 48, 'Top');
 
 -- --------------------------------------------------------
 
