@@ -18,7 +18,7 @@
         <link href="CSS/playerstats.css" rel="stylesheet" type="text/css"/>
         
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
-        <script>
+       <!-- <script>
             
             $(function(){
                
@@ -69,7 +69,7 @@
                
                
             });
-        </script>
+        </script>-->
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
@@ -105,7 +105,7 @@
                     
                     PlayerRank pr = new PlayerRank();
                     PlayerRankObject pro = new PlayerRankObject();
-                    pr = pro.getPlayerRank(Integer.toString(id));
+                    pr = pro.getPlayerRank(Integer.toString(id), region);
                     
                     //Get the champions name
                     stats = ro.getRankedStats(id, region);

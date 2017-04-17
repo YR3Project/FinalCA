@@ -10,9 +10,9 @@ import java.util.*;
 import java.net.*;
 import javax.json.*;
 public class PlayerRankObject {
-    public PlayerRank getPlayerRank(String id) throws MalformedURLException, IOException
+    public PlayerRank getPlayerRank(String id, String region) throws MalformedURLException, IOException
     {
-        URL url = new URL("https://euw.api.riotgames.com/api/lol/EUW/v2.5/league/by-summoner/"+ id +"?api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+        URL url = new URL("https://" + region + ".api.riotgames.com/api/lol/" + region +"/v2.5/league/by-summoner/"+ id +"?api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
         
         try(InputStream in = url.openStream();
                BufferedReader reader = new BufferedReader(
