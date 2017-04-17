@@ -1,14 +1,12 @@
-package Commands;
 
+package Commands;
 import Daos.UsersDao;
-import Dtos.Users;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +28,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 //Author Ben
-public class ChangeCommand implements Command{
+public class ForgotCommand implements Command{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -39,11 +37,11 @@ public class ChangeCommand implements Command{
                 
                 String UserName = request.getParameter("name");
                 String Email = request.getParameter("email");
-                String oldPassword = request.getParameter("oldpass");
+
                 String NewPassword = request.getParameter("newpass");
                 String comPassword = request.getParameter("compass");
                 
-                if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals("")|| oldPassword.equals(""))
+                if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals(""))
                 {
                     String msg = "you cannot leave any of the entries empty";
                     session.setAttribute("ChangeError", msg);
@@ -107,23 +105,9 @@ public class ChangeCommand implements Command{
                             
                             UsersDao userDao = new UsersDao("swgw");
                         
-                                byte[] oldsalt = userDao.GetCAlSalt(UserName);
-                            
-                                MessageDigest md2 = MessageDigest.getInstance("SHA-512");
-                                md2.update(oldsalt);
-                                byte[] bytes2 = md2.digest(oldPassword.getBytes());
-			
-                                StringBuilder sb2 = new StringBuilder();
-			
-                                for(int i=0; i< bytes2.length ;i++)
-                                {
-                                    sb2.append(Integer.toString((bytes2[i] & 0xff) + 0x100, 16).substring(1));
-                                }
-                                String oldgeneratedPassword = sb2.toString();
-                        
-                       
-                       boolean Action = userDao.ChangePassword(newgeneratedPassword, oldgeneratedPassword);
-                       boolean SaltAction = userDao.ChangeSalt(newsalt, oldsalt);
+                               
+                       boolean Action = userDao.ChangePassword(NewPassword, Email);
+                       boolean SaltAction = userDao.ChangePassword(NewPassword, Email);
                        
                        if(Action == true && SaltAction == true){
                            DateFormat df = new SimpleDateFormat("dd/MM/yy");
@@ -139,8 +123,8 @@ public class ChangeCommand implements Command{
                           session.removeAttribute("CurrentUser");
                           
                           forwardToJsp = "LoginForm.jsp"; 
-                        String EmailName = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\resources\\EmailName.txt";
-                        String EmailPassword = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\resources\\EmailPassword.txt";
+                        String EmailName = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 

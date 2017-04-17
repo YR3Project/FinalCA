@@ -1,8 +1,11 @@
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Change Password - Form</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
@@ -50,7 +53,7 @@
                if(grabUser != null){
                  User = (Users) grabUser;
                  String email = User.getEmail();
-                String Username = User.getUserName();
+                 String Username = User.getUserName();
                 %>
             
             <form action="FrontController" method="post">
@@ -58,7 +61,8 @@
                 
                 <input name="name" type="hidden" value="<%=Username%>"/> 
 
-                <input name="email" type="hidden" value="<%=email%>"/>
+                <input name="email" type="hidden" value="<%=email%>"/> 
+                
                 
                 Old-Password : <input name="oldpass" size=30 type="password" placeholder="Old Password" required/>  
                 <br />
@@ -70,7 +74,7 @@
                 <br />
                 <input type="submit" value="Change Password" />
                 <!-- Include a hidden field to identify what the user wants to do -->
-                <input type="hidden" name ="action" value="change" />
+                <input type="hidden" name ="action" value="forgot" />
             </form>
              </article>
             <%@ include file="Includes/footer.jsp" %>

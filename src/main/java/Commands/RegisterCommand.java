@@ -7,7 +7,9 @@ package Commands;
 
 import Daos.*;
 import Dtos.*;
-import Mail.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 
 import java.util.InputMismatchException;
@@ -72,6 +74,7 @@ public class RegisterCommand implements Command{
                         //since where cause problems with passwords like LegendandStrike45 as a example. 
                         boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
+                        boolean noSpaces = !(UserName.contains(" "));// No Spaces in username
                         
                         if(UserName.length() < 3){
                              String error = "Your UserName must be atleast more than 2 in Length";
@@ -97,6 +100,14 @@ public class RegisterCommand implements Command{
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
                             }
+                         
+                         if(!noSpaces)
+                         {
+                            String error = "Your Username must not contain Spaces";
+                            session.setAttribute("Complexity", error);
+                            forwardToJsp = "RegRetry.jsp";
+                         }
+                         
 
                         UsersDao userDao = new UsersDao("swgw");
 
@@ -124,7 +135,7 @@ public class RegisterCommand implements Command{
                             }
                             
                         }
-                        if(Structure && noConditions && noUsername && Checkemail == false && Checkname == false)
+                        if(Structure && noConditions && noUsername && noSpaces &&  Checkemail == false && Checkname == false)
                         {
                         byte[] salt = getSalt();
                             
@@ -159,75 +170,43 @@ public class RegisterCommand implements Command{
                           
                   
                           forwardToJsp = "registrationSuccessful.jsp"; 
-                          /*
-                          final String username = "ben.rose76@gmail.com";
+                        String EmailName = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
+                        final String username = readFileInputStream(EmailName);
+                        final String password = readFileInputStream(EmailPassword);
 
-                          final String password = "Brandytiggiroxy2";
+                        Properties props = new Properties();
+                        props.put("mail.smtp.auth", "true");
+                        props.put("mail.smtp.starttls.enable", "true");
+                        props.put("mail.smtp.host", "smtp.gmail.com");
+                        props.put("mail.smtp.port", "587");
+                        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
- 
+                        Session mailsession;
+                        mailsession = Session.getInstance(props, new javax.mail.Authenticator() {
+                         @Override
+                         protected PasswordAuthentication getPasswordAuthentication() {
+                             return new PasswordAuthentication(username, password);
+                         }
+                     });
 
-        Properties props = new Properties();
+                        try {
 
-        props.put("mail.smtp.host", "smtp.gmail.com");
+                                Message message = new MimeMessage(mailsession);
+                                message.setFrom(new InternetAddress(username));
+                                message.setRecipients(Message.RecipientType.TO,
+                                        InternetAddress.parse(Email));
+                                message.setSubject("Registered Account");
+                                message.setText("Dear New Member,"
+                                        + "\n\n Welcome to StatWiseGameWise!" + "\n\n We hope you enjoy your time on are site" + "\n\n Heres your password - " + Password);
 
-        props.put("mail.smtp.socketFactory.port", "465");
-
-        props.put("mail.smtp.socketFactory.class",
-
-                "javax.net.ssl.SSLSocketFactory");
-
-        props.put("mail.smtp.auth", "true");
-
-        props.put("mail.smtp.port", "465");
-
- 
-
-        Session session2 = Session.getDefaultInstance(props,
-
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-
-                        return new PasswordAuthentication(username,password);
-
-                    }
-
-                });
-
- 
-
-        try {
-
- 
-
-            Message message = new MimeMessage(session2);
-
-            message.setFrom(new InternetAddress("ben.rose76@gmail.com"));
-
-            message.setRecipients(Message.RecipientType.TO,
-
-                    InternetAddress.parse("ben.rose76@gmail.com"));
-
-            message.setSubject("Test JCG Example");
-
-            message.setText("Hi," +
-
-                    "This is a Test mail for JCG Example!");
+                                Transport.send(message);
 
 
-            Transport.send(message);
 
- 
-
-            System.out.println("Mail sent succesfully!");
-
- 
-
-        } catch (MessagingException e) {
-
-            throw new RuntimeException(e);
-
-        }
-        */
+                        } catch (MessagingException e) {
+                                throw new RuntimeException(e);
+                        }
                                 
                        }
                        else if(Action == false)
@@ -269,9 +248,11 @@ public class RegisterCommand implements Command{
                                HttpSession session = request.getSession();
                                
                                session.setAttribute("errorMessage", "Something has gone wrong with hashing your password");
-                           } catch (NoSuchProviderException ex) {
-                                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                           }  catch (IOException ex) {
+                
+                            } catch (NoSuchProviderException ex) {
+                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 }else
                 {
                     
@@ -297,6 +278,26 @@ public class RegisterCommand implements Command{
 		//return salt
 		return salt;
     }
+    
+    private static String readFileInputStream(String filename) throws IOException {
+        
+        String sContent=null;
+        byte [] buffer =null;
+        File a_file = new File(filename);
+        try
+        {
+        FileInputStream fis = new FileInputStream(filename);
+        int length = (int)a_file.length();
+        buffer = new byte [length];
+        fis.read(buffer);
+        fis.close();
+        }
+        catch(IOException e)
+        {
+        }
+        sContent = new String(buffer);
+        return sContent;
+        }
     
                     
 }

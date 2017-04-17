@@ -33,6 +33,8 @@ public class CommandFactory {
                 return new ArticlePicCommand();
             case "battle":
                 return new BattleScoreCommand();
+            case "forgot":
+                return new ForgotCommand();
            default:
                break;
        }
