@@ -95,14 +95,17 @@
             CommentsDao cDao = new CommentsDao("swgw");
             ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
             for (int i = 0; i < allArticles.size(); i++) {
-            
+           String artText = (allArticles.get(i)).getArticleText();
+            if(artText.length() > 200){
+            artText = artText.substring(0, 199) + "...";
+            }
         %>
         <article>
         <section>    
         <div class="Articles">
-            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%></p>
-            <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
-            <p><%=(allArticles.get(i)).getArticleText()%></p>
+            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+         	<img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
+	<p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
         </div>
         </section>
         <%
@@ -145,7 +148,7 @@
                 <input type="submit" value="Edit" />
                 <input type="hidden" name="action" value="editArtc" />
                 
-                <a href='ChangeArticlePic.jsp' class="button">Change profile Picture</a>
+                <a href='ChangeArticlePic.jsp' class="button">Change Article Picture</a>
             </form>
                 </div>
             </section>
@@ -159,8 +162,10 @@
             %>
             <section class id="commentsection">
                 <h3 class id="commentTitle">Comment</h3>
-                <p><%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%></p>
-            <p><%=(allComments.get(j)).getCommentText()%></p>
+               <p><a href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+                    <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
+                    <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
+                    on <%=(allComments.get(j)).getDate()%></p>
             </section>
             <%
             if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
