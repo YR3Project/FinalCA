@@ -71,6 +71,7 @@
                 <input type="submit" value="Change Password" />
                 <!-- Include a hidden field to identify what the user wants to do -->
                 <input type="hidden" name ="action" value="change" />
+                
             </form>
              </article>
             <%@ include file="Includes/footer.jsp" %>
