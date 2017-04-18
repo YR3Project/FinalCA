@@ -18,17 +18,15 @@
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
      <script>
-        window.onload = function () {
-        document.getElementById('MainForms').style.display = 'none';
-            document.getElementById('more').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms').style.display = 'block';
-        else
-            document.getElementById('MainForms').style.display = 'none';  
-    }
-    
-  }
-    </script>
+        function myFunction() {
+            var x = document.getElementById('MainForms');
+            if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+     </script>
     
     <body>
         <div id="wrapper">
@@ -42,7 +40,7 @@
                 <article>
                     
                     <section>
-                <h2>View your profile</h2>
+                <h3 class id="title">View your profile</h3>
                 
                     <form action="PlayerStats.jsp" method="get" id="Article">
                         
@@ -68,11 +66,11 @@
             
 
                 <section>
-                    <p>
-                <input id="more" type="checkbox">Add an Article</input>
-           </p>
+               <br />   
+                <button onclick="myFunction()">Add Article</button>
+                
                 <div id="MainForms">
-                    <h3>Write a League Article</h3>
+                    <h3 id="title">Write a League Article</h3>
                     <form action="FrontController" method="post" id="Article">
                         
                             Title: <input name="title" size=30 type="text" /> 
@@ -99,7 +97,7 @@
                 ArticleDao aDao = new ArticleDao("swgw");
                 UsersDao author = new UsersDao("swgw");
                 CommentsDao cDao = new CommentsDao("swgw");
-                ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
+                ArrayList<Article> allArticles = new ArrayList(aDao.getLolArticles());
                 for (int i = 0; i < allArticles.size(); i++) {
                 String artText = (allArticles.get(i)).getArticleText();
                 if(artText.length() > 200){
@@ -108,41 +106,29 @@
                 %>
                 
                     <section>    
-                    <div class="Articles">
+                        <div class="Articles">
                         <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
-                            <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
-                            <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
-                    </div>
+                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
+                        <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
+                        </div>
                     </section>
+
 
                     <%
                         int artID = (allArticles.get(i)).getArticleID();
                         ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
                         for (int j = 0; j < allComments.size(); j++) {
                     %>
-                    <section class id="commentsection">
-                <h3 class id="commentTitle">Comment</h3>
-                        <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%>
-                        <p><%=(allComments.get(j)).getCommentText()%></p>
-                    </section>
-                    <%
-                        if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
-                    %>
-                    <section>
-                        <form name="delc" action="FrontController" method="post">
-                            
-                                <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
-                            <br />
-                            
-                                <input type="submit" value="Delete Comment" />
-                            <br />
-                            
-                                <input type="hidden" name="action" value="delComm" />
-                            <br />
-                        </form>
-                    </section>       
+                     <section class id="commentsection">
+                     <h3 class id="commentTitle">Comment</h3>
+                     <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+                     <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
+                     <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
+                     on <%=(allComments.get(j)).getDate()%></p>
+                     <%=(allComments.get(j).getCommentText())%>
+                </section>
+                      
                         <%
-                                }
                             }
                             if (Value4 != null) {
                         %>

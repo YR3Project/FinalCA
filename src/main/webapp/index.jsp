@@ -13,16 +13,14 @@
 
     <%@ include file="Includes/Slideshow.php" %>
     <script>
-        window.onload = function () {
-        document.getElementById('MainForms').style.display = 'none';
-            document.getElementById('more').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms').style.display = 'block';
-        else
-            document.getElementById('MainForms').style.display = 'none';  
-    }
-    
-  }
+        function myFunction() {
+            var x = document.getElementById('MainForms');
+            if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
     </script>    
     <body>
         
@@ -47,9 +45,8 @@
             
        <section>
          
-           <p>
-              <input id="more" type="checkbox">Add an Article</input>
-           </p>
+        <button onclick="myFunction()">Add Article</button>
+           
         <div id="MainForms">
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
@@ -123,9 +120,7 @@
             <h3 class id="leavecomment">Leave a Comment</h3>
             
             <form action="FrontController" method="post">
-                <p>
-                Text:
-                </p>
+
                 <input name="comment" size=50 type="text" />
                 
                 <input type="submit" value="Post" />

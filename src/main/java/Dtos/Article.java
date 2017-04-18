@@ -7,6 +7,7 @@ public class Article {
     private String articleText;
     private String game;
     private String date;
+    private String photo;
     
 
     public Article(int articleID, int authorID, String title, String articleText, String game, String date) {
@@ -16,6 +17,15 @@ public class Article {
         this.articleText = articleText;
         this.game = game;
         this.date = date;
+    }
+     public Article(int articleID, int authorID, String title, String articleText, String game, String date, String photo) {
+        this.articleID = articleID;
+        this.authorID = authorID;
+        this.title = title;
+        this.articleText = articleText;
+        this.game = game;
+        this.date = date;
+        this.photo = photo;
     }
 
     public int getArticleID() {

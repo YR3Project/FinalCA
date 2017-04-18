@@ -243,6 +243,11 @@ section{
 }
 */
 
+#MainForms
+{
+    display: none; 
+}
+
 #commentsection{
     padding-left: 250px;
 }

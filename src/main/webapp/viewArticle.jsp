@@ -14,17 +14,14 @@
 
     <%@ include file="Includes/Slideshow.php" %>
      <script>
-        window.onload = function () {
-        document.getElementById('MainForms').style.display = 'none';
-            document.getElementById('more').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms').style.display = 'block';
-        else
-            document.getElementById('MainForms').style.display = 'none';  
-    }
-    
-   
-}
+        function myFunction() {
+            var x = document.getElementById('MainForms');
+            if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
     </script>  
     <body>
         <div id="wrapper">
@@ -36,10 +33,11 @@
                     int artID = Integer.parseInt(request.getParameter("article"));
                     Article artc = aDao.getArticleByID(artID);
                     Users successUser2 = new Users();
+                    int a2 = 0;
                     Object Value4 = session.getAttribute("CurrentUser");
                     if (Value4 != null) {
                         successUser2 = (Users) Value4;
-                        int a2 = successUser2.getAdmin();
+                         a2 = successUser2.getAdmin();
                     }
                 %>
                 <h1><%=artc.getTitle()%></h1>
@@ -47,11 +45,7 @@
                         <%@ include file="Includes/nav.jsp" %>
             </header>
             <article>
-             
-                    <%
-                        
-                        if (artc.getAuthorID() == successUser2.getUserID()) {
-                    %>
+
                     <section>
                         <img id="Articleimage"  src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="200" width="500" />
                         <br />
@@ -67,13 +61,19 @@
                                 <input type="hidden" name="artID" value="<%=artc.getArticleID()%>" />
                             
 
-                                <input type="submit" value="Delete Article" />
+                               
 
-                            
+                        <%
+                        
+                        if (a2 == 1) {
+                         %>
+                                <input type="submit" value="Delete Article" />
                                 <input type="hidden" name="action" value="delArtc" />
-                            
+                         <%
+                             }
+                          %>
                         </form>
-                                </section>
+                       </section>
                         <%
 
                            ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
@@ -88,7 +88,7 @@
                           <%=(allComments.get(j).getCommentText())%>
                        </section>
                        <%
-                       if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
+                       if (allComments.get(j).getcAuthor() == successUser2.getUserID() && a2 == 1) {
                        %>
                        <section>
                        <form name="delc" action="FrontController" method="post">
@@ -113,9 +113,7 @@
                     <h3 class id="leavecomment">Leave a Comment</h3>
 
                     <form action="FrontController" method="post">
-                        <p>
-                        Text:
-                        </p>
+
                         <input name="comment" size=50 type="text" />
 
                         <input type="submit" value="Post" />
@@ -134,11 +132,9 @@
                             Object currentobject = session.getAttribute("CurrentUser");
                             if (currentobject != null) {
                                 currentuser = (Users) currentobject;
-                                int a2 = currentuser.getAdmin();
-                                if (a2 != 0) {
-                                    int id = currentuser.getUserID();
+                                if (a2 == 1) {
                         %>
-                            <input id="more" type="checkbox"></input>
+                            <button onclick="myFunction()">Edit Article</button>
                         
                         <div id="MainForms">
                             <h3 class id="title">Edit an Article</h3>
@@ -171,7 +167,7 @@
                         }
                         }
                         }
-                        }
+                        
 
                         
                     %>

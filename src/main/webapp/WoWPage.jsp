@@ -16,16 +16,14 @@
 
     </head>
         <script>
-        window.onload = function () {
-        document.getElementById('MainForms').style.display = 'none';
-            document.getElementById('more').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms').style.display = 'block';
-        else
-            document.getElementById('MainForms').style.display = 'none';  
-    }
-     
-}
+        function myFunction() {
+            var x = document.getElementById('MainForms');
+            if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
     </script> 
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
     <%@ include file="Includes/Slideshow.php" %>
@@ -41,7 +39,7 @@
                 <article>
                     <img src="Images/logo.png" alt="logo" style="width:     70%; display: block; margin: 0 auto;"/>
                     <section>
-                <h2>View your Character</h2>
+                <h3 class id="title">View your Character</h3>
                 <p>View some of the statistics of your WoW Character!</p>
                 <img src="Images/HUMAN.PNG" alt="human" style="width:40%;"/>
                 <h3>Just type in his name and server and fire away!</h3>
@@ -69,11 +67,11 @@
             
 
                 <section>
-                    <p>
-                <input id="more" type="checkbox">Add an Article</input>
-           </p>
+                 <br />   
+                <button onclick="myFunction()">Add Article</button>
+          
                 <div id="MainForms">
-                    <h3>Write a WoW Article</h3>
+                    <h3 class id="title">Write a WoW Article</h3>
                     <form action="FrontController" method="post" id="Article">
                         
                             Title: <input name="title" size=30 type="text" /> 
@@ -102,84 +100,35 @@
                     CommentsDao cDao = new CommentsDao("swgw");
                     ArrayList<Article> allArticles = new ArrayList(aDao.getWowArticles());
                     for (int i = 0; i < allArticles.size(); i++) {
+                    String artText = (allArticles.get(i)).getArticleText();
+                     if(artText.length() > 200){
+                     artText = artText.substring(0, 199) + "...";
+                     }
                 %>
                 
                     <section>    
                         <div class="Articles">
-                            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> <img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%>
-                            <p><%=(allArticles.get(i)).getArticleText()%></p>
+                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
+                        <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
                         </div>
                     </section>
-                    <%
-                        if (allArticles.get(i).getAuthorID() == successUser2.getUserID()) {
-                    %>
-                    <section>
-                        <form name="del" action="FrontController" method="post">
-                            
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                            <br />
-                            
-                                <input type="submit" value="Delete Article" />
-                            <br />
-                            
-                                <input type="hidden" name="action" value="delArtc" />
-                            <br/>
-                        </form>
-                            <p>
-                <input id="more2" type="checkbox">Edit </input>
-                </p>
-                <div id="MainForms2">
-                        <form name="editform" id="editform" action="FrontController" method="post">
-                            
-                                <span id='title'> Title: </span> <span id='textbox'>  <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" /> </span>
-                            <br />
-                            
-                                <textarea rows="4" cols="50" name="content" form="editform"></textarea>
-                            <br />
-                            
-                                <select name="game">
-                                    <option value="def">General</option>
-                                    <option value="wow">World of Warcraft</option>
-                                    <option value="lol">League of Legends</option>
-                                </select>
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                                <input type="submit" value="Edit" />
-                                <input type="hidden" name="action" value="editArtc" />
-                            <br />
-                        </form>
-                </div>
-                    </section>
-                    <%
-                        }
-                    %>
+
                     <%
                         int artID = (allArticles.get(i)).getArticleID();
                         ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
                         for (int j = 0; j < allComments.size(); j++) {
                     %>
-                    <section class id="commentsection">
-                <h3 class id="commentTitle">Comment</h3>
-                        <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /> on <%=(allComments.get(j)).getDate()%>
-                        <p><%=(allComments.get(j)).getCommentText()%></p>
-                    </section>
-                    <%
-                        if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
-                    %>
-                    <section>
-                        <form name="delc" action="FrontController" method="post">
-                            
-                                <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
-                            <br />
-                            
-                                <input type="submit" value="Delete Comment" />
-                            <br />
-                            
-                                <input type="hidden" name="action" value="delComm" />
-                            <br />
-                        </form>
-                    </section>       
+                 <section class id="commentsection">
+                     <h3 class id="commentTitle">Comment</h3>
+                    <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+                    <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
+                    <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
+                    on <%=(allComments.get(j)).getDate()%></p>
+                    <%=(allComments.get(j).getCommentText())%>
+                </section>
                         <%
-                                }
+                                
                             }
                             if (Value4 != null) {
                         %>

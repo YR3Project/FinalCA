@@ -30,7 +30,6 @@
             <h4>League Of legends</h4>
               <nav role='navigation'>
                 <p>Why not play?</p>
-
                 <ul>
                   <li><a href="https://www.facebook.com/leagueoflegends/?fref=ts" class="entypo-facebook-squared" target="_blank"></a></li>
                   <li><a href="https://twitter.com/loleu" class="entypo-twitter" target="_blank"></a></li>
