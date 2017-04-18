@@ -8,7 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-        <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="CSS/Articles.css" rel="stylesheet" type="text/css"/>
     </head> 
 
     <%@ include file="Includes/Slideshow.php" %>
@@ -42,22 +43,26 @@
                     }
                 %>
                 <h1><%=artc.getTitle()%></h1>
-                <h3>by <a href="viewUser.jsp?user=<%=author.GetAuthorByID(artc.getAuthorID())%>"><%= author.GetAuthorByID(artc.getAuthorID())%><img src="<%=author.GetPicPath(artc.getAuthorID())%>" height="20" width="20" /></a> on <%=artc.getDate()%></h3>
+                <h3>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID(artc.getAuthorID())%>"><%= author.GetAuthorByID(artc.getAuthorID())%><img src="<%=author.GetPicPath(artc.getAuthorID())%>" height="40" width="40"/></a> on <%=artc.getDate()%></h3>
                         <%@ include file="Includes/nav.jsp" %>
             </header>
             <article>
-                
-                    
+             
                     <%
+                        
                         if (artc.getAuthorID() == successUser2.getUserID()) {
                     %>
+                    <section>
+                        <img id="Articleimage"  src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="200" width="500" />
+                        <br />
                     
-                    <h3 class id="title">Article Text</h3>
                         <form name="del" action="FrontController" method="post">
                             
                             <div class="Articles">
-                                <img src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="200" width="500" />
-                                <p>Article Text: <%=artc.getArticleText()%></p>
+                            <br />
+                             <p id="viewArticle">
+                             <%=artc.getArticleText()%>
+                             </p>
                             </div>
                                 <input type="hidden" name="artID" value="<%=artc.getArticleID()%>" />
                             
@@ -68,7 +73,71 @@
                                 <input type="hidden" name="action" value="delArtc" />
                             
                         </form>
-                        
+                                </section>
+                        <%
+
+                           ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                           for (int j = 0; j < allComments.size(); j++) {
+                       %>
+                       <section class id="commentsection">
+                          <h3 class id="commentTitle">Comment</h3>
+                          <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+                               <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
+                               <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
+                               on <%=(allComments.get(j)).getDate()%></p>
+                          <%=(allComments.get(j).getCommentText())%>
+                       </section>
+                       <%
+                       if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
+                       %>
+                       <section>
+                       <form name="delc" action="FrontController" method="post">
+                           <p>
+                           <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
+                           </p>
+
+                           <input type="submit" value="Delete Comment" />
+
+                           <p>
+                           <input type="hidden" name="action" value="delComm" />
+                           </p>
+                       </form>
+                       </section>    
+                       <%
+                        }
+                        }
+                        if (Value4 != null) {
+                    %>
+                    <section class id="leavecommentsection">
+
+                    <h3 class id="leavecomment">Leave a Comment</h3>
+
+                    <form action="FrontController" method="post">
+                        <p>
+                        Text:
+                        </p>
+                        <input name="comment" size=50 type="text" />
+
+                        <input type="submit" value="Post" />
+
+                        <p>
+                        <input type="hidden" name="action" value="writeComm" />
+                        </p>
+                        <input type="hidden" name="artID" value="<%=artID%>" />
+                    </form>
+
+                    </section>
+                         
+                        <%  
+                            
+                            Users currentuser = new Users();
+                            Object currentobject = session.getAttribute("CurrentUser");
+                            if (currentobject != null) {
+                                currentuser = (Users) currentobject;
+                                int a2 = currentuser.getAdmin();
+                                if (a2 != 0) {
+                                    int id = currentuser.getUserID();
+                        %>
                             <input id="more" type="checkbox"></input>
                         
                         <div id="MainForms">
@@ -98,9 +167,15 @@
                         </div>
                     
                     <%
+                        
                         }
+                        }
+                        }
+                        }
+
+                        
                     %>
-                    <h1 id="secret">DONT MIND THIS IS TO HELP THE LOOK OF THE PAGE</h1>
+                    
                 
             </article>
             <%@ include file="Includes/footer.jsp" %>

@@ -266,6 +266,11 @@ section{
 }
 
 
+#AccountLink
+{
+    color: black;
+}
+
 
 section, footer, aside, article, figure {
 	display: block;

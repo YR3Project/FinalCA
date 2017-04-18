@@ -22,15 +22,7 @@
             document.getElementById('MainForms').style.display = 'none';  
     }
     
-    document.getElementById('MainForms2').style.display = 'none';
-            document.getElementById('more2').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms2').style.display = 'block';
-        else
-            document.getElementById('MainForms2').style.display = 'none';  
-    }
-    
-}
+  }
     </script>    
     <body>
         
@@ -103,58 +95,12 @@
         <article>
         <section>    
         <div class="Articles">
-            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
          	<img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
-	<p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
+	<p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
         </div>
         </section>
-        <%
-                if (allArticles.get(i).getAuthorID() == successUser2.getUserID()) {
-                    session.setAttribute("TheArticleID", allArticles.get(i));
-            %>
-            <section>
-            <form name="del" action="FrontController" method="post">
-                <p>
-                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                </p>
-                
-                <input type="submit" value="Delete Article" />
-                
-                <p>
-                <input type="hidden" name="action" value="delArtc" />
-                </p>
-            </form>
-                <p>
-                <input id="more2" type="checkbox">Edit </input>
-                </p>
-                <div id="MainForms2">
-                    <h3 class id="title">Edit an Article</h3>
-            <form name="editform" id="editform" action="FrontController" method="post">
-                <p>
-                Title:
-                </p>
-                <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" />
-                <br />
-                <textarea rows="4" cols="50" name="content" form="editform"></textarea>
-                <br />
-                
-                <select name="game">
-                    <option value="def">General</option>
-                    <option value="wow">World of Warcraft</option>
-                    <option value="lol">League of Legends</option>
-                </select>
-              
-                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                <input type="submit" value="Edit" />
-                <input type="hidden" name="action" value="editArtc" />
-                
-                <a href='ChangeArticlePic.jsp' class="button">Change Article Picture</a>
-            </form>
-                </div>
-            </section>
-        <%
-            }
-        %>
+ 
          <%
                 int artID = (allArticles.get(i)).getArticleID();
                 ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
@@ -162,29 +108,13 @@
             %>
             <section class id="commentsection">
                 <h3 class id="commentTitle">Comment</h3>
-               <p><a href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+               <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
                     <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
                     <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
                     on <%=(allComments.get(j)).getDate()%></p>
+               <%=(allComments.get(j).getCommentText())%>
             </section>
             <%
-            if (allComments.get(j).getcAuthor() == successUser2.getUserID()) {
-            %>
-            <section>
-            <form name="delc" action="FrontController" method="post">
-                <p>
-                <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
-                </p>
-                
-                <input type="submit" value="Delete Comment" />
-                
-                <p>
-                <input type="hidden" name="action" value="delComm" />
-                </p>
-            </form>
-            </section>    
-            <%
-                }
                 }
                 if (Value4 != null) {
             %>

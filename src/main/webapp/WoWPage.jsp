@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-        <title>Stat-Tacking Website</title>
+        <title>SWGW</title>
 
     </head>
         <script>
@@ -24,15 +24,7 @@
         else
             document.getElementById('MainForms').style.display = 'none';  
     }
-    
-    document.getElementById('MainForms2').style.display = 'none';
-            document.getElementById('more2').onclick = function () {
-        if (this.checked)
-            document.getElementById('MainForms2').style.display = 'block';
-        else
-            document.getElementById('MainForms2').style.display = 'none';  
-    }
-    
+     
 }
     </script> 
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>

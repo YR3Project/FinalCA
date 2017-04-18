@@ -17,6 +17,18 @@
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
+     <script>
+        window.onload = function () {
+        document.getElementById('MainForms').style.display = 'none';
+            document.getElementById('more').onclick = function () {
+        if (this.checked)
+            document.getElementById('MainForms').style.display = 'block';
+        else
+            document.getElementById('MainForms').style.display = 'none';  
+    }
+    
+  }
+    </script>
     
     <body>
         <div id="wrapper">
@@ -84,61 +96,25 @@
                     }
                 %>
                 <%
-                    ArticleDao aDao = new ArticleDao("swgw");
-                    UsersDao author = new UsersDao("swgw");
-                    CommentsDao cDao = new CommentsDao("swgw");
-                    ArrayList<Article> allArticles = new ArrayList(aDao.getLolArticles());
-                    for (int i = 0; i < allArticles.size(); i++) {
+                ArticleDao aDao = new ArticleDao("swgw");
+                UsersDao author = new UsersDao("swgw");
+                CommentsDao cDao = new CommentsDao("swgw");
+                ArrayList<Article> allArticles = new ArrayList(aDao.getAllArticles());
+                for (int i = 0; i < allArticles.size(); i++) {
+                String artText = (allArticles.get(i)).getArticleText();
+                if(artText.length() > 200){
+                artText = artText.substring(0, 199) + "...";
+                }
                 %>
                 
                     <section>    
-                        <div class="Articles">
-                            <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> by <%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%> <img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /> on <%=(allArticles.get(i)).getDate()%>
-                            <p><%=(allArticles.get(i)).getArticleText()%></p>
-                        </div>
+                    <div class="Articles">
+                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+                            <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
+                            <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
+                    </div>
                     </section>
-                    <%
-                        if (allArticles.get(i).getAuthorID() == successUser2.getUserID()) {
-                    %>
-                    <section>
-                        <form name="del" action="FrontController" method="post">
-                            
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                            <br />
-                            
-                                <input type="submit" value="Delete Article" />
-                            <br />
-                            
-                                <input type="hidden" name="action" value="delArtc" />
-                            <br/>
-                        </form>
-                            <p>
-                <input id="more2" type="checkbox">Edit </input>
-                </p>
-                <div id="MainForms2">
-                        <form name="editform" id="editform" action="FrontController" method="post">
-                            
-                                <span id='title'> Title: </span> <span id='textbox'>  <input name="title" value="<%=(allArticles.get(i)).getTitle()%>" size=30 type="text" /> </span>
-                            <br />
-                            
-                                <textarea rows="4" cols="50" name="content" form="editform"></textarea>
-                            <br />
-                            
-                                <select name="game">
-                                    <option value="def">General</option>
-                                    <option value="wow">World of Warcraft</option>
-                                    <option value="lol">League of Legends</option>
-                                </select>
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                                <input type="submit" value="Edit" />
-                                <input type="hidden" name="action" value="editArtc" />
-                            <br />
-                        </form>
-                </div>
-                    </section>
-                    <%
-                        }
-                    %>
+
                     <%
                         int artID = (allArticles.get(i)).getArticleID();
                         ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
