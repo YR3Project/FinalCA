@@ -251,27 +251,27 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
      * @return AuthorID and their comments
      */
     @Override
-    public String getAuthorByCommentID(int commentID, int articleID) {
+    public int getAuthorByCommentID(int commentID, int articleID) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String author = null;
+        int author = 0;
         try {
             con = getConnection();
 
-            String query = "SELECT authorID, commentText FROM comments where commentID = ? or articleID = ?";
+            String query = "SELECT CAuthor, commentText FROM comments where commentID = ? or articleID = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, commentID);
             ps.setInt(2, articleID);
             rs = ps.executeQuery();
             while(rs.next())
             {
-                author = rs.getString("CAuthor");
+                author = rs.getInt("CAuthor");
                 
             }
 
         } catch (SQLException e) {
-            System.out.println("Exception occured in the deleteComment() method: " + e.getMessage());
+            System.out.println("Exception occured in the getAuthorByCommentID() method: " + e.getMessage());
         } finally {
             try {
 
@@ -282,7 +282,7 @@ public class CommentsDao extends Dao implements CommentsDaoInterface{
                     freeConnection(con);
                 }
             } catch (SQLException e) {
-                System.out.println("Exception occured in the finally section of the deleteComment() method: " + e.getMessage());
+                System.out.println("Exception occured in the finally section of the getAuthorByCommentID() method: " + e.getMessage());
             }
         }
         

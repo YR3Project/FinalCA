@@ -35,7 +35,7 @@ public interface CommentsDaoInterface {
      * @param articleID
      * @return Gets an author based on the commentID and articleID
      */
-    public String getAuthorByCommentID(int commentID, int articleID);
+    public int getAuthorByCommentID(int commentID, int articleID);
  
     /**
      * 
