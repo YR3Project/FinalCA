@@ -52,6 +52,7 @@
                 <input type="hidden" name ="action" value="login" />
                 <br />
                 <a href='registration.jsp' >Don't Have a Account? Sign-Up</a>
+                <br />
                 <a href="ForgotPassword.jsp"> Forgot Password</a>
                 
             </form>

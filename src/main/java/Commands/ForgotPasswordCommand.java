@@ -1,3 +1,4 @@
+
 package Commands;
 
 import Daos.UsersDao;
@@ -29,21 +30,24 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-//Author Ben
-public class ChangeCommand implements Command{
+/**
+ *
+ * @author ben
+ */
+public class ForgotPasswordCommand implements Command{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String forwardToJsp = "";
+     String forwardToJsp = "";
                 HttpSession session = request.getSession();
                 
                 String UserName = request.getParameter("name");
                 String Email = request.getParameter("email");
-                String oldPassword = request.getParameter("oldpass");
+
                 String NewPassword = request.getParameter("newpass");
                 String comPassword = request.getParameter("compass");
                 
-                if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals("")|| oldPassword.equals(""))
+                if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals(""))
                 {
                     String msg = "you cannot leave any of the entries empty";
                     session.setAttribute("ChangeError", msg);
@@ -95,35 +99,21 @@ public class ChangeCommand implements Command{
                                 md.update(newsalt);
                                 byte[] bytes = md.digest(NewPassword.getBytes());
 			
-                                StringBuilder sb1 = new StringBuilder();
+                                StringBuilder sb = new StringBuilder();
 			
                                 for(int i=0; i< bytes.length ;i++)
                                 {
-                                    sb1.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                                    sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
                                 }
-                                String newgeneratedPassword = sb1.toString();
+                                String generatedPassword = sb.toString();
                                 
                                 
                             
                             UsersDao userDao = new UsersDao("swgw");
                         
-                                byte[] oldsalt = userDao.GetCAlSalt(UserName);
-                            
-                                MessageDigest md2 = MessageDigest.getInstance("SHA-512");
-                                md2.update(oldsalt);
-                                byte[] bytes2 = md2.digest(oldPassword.getBytes());
-			
-                                StringBuilder sb2 = new StringBuilder();
-			
-                                for(int i=0; i< bytes2.length ;i++)
-                                {
-                                    sb2.append(Integer.toString((bytes2[i] & 0xff) + 0x100, 16).substring(1));
-                                }
-                                String oldgeneratedPassword = sb2.toString();
-                        
                        
-                       boolean Action = userDao.ChangePassword(newgeneratedPassword, oldgeneratedPassword);
-                       boolean SaltAction = userDao.ChangeSalt(newsalt, oldsalt);
+                       boolean Action = userDao.ForgotPassword(generatedPassword, UserName);
+                       boolean SaltAction = userDao.ForgotPassSalt(newsalt, UserName);
                        
                        if(Action == true && SaltAction == true){
                            DateFormat df = new SimpleDateFormat("dd/MM/yy");
@@ -139,8 +129,8 @@ public class ChangeCommand implements Command{
                           session.removeAttribute("CurrentUser");
                           
                           forwardToJsp = "LoginForm.jsp"; 
-                        String EmailName = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\resources\\EmailName.txt";
-                        String EmailPassword = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\resources\\EmailPassword.txt";
+                        String EmailName = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 
@@ -167,8 +157,8 @@ public class ChangeCommand implements Command{
                                         InternetAddress.parse(Email));
                                 message.setSubject("Registered Account");
                                 message.setText("Dear New Member,"
-                                        + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps to resovle this"
-                                        + "\n\n Issue before its to late" + "\n\n Heres your Newpassword - " + NewPassword);
+                                        + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps t0 resovle this"
+                                        + "\n\n Issue before its too late" + "\n\n Heres your Newpassword - " + NewPassword);
 
                                 Transport.send(message);
 
