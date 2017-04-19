@@ -227,11 +227,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         return email;
     }
 
-    @Override
-    public int RegisterUser(Users u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     @Override
     public boolean RegisterUser(String uname, String pass, String email, byte[] salt, String Created, String Due) {
         Connection con = null;

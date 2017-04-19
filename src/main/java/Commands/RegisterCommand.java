@@ -152,11 +152,11 @@ public class RegisterCommand implements Command{
 			String generatedPassword = sb.toString();
 
                             
-                       
-                       DateFormat df = new SimpleDateFormat("dd/MM/yy");
-                       Date createdate = new Date();
-                       Date expiredate = new Date();
-                       Calendar c = Calendar.getInstance(); 
+
+                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                        Date createdate = new Date();
+                        Date expiredate = new Date();
+                        Calendar c = Calendar.getInstance(); 
                         c.setTime(createdate); 
                         c.add(Calendar.DATE, 10);
                         expiredate = c.getTime();

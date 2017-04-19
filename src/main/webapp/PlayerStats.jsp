@@ -83,9 +83,15 @@
             <%
                 String name = request.getParameter("name");
                 String region = request.getParameter("region");
+                //Getting the  champions ranked stats
                     RankedStats stats = new RankedStats();
                     RankedObject ro = new RankedObject();
-                    
+                    //Getting the players ID object
+                    PlayerObject po = new PlayerObject();
+                    Player player = new Player();
+                    //Getting the players rank wins/losses etc.
+                    PlayerRank pr = new PlayerRank();
+                    PlayerRankObject pro = new PlayerRankObject();
                     //Getting the champions IDs
                     Champ champ = new Champ();
                     ChampObject co = new ChampObject();
@@ -94,17 +100,23 @@
                     Champ champ3 = new Champ();
                     ChampObject co3 = new ChampObject();
                     
-                    
+                if(name == "" || region == "")
+                { 
+                %>
+                <h2>Your region may be down or account name is not valid, please try again</h2>
+                <%
+                }
+                else
+                {
+                   
                     //Getting the users stats
-                    PlayerObject po = new PlayerObject();
-                    Player player = new Player();
+                    
                     //player = po.getPlayer(name);
                     player = po.getPlayer(name, region);
                     int id = player.getSummonerID();
                     //Gets the player tier division and points
                     
-                    PlayerRank pr = new PlayerRank();
-                    PlayerRankObject pro = new PlayerRankObject();
+                    
                     pr = pro.getPlayerRank(Integer.toString(id), region);
                     
                     //Get the champions name
@@ -167,7 +179,7 @@
                         winrate3 = "0";
                     }
                     
-                    
+                
             
               if(player != null && stats != null)
               {
@@ -225,6 +237,7 @@
                     Your profile is unavailable at the moment
                 <%
                     }
+                }
                 %>
         </article>
                

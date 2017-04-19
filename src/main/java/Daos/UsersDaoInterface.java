@@ -13,12 +13,7 @@ import java.util.ArrayList;
 
 public interface UsersDaoInterface {
 
-    /**
-     * 
-     * @param u
-     * @return 
-     */
-    public int RegisterUser(Users u);
+    
     /**
      * 
      * @param uname
