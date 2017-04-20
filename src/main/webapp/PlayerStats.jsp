@@ -18,7 +18,7 @@
         <link href="CSS/playerstats.css" rel="stylesheet" type="text/css"/>
         
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
-       <!-- <script>
+        <script>
             
             $(function(){
                
@@ -69,7 +69,7 @@
                
                
             });
-        </script>-->
+        </script>
     </head>
     <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
      <%@ include file="Includes/Slideshow.php" %>
@@ -147,12 +147,15 @@
                     float loss3 = stats.getLosses3();
                     float kills3 = stats.getMostKills3();
                     float deaths3 = stats.getMostDeaths3();
+                    float total = (win + loss);
+                    float total2 = (win2 + loss2);
+                    float total3 = (win3 + loss3);
                     String winrate;
                     String winrate2;
                     String winrate3;
-                    winrate = formatter.format(win/loss);
-                    winrate2 = formatter.format(win2/loss2);
-                    winrate3 = formatter.format(win3/loss3);
+                    winrate = formatter.format(win/total);
+                    winrate2 = formatter.format(win2/total2);
+                    winrate3 = formatter.format(win3/total3);
                     
                     if(loss == 0)
                     {
@@ -179,13 +182,18 @@
                         winrate3 = "0";
                     }
                     
-                
+                    ServerStatus serverStatus = new ServerStatus();
+                    ServerObject so = new ServerObject();
+                    serverStatus = so.getServerStatus(region);
             
-              if(player != null && stats != null)
+              if(player != null || stats != null)
               {
             %>
         <article>
             <section>
+                
+                
+                <h5>Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h5>
                 <h2>Your rank</h2>
                 <p>Player name: <%=player.getName()%>
                 <p>Player rank: <%=pr.getTierName()%> <%=pr.getTier()%> <%=pr.getDivision()%>
@@ -235,6 +243,7 @@
                     {
                 %>
                     Your profile is unavailable at the moment
+                    Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%>
                 <%
                     }
                 }

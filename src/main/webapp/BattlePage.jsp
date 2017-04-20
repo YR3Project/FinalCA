@@ -61,74 +61,100 @@
             <form action="FrontController" method="get">
             Top lane: 
             <br />
+            <select name="topChamp">
             <%
             for(int k = 0; k < bDao.getChampsBasedOnPosition("Top").size(); k++)
             {
             %>
-            <%=bDao.getChampsBasedOnPosition("top").get(k).getChampName()%>
+            <option value="<%=bDao.getChampsBasedOnPosition("top").get(k).getChampName()%>">
+                <%=bDao.getChampsBasedOnPosition("top").get(k).getChampName()%>
+            </option>
             <br />
             <%
             }
             %>
+            <select/>
             <br />
-            <input type="text" name="topChamp" id="topChamp" placeholder="Top">
+            Jungle
+            <br />
+            <select name="jungChamp">
             <br />
             <%
             for(int j = 0; j < bDao.getChampsBasedOnPosition("Jung").size(); j++)
             {
             %>
             
-            Jungle:
+            
             <br />
-            <%=bDao.getChampsBasedOnPosition("jung").get(j).getChampName()%>
+            <option value="<%=bDao.getChampsBasedOnPosition("jung").get(j).getChampName()%>">
+                    <%=bDao.getChampsBasedOnPosition("jung").get(j).getChampName()%>
+            </option>
             <%
             }
             %>
             <br />
-            <input type="text" name="jungChamp" id="jungChamp" placeholder="Jungle">
+            </select>
+            <br />
+            Mid
+            <br />
+            <select name="midChamp">
             <br />
             <%
             for(int h = 0; h < bDao.getChampsBasedOnPosition("Mid").size(); h++)
             {
             %>
             <br/>
-            Mid Lane:
+            
             <br />
-            <%=bDao.getChampsBasedOnPosition("Mid").get(h).getChampName()%>
+            <option value="<%=bDao.getChampsBasedOnPosition("Mid").get(h).getChampName()%>">
+                    <%=bDao.getChampsBasedOnPosition("Mid").get(h).getChampName()%>
+            </option>
+            <br />
             <%
             }
             %>
+            </select>
             <br />
-            <input type="text" name="midChamp" id="midChamp" placeholder="Mid">
+            ADC
+            <br />
+            <select name="adcChamp">
             <br />
             <%
             for(int g = 0; g < bDao.getChampsBasedOnPosition("ADC").size(); g++)
             {
             %>
             <br/>
-            ADC:
+            
             <br />
-            <%=bDao.getChampsBasedOnPosition("ADC").get(g).getChampName()%>
+            <option value="<%=bDao.getChampsBasedOnPosition("ADC").get(g).getChampName()%>">
+                    <%=bDao.getChampsBasedOnPosition("ADC").get(g).getChampName()%>
+            </option>
+
             <%
             }
             %>
+            </select>
             <br />
-            <input type="text" name="adcChamp" id="adcChamp" placeholder="ADC">
+            Support
+            <br />
+            <select name="supportChamp">
             <br />
             <%
             for(int f = 0; f < bDao.getChampsBasedOnPosition("Support").size(); f++)
             {
             %>
-            <br/>
-            Support:
             <br />
-            <%=bDao.getChampsBasedOnPosition("Support").get(f).getChampName()%>
-            
+            <option value="<%=bDao.getChampsBasedOnPosition("support").get(f).getChampName()%>">
+                    <%=bDao.getChampsBasedOnPosition("support").get(f).getChampName()%>
+            </option>
+
+            <br />
             <%
             }
             %>
+            </select>
             <br />
-            <input type="text" name="supportChamp" id="supportChamp" placeholder="Support">
+            
             <br />
             <input type="submit" values="Battle!">
             <input type="hidden" name="action" value="battle">
