@@ -22,6 +22,7 @@
         <div id="wrapper">
         <header>
         <h1>Welcome to League of Legends</h1>
+        <a href="Lol-Section.jsp"></a>
         <%@ include file="Includes/nav.jsp" %>
         </header>
         <article>

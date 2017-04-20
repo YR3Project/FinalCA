@@ -103,6 +103,8 @@
                 if(name == "" || region == "")
                 { 
                 %>
+                <article>
+                    <section>
                 <h2>Your region may be down or account name is not valid, please try again</h2>
                 <%
                 }
@@ -241,9 +243,10 @@
                 %>
         </article>
                
-                
-        </div>
                 <%@ include file="Includes/footer.jsp" %>
+        </div>
+                
             
     </body>
+    
 </html>
