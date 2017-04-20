@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Profile</title>
+        <title>SWGW</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="CSS/Common.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
@@ -82,7 +82,7 @@
                     </table>
 
 
-                    <h1 id="secret">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+                 <h1 id="secret">&zwnj;</h1>
                 </section>
             </article>
             <%@ include file="Includes/footer.jsp" %>

@@ -12,10 +12,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-        <title>Stat-Tacking Website</title>
+        <title>SWGW</title>
 
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOK OF THE PAGE</h1>
+
     <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">

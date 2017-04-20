@@ -201,7 +201,7 @@ article h3 {
 }
 
 article p{
-    color: white;
+    color: black;
     font-size: 1.5em;
 }
 
@@ -261,7 +261,7 @@ section{
 
 #title{
     background-color:lightgray;
-    color: black;
+    font-family: petyka_-_retro_computer___sRg;
 }
 
 #leavecomment{
@@ -274,7 +274,6 @@ section{
 {
     color: black;
 }
-
 
 section, footer, aside, article, figure {
 	display: block;

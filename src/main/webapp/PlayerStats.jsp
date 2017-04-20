@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LOL-Section</title>
+        <title>SWGW</title>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         <link href="CSS/playerstats.css" rel="stylesheet" type="text/css"/>
@@ -71,7 +71,7 @@
             });
         </script>
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+
      <%@ include file="Includes/Slideshow.php" %>
     <body>
         <div id="wrapper">
@@ -105,7 +105,7 @@
                 %>
                 <article>
                     <section>
-                <h2>Your region may be down or account name is not valid, please try again</h2>
+                        <h2>Your region may be down or account name is not valid, please try again</h2>
                 <%
                 }
                 else
@@ -251,8 +251,7 @@
                 }
                 %>
         </article>
-               
-                <%@ include file="Includes/footer.jsp" %>
+            <%@ include file="Includes/footer.jsp" %>
         </div>
                 
             

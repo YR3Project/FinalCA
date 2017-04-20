@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<title>Upload Profile Picture</title>
+<title>SWGW</title>
 <meta charset="UTF-8">
         <link href="css/form.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

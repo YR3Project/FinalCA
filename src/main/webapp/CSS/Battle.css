@@ -1,15 +1,93 @@
-submit #battle
+#Battletitle
 {
-    padding-left:1px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  font-size: 20px;
+  color: red;
 }
-span
+
+form {
+  background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  margin: auto;
+  position: relative;
+  width: 550px;
+  height: 450px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #669999;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+#battle
 {
-    color: #2f92f2;
-    font-size: 16px;
+  width: 350px;
+  display: block;
+  border: 1px solid #999;
+  height: 25px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
+
+#buttonmove
+{
+  padding-left: 2.01em;
+}
+
+#centerform
+{
+    padding-left: 6em;
+}
+
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+
+
+/* -------------------- Colors: Background */
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.black select   { color: #fff; }
+
+
+option
+{
+    color: black;
+}
+
+
+
+/*
 #topChamp, #adcChamp, #midChamp, #supportChamp, #jungChamp
 {
     padding-left: 12px;
@@ -36,6 +114,8 @@ span
 {
     padding-right: 13px;
 }
+*/
+
 
 /*For the BattleResult.jsp*/
 

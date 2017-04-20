@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Wow-Section</title>
+        <title>SWGW</title>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
  </head>

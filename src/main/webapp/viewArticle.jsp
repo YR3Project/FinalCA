@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Article</title>
+        <title>SWGW</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
@@ -85,7 +85,9 @@
                                <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
                                <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
                                on <%=(allComments.get(j)).getDate()%></p>
+                          <div id="CommentText">
                           <%=(allComments.get(j).getCommentText())%>
+                          </div>
                        </section>
                        <%
                        if (allComments.get(j).getcAuthor() == successUser2.getUserID() && a2 == 1) {

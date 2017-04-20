@@ -44,9 +44,9 @@
         <article>
             
        <section>
-         
+  
         <button onclick="myFunction()">Add Article</button>
-           
+        
         <div id="MainForms">
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
@@ -97,43 +97,10 @@
 	<p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
         </div>
         </section>
- 
-         <%
-                int artID = (allArticles.get(i)).getArticleID();
-                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
-                for (int j = 0; j < allComments.size(); j++) {
-            %>
-            <section class id="commentsection">
-                <h3 class id="commentTitle">Comment</h3>
-               <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
-                    <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
-                    <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
-                    on <%=(allComments.get(j)).getDate()%></p>
-               <%=(allComments.get(j).getCommentText())%>
-            </section>
-            <%
-                }
-                if (Value4 != null) {
-            %>
-            <section class id="leavecommentsection">
-               
-            <h3 class id="leavecomment">Leave a Comment</h3>
-            
-            <form action="FrontController" method="post">
 
-                <input name="comment" size=50 type="text" />
-                
-                <input type="submit" value="Post" />
-               
-                <p>
-                <input type="hidden" name="action" value="writeComm" />
-                </p>
-                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-            </form>
-                
-            </section>
             <%
-                    }
+                
+                
                 }
             %>
           

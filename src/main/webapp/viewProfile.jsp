@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <title>Profile</title>
+         <title>SWGW</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">

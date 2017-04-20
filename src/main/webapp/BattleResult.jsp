@@ -6,7 +6,7 @@
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-        <title>Battle Result</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>
@@ -17,6 +17,7 @@
         <%@ include file="Includes/nav.jsp" %>
             </header>
             <article>
+                <section>
         <%
             Object Battle = session.getAttribute("battleSuccess");
             if (Value2 != null)
@@ -30,11 +31,15 @@
                 
                 
         %>
-        
-        <p id="battleResult"><% out.println(result); %>
+                    <h2 id="title">The Results</h2>
+                    <p>The results from our epic Battle simulation system has come up the following result</p>
+                           <p id="battleResult"><% out.println(result); %>
+                </section>
             </article>
         <%
             }
         %>
+        <%@ include file="Includes/footer.jsp" %>
+        </div>
     </body>
 </html>

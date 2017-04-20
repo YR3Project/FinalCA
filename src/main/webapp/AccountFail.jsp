@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
-        <title>Account Failure</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>

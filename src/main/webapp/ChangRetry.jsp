@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
       
-        <title>Try-Again</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>

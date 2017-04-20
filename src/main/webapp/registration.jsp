@@ -9,7 +9,7 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registration - Form</title>
+        <title>SWGW</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,7 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
             
     </head>
-    <h1 id="secert">DONT MIND THIS IS TO HELP THE LOOOK OF THE PAGE</h1>
+    
      <%@ include file="Includes/Slideshow.php" %>
     <body>
         <script src="Includes/CommonValidation.js"></script>

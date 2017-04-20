@@ -8,7 +8,7 @@
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
             <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
       
-        <title>Error</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>

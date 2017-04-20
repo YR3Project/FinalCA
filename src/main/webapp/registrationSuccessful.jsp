@@ -13,7 +13,7 @@ Author Aleks,Ben
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
        
-        <title>Successful registered Customer</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>

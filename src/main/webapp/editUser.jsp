@@ -7,7 +7,7 @@
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-        <title>Edit Profile</title>
+        <title>SWGW</title>
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>

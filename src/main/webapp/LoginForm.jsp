@@ -5,7 +5,7 @@
 --%>
 <html>
     <head>
-        <title>Login - Form</title>
+        <title>SWGW</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
