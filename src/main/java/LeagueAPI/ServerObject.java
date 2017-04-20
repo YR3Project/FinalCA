@@ -10,9 +10,9 @@ import javax.json.*;
 import java.net.*;
 import java.util.*;
 public class ServerObject {
-    public ServerStatus getServerStatus() throws MalformedURLException, IOException
+    public ServerStatus getServerStatus(String region) throws MalformedURLException, IOException
         {
-            URL url = new URL("https://euw1.api.riotgames.com/lol/status/v3/shard-data?api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+            URL url = new URL("https://"+ region +"1.api.riotgames.com/lol/status/v3/shard-data?api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
             
             try(InputStream in = url.openStream();
                BufferedReader reader = new BufferedReader(
