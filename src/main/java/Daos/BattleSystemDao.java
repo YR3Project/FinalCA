@@ -150,7 +150,7 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
         try{
             con = getConnection();
 
-            String query = "Select ChampName, position from Battle WHERE Position = ?";
+            String query = "Select ChampName, position from Battle WHERE Position = ? ORDER BY champname";
             //SELECT * FROM `battle` ORDER BY `battle`.`ChampName` ASC
             ps = con.prepareStatement(query);
             ps.setString(1, position);

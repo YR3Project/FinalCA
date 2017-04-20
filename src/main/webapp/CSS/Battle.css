@@ -1,0 +1,42 @@
+submit #battle
+{
+    padding-left:1px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+span
+{
+    color: #2f92f2;
+    font-size: 16px;
+}
+#topChamp, #adcChamp, #midChamp, #supportChamp, #jungChamp
+{
+    padding-left: 12px;
+  
+}
+#topChamp
+{
+    padding-right: 1px;
+}
+#jungChamp
+{
+    padding-right: 17px;
+}
+#midChamp
+{
+    padding-right: 8px;
+}
+#adcChamp
+{
+    
+    padding-right:14px;
+}
+#supportChamp
+{
+    padding-right: 13px;
+}
+
+/*For the BattleResult.jsp*/
+
+

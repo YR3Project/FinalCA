@@ -22,14 +22,17 @@
             if (Value2 != null)
             {
                 Users successUser = (Users) Value2;
+                BattleSystemDao bDao = new BattleSystemDao("swgw");
                 BattleSystem battlesystem = new BattleSystem();
+                
                 double battlesystem2 = (Double) Battle;
                 double result = Math.ceil(battlesystem2);
                 
                 
         %>
         
-            <% out.println(result); %>
+        <p id="battleResult"><% out.println(result); %>
+            </article>
         <%
             }
         %>
