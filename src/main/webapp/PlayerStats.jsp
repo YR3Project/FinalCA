@@ -195,8 +195,8 @@
             <section>
                 
                 
-                <h5>Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h5>
-                <h2>Your rank</h2>
+                <h5 id="title">Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h5>
+                <h2 id="title">Your rank</h2>
                 <p>Player name: <%=player.getName()%>
                 <p>Player rank: <%=pr.getTierName()%> <%=pr.getTier()%> <%=pr.getDivision()%>
                 <p>League Points: <%=pr.getLeaguePoints()%>
@@ -204,9 +204,9 @@
                 <p>Player Losses: <%=pr.getLosses()%>
                 
                 
-                <h2>3 most recent champions played</h2>
+                <h2 id="title">3 most recent champions played</h2>
                 <div id="champ">
-                    <p>Champion name: <%=champ.getName()%> <%=champ.getTitle()%>
+                    <p id="title">Champion name: <%=champ.getName()%> <%=champ.getTitle()%>
                     <p class="win">Total Wins: <%=stats.getWins()%></p>
                     <p class="loss">Total Losses: <%=stats.getLosses()%></p>
                     <p>Win rate: <%=winrate%>%
@@ -217,7 +217,7 @@
                     <p class="KD">KD Ratio: <span id="KD"><%=formatter.format(kills/deaths)%></span></p>
                 </div>
                 <div id="champ2">        
-                    <p>Champion name: <%=champ2.getName()%> <%=champ2.getTitle()%>
+                    <p id="title">Champion name: <%=champ2.getName()%> <%=champ2.getTitle()%>
                     <p class="win">Total Wins: <%=stats.getWins2()%></p>
                     <p class="loss">Total Losses: <%=stats.getLosses2()%></p>
                     <p>Win rate: <%=winrate2%>%
@@ -228,7 +228,7 @@
                     <p class="KD2">KD Ratio: <span id="KD2"><%=formatter.format(kills2/deaths2)%></span>
                 </div>
                 <div id="champ3">
-                    <p>Champion name: <%=champ3.getName()%> <%=champ3.getTitle()%>
+                    <p id="title">Champion name: <%=champ3.getName()%> <%=champ3.getTitle()%>
                     <p class="win">Total Wins: <%=stats.getWins3()%></p>
                     <p class="loss">Total Losses: <%=stats.getLosses3()%></p>
                     <p>Win rate: <%=winrate3%>%
