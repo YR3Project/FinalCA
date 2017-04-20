@@ -164,8 +164,6 @@ input[type="radio"]:checked ~ figure figcaption {
 
 }
 
-
-
 #wrapper {
 	width: 100%;
         max-width: 90.000em;
@@ -314,6 +312,9 @@ MainForms{
     font-size: 1em;
     padding: auto;
 }
+
+
+
 /* Mobile */
 @media only screen 
   and (min-device-width: 320px) 

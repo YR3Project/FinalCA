@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
-            <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
-            
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+        <link href="CSS/Battle.css" rel="stylesheet" type="text/css">  
         <title>SWGW</title>
         
     </head>
@@ -44,7 +44,7 @@
         <%@ include file="Includes/nav.jsp" %>
         <h1>StatWiseGameWise</h1>
         </header>
-        
+         </div>
         <%
             BattleSystemDao bDao = new BattleSystemDao("swgw");
             BattleSystem battle = new BattleSystem();
@@ -56,12 +56,12 @@
         
          
    
-<article>
-    </section>
+        <article>
+        <section>
             <form action="FrontController" method="get">
-            Top lane: 
+                <span id="spantop">Top lane:</span> 
             <br />
-            <select name="topChamp">
+            <select name="topChamp" id="topChamp">
             <%
             for(int k = 0; k < bDao.getChampsBasedOnPosition("Top").size(); k++)
             {
@@ -73,11 +73,11 @@
             <%
             }
             %>
-            <select/>
+            </select>
             <br />
-            Jungle
+            <span id="spanjung">Jungle</span>
             <br />
-            <select name="jungChamp">
+            <select name="jungChamp" id="jungChamp">
             <br />
             <%
             for(int j = 0; j < bDao.getChampsBasedOnPosition("Jung").size(); j++)
@@ -95,9 +95,9 @@
             <br />
             </select>
             <br />
-            Mid
+            <span id="spanmid">Mid</span>
             <br />
-            <select name="midChamp">
+            <select name="midChamp" id="midChamp">
             <br />
             <%
             for(int h = 0; h < bDao.getChampsBasedOnPosition("Mid").size(); h++)
@@ -115,9 +115,9 @@
             %>
             </select>
             <br />
-            ADC
+            <span id="spanadc">ADC</span>
             <br />
-            <select name="adcChamp">
+            <select name="adcChamp" id="adcChamp">
             <br />
             <%
             for(int g = 0; g < bDao.getChampsBasedOnPosition("ADC").size(); g++)
@@ -135,9 +135,9 @@
             %>
             </select>
             <br />
-            Support
+            <span id="spansup">Support</span>
             <br />
-            <select name="supportChamp">
+            <select name="supportChamp" id="supportChamp">
             <br />
             <%
             for(int f = 0; f < bDao.getChampsBasedOnPosition("Support").size(); f++)
@@ -156,10 +156,10 @@
             <br />
             
             <br />
-            <input type="submit" values="Battle!">
+            <input type="submit" value="Battle!" id="battle">
             <input type="hidden" name="action" value="battle">
         </form>
-    </section>
+        </section>
 </article>
         <%
             
