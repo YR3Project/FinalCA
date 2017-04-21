@@ -26,7 +26,7 @@
                  <%
             String name = request.getParameter("name");
             String realm = request.getParameter("realm");
-                     
+            String url = "http://render-api-eu.worldofwarcraft.com/static-render/eu/" + character.getThumbnail();        
             WOWRootObject r = new WOWRootObject();   
             CharacterProfile character = r.getChar(realm, name);
             out.println("WOWAPI 1 " + character.getCharClass());
@@ -44,8 +44,7 @@
             %>
             
             
-            <!--<img src="" alt="Thumbnail" height="42" width="42">-->
-            
+            <img src="<%=url%>" alt="Thumbnail" style="width: 100px;">
             <p><%=character.getName()%></p>
             <p><%=character.getRealm()%></p>
             <p><%=races[race]%> <%=classes[charClass]%></p>
