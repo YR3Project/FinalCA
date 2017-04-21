@@ -27,7 +27,7 @@
             String name = request.getParameter("name");
             String realm = request.getParameter("realm");
                      
-            RootObject r = new RootObject();    
+            WOWRootObject r = new WOWRootObject();   
             CharacterProfile character = r.getChar(realm, name);
             out.println("WOWAPI 1 " + character.getCharClass());
             int charClass = character.getCharClass();
@@ -38,7 +38,7 @@
             String [] races = {"0", "Human", "Orc", "Dwarf", "Night Elf", "Undead", "6", "Gnome", "8", "Goblin", "Blood Elf", "Draenei", "12", "13", "14", "15", "", "", "", "", "", "", "Worgen", "", "", "Pandaren"};
             String [] classes = {"Warlock", "Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Death Knight", "Shaman", "Mage", "", "Monk", "Druid", "Demon Hunter"};
             //String url = "http://render-api-eu.worldofwarcraft.com/static-render/" + character.getThumbnail();
-            RootObject rItems = new RootObject();
+            WOWRootObject rItems = new WOWRootObject();
             CharacterItem charItems = rItems.getItems();
             
             %>

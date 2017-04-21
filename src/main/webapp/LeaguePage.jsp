@@ -48,7 +48,12 @@
                         <br />
                         <br />
                         
-                        Region: <input name="region" id="leagueRegion" size=30 type="text" /> 
+                        Region: 
+                        <Select name='region' id='leagueRegion'>
+                            <option>EUW</option>
+                            <option>NA</option>
+                        </Select>
+                        <input name="region" id="leagueRegion" size=30 type="text" /> 
                         <br />
                             <input type="submit" value="View Your Profile" id="submitLeague"/>
                         
@@ -74,7 +79,7 @@
                 
             <section class="rankTables">    
                 <h2>Challenger Ladder</h2>
-                <table id="challengerladder">
+                <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th><th>Points</th>
                     </thead>
@@ -155,7 +160,7 @@
                     </tbody>
                 </table>
                 <h2>Master ladder</h2>
-                <table id="masterladder">
+                <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th><th>Points</th>
                     </thead>
