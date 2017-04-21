@@ -288,11 +288,18 @@ section, footer, aside, article, figure {
     visibility: hidden;
 }
 
-table {
+#userTable {
     border-collapse: collapse;
-    width: 50%;
+    width: 75%;
+    
 }
-
+.rankTables #rankTables
+{
+    border-collapse: collapse;
+    width: 75%;
+    color:white;
+    font-size: 1.3em;
+}
 #userTable th, td {
     padding: 12px;
     text-align: left;

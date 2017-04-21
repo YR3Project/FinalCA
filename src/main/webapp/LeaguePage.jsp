@@ -74,7 +74,7 @@
                 
             <section class="rankTables">    
                 <h2>Challenger Ladder</h2>
-                <table id="challengerladder">
+                <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th><th>Points</th>
                     </thead>
@@ -155,7 +155,7 @@
                     </tbody>
                 </table>
                 <h2>Master ladder</h2>
-                <table id="masterladder">
+                <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th><th>Points</th>
                     </thead>
