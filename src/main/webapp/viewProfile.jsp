@@ -54,7 +54,7 @@
            
         
             <div style="overflow-x:auto;">
-        <table>
+        <table id="userTable">
             <tr>
                     <th>UserName</th>
                     <th>Email</th>

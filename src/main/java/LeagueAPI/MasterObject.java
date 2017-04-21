@@ -10,9 +10,9 @@ import javax.json.*;
 import java.net.*;
 import java.util.*;
 public class MasterObject {
-    public Master getMaster() throws MalformedURLException, IOException
+    public Master getMaster(String region) throws MalformedURLException, IOException
    {
-       URL url = new URL("https://euw.api.riotgames.com/api/lol/EUW/v2.5/league/master?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+       URL url = new URL("https://"+ region + ".api.riotgames.com/api/lol/"+ region + "/v2.5/league/master?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
        
        try(InputStream in = url.openStream();
                BufferedReader reader = new BufferedReader(
@@ -76,6 +76,18 @@ public class MasterObject {
                 master.setLosses8(jsonObject.getJsonArray("entries").getJsonObject(7).getInt("losses"));
                 master.setLosses9(jsonObject.getJsonArray("entries").getJsonObject(8).getInt("losses"));
                 master.setLosses10(jsonObject.getJsonArray("entries").getJsonObject(9).getInt("losses"));
+                master.setLeaguePoints(jsonObject.getJsonArray("entries").getJsonObject(0).getInt("leaguePoints"));
+                master.setLeaguePoints2(jsonObject.getJsonArray("entries").getJsonObject(1).getInt("leaguePoints"));
+                master.setLeaguePoints3(jsonObject.getJsonArray("entries").getJsonObject(2).getInt("leaguePoints"));
+                master.setLeaguePoints4(jsonObject.getJsonArray("entries").getJsonObject(3).getInt("leaguePoints"));
+                master.setLeaguePoints5(jsonObject.getJsonArray("entries").getJsonObject(4).getInt("leaguePoints"));
+                master.setLeaguePoints6(jsonObject.getJsonArray("entries").getJsonObject(5).getInt("leaguePoints"));
+                master.setLeaguePoints7(jsonObject.getJsonArray("entries").getJsonObject(6).getInt("leaguePoints"));
+                master.setLeaguePoints8(jsonObject.getJsonArray("entries").getJsonObject(7).getInt("leaguePoints"));
+                master.setLeaguePoints9(jsonObject.getJsonArray("entries").getJsonObject(8).getInt("leaguePoints"));
+                master.setLeaguePoints10(jsonObject.getJsonArray("entries").getJsonObject(9).getInt("leaguePoints"));
+               
+                
             }
             master.getPlayerName();
             master.getName();
