@@ -40,8 +40,8 @@
                 isAdmin = successUser.getAdmin();
         %>
        
-   
         
+        <div class="Articles">
         <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
         
            
@@ -104,6 +104,7 @@
                 session.removeAttribute("EditSuccess");
                 session.setAttribute("EditSuccess", "");
                 %>
+                </div>
                 <p>
             <a href='editUser.jsp' class="button">Edit Your Profile</a>
                 </p>

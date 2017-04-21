@@ -86,7 +86,7 @@ public class ForgotCommand implements Command{
                                 message.setFrom(new InternetAddress(username));
                                 message.setRecipients(Message.RecipientType.TO,
                                         InternetAddress.parse(Email));
-                                message.setSubject("Registered Account");
+                                message.setSubject("Requested Change");
                                 message.setText("Dear New Member,"
                                         + "\n\n CLick Link to Recover Account!" );
                                 String content = "<a href='http://localhost:8080/StatwiseGameWiseSite/ChangeForgotPassword.jsp'>ChangePassword.com</a>";
