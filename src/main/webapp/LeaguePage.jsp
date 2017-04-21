@@ -55,6 +55,7 @@
                             <option>NA</option>
                         </Select>
                         </div>
+                        
                         <br />
                             <input type="submit" value="View Your Profile" id="stats"/>
                         </div>
