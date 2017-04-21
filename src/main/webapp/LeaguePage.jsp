@@ -35,7 +35,7 @@
             <header>
                 <%@ include file="Includes/nav.jsp" %>
                 
-                <h1>League of Legions</h1>
+                <h1>League of Legends</h1>
             </header>
             
                 <article>
@@ -51,7 +51,7 @@
                         <h2 id="Leaguetitle">Region:</h2>
                         <div class="styled-select black rounded">
                         <Select name='region' id='leagueRegion'>
-                            <option>EUW</option>
+                            <option selected="selected">EUW</option>
                             <option>NA</option>
                         </Select>
                         </div>
@@ -296,11 +296,18 @@
                         <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
                         <div class="Articles">
                         <p><%=artText%>  <a  href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
-                        </div>
-                    </section>
-
-
+                        
                     
+
+
+                    <%
+                int artID = (allArticles.get(i)).getArticleID();
+                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                %>
+                <h5><%=allComments.size()%> Comments</h5>
+                </div>
+                </section>
+
                         <%
                                 
                             }

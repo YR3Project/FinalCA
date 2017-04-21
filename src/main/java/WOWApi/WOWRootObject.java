@@ -190,6 +190,9 @@ public class WOWRootObject {
             cProf.setLevel(level);
             cProf.setRace(race);
             cProf.setGender(gender);
+            String thumbnail = jsonObject.getString("thumbnail");
+            
+            cProf.setThumbnail(thumbnail);
             return cProf;
             
             
