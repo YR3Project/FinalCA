@@ -14,6 +14,7 @@
 
      <%@ include file="Includes/Slideshow.php" %>
     <body>
+                <script src="Includes/ForgotValidation.js"></script>
          <div id="wrapper">
              <header>
              <h1>Password Change</h1>
@@ -57,17 +58,17 @@
 
                 %>
             
-            <form action="FrontController" method="post">
+            <form name="forg" action="FrontController" method="post">
                 <h3>HERE IS WHERE YOU CHANGE YOUR PASSWORD</h3>
                 
                 <input name="name" type="hidden" value="<%=Username%>"/> 
 
                 <input name="email" type="hidden" value="<%=email%>"/> 
 
-                New-Password : <input name="newpass" size=30 type="password" placeholder="New Password" required/> 
+                New-Password : <input name="newpass" size=30 type="password" placeholder="New Password" required/><span id="newpasswordlocation" style="color:red"></span><br>  
                 <br />
                 
-                Confirm-Password  : <input name="compass" size=30 type="password" placeholder="Re-enter New Password" required/> 
+                Confirm-Password  : <input name="compass" size=30 type="password" placeholder="Re-enter New Password" required/><span id="confirmpasswordlocation" style="color:red"></span><br>  
                 <br />
                 <input type="submit" value="Change Password" />
                 <!-- Include a hidden field to identify what the user wants to do -->

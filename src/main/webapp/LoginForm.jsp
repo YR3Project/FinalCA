@@ -15,7 +15,7 @@
 
      <%@ include file="Includes/Slideshow.php" %>
     <body>
-        <script src="Includes/CommonValidation.js"></script>
+        <script src="Includes/LoginValdation.js"></script>
         <div id="wrapper">
             <header>
             <h1>Login-Form</h1>
@@ -28,7 +28,7 @@
             if (Value != null)
             {
                 String message = (String) Value;
-            
+                if(!(message == "")){
             %>
 
             <div class="alert alert-info alert-dismissible">
@@ -37,17 +37,18 @@
             </div>
             <%
                 }
+                }
                 session.removeAttribute("ChangeSuccess");
                 session.setAttribute("ChangeSuccess", "");
                 %>
             
-            <form action="FrontController" method="post" onsubmit="return validateForm();">
+            <form name="login" action="FrontController" method="post" onsubmit="return validateForm();">
                 <h3>WELCOME BACK TO THE PARTY</h3>
                 <!--"[A-Za-z0-9_]{1,15}$"-->
-                Username  :<input name="userName" size=30 type="text" maxlength="30" placeholder="Username"/> 
+                Username  :<input name="userName" size=30 type="text" maxlength="30" placeholder="Username"/><span id="namelocation" style="color:red"></span><br> 
                 
                 
-                Password  : <input name="password" size=20 type="password" placeholder="Password"/> 
+                Password  : <input name="password" size=20 type="password" placeholder="Password"/><span id="passwordlocation" style="color:red"></span><br>  
                 
                 
                 <input type="submit"  value="Login" />

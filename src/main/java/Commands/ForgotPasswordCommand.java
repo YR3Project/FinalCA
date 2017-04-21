@@ -155,9 +155,9 @@ public class ForgotPasswordCommand implements Command{
                                 message.setFrom(new InternetAddress(username));
                                 message.setRecipients(Message.RecipientType.TO,
                                         InternetAddress.parse(Email));
-                                message.setSubject("Registered Account");
+                                message.setSubject("Password Has been Changed");
                                 message.setText("Dear New Member,"
-                                        + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps t0 resovle this"
+                                        + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps to resovle this"
                                         + "\n\n Issue before its too late" + "\n\n Heres your Newpassword - " + NewPassword);
 
                                 Transport.send(message);

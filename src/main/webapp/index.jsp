@@ -34,6 +34,15 @@
         <%@ include file="Includes/nav.jsp" %>
         <h1>StatWiseGameWise</h1>
         </header>
+
+        <div id="SearchArticles">
+        <form action="FindArticles.jsp" method="post" id="Article">
+            Search For Article: 
+            <input name="title" size=30 type="text" placeholder="Article title" /> 
+            <button type="submit" value="Find"><span class="glyphicon glyphicon-search"></span>Search</button>
+        </form>
+         </div>
+
         
         <%  
             Users successUser2 = new Users();
@@ -101,14 +110,18 @@
             <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
         <div class="Articles">        
 	<p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
-        </div>
-        </section>
-
+        
+        
             <%
-                
-                
+                int artID = (allArticles.get(i)).getArticleID();
+                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                %>
+                <h5><%=allComments.size()%> Comments</h5>
+                </div>
+                </section>
+                <%
                 }
-            %>
+                %>
           
         <section>
         <h3 class id="title">Most popular Streamer Currently</h3>

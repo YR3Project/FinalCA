@@ -61,8 +61,15 @@ public interface ArticleDaoInterface {
     public boolean deleteArticle(int articleID);
     /**
      * 
+     * @param title
+     * @return a article based off the title given
+     */
+    public ArrayList<Article> getArticlesByTitle(String title);
+    
+    /**
+     * 
      * @param id
-     * return Path to article Picture
+     * @return Path to article Picture 
      */
     public String GetPicPath(int id);
     

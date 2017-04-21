@@ -14,6 +14,7 @@
 
      <%@ include file="Includes/Slideshow.php" %>
     <body>
+                <script src="Includes/Forgotname.js"></script>
          <div id="wrapper">
              <header>
              <h1>Password Change</h1>
@@ -22,10 +23,10 @@
              <article>
             
 
-            <form action="FrontController" method="post">
+            <form name="forgotname" action="FrontController" method="post" onsubmit="return validateForm();">
                 <h3>Are You Sure</h3>
                 
-                Username  :<input name="userName" size=30 type="text" maxlength="30" placeholder="Username"/>
+                Username  :<input name="userName" size=30 type="text" maxlength="30" placeholder="Username"/><span id="namelocation" style="color:red"></span><br> 
 
   
                 
