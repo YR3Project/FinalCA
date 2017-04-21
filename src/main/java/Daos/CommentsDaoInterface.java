@@ -60,5 +60,10 @@ public interface CommentsDaoInterface {
      */
     public ArrayList<Comments> getCommentsByArticle(int articleID);
     
+    /**
+     * @param authorID
+     * @return comments by authorID
+     */
+    public ArrayList<Comments> getCommentsByAuthor(int authorID);
     
 }

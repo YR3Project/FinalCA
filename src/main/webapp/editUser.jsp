@@ -12,6 +12,7 @@
 
      <%@ include file="Includes/Slideshow.php" %>
     <body>
+        <script src="Includes/EditValidation.js"></script>
         <div id="wrapper">
             <header>
             <h1>Edit Profile</h1>

@@ -34,9 +34,11 @@
             }
             Object Value4 = session.getAttribute("CurrentUser");
             UsersDao account = new UsersDao("swgw");
+            CommentsDao cDao = new CommentsDao("swgw");
                 int isAdmin;
             if (Value4 != null) {
                 Users successUser = (Users) Value4;
+                ArrayList<Comments> commentsMade = new ArrayList(cDao.getCommentsByAuthor(successUser.getUserID()));
                 isAdmin = successUser.getAdmin();
         %>
        
@@ -49,15 +51,18 @@
             
              
              
-        <h3><%=successUser.getUserName()%>'s Profile</h3>
+        <h2 id="title"><%=successUser.getUserName()%>'s Profile</h2>
         
            
         
             <div style="overflow-x:auto;">
         <table id="userTable">
             <tr>
+                    <th>ID</th>
                     <th>UserName</th>
                     <th>Email</th>
+                    <th></th>
+                    <th>Comments by this Account</th>
             </tr>
             <tr>
                 <%
@@ -70,21 +75,18 @@
                     }
                     %>
                 <td><%=successUser.getUserName()%></td>
-                <br>
+                
                 <td><%=successUser.getEmail()%></td>
-
+                <td></td>
+                <td><%=commentsMade.size()%></td>
             </tr>
         </table>
                 </div>
                             <%
                     if(isAdmin!=0){
                     %>
-                    <h3><%=successUser.getUserName()%> is an administrator on this site.</h3>
-                    <!--placeholder-->
-                    <p>
-                        <!--for spacing-->
-                    </p>
-                    
+                    <h4 id="title"><%=successUser.getUserName()%> is an administrator on this site.</h4>
+
                 <%
                     }
                     %>

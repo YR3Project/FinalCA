@@ -241,9 +241,23 @@ section{
     width: 68%;
 }
 
+.Articlesfound
+{
+    border: 2px solid black;
+    background-color: darkgray;
+    width: 68%;
+    border-left: 4px solid black;
+    border-right:  4px solid black;  
+}
+
 .ArticleTitle
 {
 width: 68%;    
+}
+
+#SearchArticles
+{
+    padding-left: 60%;
 }
 
 #MainForms

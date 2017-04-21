@@ -343,5 +343,46 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         
         return pic;
     }
+
+    @Override
+    public ArrayList<Article> getArticlesByTitle(String title) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Article> articles = new ArrayList();
+        
+        try{
+            con = getConnection();
+
+            String query = "Select * from article WHERE Title LIKE ? ORDER BY DateAdded desc";
+            
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + title + "%");
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+                Article a = new Article(rs.getInt("ArticleID"), rs.getInt("AuthorID"), rs.getString("Title"), rs.getString("ArticleText"), rs.getString("Game"), rs.getString("DateAdded"));
+                articles.add(a);
+            }
+        }catch (SQLException e) {
+            System.out.println("An exception has occurred in the getAllArticles() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occurred in the final part of getAllArticles(): " + e.getMessage());
+            }
+        }
+        return articles;
+    }
     
     }

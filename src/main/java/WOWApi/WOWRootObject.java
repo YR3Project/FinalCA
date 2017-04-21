@@ -13,7 +13,7 @@ import java.net.URL;
  *
  * @author Chris
  */
-public class RootObject {
+public class WOWRootObject {
     public Zones api;
     
     public Zones getArray()

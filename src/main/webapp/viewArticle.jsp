@@ -141,6 +141,8 @@
                         <div id="MainForms">
                             <h3 class id="title">Edit an Article</h3>
                             <form name="editform" id="editform" action="FrontController" method="post">
+                                <img src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="180" width="500" />
+                                <a href='ChangeArticlePic.jsp' class="button">Change profile Picture</a>
                                 
                                  Title:
                                 
@@ -154,12 +156,12 @@
                                     <option value="wow">World of Warcraft</option>
                                     <option value="lol">League of Legends</option>
                                 </select>
-
+                                <br />
                                 <input type="hidden" name="artID" value="<%=artc.getArticleID()%>" />
                                 <input type="submit" value="Edit" />
                                 <input type="hidden" name="action" value="editArtc" />
-                                <img src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="180" width="500" />
-                                <a href='ChangeArticlePic.jsp' class="button">Change profile Picture</a>
+                                
+                               
 
                             </form>
                         </div>
