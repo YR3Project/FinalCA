@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--Start Cookie Script-->
-<script type="text/javascript" charset="UTF-8" src="http://cookie-script.com/s/6323d370217e9a0c16e22af5ac331e5b.js"></script>
-<!--End Cookie Script-->
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">

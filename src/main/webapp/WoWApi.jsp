@@ -29,9 +29,9 @@
                      
             WOWRootObject r = new WOWRootObject();   
             CharacterProfile character = r.getChar(realm, name);
-            out.println("WOWAPI 1 " + character.getCharClass());
+            
             int charClass = character.getCharClass();
-            out.println("WOWAPI 2 " + charClass);
+            
             int gender = character.getGender();
             int race = character.getRace();
             String [] genderArray = {"Male", "Female"};
