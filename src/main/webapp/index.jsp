@@ -98,14 +98,18 @@
             <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
         <div class="Articles">        
 	<p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
-        </div>
-        </section>
-
+        
+        
             <%
-                
-                
+                int artID = (allArticles.get(i)).getArticleID();
+                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                %>
+                <h5><%=allComments.size()%> Comments</h5>
+                </div>
+                </section>
+                <%
                 }
-            %>
+                %>
           
         <section>
         <h3 class id="title">Most popular Streamer Currently</h3>
