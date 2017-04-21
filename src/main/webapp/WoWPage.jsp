@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+        <link href="CSS/WoW.css" rel="stylesheet" type="text/css"/>
         <title>SWGW</title>
 
     </head>
@@ -36,24 +37,29 @@
             </header>
             
                 <article>
-                    <img src="Images/logo.png" alt="logo" style="width:     70%; display: block; margin: 0 auto;"/>
+                    <img src="Images/logo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
                     <section>
-                <h3 class id="title">View your Character</h3>
+                <h3 id="title">View your Character</h3>
+                <div class="Articles">
                 <p>View some of the statistics of your WoW Character!</p>
-                <img src="Images/HUMAN.PNG" alt="human" style="width:40%;"/>
-                <h3>Just type in his name and server and fire away!</h3>
-                    <form action="WoWApi.jsp" method="post" id="Article">
+                </div>
+                <img id="wowpic" src="Images/HUMAN.PNG" alt="human"/>
+              
+                </section>
+                    <form id="WowChar" action="WoWApi.jsp" method="post">
+                        <h2 id="title">Enter the details to see info</h2>
+                        <div id="centerform">
                         
-                            Name: <input name="name" size=30 type="text" /> 
+                        <h3 id="wowitle">Name:</h3>  <input name="name" size=30 type="text" />
                         <br />
                         <br />
-                        
-                            Realm: <input name="realm" size=30 type="text" /> 
+                        <h3 id="wowtitle">Realm:</h3>  <input name="realm" size=30 type="text" />
                         <br />
-                            <span id='post'>  <input type="submit" value="View Your Character" style="background-color: greenyellow; color: black;" /></span>
-                        
+                        <br />
+                        <input type="submit" value="View Your Character" id="stats"/>
+                        </div>
                     </form>
-                    </section>
+                    
                 
             <%    Users successUser2 = new Users();
                 Object Value4 = session.getAttribute("CurrentUser");
@@ -106,49 +112,23 @@
                 %>
                 
                     <section>    
-                        <div class="Articles">
+                        
                         <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
-                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
-                        <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
-                        </div>
-                    </section>
-
+                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
+                        <div class="Articles">
+                        <p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
+                        
+                    
                     <%
-                        int artID = (allArticles.get(i)).getArticleID();
-                        ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
-                        for (int j = 0; j < allComments.size(); j++) {
-                    %>
-                 <section class id="commentsection">
-                     <h3 class id="commentTitle">Comment</h3>
-                    <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
-                    <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
-                    <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
-                    on <%=(allComments.get(j)).getDate()%></p>
-                    <%=(allComments.get(j).getCommentText())%>
+                int artID = (allArticles.get(i)).getArticleID();
+                ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
+                %>
+                <h5><%=allComments.size()%> Comments</h5>
+                </div>
                 </section>
+
                         <%
                                 
-                            }
-                            if (Value4 != null) {
-                        %>
-                        <section class id="leavecommentsection">
-               
-                        <h3 class id="leavecomment">Leave a Comment</h3>
-                            <form action="FrontController" method="post">
-                               
-                                    <span id='content'> Text: </span> <span id='textbox'>  <input name="comment" size=50 type="text" /> </span>
-                                <br />
-                               
-                                    <span id='post'>  <input type="submit" value="Post" /> </span>
-                                <br />
-                                
-                                    <input type="hidden" name="action" value="writeComm" />
-                                <br />
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                            </form>
-                        </section>
-                        <%
-                                }
                             }
                         %>
                 </article>
