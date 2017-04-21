@@ -39,19 +39,20 @@
             String [] classes = {"Warlock", "Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Death Knight", "Shaman", "Mage", "", "Monk", "Druid", "Demon Hunter"};
             //String url = "http://render-api-eu.worldofwarcraft.com/static-render/" + character.getThumbnail();
             WOWRootObject rItems = new WOWRootObject();
-            CharacterItem charItems = rItems.getItems();
+            CharacterItem charItems = rItems.getItems(realm, name);
             
             %>
             
             
             <!--<img src="" alt="Thumbnail" height="42" width="42">-->
+            
             <p><%=character.getName()%></p>
             <p><%=character.getRealm()%></p>
             <p><%=races[race]%> <%=classes[charClass]%></p>
             <p> </p>
             <p><%=genderArray[gender]%></p>
             <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
-            <p>ItemLvl<%=charItems.getAvgLvl()%></p>    
+            <p><%=charItems.getHeadName()%></p>
                 
             <%@ include file="Includes/footer.jsp" %>
         </div>
