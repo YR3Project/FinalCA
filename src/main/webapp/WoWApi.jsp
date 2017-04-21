@@ -37,14 +37,14 @@
             String [] genderArray = {"Male", "Female"};
             String [] races = {"0", "Human", "Orc", "Dwarf", "Night Elf", "Undead", "6", "Gnome", "8", "Goblin", "Blood Elf", "Draenei", "12", "13", "14", "15", "", "", "", "", "", "", "Worgen", "", "", "Pandaren"};
             String [] classes = {"Warlock", "Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Death Knight", "Shaman", "Mage", "", "Monk", "Druid", "Demon Hunter"};
-            //String url = "http://render-api-eu.worldofwarcraft.com/static-render/" + character.getThumbnail();
+            String url = "http://render-api-eu.worldofwarcraft.com/static-render/eu/" + character.getThumbnail();
             WOWRootObject rItems = new WOWRootObject();
             CharacterItem charItems = rItems.getItems(realm, name);
             
             %>
             
             
-            <!--<img src="" alt="Thumbnail" height="42" width="42">-->
+            <img src="<%=url%>" alt="Thumbnail" style="width: 100px;">
             
             <p><%=character.getName()%></p>
             <p><%=character.getRealm()%></p>
