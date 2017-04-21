@@ -198,7 +198,7 @@ public class RegisterCommand implements Command{
                                         InternetAddress.parse(Email));
                                 message.setSubject("Registered Account");
                                 message.setText("Dear New Member,"
-                                        + "\n\n Welcome to StatWiseGameWise!" + "\n\n We hope you enjoy your time on are site" + "\n\n Heres your password - " + Password);
+                                        + "\n\n Welcome to StatWiseGameWise!" + "\n\n We hope you enjoy your time on our site" + "\n\n Heres your password - " + Password);
 
                                 Transport.send(message);
 
