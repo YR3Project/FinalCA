@@ -48,7 +48,12 @@
                         <br />
                         <br />
                         
-                        Region: <input name="region" id="leagueRegion" size=30 type="text" /> 
+                        Region: 
+                        <Select name='region' id='leagueRegion'>
+                            <option>EUW</option>
+                            <option>NA</option>
+                        </Select>
+                        <input name="region" id="leagueRegion" size=30 type="text" /> 
                         <br />
                             <input type="submit" value="View Your Profile" id="submitLeague"/>
                         
