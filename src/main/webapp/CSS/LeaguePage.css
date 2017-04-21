@@ -24,8 +24,11 @@
     padding-top: .5em;
     padding-bottom: .5em;
 }
+#leagueName
+{
+    margin-left:1000px;
+}
 #namebox
 {
      color: blue;
 }
-

@@ -33,7 +33,8 @@
         %>
                     <h2 id="title">The Results</h2>
                     <p>The results from our epic Battle simulation system has come up the following result</p>
-                           <p id="battleResult"><% out.println(result); %>
+                    <p id="battleResult">Based on the champions you've selected you have a <% out.println(result); %>% chance to win your game</p>
+                    
                 </section>
             </article>
         <%
