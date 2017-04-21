@@ -10,9 +10,9 @@ import java.io.*;
 import java.net.*;
 import javax.json.*;
 public class ChallengerObject {
-    public Challenger getChallenger() throws MalformedURLException, IOException
+    public Challenger getChallenger(String region) throws MalformedURLException, IOException
     {
-        URL url = new URL("https://euw.api.riotgames.com/api/lol/EUW/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+        URL url = new URL("https://"+ region +".api.riotgames.com/api/lol/"+ region + "/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
        
        try(InputStream in = url.openStream();
                BufferedReader reader = new BufferedReader(
@@ -76,6 +76,16 @@ public class ChallengerObject {
                 challenger.setLosses8(jsonObject.getJsonArray("entries").getJsonObject(7).getInt("losses"));
                 challenger.setLosses9(jsonObject.getJsonArray("entries").getJsonObject(8).getInt("losses"));
                 challenger.setLosses10(jsonObject.getJsonArray("entries").getJsonObject(9).getInt("losses"));
+                challenger.setLeaguePoints(jsonObject.getJsonArray("entries").getJsonObject(0).getInt("leaguePoints"));
+                challenger.setLeaguePoints2(jsonObject.getJsonArray("entries").getJsonObject(1).getInt("leaguePoints"));
+                challenger.setLeaguePoints3(jsonObject.getJsonArray("entries").getJsonObject(2).getInt("leaguePoints"));
+                challenger.setLeaguePoints4(jsonObject.getJsonArray("entries").getJsonObject(3).getInt("leaguePoints"));
+                challenger.setLeaguePoints5(jsonObject.getJsonArray("entries").getJsonObject(4).getInt("leaguePoints"));
+                challenger.setLeaguePoints6(jsonObject.getJsonArray("entries").getJsonObject(5).getInt("leaguePoints"));
+                challenger.setLeaguePoints7(jsonObject.getJsonArray("entries").getJsonObject(6).getInt("leaguePoints"));
+                challenger.setLeaguePoints8(jsonObject.getJsonArray("entries").getJsonObject(7).getInt("leaguePoints"));
+                challenger.setLeaguePoints9(jsonObject.getJsonArray("entries").getJsonObject(8).getInt("leaguePoints"));
+                challenger.setLeaguePoints10(jsonObject.getJsonArray("entries").getJsonObject(9).getInt("leaguePoints"));
             }
             challenger.getPlayerName();
             challenger.getName();

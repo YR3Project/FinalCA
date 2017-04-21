@@ -46,6 +46,16 @@ public class Challenger {
     private int losses8;
     private int losses9;
     private int losses10;
+    private int leaguePoints;
+    private int leaguePoints2;
+    private int leaguePoints3;
+    private int leaguePoints4;
+    private int leaguePoints5;
+    private int leaguePoints6;
+    private int leaguePoints7;
+    private int leaguePoints8;
+    private int leaguePoints9;
+    private int leaguePoints10;
     public Challenger() {
     }
 
@@ -328,4 +338,93 @@ public class Challenger {
     public void setLosses10(int losses10) {
         this.losses10 = losses10;
     }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public void setLosses(int losses) {
+        this.losses = losses;
+    }
+
+    public int getLeaguePoints() {
+        return leaguePoints;
+    }
+
+    public void setLeaguePoints(int leaguePoints) {
+        this.leaguePoints = leaguePoints;
+    }
+
+    public int getLeaguePoints2() {
+        return leaguePoints2;
+    }
+
+    public void setLeaguePoints2(int leaguePoints2) {
+        this.leaguePoints2 = leaguePoints2;
+    }
+
+    public int getLeaguePoints3() {
+        return leaguePoints3;
+    }
+
+    public void setLeaguePoints3(int leaguePoints3) {
+        this.leaguePoints3 = leaguePoints3;
+    }
+
+    public int getLeaguePoints4() {
+        return leaguePoints4;
+    }
+
+    public void setLeaguePoints4(int leaguePoints4) {
+        this.leaguePoints4 = leaguePoints4;
+    }
+
+    public int getLeaguePoints5() {
+        return leaguePoints5;
+    }
+
+    public void setLeaguePoints5(int leaguePoints5) {
+        this.leaguePoints5 = leaguePoints5;
+    }
+
+    public int getLeaguePoints6() {
+        return leaguePoints6;
+    }
+
+    public void setLeaguePoints6(int leaguePoints6) {
+        this.leaguePoints6 = leaguePoints6;
+    }
+
+    public int getLeaguePoints7() {
+        return leaguePoints7;
+    }
+
+    public void setLeaguePoints7(int leaguePoints7) {
+        this.leaguePoints7 = leaguePoints7;
+    }
+
+    public int getLeaguePoints8() {
+        return leaguePoints8;
+    }
+
+    public void setLeaguePoints8(int leaguePoints8) {
+        this.leaguePoints8 = leaguePoints8;
+    }
+
+    public int getLeaguePoints9() {
+        return leaguePoints9;
+    }
+
+    public void setLeaguePoints9(int leaguePoints9) {
+        this.leaguePoints9 = leaguePoints9;
+    }
+
+    public int getLeaguePoints10() {
+        return leaguePoints10;
+    }
+
+    public void setLeaguePoints10(int leaguePoints10) {
+        this.leaguePoints10 = leaguePoints10;
+    }
+    
 }

@@ -27,3 +27,8 @@
 {
      color: blue;
 }
+
+#challengerladder, #masterladder
+{
+    padding-left:100px;
+}
