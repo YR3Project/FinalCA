@@ -71,7 +71,7 @@
           
                 <div id="MainForms">
                     <h3 class id="title">Write a WoW Article</h3>
-                    <form action="FrontController" method="post" id="Article">
+                    <form action="FrontController" method="GET" id="Article">
                         
                             Title: <input name="title" size=30 type="text" /> 
                         <br />

@@ -23,6 +23,8 @@
                 <%@ include file="Includes/nav.jsp" %>
                 <h1>World of Warcraft Legion</h1>
             </header>
+            <article>
+            <section>
                  <%
             String name = request.getParameter("name");
             String realm = request.getParameter("realm");
@@ -54,7 +56,10 @@
             <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
             <p><%=charItems.getHeadName()%></p>
                 
-            <%@ include file="Includes/footer.jsp" %>
+            
+            </section>
+            </article>
         </div>
+            <%@ include file="Includes/footer.jsp" %>
     </body>
 </html>
