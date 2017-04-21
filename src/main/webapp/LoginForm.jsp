@@ -30,7 +30,11 @@
                 String message = (String) Value;
             
             %>
-            <p><%=message%></p>
+
+            <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> <%=message%>.
+            </div>
             <%
                 }
                 session.removeAttribute("ChangeSuccess");

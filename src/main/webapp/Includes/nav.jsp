@@ -27,6 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
+     <a class="navbar-brand" href="/">SWGW</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -37,16 +38,16 @@
                         Users successUser = (Users) Value2;
 
                 %>
-                <li id="active"><a href="index.jsp" id="current">Home</a></li>
-                <li><a href="viewProfile.jsp">View your own profile</a></li>
-                <li><a href="WoWPage.jsp">World of Warcraft</a></li>
-                <li><a href="LeaguePage.jsp">League of Legends</a></li>
-                <li><a href="BattlePage.jsp">Battle System</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
+                <li id="active"><a href="index.jsp" id="current"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a href="viewProfile.jsp"><span class="glyphicon glyphicon-user"></span>View your own profile</a></li>
+                <li><a href="WoWPage.jsp"><span class="glyphicon glyphicon-flash"></span>World of Warcraft</a></li>
+                <li><a href="LeaguePage.jsp"><span class="glyphicon glyphicon-flash"></span>League of Legends</a></li>
+                <li><a href="BattlePage.jsp"><span class="glyphicon glyphicon-flash"></span>Battle System</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp">League of Legends</a>
-                       <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                       <li><a href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
+                       <li><a href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
                         </ul>
                  </li>
                  
@@ -62,12 +63,12 @@
         <%
         } else {
         %>
- <li><a href="index.jsp">Home</a></li>
- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href ="">Twitch-Area
+ <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+ <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp">League of Legends</a>
-                       <li><a href ="Wow-Section.jsp">World of Warcraft</a></li>
+                       <li><a href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
+                       <li><a href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
                         </ul>
                  </li>
 </ul>

@@ -49,15 +49,15 @@
                     <section>
                         <img id="Articleimage"  src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="200" width="500" />
                         <br />
-                    
-                        <form name="del" action="FrontController" method="post">
-                            
-                            <div class="Articles">
+                        <div class="Articles">
                             <br />
                              <p id="viewArticle">
                              <%=artc.getArticleText()%>
                              </p>
                             </div>
+                        <form name="del" action="FrontController" method="post">
+                            
+                            
                                 <input type="hidden" name="artID" value="<%=artc.getArticleID()%>" />
                             
 
@@ -144,7 +144,7 @@
                                 
                                  Title:
                                 
-                                <input name="title" value="<%=artc.getTitle()%>" size=30 type="text" />
+                                <input class="editinput" name="title" value="<%=artc.getTitle()%>" size=30 type="text" />
                                 <br />
                                 <textarea rows="4" cols="50" name="content" form="editform"></textarea>
                                 <br />
