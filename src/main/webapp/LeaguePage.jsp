@@ -14,6 +14,7 @@
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         <link href="CSS/LeaguePage.css" rel="stylesheet" type="text/css"/>
+
     </head>
 
      <%@ include file="Includes/Slideshow.php" %>
@@ -39,26 +40,26 @@
             
                 <article>
                     
-                    <section>
-                <h3 class id="title">View your profile</h3>
-                
-                    <form action="PlayerStats.jsp" method="get" id="Article">
-                        
-                        Name: <input name="name" id="leagueName" size=30 type="text" /> 
+
+
+                    <form id="playerst" action="PlayerStats.jsp" method="get">
+                        <div id="centerform">
+                            <h3 class id="title">View your profile</h3>
+                            <h2 id="Leaguetitle">Name:</h2> 
+                        <input name="name" id="leagueName" size=30 type="text" /> 
                         <br />
-                        <br />
-                        
-                        Region: 
+                        <h2 id="Leaguetitle">Region:</h2>
+                        <div class="styled-select black rounded">
                         <Select name='region' id='leagueRegion'>
                             <option>EUW</option>
                             <option>NA</option>
                         </Select>
-                        <input name="region" id="leagueRegion" size=30 type="text" /> 
+                        </div>
                         <br />
-                            <input type="submit" value="View Your Profile" id="submitLeague"/>
-                        
+                            <input type="submit" value="View Your Profile" id="stats"/>
+                        </div>
                     </form>
-                    </section>
+
                         
                     
                        
@@ -78,7 +79,7 @@
                 
                 
             <section class="rankTables">    
-                <h2>Challenger Ladder</h2>
+                <h2 id="title">Challenger Ladder</h2>
                 <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th><th>Points</th>
@@ -159,7 +160,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h2>Master ladder</h2>
+                <h2 id="title">Master ladder</h2>
                 <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th><th>Points</th>
@@ -289,50 +290,18 @@
                 %>
                 
                     <section>    
-                        <div class="Articles">
+                        
                         <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
-                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />   
-                        <p><%=artText%>  <a id="AccountLink" href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
+                        <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID())%>" height="200" width="500" />
+                        <div class="Articles">
+                        <p><%=artText%>  <a  href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
                         </div>
                     </section>
 
 
-                    <%
-                        int artID = (allArticles.get(i)).getArticleID();
-                        ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
-                        for (int j = 0; j < allComments.size(); j++) {
-                    %>
-                     <section class id="commentsection">
-                     <h3 class id="commentTitle">Comment</h3>
-                     <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
-                     <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
-                     <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
-                     on <%=(allComments.get(j)).getDate()%></p>
-                     <%=(allComments.get(j).getCommentText())%>
-                </section>
-                      
+                    
                         <%
-                            }
-                            if (Value4 != null) {
-                        %>
-                        <section class id="leavecommentsection">
-               
-                        <h3 class id="leavecomment">Leave a Comment</h3>
-                            <form action="FrontController" method="post">
-                               
-                                    <span id='content'> Text: </span> <span id='textbox'>  <input name="comment" size=50 type="text" /> </span>
-                                <br />
-                               
-                                    <span id='post'>  <input type="submit" value="Post" /> </span>
-                                <br />
                                 
-                                    <input type="hidden" name="action" value="writeComm" />
-                                <br />
-                                <input type="hidden" name="artID" value="<%=allArticles.get(i).getArticleID()%>" />
-                            </form>
-                        </section>
-                        <%
-                                }
                             }
                         %>
                 </article>

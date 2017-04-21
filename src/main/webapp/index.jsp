@@ -24,7 +24,9 @@
     </script>    
     <body>
         
-         
+<!--Start Cookie Script-->
+<script type="text/javascript" charset="UTF-8" src="http://cookie-script.com/s/6323d370217e9a0c16e22af5ac331e5b.js"></script>
+<!--End Cookie Script-->    
     <div id="wrapper">
       
         <header>
