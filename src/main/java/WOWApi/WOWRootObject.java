@@ -183,14 +183,16 @@ public class WOWRootObject {
             int race = jsonObject.getInt("race");
             int gender = jsonObject.getInt("gender");
             int level = jsonObject.getInt("level");
+            String thumbnail = jsonObject.getString("thumbnail");
             
+            cProf.setThumbnail(thumbnail);
             cProf.setCharClass(classID);
             cProf.setRealm(realm);
             cProf.setName(name);
             cProf.setLevel(level);
             cProf.setRace(race);
             cProf.setGender(gender);
-            String thumbnail = jsonObject.getString("thumbnail");
+
             
             cProf.setThumbnail(thumbnail);
             return cProf;

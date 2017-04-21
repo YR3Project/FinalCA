@@ -23,15 +23,17 @@
                 <%@ include file="Includes/nav.jsp" %>
                 <h1>World of Warcraft Legion</h1>
             </header>
+            <article>
+            <section>
                  <%
             String name = request.getParameter("name");
             String realm = request.getParameter("realm");
                    
             WOWRootObject r = new WOWRootObject();   
             CharacterProfile character = r.getChar(realm, name);
-
+            
             int charClass = character.getCharClass();
-
+            
             int gender = character.getGender();
             int race = character.getRace();
             String [] genderArray = {"Male", "Female"};
@@ -54,7 +56,10 @@
             <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
             <p><%=charItems.getHeadName()%></p>
                 
-            <%@ include file="Includes/footer.jsp" %>
+            
+            </section>
+            </article>
         </div>
+            <%@ include file="Includes/footer.jsp" %>
     </body>
 </html>
