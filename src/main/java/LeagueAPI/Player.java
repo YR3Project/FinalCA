@@ -12,7 +12,7 @@ package LeagueAPI;
 public class Player {
     private int summonerID;
     private String name;
-
+    private String icon;
     public Player() {
     }
 
@@ -30,5 +30,13 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public String getIcon()
+    {
+        return icon;
+    }
+    public void setIcon(String icon)
+    {
+        this.icon = icon;
     }
 }

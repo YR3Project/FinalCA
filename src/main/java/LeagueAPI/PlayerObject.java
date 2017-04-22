@@ -31,10 +31,13 @@ public class PlayerObject {
                 in.close();
 
                 Player player = new Player();
-
+                String thumbnail = "http://avatar.leagueoflegends.com/"+region+"/"+name+".png";
+                
                 player.setName(name);
                 player.setSummonerID(jsonObject.getInt("id"));
+                player.setIcon(thumbnail);
                 
+                player.getIcon();
                 player.getName();
                 player.getSummonerID();
                 return player;

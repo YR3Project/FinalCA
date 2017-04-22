@@ -117,7 +117,7 @@
                     player = po.getPlayer(name, region);
                     int id = player.getSummonerID();
                     //Gets the player tier division and points
-                    
+                    //String url = "http://avatar.leagueoflegends.com/"+region+"/"+name+".png";
                     
                     pr = pro.getPlayerRank(Integer.toString(id), region);
                     
@@ -197,6 +197,7 @@
                 
                 <h5 id="title">Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h5>
                 <h2 id="title">Your rank</h2>
+                
                 <p>Player name: <%=player.getName()%>
                 <p>Player rank: <%=pr.getTierName()%> <%=pr.getTier()%> <%=pr.getDivision()%>
                 <p>League Points: <%=pr.getLeaguePoints()%>
