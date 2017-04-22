@@ -249,6 +249,11 @@ section{
    
 }
 
+.Ladders th, td
+{
+    color: black;
+}
+
 .Laddersdata
 {
     padding-left: 10em;
