@@ -37,12 +37,13 @@
             </header>
             
                 <article>
-                    <img src="Images/logo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
-                    <section>
+                    <img src="Images/Wowlogo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
+                <section>
                 <h3 id="title">View your Character</h3>
                 <div class="Articles">
                 <p>View some of the statistics of your WoW Character!</p>
                 </div>
+                
                 <img id="wowpic" src="Images/HUMAN.PNG" alt="human"/>
               
                 </section>
@@ -76,8 +77,10 @@
                 <button onclick="myFunction()">Add Article</button>
           
                 <div id="MainForms">
-                    <h3 class id="title">Write a WoW Article</h3>
-                    <form action="FrontController" method="GET" id="Article">
+                    
+                    <form id="WOWEdit" action="FrontController" method="GET" id="Article">
+                        <h3 class id="title">Write a WoW Article</h3>
+                        <br />
                         
                             Title: <input name="title" size=30 type="text" /> 
                         <br />

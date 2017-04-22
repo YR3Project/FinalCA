@@ -37,11 +37,12 @@
                 
                 <h1>League of Legends</h1>
             </header>
-            
+
                 <article>
                     
-
-
+                    <br />
+                    <img src="Images/Lollogo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
+                    <br />
                     <form id="playerst" action="PlayerStats.jsp" method="get">
                         <div id="centerform">
                             <h3 class id="title">View your profile</h3>

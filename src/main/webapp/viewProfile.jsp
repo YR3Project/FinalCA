@@ -44,15 +44,11 @@
        
         
         <div class="Articles">
-        <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
-        
-           
-            <a href='ChangeProfilePic.jsp' class="button">Change profile Picture</a>
-            
-             
-             
+
         <h2 id="title"><%=successUser.getUserName()%>'s Profile</h2>
-        
+        <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
+        <a href='ChangeProfilePic.jsp' class="button">Change profile Picture</a>
+            
            
         
             <div style="overflow-x:auto;">
