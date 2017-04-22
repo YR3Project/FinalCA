@@ -194,8 +194,8 @@
         <article>
             <section>
                 
-                
-                <h5 id="title">Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h5>
+                <div class="Articles">
+                <h2 id="title">Your server <%=serverStatus.getName() %> is currently <%=serverStatus.getStatus()%></h2>
                 <h2 id="title">Your rank</h2>
                 
                 <p>Player name: <%=player.getName()%>
@@ -238,6 +238,7 @@
                     <p class="kills">Most Kills: <%=stats.getMostKills3()%>
                     <P class="deaths">Most Deaths: <%=stats.getMostDeaths3()%>
                     <p class="KD">KD Ratio: <span id="KD3"><%=formatter.format(kills3/deaths3)%></span>
+                </div>
                 </div>
             </section>
                  <%
