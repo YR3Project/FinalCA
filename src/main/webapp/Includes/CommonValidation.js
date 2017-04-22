@@ -63,9 +63,22 @@
                 status=false; 
             }
             
+            else if(password.match())
+            {
+                document.getElementById("passwordlocation").innerHTML=  
+                " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Password Your Password must not contain Password1 try to think of better passwords";  
+                status=false;
+            }
+            
             else if(!(useremail.match(mailformat))){  
                 document.getElementById("emaillocation").innerHTML=  
-                " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Email does not match the requirements";  
+                " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Email does not match the requirements one og the following happened:\n\
+                    @ is not present\n\
+                    can not start with dot\n\
+                    No character before @ \n\
+                    only allows character, digit, underscore, and dash \n\
+                    double dots are not allowed\n\
+                    example: my.ownsite@ourearth.org";  
                 status=false; 
             }
             

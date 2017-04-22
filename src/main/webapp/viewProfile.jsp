@@ -27,10 +27,15 @@
             if (Value3 != null)
             {
                 String message = (String) Value3;
-                %>
-                <br/><h3><% out.println(message); %></h3>
-                
-                <%
+                if(!(message == "")){
+            %>
+
+            <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> <%=message%>.
+            </div>
+            <%
+                }
             }
             Object Value4 = session.getAttribute("CurrentUser");
             UsersDao account = new UsersDao("swgw");
@@ -47,7 +52,8 @@
 
         <h2 id="title"><%=successUser.getUserName()%>'s Profile</h2>
         <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
-        <a href='ChangeProfilePic.jsp' class="button">Change profile Picture</a>
+        <br />
+        <a href='ChangeProfilePic.jsp' class="Profilebutton">Change profile Picture</a>
             
            
         
@@ -63,8 +69,7 @@
                 %>    
                     <th>UserName</th>
                     <th>Email</th>
-                    <th></th>
-                    <th>Comments by this Account</th>
+                    <th>Comments</th>
             </tr>
             <tr>
                 <%
@@ -79,7 +84,7 @@
                 <td><%=successUser.getUserName()%></td>
                 
                 <td><%=successUser.getEmail()%></td>
-                <td></td>
+
                 <td><%=commentsMade.size()%></td>
             </tr>
         </table>
@@ -108,14 +113,14 @@
                 session.removeAttribute("EditSuccess");
                 session.setAttribute("EditSuccess", "");
                 %>
-                </div>
-                <p>
-            <a href='editUser.jsp' class="button">Edit Your Profile</a>
-                </p>
-                <p>
-            <a href='ChangePassword.jsp' class="button">Change Password</a>
-                </p>
+                
+            <br />  
+            <a href='editUser.jsp' class="Profilebutton">Edit Your Profile</a>
+            
+            <a href='ChangePassword.jsp' class="Profilebutton">Change Password</a>
+              
             <h1 id="secret">&zwnj;</h1>
+            </div> 
                  </section>
              </article>
              <%@ include file="Includes/footer.jsp" %>

@@ -80,8 +80,10 @@
                 %>  
                 
                 
-            <section class="rankTables">    
+            <section class="rankTables">
+                <div class="Ladders"> 
                 <h2 id="title">Challenger Ladder</h2>
+                <div class="Laddersdata">
                 <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th><th>Points</th>
@@ -162,7 +164,9 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>            
                 <h2 id="title">Master ladder</h2>
+                <div class="Laddersdata">
                 <table id="rankTables">
                     <thead>
                     <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th><th>Points</th>
@@ -240,6 +244,8 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
+                </div>
             </section>
             <%    Users successUser2 = new Users();
                 Object Value4 = session.getAttribute("CurrentUser");

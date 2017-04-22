@@ -68,8 +68,8 @@
                 </script>
             </section>
         </article>
-                
+        <%@ include file="Includes/footer.jsp" %>        
  </div>
     </body>
-    <%@ include file="Includes/footer.jsp" %>
+    
 </html>
