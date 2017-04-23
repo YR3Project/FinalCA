@@ -1,3 +1,4 @@
+<%@page import="java.text.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,13 +28,14 @@
                 BattleSystem battlesystem = new BattleSystem();
                 
                 double battlesystem2 = (Double) Battle;
-                double result = Math.ceil(battlesystem2);
-                
+                double result = battlesystem2;
+                NumberFormat formatter = new DecimalFormat("#.00");
+                String finalResult = formatter.format(result);
                 
         %>
                     <h2 id="title">The Results</h2>
                     <p>The results from our epic Battle simulation system has come up the following result</p>
-                    <p id="battleResult">Based on the champions you've selected you have a <% out.println(result); %>% chance to win your game</p>
+                    <p id="battleResult">Based on the champions you've selected you have a <%=finalResult %>% chance to win your game</p>
                     
                 </section>
             </article>

@@ -56,11 +56,11 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
     }
 
     @Override
-    public int getChampValue(String name) {
+    public double getChampValue(String name) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int value = 0;
+        double value = 0;
         try
         {
             con = getConnection();
@@ -70,7 +70,7 @@ public class BattleSystemDao extends Dao implements BattleSystemDaoInterface{
             rs = ps.executeQuery();
             while(rs.next())
             {
-                value = rs.getInt("ChampValue");
+                value = rs.getDouble("ChampValue");
             }
             
         }catch(SQLException e)

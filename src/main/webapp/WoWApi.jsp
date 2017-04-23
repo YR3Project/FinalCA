@@ -60,7 +60,7 @@
                     <p><%=genderArray[gender]%></p>
                     <h3 id="title">Kills</h3>
                     <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
-                    <h3 id="title">Head Name</h3>
+                    <h3 id="title">Helmet Name</h3>
                     <p><%=charItems.getHeadName()%></p>
                </center> 
             </div>   

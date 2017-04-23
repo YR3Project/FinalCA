@@ -31,11 +31,11 @@ public class BattleScoreCommand implements Command{
                 
                 BattleSystem battle = new BattleSystem();
                 //get their values
-                int topValue = bDao.getChampValue(topName);
-                int jungValue = bDao.getChampValue(jungName);
-                int midValue = bDao.getChampValue(midName);
-                int adcValue = bDao.getChampValue(adcName);
-                int supportValue = bDao.getChampValue(supportName);
+                double topValue = bDao.getChampValue(topName);
+                double jungValue = bDao.getChampValue(jungName);
+                double midValue = bDao.getChampValue(midName);
+                double adcValue = bDao.getChampValue(adcName);
+                double supportValue = bDao.getChampValue(supportName);
                 //Add the values up and divide by 5
                 double avg = (topValue + jungValue + midValue + adcValue + supportValue)/5;
 

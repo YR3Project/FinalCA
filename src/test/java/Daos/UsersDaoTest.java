@@ -55,12 +55,13 @@ public class UsersDaoTest {
     @Test
     public void testLogingInUser() {
         System.out.println("LogingInUser");
-        String workingName = "ChrisJunit";
+        String workingName = "ChrisJunit2";
         String password = "Password1";
         //Testing for case senitivity 
         String testName1 = "chrisJUNIT";
         String testName2 = "CHRISJUNIT";
         String testName3 = "chrisjunit";
+       
         
         
         boolean expResult = true;
@@ -68,32 +69,33 @@ public class UsersDaoTest {
         boolean result2 = false;
         boolean result3 = false;
         boolean result4 = false;
+        boolean result5 = false;
         Users u = uDao.LogingInUser(workingName, password);
         Users u2 = uDao.LogingInUser(testName1, password);
         Users u3 = uDao.LogingInUser(testName2, password);
         Users u4 = uDao.LogingInUser(testName3, password);
-        if(u != null)
-        {
-            result = true;
+        
+        if(u != null) {
+            result2 = true;
             assertEquals(expResult, result);
         }
         if(u2 != null)
         {
-            result = true;
+            result2 = true;
             assertEquals(expResult, result2);
         }if(u3 != null)
         {
-            result = true;
+            result3 = true;
             assertEquals(expResult, result3);
         }
         if(u4 != null)
         {
-            result = true;
+            result4 = true;
             assertEquals(expResult, result4);
         }
+       
+      
         
-       
-       
     }
 
     /**
@@ -116,7 +118,7 @@ public class UsersDaoTest {
     @Test
     public void testGetUserbyName() {
         System.out.println("getUserbyName");
-        String name = "chips97";
+        String name = "ChrisJunit";
         
         boolean expResult = true;
         boolean result = false;
@@ -165,7 +167,7 @@ public class UsersDaoTest {
     @Test
     public void testRegisterUser() throws NoSuchAlgorithmException, NoSuchProviderException {
         System.out.println("RegisterUser");
-        String uname = "ChrisJunit";
+        String uname = "ChrisJunit2";
         String pass = "Password1";
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] salt = getSalt();

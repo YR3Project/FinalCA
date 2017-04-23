@@ -21,7 +21,7 @@ public interface BattleSystemDaoInterface {
      * @param name
      * @return The champions value based on the name
      */
-    public int getChampValue(String name);
+    public double getChampValue(String name);
     
     /**
      * This method gets the champions position or role

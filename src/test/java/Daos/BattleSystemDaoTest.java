@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * @author PC
  */
 public class BattleSystemDaoTest {
-    private String testdb = "testdb";
+    private final String testdb = "testdb";
     BattleSystemDao bDao = null;
     public BattleSystemDaoTest() {
     }
@@ -75,9 +75,9 @@ public class BattleSystemDaoTest {
         System.out.println("getChampValue");
         int id = 1;
         BattleSystemDao instance = null;
-        int expResult = 52;
+        double expResult = 52;
         String name = "Vi";
-        int result = bDao.getChampValue(name);
+        double result = bDao.getChampValue(name);
         assertEquals(expResult, result);
         
         

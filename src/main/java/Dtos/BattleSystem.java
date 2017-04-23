@@ -12,11 +12,11 @@ package Dtos;
 public class BattleSystem {
     protected int ChampID;
     protected String ChampName;
-    protected int ChampValue;
+    protected double ChampValue;
     protected String position;
     
     public BattleSystem(){}
-    public BattleSystem(int ChampID, String ChampName, int ChampValue, String position)
+    public BattleSystem(int ChampID, String ChampName, double ChampValue, String position)
     {
         this.ChampID = ChampID;
         this.ChampName = ChampName;
@@ -45,11 +45,11 @@ public class BattleSystem {
         this.ChampName = ChampName;
     }
 
-    public int getChampValue() {
+    public double getChampValue() {
         return ChampValue;
     }
 
-    public void setChampValue(int ChampValue) {
+    public void setChampValue(double ChampValue) {
         this.ChampValue = ChampValue;
     }
 
