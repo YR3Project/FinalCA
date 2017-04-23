@@ -33,13 +33,15 @@ Author Aleks,Ben
                 Congratulations on successful Registering into are service <%=(successRegUser.getUserName())%>.
             </p>
             
-          <table>
+          <table id="userTable">
             <tr>
                 <th>UserName</th>
+                <th></th>
                 <th>Email</th>
             </tr>
             <tr>
                 <td><%=successRegUser.getUserName()%></td>
+                <td></td>
                 <td><%=successRegUser.getEmail()%></td>
 
             </tr>

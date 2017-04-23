@@ -30,6 +30,9 @@ Any value defined here will override the pom.xml file value but is only applicab
             <configuration id="test" profiles="">
                 <property name="maven.test.skip">true</property>
             </configuration>
+            <configuration id="test Skip" profiles="">
+                <property name="maven.test.skip">true</property>
+            </configuration>
         </configurations>
     </config-data>
 </project-shared-configuration>

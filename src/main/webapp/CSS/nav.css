@@ -56,6 +56,9 @@ width:167px;
 {
  padding: 0.25em;
 }
+
+
+
 /*This creates a slow Highligthing effect when hovering over a link */
 a:hover {
     color:#FFFFFF;

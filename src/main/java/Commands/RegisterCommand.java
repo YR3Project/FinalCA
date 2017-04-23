@@ -75,6 +75,7 @@ public class RegisterCommand implements Command{
                         boolean noConditions = !(Password.contains("AND") || Password.contains("NOT")); //|| Password.contains("not") || Password.contains("and"))
                         boolean noUsername = !(Password.contains(UserName));
                         boolean noSpaces = !(UserName.contains(" "));// No Spaces in username
+                        boolean noPassword1 = !(Password.contains("Password1"));
                         
                         if(UserName.length() < 3){
                              String error = "Your UserName must be atleast more than 2 in Length";
@@ -106,6 +107,12 @@ public class RegisterCommand implements Command{
                             String error = "Your Username must not contain Spaces";
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";
+                         }
+                         if(!noPassword1)
+                         {
+                           String error = "Your Password must not contain Password1 try to think of better passwords";
+                           session.setAttribute("Complexity", error);
+                           forwardToJsp = "RegRetry.jsp";
                          }
                          
 

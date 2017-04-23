@@ -28,10 +28,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-     <a class="navbar-brand" href="/">SWGW</a>
+     
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+          <li> <a href="index.jsp"><img id="logo" src="Images/SiteLogo.png" height="50" width="60" /></a></li>
+          </ul>  
       <ul class="nav navbar-nav">
+          
                 <%
                     Object Value2  = session.getAttribute("CurrentUser");
                     UsersDao navaccount = new UsersDao("swgw");
@@ -39,6 +43,7 @@
                         Users successUser = (Users) Value2;
 
                 %>
+                
                 <li id="active"><a href="index.jsp" id="current"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                 <li><a href="viewProfile.jsp"><span class="glyphicon glyphicon-user"></span>View your own profile</a></li>
                 <li><a href="WoWPage.jsp"><span class="glyphicon glyphicon-flash"></span>World of Warcraft</a></li>
@@ -53,7 +58,7 @@
                  </li>
                  
       </ul>
-                 <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.jsp"><img src="<%=navaccount.GetPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
                  </ul>
                
