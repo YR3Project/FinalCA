@@ -83,6 +83,23 @@
             <%
                 String name = request.getParameter("name");
                 String region = request.getParameter("region");
+                String season = request.getParameter("season");
+                
+                if(season.equals("Season 7"))
+                {
+                    season = "SEASON2017";
+                }else if(season.equals("Season 6"))
+                {
+                    season = "SEASON2016";
+                }
+                else if(season.equals("Season 5"))
+                {
+                    season = "SEASON2015";
+                }
+                else if(season.equals("SEASON 4"))
+                {
+                    season = "SEASON2014";
+                }
                 //Getting the  champions ranked stats
                     RankedStats stats = new RankedStats();
                     RankedObject ro = new RankedObject();
@@ -122,7 +139,7 @@
                     pr = pro.getPlayerRank(Integer.toString(id), region);
                     
                     //Get the champions name
-                    stats = ro.getRankedStats(id, region);
+                    stats = ro.getRankedStats(id, region, season);
                     int champID = stats.getChampID();
                     int champID2 = stats.getChampID2();
                     int champID3 = stats.getChampID3();

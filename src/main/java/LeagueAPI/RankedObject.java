@@ -9,9 +9,9 @@ import java.io.*;
 import java.net.*;
 import javax.json.*;
 public class RankedObject {
-    public RankedStats getRankedStats(int id, String region) throws MalformedURLException, IOException
+    public RankedStats getRankedStats(int id, String region, String season) throws MalformedURLException, IOException
     {
-        URL url = new URL("https://"+ region +".api.riotgames.com/api/lol/"+ region + "/v1.3/stats/by-summoner/"+ id +"/ranked?season=SEASON2017&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+        URL url = new URL("https://"+ region +".api.riotgames.com/api/lol/"+ region + "/v1.3/stats/by-summoner/"+ id +"/ranked?season="+ season + "&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
         try(InputStream in = url.openStream();
                    BufferedReader reader = new BufferedReader(
                    new InputStreamReader(in, "UTF-8")))

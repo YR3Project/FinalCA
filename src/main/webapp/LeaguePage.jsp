@@ -44,7 +44,7 @@
                     <img src="Images/Lollogo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
                     <br />
                     <form id="playerst" action="PlayerStats.jsp" method="get">
-                        <div id="centerform">
+                    <div id="centerform">
                             <h3 class id="title">View your profile</h3>
                             <h2 id="Leaguetitle">Name:</h2> 
                         <input name="name" id="leagueName" size=30 type="text" /> 
@@ -56,10 +56,18 @@
                             <option>NA</option>
                         </Select>
                         </div>
-                        
+                        <h2 id="Leaguetitle">Season:</h2>
+                        <div class="styled-select black rounded">
+                        <Select name='season' id='leagueRegion'>
+                            <option selected="selected">Season 7</option>
+                            <option>Season 6</option>
+                            <option>Season 5</option>
+                            <option>Season 4</option>
+                        </Select>
+                        </div>
                         <br />
                             <input type="submit" value="View Your Profile" id="stats"/>
-                        </div>
+                    </div>
                     </form>
 
                         
