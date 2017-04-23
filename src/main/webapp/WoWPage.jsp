@@ -78,7 +78,7 @@
           
                 <div id="MainForms">
                     
-                    <form id="WOWEdit" action="FrontController" method="GET" id="Article">
+                    <form id="WOWEdit" action="FrontController" method="get" id="Article">
                         <h3 class id="title">Write a WoW Article</h3>
                         <br />
                         

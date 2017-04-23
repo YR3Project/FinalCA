@@ -60,8 +60,32 @@
                     <p><%=genderArray[gender]%></p>
                     <h3 id="title">Kills</h3>
                     <p>Honorable Kills: <%=character.getTotalHonorableKills()%></p>
-                    <h3 id="title">Helmet Name</h3>
+                    <h3 id="title">Helmet</h3>
                     <p><%=charItems.getHeadName()%></p>
+                    <h3 id="title">Neck</h3>
+                    <p><%=charItems.getNeckName()%></p>
+                    <h3 id="title">Shoulder</h3>
+                    <p><%=charItems.getShoulderName()%></p>
+                    <h3 id="title">Chest</h3>
+                    <p><%=charItems.getChestName()%></p>
+                    <h3 id="title">Back</h3>
+                    <p><%=charItems.getBackLevel()%></p>
+                    <h3 id="title">Wrist</h3>
+                    <p><%=charItems.getWristName()%></p>
+                    <h3 id="title">Hand</h3>
+                    <p><%=charItems.getHandName()%></p>
+                    <h3 id="title">Finger 1</h3>
+                    <p><%=charItems.getFinger1Name()%></p>
+                    <h3 id="title">Finger 2</h3>
+                    <p><%=charItems.getFinger2Name()%></p>
+                    <h3 id="title">Trinket 1</h3>
+                    <p><%=charItems.getTrinket1Name()%></p>
+                    <h3 id="title">Trinket 2</h3>
+                    <p><%=charItems.getTrinket2Name()%></p>
+                    <h3 id="title">Leg</h3>
+                    <p><%=charItems.getLegName()%></p>
+                    
+                    
                </center> 
             </div>   
             
