@@ -127,7 +127,11 @@
                 }
                 else
                 {
-                   
+                    //Getting unranked stats
+                    Unranked unranked = new Unranked();
+                    UnrankedObject uro = new UnrankedObject();
+                    
+
                     //Getting the users stats
                     
                     //player = po.getPlayer(name);
@@ -135,7 +139,7 @@
                     int id = player.getSummonerID();
                     //Gets the player tier division and points
                     //String url = "http://avatar.leagueoflegends.com/"+region+"/"+name+".png";
-                    
+                    //unranked = uro.getUnranked(region, Integer.toString(id));
                     pr = pro.getPlayerRank(Integer.toString(id), region);
                     
                     //Get the champions name
@@ -222,6 +226,10 @@
                 <p>Player Losses: <%=pr.getLosses()%>
                 
                 
+                
+                
+                    
+                    
                 <h2 id="title">3 most recent champions played</h2>
                 <div id="champ">
                     <p id="title">Champion name: <%=champ.getName()%> <%=champ.getTitle()%>
