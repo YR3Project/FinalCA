@@ -51,6 +51,7 @@ public class ProfilePicCommand implements Command {
         String ID = request.getParameter("id");
         String datapath = null;
         try{
+            //parts works
         for (Part part : request.getParts()) {
             
             String fileName = extractFileName(part);

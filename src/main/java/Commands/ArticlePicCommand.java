@@ -7,7 +7,6 @@ package Commands;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -55,6 +54,7 @@ public class ArticlePicCommand implements Command {
         String ID = request.getParameter("id");
         String datapath = null;
         try{
+            //parts works
         for (Part part : request.getParts()) {
             
             String fileName = extractFileName(part);
