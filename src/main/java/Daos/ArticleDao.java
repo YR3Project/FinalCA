@@ -305,45 +305,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         return rowsAffected > 0;
     }
     
-        @Override
-    public String GetPicPath(int id) {
-       Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String pic = null;
-        try{
-            con = getConnection();
-
-            String query = "Select photo from article Where ArticleID = ?";
-            ps = con.prepareStatement(query);
-            ps.setInt(1, id);
-            rs = ps.executeQuery(); 
-            
-            while(rs.next())
-            {
-              pic = rs.getString("photo");
-            }
-        }catch (SQLException e) {
-            System.out.println("Exception occured in the GetPicPath() method: " + e.getMessage());
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    freeConnection(con);
-                }
-            } catch (SQLException e) {
-                System.out.println("Exception occured in the finally section of the GetPicPath() method: " + e.getMessage());
-            }
-        }
-        
-        return pic;
-    }
-
+    
     @Override
     public ArrayList<Article> getArticlesByTitle(String title) {
        Connection con = null;
@@ -383,6 +345,47 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
             }
         }
         return articles;
+    }
+
+    @Override
+    public String GetPicPath(int Autid, int Artid) {
+        
+       Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String pic = null;
+        try{
+            con = getConnection();
+
+            String query = "Select photo from article Where AuthorID = ? and ArticleID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, Autid);
+            ps.setInt(2, Artid);
+            rs = ps.executeQuery(); 
+            
+            while(rs.next())
+            {
+              pic = rs.getString("photo");
+            }
+        }catch (SQLException e) {
+            System.out.println("Exception occured in the GetPicPath() method: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the GetPicPath() method: " + e.getMessage());
+            }
+        }
+        
+        return pic;
     }
     
     }

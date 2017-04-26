@@ -67,9 +67,7 @@ public class ArticlePicCommand implements Command {
        }catch(StringIndexOutOfBoundsException ex)
        {
            
-       } catch (IOException ex) {
-            Logger.getLogger(ProfilePicCommand.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ServletException ex) {
+       } catch (IOException | ServletException ex) {
             Logger.getLogger(ProfilePicCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
    HttpSession session = request.getSession();
@@ -110,15 +108,12 @@ public class ArticlePicCommand implements Command {
               forwardToJsp = "index.jsp";
             }
         } catch (SQLException ex) {
-            
-            ex.printStackTrace();
         } finally {
             if (conn != null) {
                 // closes the database connection
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    ex.printStackTrace();
                 }
             }
         }

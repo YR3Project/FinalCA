@@ -71,6 +71,6 @@ public interface ArticleDaoInterface {
      * @param id
      * @return Path to article Picture 
      */
-    public String GetPicPath(int id);
+    public String GetPicPath(int Autid, int Artid);
     
 }
