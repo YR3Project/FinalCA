@@ -32,7 +32,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-          <li> <a href="index.jsp"><img id="logo" src="Images/SiteLogo.png" height="50" width="60" /></a></li>
+          <li> <a id="hover" href="index.jsp"><img id="logo" src="Images/SiteLogo.png" height="50" width="60" /></a></li>
           </ul>  
       <ul class="nav navbar-nav">
           
@@ -44,22 +44,22 @@
 
                 %>
                 
-                <li id="active"><a href="index.jsp" id="current"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                <li><a href="viewProfile.jsp"><span class="glyphicon glyphicon-user"></span>View your own profile</a></li>
-                <li><a href="WoWPage.jsp"><span class="glyphicon glyphicon-flash"></span>World of Warcraft</a></li>
-                <li><a href="LeaguePage.jsp"><span class="glyphicon glyphicon-flash"></span>League of Legends</a></li>
-                <li><a href="BattlePage.jsp"><span class="glyphicon glyphicon-flash"></span>Battle System</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
+                <li id="active"><a id="hover" href="index.jsp" id="current"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                <li><a id="hover" href="viewProfile.jsp"><span class="glyphicon glyphicon-user"></span>View your own profile</a></li>
+                <li><a id="hover" href="WoWPage.jsp"><span class="glyphicon glyphicon-flash"></span>World of Warcraft</a></li>
+                <li><a id="hover" href="LeaguePage.jsp"><span class="glyphicon glyphicon-flash"></span>League of Legends</a></li>
+                <li><a id="hover" href="BattlePage.jsp"><span class="glyphicon glyphicon-flash"></span>Battle System</a></li>
+                <li class="dropdown"><a id="hover" class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
-                       <li><a href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
+                       <li><a id="hover" href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
+                       <li><a id="hover" href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
                         </ul>
                  </li>
                  
       </ul>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.jsp"><img src="<%=navaccount.GetProfPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
+                <li><a id="hover" href="logout.jsp"><img src="<%=navaccount.GetProfPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
                  </ul>
                
         </ul>
@@ -70,17 +70,17 @@
         } else {
         %>
  <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
+ <li class="dropdown"><a id="hover" class="dropdown-toggle" data-toggle="dropdown" href =""><span class="glyphicon glyphicon-film"></span>Twitch-Area
                     <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                       <li><a href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
-                       <li><a href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
+                       <li><a id="hover" href ="Lol-Section.jsp"><span class="glyphicon glyphicon-film"></span>League of Legends</a>
+                       <li><a id="hover" href ="Wow-Section.jsp"><span class="glyphicon glyphicon-film"></span>World of Warcraft</a></li>
                         </ul>
                  </li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-<li><a href="LoginForm.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-<li><a href="registration.jsp"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+<li><a id="hover" href="LoginForm.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<li><a id="hover" href="registration.jsp"><span class="glyphicon glyphicon-user"></span> Register</a></li>
 </ul>
 </nav>
 <%

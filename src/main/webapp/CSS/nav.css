@@ -60,7 +60,7 @@ width:167px;
 
 
 /*This creates a slow Highligthing effect when hovering over a link */
-a:hover {
+#hover:hover {
     color:#FFFFFF;
     background:#666666;
     transition-duration: 1s;

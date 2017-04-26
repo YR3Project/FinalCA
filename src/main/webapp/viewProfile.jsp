@@ -51,13 +51,13 @@
         <div class="Articles">
 
         <h2 id="title"><%=successUser.getUserName()%>'s Profile</h2>
-        <img src="<%=account.GetPicPath(successUser.getUserID())%>" width="150" height="150" />
+        <img src="<%=account.GetProfPicPath(successUser.getUserID())%>" width="150" height="150" />
         <br />
         <a href='ChangeProfilePic.jsp' class="Profilebutton">Change profile Picture</a>
             
            
         
-            <div style="overflow-x:auto;">
+        <div style="overflow-x:auto;">
         <table id="userTable">
             <tr>
                 <%  
