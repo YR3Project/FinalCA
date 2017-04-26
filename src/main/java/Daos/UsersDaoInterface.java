@@ -114,5 +114,5 @@ public interface UsersDaoInterface {
      * @param id
      * return Path to profile Picture
      */
-    public String GetPicPath(int id);
+    public String GetProfPicPath(int id);
 }

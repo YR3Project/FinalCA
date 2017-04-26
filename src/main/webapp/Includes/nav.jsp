@@ -59,7 +59,7 @@
                  
       </ul>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.jsp"><img src="<%=navaccount.GetPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
+                <li><a href="logout.jsp"><img src="<%=navaccount.GetProfPicPath(successUser.getUserID())%>" height="40" width="40" /> Log-Out</a></li>
                  </ul>
                
         </ul>

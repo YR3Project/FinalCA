@@ -13,16 +13,7 @@
     </head> 
 
     <%@ include file="Includes/Slideshow.php" %>
-     <script>
-        function myFunction() {
-            var x = document.getElementById('MainForms');
-            if (x.style.display === 'block') {
-                x.style.display = 'none';
-            } else {
-                x.style.display = 'block';
-            }
-        }
-    </script>  
+ 
     <body>
         <div id="wrapper">
             <header> 
@@ -41,13 +32,13 @@
                     }
                 %>
                 <h1><%=artc.getTitle()%></h1>
-                <h3>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID(artc.getAuthorID())%>"><%= author.GetAuthorByID(artc.getAuthorID())%><img src="<%=author.GetPicPath(artc.getAuthorID())%>" height="40" width="40"/></a> on <%=artc.getDate()%></h3>
+                <h3>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID(artc.getAuthorID())%>"><%= author.GetAuthorByID(artc.getAuthorID())%><img src="<%=author.GetProfPicPath(artc.getAuthorID())%>" height="40" width="40"/></a> on <%=artc.getDate()%></h3>
                         <%@ include file="Includes/nav.jsp" %>
             </header>
             <article>
 
                     <section>
-                        <img id="Articleimage"  src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="200" width="500" />
+                        <img id="Articleimage"  src="<%=aDao.GetPicPath(artc.getAuthorID(), artc.getArticleID())%>" height="200" width="500" />
                         <br />
                         <div class="Articles">
                             <br />
@@ -83,7 +74,7 @@
                           <h3 class id="commentTitle">Comment</h3>
                           <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
                                <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
-                               <img src="<%=author.GetPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
+                               <img src="<%=author.GetProfPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
                                on <%=(allComments.get(j)).getDate()%></p>
                           <div id="CommentText">
                           <%=(allComments.get(j).getCommentText())%>
@@ -136,12 +127,12 @@
                                 currentuser = (Users) currentobject;
                                 if (a2 == 1) {
                         %>
-                            <button onclick="myFunction()">Edit Article</button>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#demo">Edit Article</button>
                         
-                        <div id="MainForms">
+                        <div id="demo" class="collapse out">
                             <h3 class id="title">Edit an Article</h3>
                             <form name="editform" id="editform" action="FrontController" method="post">
-                                <img src="<%=aDao.GetPicPath(artc.getAuthorID())%>" height="180" width="500" />
+                                <img src="<%=aDao.GetPicPath(artc.getAuthorID(), artc.getArticleID())%>" height="180" width="500" />
                                 <a href='ChangeArticlePic.jsp' class="button">Change profile Picture</a>
                                 
                                  Title:
