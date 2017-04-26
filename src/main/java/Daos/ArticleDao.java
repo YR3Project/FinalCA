@@ -314,7 +314,7 @@ public class ArticleDao extends Dao implements ArticleDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Select photo from article Where AuthorID = ?";
+            String query = "Select photo from article Where ArticleID = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, id);
             rs = ps.executeQuery(); 

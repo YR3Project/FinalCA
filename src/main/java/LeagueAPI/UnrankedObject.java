@@ -25,34 +25,46 @@ public class UnrankedObject {
                 
                 jsonReader.close();
                 in.close();
-                
-                JsonArray jsonArray = jsonObject.getJsonArray("playerStatSummaries");
-                for(int i = 0; i < jsonArray.size(); i++)
-                {
-                    //get the unranked name
-                    String playerStatSummaryType = jsonArray.getJsonObject(8).getString("playerStatSummaryType");
-                    int wins = jsonArray.getJsonObject(8).getInt("wins");
-                    if(playerStatSummaryType.equals("Unranked"))
-                    {
-                        //print off detailed stats
-                        JsonObject aggregatedStats = jsonArray.getJsonObject(i).getJsonObject("aggregatedStats");
-                        
-                        String unrankedStats = jsonArray.getJsonObject(i).getString("playerStatSummaryType");
 
-                        int totalChampKills = aggregatedStats.getInt("totalChampionKills");
-                        int totalTurretKills = aggregatedStats.getInt("totalTurretKills");
-                        int totalMinionKills = aggregatedStats.getInt("totalMinionKills");
-                        int totalNeutralMinionsKilled = aggregatedStats.getInt("totalNeutralMinionsKilled");
-                        int totalAssits = aggregatedStats.getInt("totalAssits");
-                        
-                        unranked.setTotalAssists(totalAssits);
-                        unranked.setTotalChampionKills(totalChampKills);
-                        unranked.setTotalMinionKills(totalMinionKills);
-                        unranked.setTotalNeutralMinionsKilled(totalNeutralMinionsKilled);
-                        unranked.setWins(wins);
-                        unranked.setTotalTurretsKilled(totalTurretKills);
+                JsonArray jsonArray = jsonObject.getJsonArray("playerStatSummaries");
+                String name = null;
+                    JsonObject object = jsonArray.getJsonObject(8);
+                    int assists = jsonArray.size();
+                    unranked.setTotalAssists(assists);
+                    //get the unranked name
+                    for(int i = 0; i < 10; i++)
+                    {
+                        String playerStatSummaryType = jsonArray.getJsonObject(i).getJsonString("playerStatSummaryType").toString();
+                        if(playerStatSummaryType.contains("Unranked"))
+                        {
+                            name = "Unranked";
+                            JsonObject aggregatedStats = jsonArray.getJsonObject(i).getJsonObject("aggregatedStats");
+                            int totalChampKills = aggregatedStats.getInt("totalChampionKills");
+                            unranked.setTotalChampionKills(totalChampKills);
+                        }
                     }
-                }
+                    //int wins = jsonArray.getJsonObject(0).getInt("wins");
+                    int wins = object.getInt("wins");
+                    unranked.setWins(wins);
+                   
+                    
+                       
+                        
+                       
+
+                        
+//                        int totalTurretKills = aggregatedStats.getInt("totalTurretKills");
+                       // int totalMinionKills = aggregatedStats.getInt("totalMinionKills");
+                       // int totalNeutralMinionsKilled = aggregatedStats.getInt("totalNeutralMinionsKilled");
+                       // int totalAssits = aggregatedStats.getInt("totalAssits");
+                        
+                        
+                       // unranked.setTotalChampionKills(totalChampKills);
+                        //unranked.setTotalMinionKills(totalMinionKills);
+                        //unranked.setTotalNeutralMinionsKilled(totalNeutralMinionsKilled);
+                        
+                       // unranked.setTotalTurretsKilled(totalTurretKills);
+                    
                 return unranked;
             }
         }

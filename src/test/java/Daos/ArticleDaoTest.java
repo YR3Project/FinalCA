@@ -46,10 +46,10 @@ public class ArticleDaoTest {
     @Test
     public void testPostArticle() {
         System.out.println("PostArticle");
-        int authorID = 0;
+        int authorID = 48;
         String title = "test";
-        String articleText = "test";
-        String game = "test";
+        String articleText = "def";
+        String game = "def";
         
         boolean expResult = true;
         boolean result = aDao.PostArticle(authorID, title, articleText, game);
@@ -102,9 +102,9 @@ public class ArticleDaoTest {
     @Test
     public void testEditArticle() {
         System.out.println("EditArticle");
-        int articleID = 4;
-        String title = "test2";
-        String game = "test2";
+        int articleID = 5;
+        String title = "RiotsLatestRelease";
+        String game = "wow";
         String text = "";
         
         boolean expResult = true;
@@ -123,6 +123,7 @@ public class ArticleDaoTest {
         
         int expResult = 2;
         int result = aDao.getArticleByID(articleID).getArticleID();
+        System.out.println(result);
         assertEquals(expResult, result);
        
     }
@@ -147,12 +148,23 @@ public class ArticleDaoTest {
     @Test
     public void testGetPicPath() {
         System.out.println("GetPicPath");
-        int id = 0;
-        ArticleDao instance = null;
-        String expResult = "";
-        String result = instance.GetPicPath(id);
+        int id = 9;
+       
+        String expResult = "Images/Articles/35.jpg";
+        String result = aDao.GetPicPath(id);
         assertEquals(expResult, result);
         
     }
-    
+    @Test
+    public void testGetArticlesByTitle()
+    {
+        System.out.println("GetArticlesByTitle");
+        
+        String name = "Return to the ";
+        int expResult = 1;
+        
+        ArrayList<Article> result = aDao.getArticlesByTitle(name);
+        
+        assertEquals(expResult, result.size());
+    }
 }
