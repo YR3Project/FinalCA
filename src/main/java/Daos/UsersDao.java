@@ -560,7 +560,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
     }
 
     @Override
-    public String GetPicPath(int id) {
+    public String GetProfPicPath(int id) {
        Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
