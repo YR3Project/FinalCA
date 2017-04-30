@@ -133,7 +133,7 @@
                             <h3 class id="title">Edit an Article</h3>
                             <form name="editform" id="editform" action="FrontController" method="post">
                                 <img src="<%=aDao.GetPicPath(artc.getAuthorID(), artc.getArticleID())%>" height="180" width="500" />
-                                <a href='ChangeArticlePic.jsp' class="button">Change profile Picture</a>
+                                <a href='ChangeArticlePic.jsp' class="button">Change Article Picture</a>
                                 
                                  Title:
                                 

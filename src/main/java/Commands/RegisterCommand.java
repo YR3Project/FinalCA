@@ -214,7 +214,7 @@ public class RegisterCommand implements Command{
                         } catch (MessagingException e) {
                                 throw new RuntimeException(e);
                         }
-                                
+                              
                        }
                        else if(Action == false)
                        {
@@ -255,9 +255,9 @@ public class RegisterCommand implements Command{
                                HttpSession session = request.getSession();
                                
                                session.setAttribute("errorMessage", "Something has gone wrong with hashing your password");
-                           }  catch (IOException ex) {
-                
-                            } catch (NoSuchProviderException ex) {
+                           } catch (NoSuchProviderException ex) {
+                Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
                 Logger.getLogger(RegisterCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
                 }else

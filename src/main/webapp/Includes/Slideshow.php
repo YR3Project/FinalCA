@@ -1,4 +1,5 @@
 <h1 id="secret">&zwnj;</h1>
+
 <div id="gal">
   <nav class="galnav">
     <ul>
