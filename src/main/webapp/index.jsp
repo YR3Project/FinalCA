@@ -55,7 +55,6 @@
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
             
-            <textarea rows="4" cols="50" name="content" ></textarea>
             Title: 
             <br />
             <input name="title" size=30 type="text" /> 
