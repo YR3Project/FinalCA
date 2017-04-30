@@ -16,7 +16,7 @@ Author Aleks,Ben
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
     <body>
         <div id="wrapper">
         <h1>Successful registered in User</h1>

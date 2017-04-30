@@ -9,7 +9,7 @@
        <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
     </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
     <body>
         <script src="Includes/ChangePassword.js"></script>
          <div id="wrapper">

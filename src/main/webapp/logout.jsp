@@ -11,11 +11,11 @@
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
             <title>Log out</title>
             <script>
-                window.location = "index.jsp";
+                window.location = "Carousel.jsp";
             </script>
     </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carsoul.html" %> 
     <body>
         <%
             Object Value = session.getAttribute("CurrentUser");

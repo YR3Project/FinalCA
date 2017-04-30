@@ -17,7 +17,7 @@
 
     </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
      <script>
         function myFunction() {
             var x = document.getElementById('MainForms');

@@ -18,7 +18,7 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
             
     </head>
     
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
     <body>
         <script src="Includes/CommonValidation.js"></script>
         <div id="wrapper">

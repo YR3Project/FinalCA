@@ -16,7 +16,7 @@
         
     </head>
 
-    <%@ include file="Includes/Carsoul.html" %>  
+    <%@ include file="Includes/Carousel.html" %>  
     <body>
         
   
@@ -54,15 +54,14 @@
         <div id="demo" class="collapse out">
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
-            <p>
-            Title: 
-            </p>
-            <input name="title" size=30 type="text" /> 
-            <p>
-            Text:
-            </p>
             
-            <textarea rows="4" cols="50" name="content" form="Article"></textarea>
+            Title: 
+            <br />
+            <input name="title" size=30 type="text" /> 
+            <br />
+            Text:
+            <br />
+            <textarea rows="4" cols="50" name="content"></textarea>
            
             <br />
             <select name="game">

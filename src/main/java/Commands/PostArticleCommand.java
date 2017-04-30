@@ -38,14 +38,13 @@ public class PostArticleCommand implements Command {
              {
             
          try {
-            DateFormat df = new SimpleDateFormat("dd/MM/yy");
-            Date date = new Date();
+
             Object Value = session.getAttribute("CurrentUser");
             Users successUser = (Users) Value;
             int id = successUser.getUserID();
             ArticleDao aDao = new ArticleDao("swgw");
 
-            boolean action = aDao.PostArticle(id, title, title, game);
+            boolean action = aDao.PostArticle(id, title, content, game);
             if (action == true) {
 
                 session.setAttribute("articleSuccess", "article");

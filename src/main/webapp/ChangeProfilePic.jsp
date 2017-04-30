@@ -14,7 +14,7 @@
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
 </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
 <body>
      <div id="wrapper">
          <header>

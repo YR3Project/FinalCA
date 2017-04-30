@@ -12,7 +12,7 @@
         <link href="CSS/Articles.css" rel="stylesheet" type="text/css"/>
     </head> 
 
-    <%@ include file="Includes/Slideshow.php" %>
+    <%@ include file="Includes/Carousel.html" %> 
  
     <body>
         <div id="wrapper">

@@ -10,7 +10,7 @@
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Slideshow.php" %>
+     <%@ include file="Includes/Carousel.html" %> 
     <body>
         <div id="wrapper">
             <header>
