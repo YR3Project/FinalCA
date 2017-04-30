@@ -34,7 +34,16 @@
             <button type="submit" value="Find"><span class="glyphicon glyphicon-search"></span>Search</button>
         </form>
          </div> 
-
+        <script>
+            $(document).ready(function(){
+                $("#appearhidden").on("hide.bs.collapse", function(){
+                $(".btn").html('<span class="glyphicon glyphicon-collapse-down"></span> Open');
+            });
+                $("#appearhidden").on("show.bs.collapse", function(){
+                $(".btn").html('<span class="glyphicon glyphicon-collapse-up"></span> Close');
+            });
+            });
+        </script>
         
         <%  
             Users successUser2 = new Users();
@@ -46,12 +55,14 @@
                     int id = successUser2.getUserID();
         %>
         <article>
-            
+            <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#appearhidden">
+            <span class="glyphicon glyphicon-collapse-down"></span> Open
+        </button>
+        
+        <div id="appearhidden" class="collapsing"> 
        <section>
   
-        <button class="btn btn-info" data-toggle="collapse" data-target="#demo">Add Article</button>
-        
-        <div id="demo" class="collapse out">
+       
         <h3 class id="title">Write an Article</h3>
         <form action="FrontController" method="post" id="Article">
             
@@ -61,7 +72,7 @@
             <br />
             Text:
             <br />
-            <textarea rows="4" cols="50" name="content"></textarea>
+            <textarea rows="4" cols="50" name="content">Enter Text Here</textarea>
            
             <br />
             <select name="game">
@@ -73,9 +84,9 @@
             <input type="submit" value="Post" />
             
             <input type="hidden" name="action" value="postArtc" />
-        </form>
-         </div>
+        </form>         
         </section>
+        </div>
       
         <%
                 }
