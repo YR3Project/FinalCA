@@ -62,7 +62,7 @@
             Text:
             </p>
             
-            <textarea rows="4" cols="50" name="content" form="Article"></textarea>
+            <textarea rows="4" cols="50" name="content" ></textarea>
            
             <br />
             <select name="game">
