@@ -80,10 +80,14 @@
                     String region = "NA";
                     Master master = new Master();
                     MasterObject mo = new MasterObject();
-                    master = mo.getMaster(region);
+                    master = mo.getMaster();
+                    
                     Challenger challenger = new Challenger();
                     ChallengerObject co = new ChallengerObject();
+                    
                     challenger = co.getChallenger(region);
+                    
+                    
                     
                 %>  
                 

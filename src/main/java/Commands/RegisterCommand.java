@@ -136,10 +136,11 @@ public class RegisterCommand implements Command{
                         
                         for(int x = 0; x < Accounts.size(); x++)
                         {
-                         if(UserName.equals(Accounts.get(x).getUserName()))
+                         if(UserName.toLowerCase().equals(Accounts.get(x).getUserName().toLowerCase()))
                             {
                                 Checkname = true;
                             }
+                         
                             
                         }
                         if(Structure && noConditions && noUsername && noSpaces &&  Checkemail == false && Checkname == false)

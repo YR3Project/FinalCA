@@ -32,11 +32,11 @@ http://www.javatpoint.com/oprweb/test.jsp?filename=jsvalidation2
             <form name="reg" action="FrontController" method="post" onsubmit="return validateForm();">
                 <h3>SIGN-UP NOW</h3>
                 
-                Username  :  <input name="userName" id="txtUsername" size=30 type="text" maxlength="20" placeholder="Username"  /><span id="namelocation" style="color:red"></span><br>  
+                Username  :  <input name="userName" size=30 type="text" maxlength="20" placeholder="Username"  /><span id="namelocation" style="color:red"></span><br>  
                 
                 
-                Password  : <input name="password" id="txtPassword" size=30 type="password" placeholder="Password" /><span id="passwordlocation" style="color:red"></span><br>
-                Re-Enter Password: <input name="password2" id="txtConfirmPassword" size=30 type="password" placeholder="Re-Enter Password" /><span id="passwordlocation2" style="color:red"></span><br>
+                Password  : <input name="password"  size=30 type="password" placeholder="Password" /><span id="passwordlocation" style="color:red"></span><br>
+                Re-Enter Password: <input name="password2"  size=30 type="password" placeholder="Re-Enter Password" /><span id="passwordlocation2" style="color:red"></span><br>
                 
                 
                <!--[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$-->

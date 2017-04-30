@@ -22,7 +22,7 @@ public class EditCommand implements Command {
         Users uid = (Users) Value;
         
         int id = uid.getUserID();
-        String Newname = request.getParameter("username");
+        String Newname = request.getParameter("userName");
         String email = request.getParameter("email");
 
         if (Newname.equals("") || email.equals("")) {
