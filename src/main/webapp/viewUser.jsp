@@ -58,6 +58,7 @@
                             <%
                                 }
                             %>
+                            <th>Country</th>
                         </tr>
                         <tr>
                             <%
@@ -78,6 +79,7 @@
                         <%
                                 }
                             %>
+                        <td><%=user.getCountry()%></td>    
                         </tr>
                     </table>
 

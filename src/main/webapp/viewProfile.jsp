@@ -69,6 +69,7 @@
                 %>    
                     <th>UserName</th>
                     <th>Email</th>
+                    <th>Country</th>
                     <th>Comments</th>
             </tr>
             <tr>
@@ -84,6 +85,8 @@
                 <td><%=successUser.getUserName()%></td>
                 
                 <td><%=successUser.getEmail()%></td>
+                
+                <td><%=successUser.getCountry()%></td>
 
                 <td><%=commentsMade.size()%></td>
             </tr>

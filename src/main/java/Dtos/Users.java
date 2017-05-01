@@ -23,6 +23,7 @@ public class Users implements Comparable<Users> {
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;
@@ -33,6 +34,7 @@ public class Users implements Comparable<Users> {
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;
@@ -43,6 +45,7 @@ public class Users implements Comparable<Users> {
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;

@@ -317,7 +317,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
     }
 
     @Override
-    public boolean EditProfile(String username, String email, int id) {
+    public boolean EditProfile(String username, String Country, String email, int id) {
        Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -325,11 +325,12 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         try {
             con = getConnection();
 
-            String query = "UPDATE users SET username = ?, email = ? Where userID = ?";
+            String query = "UPDATE users SET username = ?, country= ?, email = ? Where userID = ?";
             ps = con.prepareStatement(query);
             ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setInt(3, id);
+            ps.setString(2, Country);
+            ps.setString(3, email);
+            ps.setInt(4, id);
 
             rowsAffected = ps.executeUpdate();
 

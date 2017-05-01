@@ -60,7 +60,7 @@ public interface UsersDaoInterface {
     
     public String GetAuthorByID(int ID);
     
-     public boolean EditProfile(String username, String email, int id);
+     public boolean EditProfile(String username, String Country, String email, int id);
     //allows the user to edit their profile}
      
 
