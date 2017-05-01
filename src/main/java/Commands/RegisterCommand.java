@@ -58,6 +58,7 @@ public class RegisterCommand implements Command{
                 String UserName = request.getParameter("userName");
                 String Password = request.getParameter("password");
                 String Email = request.getParameter("email");
+                String Country = request.getParameter("country");
                 
 
                 if (UserName != null && Password != null && !UserName.equals("") && !Password.equals("") && !Email.equals(""))
@@ -169,7 +170,7 @@ public class RegisterCommand implements Command{
                         c.add(Calendar.DATE, 10);
                         expiredate = c.getTime();
                        
-                       boolean Action = userDao.RegisterUser(UserName, generatedPassword, Email, salt, df.format(createdate), df.format(expiredate));
+                       boolean Action = userDao.RegisterUser(UserName, generatedPassword, Country,  Email, salt, df.format(createdate), df.format(expiredate));
                        
                        if(Action == true){
                            Users user = userDao.getUserbyName(UserName);
@@ -178,8 +179,8 @@ public class RegisterCommand implements Command{
                           
                   
                           forwardToJsp = "registrationSuccessful.jsp"; 
-                        String EmailName = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
-                        String EmailPassword = "E:\\Proj1\\SWGW-G02 - III stooges\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
+                        String EmailName = "C:\\Users\\ben\\Desktop\\apache-tomcat-7.0.72\\temp\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "C:\\Users\\ben\\Desktop\\apache-tomcat-7.0.72\\temp\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 

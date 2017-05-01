@@ -28,7 +28,7 @@
         </header>
 
         <div id="SearchArticles">
-        <form action="FindArticles.jsp" method="post" id="Article">
+        <form action="FindArticles.jsp" method="post">
             Search For Article: 
             <input name="title" size=30 type="text" placeholder="Article title" /> 
             <button type="submit" value="Find"><span class="glyphicon glyphicon-search"></span>Search</button>
