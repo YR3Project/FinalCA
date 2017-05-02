@@ -37,6 +37,8 @@ public class CommandFactory {
                 return new ForgotCommand();
             case "forgotPassword":
                 return new ForgotPasswordCommand();
+            case "delUser":
+                return new DeleteUserCommand();
            default:
                break;
        }

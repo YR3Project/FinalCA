@@ -9,7 +9,7 @@
          <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
             
         <title>SWGW</title>
@@ -62,8 +62,9 @@
         <div id="appearhidden" class="collapsing"> 
        <section>
   
-       
+       <div class="ArticleTitle">
         <h3 class id="title">Write an Article</h3>
+       </div>
         <form action="FrontController" method="post" id="Article">
             
             Title: 

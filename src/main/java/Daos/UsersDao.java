@@ -6,7 +6,6 @@ package Daos;
  */
 
 import Dtos.Users;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -654,6 +653,45 @@ public class UsersDao extends Dao implements UsersDaoInterface {
             ps = con.prepareStatement(query);
             ps.setBytes(1, newsalt);
             ps.setString(2, name);
+
+            rowsAffected = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Exception occured in the ForgotPassSalt method: " + e.getMessage());
+
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    freeConnection(con);
+                }
+            } catch (SQLException e) {
+                System.out.println("Exception occured in the finally section of the ForgotPassSalt method");
+                e.getMessage();
+
+            }
+        }
+        if (rowsAffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean RemoveUser(int id) {
+       Connection con = null;
+        PreparedStatement ps = null;
+        int rowsAffected = 0;
+
+        try {
+            con = getConnection();
+
+            String query = "DELETE FROM users WHERE userID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
 
             rowsAffected = ps.executeUpdate();
 

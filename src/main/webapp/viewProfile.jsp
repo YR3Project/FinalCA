@@ -121,6 +121,25 @@
             <a href='editUser.jsp' class="Profilebutton">Edit Your Profile</a>
             
             <a href='ChangePassword.jsp' class="Profilebutton">Change Password</a>
+            <%
+                Object Value5 = session.getAttribute("CurrentUser");
+                Users successUser = (Users) Value4;
+                isAdmin = successUser.getAdmin();
+                if(isAdmin!=0){
+                %>
+                <form name="del" action="FrontController" method="post" >
+                <h3>Delete a User</h3>
+                User-ID: 
+                <br />
+                <input name="uId" size=30 type="text" />
+                
+                <input type="submit" value="Post" />
+            
+                <input type="hidden" name="action" value="delUser" />
+                </form>
+                <%
+                    }
+                    %>
               
             <h1 id="secret">&zwnj;</h1>
             </div> 

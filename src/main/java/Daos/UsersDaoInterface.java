@@ -113,7 +113,9 @@ public interface UsersDaoInterface {
     /**
      * 
      * @param id
-     * return Path to profile Picture
+     * @return Path to profile Picture
      */
     public String GetProfPicPath(int id);
+    
+    public boolean RemoveUser(int id);
 }
