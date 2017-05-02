@@ -12,7 +12,13 @@
         <%@ include file="Includes/Carousel.html" %> 
     <body>
         <div id="wrapper">
-            <header> 
+            <header>
+                
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
                 <%
                     ArticleDao aDao = new ArticleDao("swgw");
                     UsersDao author = new UsersDao("swgw");

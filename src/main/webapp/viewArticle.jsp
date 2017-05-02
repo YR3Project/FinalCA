@@ -12,11 +12,16 @@
         <link href="CSS/Articles.css" rel="stylesheet" type="text/css"/>
     </head> 
 
-    <%@ include file="Includes/Carousel.html" %> 
+     
  
     <body>
         <div id="wrapper">
-            <header> 
+            <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br /> 
                 <%
                     ArticleDao aDao = new ArticleDao("swgw");
                     UsersDao author = new UsersDao("swgw");

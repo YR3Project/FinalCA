@@ -11,11 +11,16 @@
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+      
     <body>
         <script src="Includes/EditValidation.js"></script>
         <div id="wrapper">
             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
             <h1>Edit Profile</h1>
         <%@ include file="Includes/nav.jsp" %>
             </header>

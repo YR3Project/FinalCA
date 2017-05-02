@@ -15,13 +15,19 @@
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
     <div id="wrapper">    
          
-       
+        <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
         <h1>Try-Again</h1>
         <%@ include file="Includes/nav.jsp" %>
+        </header>
         <%
             Object Value = session.getAttribute("Complexity");
             

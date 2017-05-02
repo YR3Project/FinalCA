@@ -15,7 +15,7 @@
             </script>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <%
             Object Value = session.getAttribute("CurrentUser");

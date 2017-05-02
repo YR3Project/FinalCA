@@ -13,11 +13,16 @@
         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <script src="Includes/LoginValdation.js"></script>
         <div id="wrapper">
             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
             <h1>Login-Form</h1>
             <%@ include file="Includes/nav.jsp" %>
             </header>

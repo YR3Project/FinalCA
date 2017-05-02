@@ -7,15 +7,20 @@
     <head>
          <title>SWGW</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link href="CSS/Forms.css" rel="stylesheet" type="text/css"/>
+        
         <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
         </head> 
 
-     <%@ include file="Includes/Carousel.html" %> 
+    
      <body>
          <div id="wrapper">
-             <header> 
+             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
                  <h1>Your Profile:</h1>
         <%@ include file="Includes/nav.jsp" %>
              </header>
@@ -127,6 +132,8 @@
                 isAdmin = successUser.getAdmin();
                 if(isAdmin!=0){
                 %>
+                <br />
+                 <br /> 
                 <form name="del" action="FrontController" method="post" >
                 <h3>Delete a User</h3>
                 User-ID: 

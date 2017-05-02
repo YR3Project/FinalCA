@@ -12,10 +12,15 @@
         <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
     </head> 
 
-    <%@ include file="Includes/Carousel.html" %> 
+    
     <body>
         <div id="wrapper">
-            <header> 
+            <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br /> 
                 <%
                     UsersDao uDao = new UsersDao("swgw");
                     String username = request.getParameter("user");

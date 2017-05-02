@@ -8,6 +8,7 @@
          <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
          <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+         
 
          <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -60,33 +61,31 @@
         </button>
         
         <div id="appearhidden" class="collapsing"> 
-       <section>
+       
   
-       <div class="ArticleTitle">
-        <h3 class id="title">Write an Article</h3>
-       </div>
-        <form action="FrontController" method="post" id="Article">
+        <form action="FrontController" method="post"  id="form-index">
+            <h2 class id="title">Write an Article</h3>
+            <div id="centerform">
+            <h3> Title:</h3> 
+            <input name="title" size=30 type="text" id="input"/> 
             
-            Title: 
-            <br />
-            <input name="title" size=30 type="text" /> 
-            <br />
-            Text:
-            <br />
+            <h3>Text:</h3>
+            
             <textarea rows="4" cols="50" name="content">Enter Text Here</textarea>
            
-            <br />
+            
             <select name="game">
                 <option value="def">General</option>
                 <option value="wow">World of Warcraft</option>
                 <option value="lol">League of Legends</option>
             </select>
-        
-            <input type="submit" value="Post" />
-            
+            <br />
+            <br />
+            <input type="submit" value="Post" id="button"/>
+            </div>
             <input type="hidden" name="action" value="postArtc" />
         </form>         
-        </section>
+        
         </div>
       
         <%
@@ -127,7 +126,9 @@
                 %>
           
         <section>
+        <div class="ArticleTitle">
         <h3 class id="title">Most popular Streamer Currently</h3>
+        </div>
         <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
                 <div id="HomeStream"></div>
                 <script type="text/javascript">

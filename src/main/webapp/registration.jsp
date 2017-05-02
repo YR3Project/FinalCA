@@ -18,13 +18,18 @@
         <link rel="stylesheet" href="CSS/easy-autocomplete.min.css">
     </head>
    
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <script src="Includes/CommonValidation.js"></script>
         
         
         <div id="wrapper">
             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
             <%@include file="Includes/nav.jsp" %>
             <h1>Registration</h1>
             </header>

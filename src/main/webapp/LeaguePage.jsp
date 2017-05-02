@@ -17,7 +17,7 @@
 
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+    
      <script>
         function myFunction() {
             var x = document.getElementById('MainForms');
@@ -33,6 +33,12 @@
         <div id="wrapper">
             
             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+            
                 <%@ include file="Includes/nav.jsp" %>
                 
                 <h1>League of Legends</h1>
@@ -45,7 +51,7 @@
                     <br />
                     <form id="playerst" action="PlayerStats.jsp" method="get">
                     <div id="centerform">
-                            <h3 class id="title">View your profile</h3>
+                            <h2 class id="title">View your profile</h2>
                             <h2 id="Leaguetitle">Name:</h2> 
                         <input name="name" id="leagueName" size=30 type="text" /> 
                         <br />
@@ -266,25 +272,26 @@
             %>
             
 
-                <section>
-               <br />   
-                <button onclick="myFunction()">Add Article</button>
-                
-                <div id="MainForms">
-                    <h3 id="title">Write a League Article</h3>
-                    <form action="FrontController" method="post" id="Article">
-                        
-                            Title: <input name="title" size=30 type="text" /> 
+   
+               <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#appearhidden">
+                    <span class="glyphicon glyphicon-collapse-down"></span> Open
+                </button>
+          
+                <div id="appearhidden" class="collapsing">
+                    
+                    <form action="FrontController" method="post" id="playerst">
+                       <h2 id="title">Write a League Article</h2>
+                        <div id="centerform">
+                            
+                        <h3 >Title:</h3>   <input name="title" size=30 type="text" /> 
+
+                        <h3 >Text:</h3>    
+
+                           <textarea rows="3" cols="50" name="content" ></textarea>
                         <br />
-                        
-                            Text:
                         <br />
-                        
-                            <textarea rows="4" cols="50" name="content" form="Article"></textarea>
-                        <br />
-                        
-                            <span id='post'>  <input type="submit" value="Post" /></span>
-                        
+                        <input type="submit" value="Post" id="stats"/>
+                        </div>
                         <input type="hidden" name="game" value="lol" />
                         <input type="hidden" name="action" value="postArtc" />
                     </form>
@@ -307,8 +314,10 @@
                 %>
                 
                     <section>    
-                        
-                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetProfPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+                        <div class="ArticleTitle">
+                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> 
+                        </div>
+                        <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetProfPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
                         <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID(), allArticles.get(i).getArticleID())%>" height="200" width="500" />
                         <div class="Articles">
                         <p><%=artText%>  <a  href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>

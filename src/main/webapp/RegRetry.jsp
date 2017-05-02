@@ -16,11 +16,16 @@ Authors Aleks, Ben
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <script src="Includes/CommonValidation.js"></script>
     <div id="wrapper"> 
         <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
         <h1>Try-Again</h1>
        <%@ include file="Includes/nav.jsp" %>
         </header>

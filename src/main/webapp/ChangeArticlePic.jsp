@@ -13,10 +13,16 @@
             <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
 </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+  
 <body>
      <div id="wrapper">
          <header>
+             
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
         <h1>Upload Profile Picture</h1>
         <%@include file="Includes/nav.jsp" %>
          </header>

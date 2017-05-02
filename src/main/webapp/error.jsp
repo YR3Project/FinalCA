@@ -11,10 +11,15 @@
         <title>SWGW</title>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <div id="wrapper">
-         <header>    
+         <header>
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />    
         <h1>Something went wrong</h1>
         <%@ include file="Includes/nav.jsp" %>
          </header>

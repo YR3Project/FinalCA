@@ -72,10 +72,15 @@
         </script>
     </head>
 
-     <%@ include file="Includes/Carousel.html" %> 
+     
     <body>
         <div id="wrapper">
         <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
             <h1>Welcome to League of Legends</h1>
             <%@ include file="Includes/nav.jsp" %>
         </header>

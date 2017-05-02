@@ -26,11 +26,17 @@
             }
         }
     </script> 
-    <%@ include file="Includes/Carousel.html" %> 
+    
     <body>
         <div id="wrapper">
             
             <header>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+            
                 <%@ include file="Includes/nav.jsp" %>
                 
                 <h1>World of Warcraft Legion</h1>
@@ -39,7 +45,9 @@
                 <article>
                     <img src="Images/Wowlogo.png" alt="logo" style="width: 70%; display: block; margin: 0 auto;"/>
                 <section>
+                <div class="ArticleTitle">
                 <h3 id="title">View your Character</h3>
+                </div>
                 <div class="Articles">
                 <p>View some of the statistics of your WoW Character!</p>
                 </div>
@@ -71,33 +79,32 @@
                         int id = successUser2.getUserID();
             %>
             
-
-                <section>
                  <br />   
-                <button onclick="myFunction()">Add Article</button>
+                 <article>
+                <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#appearhidden">
+                    <span class="glyphicon glyphicon-collapse-down"></span> Open
+                </button>
           
-                <div id="MainForms">
+                <div id="appearhidden" class="collapsing">
                     
-                    <form id="WOWEdit" action="FrontController" method="get" id="Article">
-                        <h3 class id="title">Write a WoW Article</h3>
-                        <br />
+                    <form id="WowChar" action="FrontController" method="get" >
+                        <h2 class id="title">Write a WoW Article</h2>
+                        <div id="centerform">
+                            
+                        <h3 id="wowitle">Title:</h3>   <input name="title" size=30 type="text" /> 
+
+                        <h3 id="wowitle">Text:</h3>    
+
+                           <textarea rows="3" cols="50" name="content"></textarea>
                         
-                            Title: <input name="title" size=30 type="text" /> 
-                        <br />
-                        
-                            Text:
-                        <br />
-                        
-                            <textarea rows="4" cols="50" name="content" form="Article"></textarea>
-                        <br />
-                        
-                            <span id='post'>  <input type="submit" value="Post" /></span>
+                          <input type="submit" value="Post" id="stats"/>
                         
                         <input type="hidden" name="game" value="wow" />
                         <input type="hidden" name="action" value="postArtc" />
+                        </div>
                     </form>
                 </div>
-                </section>
+                
                 <%
                         }
                     }
@@ -115,8 +122,10 @@
                 %>
                 
                     <section>    
-                        
-                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3> <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetProfPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
+                        <div class="ArticleTitle">
+                        <h3 class id="title"><%=(allArticles.get(i)).getTitle()%></h3>
+                        </div>
+                        <p>by <a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allArticles.get(i)).getAuthorID())%>"><%= author.GetAuthorByID((allArticles.get(i)).getAuthorID())%><img src="<%=author.GetProfPicPath((allArticles.get(i)).getAuthorID())%>" height="20" width="20" /></a> on <%=(allArticles.get(i)).getDate()%></p>
                         <img src="<%=aDao.GetPicPath((allArticles.get(i)).getAuthorID(), allArticles.get(i).getArticleID())%>" height="200" width="500" />
                         <div class="Articles">
                         <p><%=artText%>  <a href="viewArticle.jsp?article=<%=(allArticles.get(i)).getArticleID()%>">See more</a></p>
