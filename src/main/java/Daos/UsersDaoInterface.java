@@ -18,6 +18,7 @@ public interface UsersDaoInterface {
      * 
      * @param uname
      * @param pass
+     * @param country
      * @param email
      * @param salt
      * @param Created
@@ -26,7 +27,7 @@ public interface UsersDaoInterface {
      */
     
     
-    public boolean RegisterUser(String uname, String pass, String email, byte[] salt, String Created, String Due);
+    public boolean RegisterUser(String uname, String pass, String country, String email, byte[] salt, String Created, String Due);
     /**
      * 
      * @param name
@@ -59,7 +60,7 @@ public interface UsersDaoInterface {
     
     public String GetAuthorByID(int ID);
     
-     public boolean EditProfile(String username, String email, int id);
+     public boolean EditProfile(String username, String Country, String email, int id);
     //allows the user to edit their profile}
      
 

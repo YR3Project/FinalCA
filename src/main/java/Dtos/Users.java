@@ -8,6 +8,7 @@ public class Users implements Comparable<Users> {
     private String UserName;
     private String Email;
     private String Password;
+    private String Country;
     private int Admin;
     private String Salt;
     private String Created;
@@ -17,31 +18,34 @@ public class Users implements Comparable<Users> {
     public Users() {
     }
 
-    public Users(int UserID, String UserName, String Email, String Password, int Admin, String Salt, String Created, String Due) {
+    public Users(int UserID, String UserName, String Email, String Password, String Country, int Admin, String Salt, String Created, String Due) {
         this.UserID = UserID;
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;
         this.Due = Due;
     }
 
-    public Users(String UserName, String Email, String Password, int Admin, String Salt, String Created, String Due) {
+    public Users(String UserName, String Email, String Password, String Country, int Admin, String Salt, String Created, String Due) {
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;
         this.Due = Due;
     }
     
-    public Users(String UserName, String Email, String Password, int Admin, String Salt, String Created, String Due, String PicPath) {
+    public Users(String UserName, String Email, String Password, String Country, int Admin, String Salt, String Created, String Due, String PicPath) {
         this.UserName = UserName;
         this.Email = Email;
         this.Password = Password;
+        this.Country = Country;
         this.Admin = Admin;
         this.Salt = Salt;
         this.Created = Created;
@@ -83,6 +87,10 @@ public class Users implements Comparable<Users> {
     public String getPicPath() {
         return PicPath;
     }
+    
+    public String getCountry() {
+        return Country;
+    }
 
     public void setUserID(int UserID) {
         this.UserID = UserID;
@@ -119,6 +127,10 @@ public class Users implements Comparable<Users> {
     public void setDue(String Due) {
         this.Due = Due;
     }
+    
+    public void setCountry(String Country){
+        this.Country = Country;
+    }
 
     @Override
     public int hashCode() {
@@ -153,7 +165,7 @@ public class Users implements Comparable<Users> {
 
     @Override
     public String toString() {
-        return "Users{" + "UserID=" + UserID + ", UserName=" + UserName + ", Email=" + Email + ", Password=" + Password + ", Admin=" + Admin + ", Salt=" + Salt + ", Created=" + Created + ", Due=" + Due + '}';
+        return "Users{" + "UserID=" + UserID + ", UserName=" + UserName + ", Email=" + Email + ", Password=" + Password + ", Country=" + Country + ", Admin=" + Admin + ", Salt=" + Salt + ", Created=" + Created + ", Due=" + Due + '}';
     }
 
     @Override

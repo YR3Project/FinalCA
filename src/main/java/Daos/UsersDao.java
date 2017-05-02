@@ -44,7 +44,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
             
             while(rs.next())
             {
-            u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
+            u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getString("Country"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
             }
  
         }catch (SQLException e) {
@@ -126,7 +126,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
             
             while(rs.next())
             {
-                u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
+                u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getString("Country"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
             }
         }catch (SQLException e) {
             System.out.println("Exception occured in the getUserbyName() method: " + e.getMessage());
@@ -229,7 +229,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
 
    
     @Override
-    public boolean RegisterUser(String uname, String pass, String email, byte[] salt, String Created, String Due) {
+    public boolean RegisterUser(String uname, String pass, String country, String email, byte[] salt, String Created, String Due) {
         Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -237,15 +237,16 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         try{
             con = getConnection();
 
-            String query = "Insert into users (username, email, password, admin, salt, Created, Due) values(?,?,?,?,?,?,?)";
+            String query = "Insert into users (username, email, password, country, admin, salt, Created, Due) values(?,?,?,?,?,?,?,?)";
             ps = con.prepareStatement(query);
             ps.setString(1, uname);
             ps.setString(2, email);
             ps.setString(3, pass);
-            ps.setInt(4, 0);   
-            ps.setBytes(5, salt);
-            ps.setString(6, Created);
-            ps.setString(7, Due);
+            ps.setString(4, country);
+            ps.setInt(5, 0);   
+            ps.setBytes(6, salt);
+            ps.setString(7, Created);
+            ps.setString(8, Due);
             
                    
             rowsAffected = ps.executeUpdate(); 
@@ -316,7 +317,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
     }
 
     @Override
-    public boolean EditProfile(String username, String email, int id) {
+    public boolean EditProfile(String username, String Country, String email, int id) {
        Connection con = null;
         PreparedStatement ps = null;
         int rowsAffected = 0;
@@ -324,11 +325,12 @@ public class UsersDao extends Dao implements UsersDaoInterface {
         try {
             con = getConnection();
 
-            String query = "UPDATE users SET username = ?, email = ? Where userID = ?";
+            String query = "UPDATE users SET username = ?, country= ?, email = ? Where userID = ?";
             ps = con.prepareStatement(query);
             ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setInt(3, id);
+            ps.setString(2, Country);
+            ps.setString(3, email);
+            ps.setInt(4, id);
 
             rowsAffected = ps.executeUpdate();
 
@@ -535,7 +537,7 @@ public class UsersDao extends Dao implements UsersDaoInterface {
             
             while(rs.next())
             {
-                 u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
+                 u = new Users(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Email"), rs.getString("Password"), rs.getString("Country"), rs.getInt("Admin"), rs.getString("Salt"), rs.getString("Created"), rs.getString("Due"));
                 users.add(u);
             }
         }catch (SQLException e) {

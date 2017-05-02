@@ -24,6 +24,7 @@ public class EditCommand implements Command {
         int id = uid.getUserID();
         String Newname = request.getParameter("userName");
         String email = request.getParameter("email");
+        String Country = request.getParameter("country");
 
         if (Newname.equals("") || email.equals("")) {
             String msg = "You cannot leave any of the entries empty or have the same username as the old one";
@@ -32,7 +33,7 @@ public class EditCommand implements Command {
         } else {
             try {
                 UsersDao userDao = new UsersDao("swgw");
-                boolean Action = userDao.EditProfile(Newname, email, id);
+                boolean Action = userDao.EditProfile(Newname, Country, email, id);
                 
 
                 if (Action == true) {
