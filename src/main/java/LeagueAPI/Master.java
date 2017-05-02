@@ -75,13 +75,6 @@ public class Master {
         this.name = name;
     }
 
-    public Entries getEntries() {
-        return entries;
-    }
-
-    public void setEntries(Entries entries) {
-        this.entries = entries;
-    }
 
     public String[] getEntry() {
         return entry;

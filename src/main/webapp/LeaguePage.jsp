@@ -80,7 +80,7 @@
                     String region = "NA";
                     Master master = new Master();
                     MasterObject mo = new MasterObject();
-                    master = mo.getMaster();
+                    master = mo.getMaster(region);
                     
                     Challenger challenger = new Challenger();
                     ChallengerObject co = new ChallengerObject();
@@ -98,7 +98,7 @@
                 <div class="Laddersdata">
                 <table id="rankTables">
                     <thead>
-                    <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th><th>Points</th>
+                    <th>Rank</th><th>Name</th><th>Win</th><th>Losses</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -106,72 +106,69 @@
                             <td><%=challenger.getPlayerName()%></td>
                             <td><%=challenger.getWins()%></td>
                             <td><%=challenger.getLosses1()%></td>
-                            <td><%=challenger.getLeaguePoints()%></td>
+                            
                         </tr>
                         <tr>  
                             <td>2</td>
                             <td><%=challenger.getPlayerName2()%></td>
                             <td><%=challenger.getWins2()%></td>
                             <td><%=challenger.getLosses2()%></td>
-                            <td><%=challenger.getLeaguePoints2()%></td>
+                            
                         </tr>
                         <tr>
                             <td>3</td>
                             <td><%=challenger.getPlayerName3()%></td>
                             <td><%=challenger.getWins3()%></td>
                             <td><%=challenger.getLosses3()%></td>
-                            <td><%=challenger.getLeaguePoints3()%></td>
+                            
                         </tr>
                         <tr>
                             <td>4</td>
                             <td><%=challenger.getPlayerName4()%></td>
                             <td><%=challenger.getWins4()%></td>
                             <td><%=challenger.getLosses4()%></td>
-                            <td><%=challenger.getLeaguePoints4()%></td>
+                            
                         </tr>
                         <tr>
                             <td>5</td>
                             <td><%=challenger.getPlayerName5()%></td>
                             <td><%=challenger.getWins5()%></td>
                             <td><%=challenger.getLosses5()%></td>
-                            <td><%=challenger.getLeaguePoints5()%></td>
+                           
                         </tr>
                         <tr>
                             <td>6</td>
                             <td><%=challenger.getPlayerName6()%></td>
                             <td><%=challenger.getWins6()%></td>
                             <td><%=challenger.getLosses6()%></td>
-                            <td><%=challenger.getLeaguePoints6()%></td>
+                            
                         </tr>
                         <tr>
                             <td>7</td>
                             <td><%=challenger.getPlayerName7()%></td>
                             <td><%=challenger.getWins7()%></td>
                             <td><%=challenger.getLosses7()%></td>
-                            <td><%=challenger.getLeaguePoints7()%></td>
+                            
                         </tr>
                         <tr>
                             <td>8</td>
                             <td><%=challenger.getPlayerName8()%></td>
                             <td><%=challenger.getWins8()%></td>
                             <td><%=challenger.getLosses8()%></td>
-                            <td><%=challenger.getLeaguePoints8()%></td>
+                           
                         </tr>
                         <tr>
                             <td>9</td>
                             <td><%=challenger.getPlayerName9()%></td>
                             <td><%=challenger.getWins9()%></td>
                             <td><%=challenger.getLosses9()%></td>
-                            <td><%=challenger.getLeaguePoints9()%></td>
+                            
                         </tr>
                         <tr>
                             <td>10</td>
                             <td><%=challenger.getPlayerName10()%></td>
                             <td><%=challenger.getWins10()%></td>
                             <td><%=challenger.getLosses10()%></td>
-                            <td><%=challenger.getLeaguePoints10()%></td>
-                           
-                                
                             
                         </tr>
                     </tbody>
@@ -181,7 +178,7 @@
                 <div class="Laddersdata">
                 <table id="rankTables">
                     <thead>
-                    <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th><th>Points</th>
+                    <th>Rank</th><th>Name</th><th>Wins</th><th>Losses</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -189,70 +186,70 @@
                             <td><%=master.getPlayerName()%></td>
                             <td><%=master.getWins()%></td>
                             <td><%=master.getLosses1()%></td>
-                            <td><%=master.getLeaguePoints()%></td>
+                           
                         </tr>
                         <tr>  
                             <td>2</td>
                             <td><%=master.getPlayerName2()%></td>
                             <td><%=master.getWins2()%></td>
                             <td><%=master.getLosses2()%></td>
-                            <td><%=master.getLeaguePoints2()%></td>
+                           
                         </tr>
                         <tr>
                             <td>3</td>
                             <td><%=master.getPlayerName3()%></td>
                             <td><%=master.getWins3()%></td>
                             <td><%=master.getLosses3()%></td>
-                            <td><%=master.getLeaguePoints3()%></td>
+                            
                         </tr>
                         <tr>
                             <td>4</td>
                             <td><%=master.getPlayerName4()%></td>
                             <td><%=master.getWins4()%></td>
                             <td><%=master.getLosses4()%></td>
-                            <td><%=master.getLeaguePoints4()%></td>
+                            
                         </tr>
                         <tr>
                             <td>5</td>
                             <td><%=master.getPlayerName5()%></td>
                             <td><%=master.getWins5()%></td>
                             <td><%=master.getLosses5()%></td>
-                            <td><%=master.getLeaguePoints5()%></td>
+                            
                         </tr>
                         <tr>
                             <td>6</td>
                             <td><%=master.getPlayerName6()%></td>
                             <td><%=master.getWins6()%></td>
                             <td><%=master.getLosses6()%></td>
-                            <td><%=master.getLeaguePoints6()%></td>
+                            
                         </tr>
                         <tr>
                             <td>7</td>
                             <td><%=master.getPlayerName7()%></td>
                             <td><%=master.getWins7()%></td>
                             <td><%=master.getLosses7()%></td>
-                            <td><%=master.getLeaguePoints7()%></td>
+                            
                         </tr>
                         <tr>
                             <td>8</td>
                             <td><%=master.getPlayerName8()%></td>
                             <td><%=master.getWins8()%></td>
                             <td><%=master.getLosses8()%></td>
-                            <td><%=master.getLeaguePoints8()%></td>
+                           
                         </tr>
                         <tr>
                             <td>9</td>
                             <td><%=master.getPlayerName9()%></td>
                             <td><%=master.getWins9()%></td>
                             <td><%=master.getLosses9()%></td>
-                            <td><%=master.getLeaguePoints9()%></td>
+                            
                         </tr>
                         <tr>
                             <td>10</td>
                             <td><%=master.getPlayerName10()%></td>
                             <td><%=master.getWins10()%></td>
                             <td><%=master.getLosses10()%></td>
-                            <td><%=master.getLeaguePoints10()%></td>
+                            
                         </tr>
                     </tbody>
                 </table>

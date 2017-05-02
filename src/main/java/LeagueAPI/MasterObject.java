@@ -10,16 +10,14 @@ import javax.json.*;
 import java.net.*;
 import java.util.*;
 public class MasterObject {
-    public Master getMaster() throws MalformedURLException, IOException
+    public Master getMaster(String region) throws MalformedURLException, IOException
    {
-       URL url = new URL("https://na.api.riotgames.com/api/lol/NA/v2.5/league/master?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
+       URL url = new URL("https://"+ region + ".api.riotgames.com/api/lol/"+ region + "/v2.5/league/master?type=RANKED_SOLO_5x5&api_key=RGAPI-fdf965a6-41b8-4fac-831a-f4aaeb133659");
        
-       //try(
-               InputStream in = url.openStream();
-               
-        //       BufferedReader reader = new BufferedReader(
-        //       new InputStreamReader(in, "UTF-8")))
-        //{
+       try(InputStream in = url.openStream();
+               BufferedReader reader = new BufferedReader(
+               new InputStreamReader(in, "UTF-8")))
+        {
             Master master = new Master();
             JsonReader jsonReader = Json.createReader(in);
             
@@ -96,6 +94,6 @@ public class MasterObject {
             master.getTier();
             master.getEntry();
             return master;
-        //}    
+        }    
     }
 }
