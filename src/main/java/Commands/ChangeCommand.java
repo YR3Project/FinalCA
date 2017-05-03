@@ -46,14 +46,20 @@ public class ChangeCommand implements Command{
                 if(UserName.equals("") || NewPassword.equals("")|| comPassword.equals("")|| oldPassword.equals(""))
                 {
                     String msg = "you cannot leave any of the entries empty";
-                    session.setAttribute("ChangeError", msg);
-                    forwardToJsp = "ChangeError.jsp";
+                    session.setAttribute("ChangeFail", msg);
+                    forwardToJsp = "ChangePassword.jsp";
                 }
                 else if(!(NewPassword.equals(comPassword)))
                 {
                  String msg = "Your newPassword must be the same for confirmPassword";
-                 session.setAttribute("ChangeError", msg);
-                 forwardToJsp = "ChangeError.jsp";
+                 session.setAttribute("ChangeFail", msg);
+                 forwardToJsp = "ChangePassword.jsp";
+                }
+                else if(oldPassword.equals(NewPassword))
+                {
+                 String msg = "Please pick a new Password dont repeat your old Password";
+                 session.setAttribute("ChangeFail", msg);
+                 forwardToJsp = "ChangePassword.jsp";  
                 }
                 else{
                 

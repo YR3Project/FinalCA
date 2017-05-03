@@ -1,6 +1,7 @@
 package Commands;
 import Daos.UsersDao;
 import Dtos.Users;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,14 +26,36 @@ public class EditCommand implements Command {
         String Newname = request.getParameter("userName");
         String email = request.getParameter("email");
         String Country = request.getParameter("country");
-
+        UsersDao userDao = new UsersDao("swgw");
+        boolean Checkname = false;
+        boolean Checkemail = false;
+        ArrayList<Users> Accounts = userDao.GetAllUsers();
         if (Newname.equals("") || email.equals("")) {
             String msg = "You cannot leave any of the entries empty or have the same username as the old one";
-            session.setAttribute("ChangeError", msg);
-            forwardToJsp = "ChangeError.jsp";
-        } else {
+            session.setAttribute("errorMessage", msg);
+            forwardToJsp = "error.jsp";
+        }
+         
+         for(int x = 0; x < Accounts.size(); x++)
+            {
+             if(Newname.toLowerCase().equals(Accounts.get(x).getUserName().toLowerCase()))
+               {
+                  Checkname = true;
+               }
+             
+            }
+                        
+         for(int x = 0; x < Accounts.size(); x++)
+            {
+             if(email.equals(Accounts.get(x).getEmail()))
+               {
+                  Checkemail = true;
+               }
+            }
+         
+        if (Checkname == false && Checkemail == false){
             try {
-                UsersDao userDao = new UsersDao("swgw");
+
                 boolean Action = userDao.EditProfile(Newname, Country, email, id);
                 
 
@@ -51,8 +74,19 @@ public class EditCommand implements Command {
             } catch (NullPointerException ex) {
                 Logger.getLogger(EditCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
+        else if(Checkname == true)
+               {
+                String error = "That Username Already in use ";
+                session.setAttribute("errorMessage", error);
+                forwardToJsp = "error.jsp";    
+               }
+        else if(Checkemail == true)
+                {
+                 String error = "That Email Already in use ";
+                 session.setAttribute("errorMessage", error);
+                 forwardToJsp = "error.jsp";  
+                }
         return forwardToJsp;
     }
 }

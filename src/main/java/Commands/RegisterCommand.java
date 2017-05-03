@@ -131,8 +131,6 @@ public class RegisterCommand implements Command{
                             {
                                 Checkemail = true;
                             }
-                           
- 
                         }
                         
                         for(int x = 0; x < Accounts.size(); x++)
@@ -141,9 +139,8 @@ public class RegisterCommand implements Command{
                             {
                                 Checkname = true;
                             }
-                         
-                            
                         }
+                        
                         if(Structure && noConditions && noUsername && noSpaces &&  Checkemail == false && Checkname == false)
                         {
                         byte[] salt = getSalt();
@@ -235,7 +232,7 @@ public class RegisterCommand implements Command{
                             session.setAttribute("Complexity", error);
                             forwardToJsp = "RegRetry.jsp";  
                        }
-                        else if(Checkname == true)
+                     else if(Checkname == true)
                         {
                           String error = "Your Username Already in use ";
                             session.setAttribute("Complexity", error);
