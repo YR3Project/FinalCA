@@ -176,8 +176,8 @@ public class RegisterCommand implements Command{
                           
                   
                           forwardToJsp = "registrationSuccessful.jsp"; 
-                        String EmailName = "C:\\Users\\ben\\Desktop\\apache-tomcat-7.0.72\\temp\\EmailDetails\\EmailName.txt";
-                        String EmailPassword = "C:\\Users\\ben\\Desktop\\apache-tomcat-7.0.72\\temp\\EmailDetails\\EmailPassword.txt";
+                        String EmailName = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 
@@ -204,7 +204,7 @@ public class RegisterCommand implements Command{
                                         InternetAddress.parse(Email));
                                 message.setSubject("Registered Account");
                                 message.setText("Dear New Member,"
-                                        + "\n\n Welcome to StatWiseGameWise!" + "\n\n We hope you enjoy your time on our site" + "\n\n Heres your password - " + Password);
+                                        + "\n\n Welcome to StatWiseGameWise!" + "\n\n We hope you enjoy your time on our site" + "\n\n Hope you enjoy our website - " + UserName);
 
                                 Transport.send(message);
 

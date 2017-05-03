@@ -129,8 +129,8 @@ public class ForgotPasswordCommand implements Command{
                           session.removeAttribute("CurrentUser");
                           
                           forwardToJsp = "LoginForm.jsp"; 
-                        String EmailName = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
-                        String EmailPassword = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
+                        String EmailName = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 
@@ -158,7 +158,7 @@ public class ForgotPasswordCommand implements Command{
                                 message.setSubject("Password Has been Changed");
                                 message.setText("Dear New Member,"
                                         + "\n\n your Password Has been Changed!" + "\n\n We hope you were the one to do this action if not then take the necessary steps to resovle this"
-                                        + "\n\n Issue before its too late" + "\n\n Heres your Newpassword - " + NewPassword);
+                                        + "\n\n Issue before its too late");
 
                                 Transport.send(message);
 

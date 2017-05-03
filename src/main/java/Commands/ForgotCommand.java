@@ -60,8 +60,8 @@ public class ForgotCommand implements Command{
                           session.setAttribute("Email", Email);
                           forwardToJsp = "LoginForm.jsp";
                         try{  
-                        String EmailName = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailName.txt";
-                        String EmailPassword = "E:\\Back-Ups\\mk6\\FinalCA\\src\\main\\EmailDetails\\EmailPassword.txt";
+                        String EmailName = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailName.txt";
+                        String EmailPassword = "C:\\Users\\Ben\\Desktop\\apache-tomcat-8.5.11-windows-x64\\apache-tomcat-8.5.11\\temp\\EmailDetails\\EmailPassword.txt";
                         final String username = readFileInputStream(EmailName);
                         final String password = readFileInputStream(EmailPassword);
 
