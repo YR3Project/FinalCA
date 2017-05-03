@@ -17,10 +17,14 @@
 
     </head>
 
-    <%@ include file="Includes/Carousel.html" %> 
+
     <body>
         <div id="wrapper">
             <header>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 <%@ include file="Includes/nav.jsp" %>
                 <h1>World of Warcraft Legion</h1>
             </header>
