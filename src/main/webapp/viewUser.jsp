@@ -38,6 +38,10 @@
                         loggedInID = successUser2.getUserID();
                         isAdmin = successUser2.getAdmin();
                     }
+                    else if(username.contains("'")) {
+                        int spaceIndex = (username.indexOf("'") - 1);
+                        username = username.substring(0, spaceIndex);
+                    }
                 %>
                 <h1><%=username%>'s Profile:</h1>
 

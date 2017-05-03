@@ -36,6 +36,7 @@ Author Aleks,Ben
                 Users successRegUser = (Users) Value;
             
             %>
+            
             <p>
                 Congratulations on successful Registering into are service <%=(successRegUser.getUserName())%>.
             </p>

@@ -26,7 +26,10 @@
                     ArrayList<Article> foundArticles = new ArrayList(aDao.getArticlesByTitle(title));
                 %>
                 <%@ include file="Includes/nav.jsp" %>
-                <h1>The Articles Found</h1>
+                <h1><% if(foundArticles.size()==0){ %>
+                No 
+                <%  }%> 
+                Articles Found</h1>
             </header>
             <article>
                 <section>

@@ -63,7 +63,7 @@
                 status=false; 
             }
             
-            else if(password.match())
+            else if(password.match("Password1"))
             {
                 document.getElementById("passwordlocation").innerHTML=  
                 " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Password Your Password must not contain Password1 try to think of better passwords";  

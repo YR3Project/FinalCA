@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2017 at 01:30 PM
+-- Generation Time: May 03, 2017 at 04:21 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -128,11 +128,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`CommentID`, `ArticleID`, `CAuthor`, `CommentText`, `DateAdded`) VALUES
-(11, 1, 44, 'Fascinating', '2017-03-15'),
-(12, 1, 35, 'Nice to hear @AleksMtr', '2017-03-15'),
-(14, 2, 35, 'Interesting', '2017-03-15'),
-(15, 6, 52, 'My first comment', '2017-04-17'),
-(16, 9, 52, 'Test comment', '2017-04-19');
+(17, 6, 46, 'Better Look into Playing Wow Again', '2017-04-08'),
+(20, 5, 47, 'Hope isn\'t unbalanced @Chris', '2017-04-08'),
+(21, 9, 46, 'Nice its up finally', '2017-04-16'),
+(22, 9, 47, 'Welcome all', '2017-04-16'),
+(23, 5, 48, 'Good information', '2017-04-16'),
+(24, 6, 48, 'Good to hear @Aleksmtr', '2017-04-16');
 
 -- --------------------------------------------------------
 
@@ -160,8 +161,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userID`, `username`, `email`, `password`, `country`, `admin`, `salt`, `Created`, `Due`, `photo`) VALUES
 (46, 'Chris', 'chris.mck@gmail.com', 'c1cdb3ada9de6cfe84c3a7cfe192bcbda2331130c8db4d5026a1ae250be4af60974fcddf1903afcb03f97c9976e0e6e0aa8d991d44d6a43fe3a6af92399a0806', 'Ireland', 0, '„›ærº\n²…Bü=˜Q', '08/04/17', '18/04/17', 'Images/Profiles/46.jpg'),
 (47, 'AleksMtr', 'aleks56@gmail.com', 'bb6ca5a73b4b82ad50789d156a770cf8ed3279df13caceb9ea465b94152c165361c32460790b944b2bd6f8ca5404fda9dc821d9044cc9bc203f8c1e63f717a73', 'Ireland', 1, 'ìÄNÐôG–uÛ5)ê', '08/04/17', '18/04/17', 'Images/Profiles/47.jpg'),
-(48, 'BenRose', 'ben.rose@gmail.com', '44c762f1b0c34b1b1a85ee47ed75c838f86eb9c88c775cb5682756850608e6050cb9680254a355219a3e0aa83e1e4669bb62c653d3f19b7fc175be81fcd71e63', 'United Kingdom', 1, 'mÚ—&\0BË\\ç×¿¼É\Z', '21/04/17', '20/05/17', 'Images/Profiles/35.jpg'),
-(49, 'JohnWick96', 'ben.rose76@gmail.com', '5d8e5847ac1266135da73c7a1974959c2a177a4e024bbf7963e6df097a0b101ed832dc9525f0f0f7951f94effbbfa67cb3bdca128fb98671163aa888930ebca9', 'Hungary', 0, 'ÕÏ	øôkE¼Z7ìS¤', '03/05/17', '13/05/17', 'Images/Profiles/Default.jpg');
+(48, 'BenRose', 'ben.rose@gmail.com', '44c762f1b0c34b1b1a85ee47ed75c838f86eb9c88c775cb5682756850608e6050cb9680254a355219a3e0aa83e1e4669bb62c653d3f19b7fc175be81fcd71e63', 'United Kingdom', 1, 'mÚ—&\0BË\\ç×¿¼É\Z', '21/04/17', '20/05/17', 'Images/Profiles/35.jpg');
 
 --
 -- Indexes for dumped tables
@@ -212,12 +212,23 @@ ALTER TABLE `battle`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `CommentID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `CommentID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`ArticleID`) REFERENCES `article` (`ArticleID`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`CAuthor`) REFERENCES `users` (`userID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
