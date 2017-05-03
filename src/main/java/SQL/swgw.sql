@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2017 at 04:21 PM
+-- Generation Time: May 03, 2017 at 11:21 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -43,7 +43,7 @@ CREATE TABLE `article` (
 INSERT INTO `article` (`ArticleID`, `AuthorID`, `Title`, `ArticleText`, `Game`, `DateAdded`, `photo`) VALUES
 (5, 46, 'Riots Latest Release', 'Riot has revealed their newest champion rework today: Galio, The Colossus Sample Line:  \"I only wake up when it\'s time to squash something. And I\'m awake right now.\"\r\n', 'lol', '2017-04-08', 'Images/Articles/Default.jpg	'),
 (6, 47, 'Return to the Broken Shore', 'Players return to the Broken Shore in Patch 7.2 with a vengeance, fighting the Legion with the help of the Armies of Legionfall. Blizzard explains all the different types of content coming in Patch 7.2 in their official preview.\r\n', 'wow', '2017-04-08', 'Images/Articles/Default.jpg	'),
-(9, 48, 'Welcome to StatWiseGameWise', 'Welcome to StatWiseGameWise', 'def', '2017-04-16', 'Images/Articles/35.jpg');
+(9, 52, 'Welcome to StatWiseGameWise ', 'Welcome to StatWiseGameWise ', 'def', '2017-04-16', 'Images/Articles/35.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,8 +132,27 @@ INSERT INTO `comments` (`CommentID`, `ArticleID`, `CAuthor`, `CommentText`, `Dat
 (20, 5, 47, 'Hope isn\'t unbalanced @Chris', '2017-04-08'),
 (21, 9, 46, 'Nice its up finally', '2017-04-16'),
 (22, 9, 47, 'Welcome all', '2017-04-16'),
-(23, 5, 48, 'Good information', '2017-04-16'),
-(24, 6, 48, 'Good to hear @Aleksmtr', '2017-04-16');
+(24, 6, 52, 'Good to hear @Aleksmtr', '2017-04-16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report`
+--
+
+CREATE TABLE `report` (
+  `reportID` int(6) NOT NULL,
+  `commentID` int(6) NOT NULL,
+  `reporterID` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`reportID`, `commentID`, `reporterID`) VALUES
+(1, 21, 52),
+(3, 22, 52);
 
 -- --------------------------------------------------------
 
@@ -146,7 +165,7 @@ CREATE TABLE `users` (
   `username` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `country` varchar(200) DEFAULT 'No Country',
+  `country` varchar(400) DEFAULT 'No Country',
   `admin` smallint(1) NOT NULL,
   `salt` varchar(128) NOT NULL,
   `Created` varchar(20) NOT NULL,
@@ -161,7 +180,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userID`, `username`, `email`, `password`, `country`, `admin`, `salt`, `Created`, `Due`, `photo`) VALUES
 (46, 'Chris', 'chris.mck@gmail.com', 'c1cdb3ada9de6cfe84c3a7cfe192bcbda2331130c8db4d5026a1ae250be4af60974fcddf1903afcb03f97c9976e0e6e0aa8d991d44d6a43fe3a6af92399a0806', 'Ireland', 0, '„›ærº\n²…Bü=˜Q', '08/04/17', '18/04/17', 'Images/Profiles/46.jpg'),
 (47, 'AleksMtr', 'aleks56@gmail.com', 'bb6ca5a73b4b82ad50789d156a770cf8ed3279df13caceb9ea465b94152c165361c32460790b944b2bd6f8ca5404fda9dc821d9044cc9bc203f8c1e63f717a73', 'Ireland', 1, 'ìÄNÐôG–uÛ5)ê', '08/04/17', '18/04/17', 'Images/Profiles/47.jpg'),
-(48, 'BenRose', 'ben.rose@gmail.com', '44c762f1b0c34b1b1a85ee47ed75c838f86eb9c88c775cb5682756850608e6050cb9680254a355219a3e0aa83e1e4669bb62c653d3f19b7fc175be81fcd71e63', 'United Kingdom', 1, 'mÚ—&\0BË\\ç×¿¼É\Z', '21/04/17', '20/05/17', 'Images/Profiles/35.jpg');
+(52, 'BenRose', 'ben.rose76@gmail.com', '5ee878c1b671aa736865a8a290ba7b2025c86e772e9df292735fc2303f6754d38244c2303af080e5861d3bd2e7349a92c971c20a31ca6fab30bf805dbd5147b0', 'Ireland', 1, 'ôO:¥EøsâºØ{I', '03/05/17', '13/05/17', 'Images/Profiles/52.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -189,6 +208,13 @@ ALTER TABLE `comments`
   ADD KEY `CAuthor` (`CAuthor`);
 
 --
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`reportID`),
+  ADD UNIQUE KEY `NONCLUSTERED` (`commentID`,`reporterID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -202,7 +228,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `ArticleID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ArticleID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `battle`
 --
@@ -212,12 +238,17 @@ ALTER TABLE `battle`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `CommentID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `CommentID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `reportID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- Constraints for dumped tables
 --
@@ -228,6 +259,12 @@ ALTER TABLE `users`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`ArticleID`) REFERENCES `article` (`ArticleID`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`CAuthor`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `report`
+--
+ALTER TABLE `report`
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`commentID`) REFERENCES `comments` (`CommentID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

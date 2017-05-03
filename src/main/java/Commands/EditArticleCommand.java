@@ -40,7 +40,7 @@ public class EditArticleCommand implements Command {
 
             boolean action = aDao.EditArticle(id, title, game, content);
             if (action == true) {
-                forwardToJsp = "index.jsp";
+                forwardToJsp = ("viewArticle.jsp?article="+id);
             }
         } catch (InputMismatchException e) {
 

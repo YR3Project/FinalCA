@@ -29,12 +29,13 @@ public class DeleteCommentCommand implements Command {
         String forwardToJsp = "";
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("commID"));
+        int artID = Integer.parseInt(request.getParameter("artID"));
         try {
             CommentsDao cDao = new CommentsDao("swgw");
 
             boolean action = cDao.deleteComment(id);
             if (action == true) {
-                forwardToJsp = "index.jsp";
+                forwardToJsp = ("viewArticle.jsp?article="+artID);
             }
         } catch (InputMismatchException e) {
 

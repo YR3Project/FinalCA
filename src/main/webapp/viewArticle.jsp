@@ -89,7 +89,7 @@
                        <section>
                        <form name="delc" action="FrontController" method="post">
                            <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
-
+                           <input type="hidden" name="artID" value="<%=artID%>" />
                            <input type="submit" value="Delete Comment" />
 
                            <input type="hidden" name="action" value="delComm" />

@@ -9,12 +9,10 @@ import Daos.UsersDao;
 import Dtos.Users;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -85,10 +83,9 @@ public class LoginCommand implements Command{
                             else if(result == null)
                             {
                                 
-                                String msg = "Login";
-                                session.setAttribute("Type", msg);
-                                session.setAttribute("AccountFail", UserName);  
-                                forwardToJsp = "AccountFail.jsp";
+                                String msg = "Login failed check that you entered the right parameters";
+                                session.setAttribute("ChangeSuccess", msg); 
+                                forwardToJsp = "LoginForm.jsp";
                             }
                        
                     }
@@ -110,6 +107,14 @@ public class LoginCommand implements Command{
                         
                         session.setAttribute("errorMessage", "Something has gone wrong with encrpting/hashing the password");
                         }
+                    catch (NullPointerException ex)
+                    {
+                                HttpSession session = request.getSession();
+                                String msg = "Login failed check that you entered the right parameters";
+                                session.setAttribute("ChangeSuccess", msg); 
+                                forwardToJsp = "LoginForm.jsp";
+                    }
+                        
                 } else
                 {
                     

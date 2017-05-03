@@ -42,9 +42,7 @@ public class WriteCommentCommand implements Command {
             CommentsDao comDao = new CommentsDao("swgw");
             boolean action = comDao.setComment(artID, id, comment);
             if (action == true) {
-
-                session.setAttribute("commentSuccess", "comment");
-                forwardToJsp = "index.jsp";
+                forwardToJsp = ("viewArticle.jsp?article="+artID);
             }
         } catch (InputMismatchException e) {
 
