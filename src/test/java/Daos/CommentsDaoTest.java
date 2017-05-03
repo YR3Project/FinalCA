@@ -45,7 +45,7 @@ public class CommentsDaoTest {
      */
     @Test
     public void testSetComment() {
-      /*  System.out.println("setComment");
+        System.out.println("setComment");
         int articleID = 1;
         int cAuthor = 46;
         String commentText = "TestComment";
@@ -53,7 +53,16 @@ public class CommentsDaoTest {
         boolean expResult = true;
         boolean result = cDao.setComment(articleID, cAuthor, commentText);
         assertEquals(expResult, result);
-        */
+        
+        int commentID = cDao.getCommentsByAuthor(46).get(1).getCommentID();
+        cDao.deleteComment(commentID);
+        
+        //for deleting a comment test
+        int articleID2 = 3;
+        int cAuthor2 = 46;
+        String comment = "Test123";
+        
+        cDao.setComment(articleID2, cAuthor2, comment);
     }
 
     /**
@@ -62,9 +71,9 @@ public class CommentsDaoTest {
     @Test
     public void testGetAuthor() {
         System.out.println("getAuthor");
-        int cAuthor = 46;
+        int cAuthor = 8;
 
-        String expResult = "Chris";
+        String expResult = "Christest";
         String result = cDao.getAuthor(cAuthor);
         assertEquals(expResult, result);
         
@@ -86,28 +95,32 @@ public class CommentsDaoTest {
 
     /**
      * Test of editComment method, of class CommentsDao.
-     */
+     
     @Test
     public void testEditComment() {
         System.out.println("editComment");
-        int commentID = 23;
-        String commentText = "Test2Comment";
+        int commentID = 22;
+        String commentText = "Test 2 Comment";
+        boolean expResult = true;
+        boolean actResult = false;
         
+        boolean result = cDao.editComment(commentID, commentText);
         
-        //Comments result = cDao.editComment(commentID, commentText);
-        //String
-        //assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);
+        boolean edit = cDao.editComment(commentID, "Test1");
+        
+        //String getComment = cDa
+        //assertEquals(getComment, "Test1");
     }
-
+    */
     /**
      * Test of deleteComment method, of class CommentsDao.
      */
     @Test
     public void testDeleteComment() {
         System.out.println("deleteComment");
-        int commentID = 24;
         
+        int commentID = cDao.getCommentsByArticle(3).get(0).getCommentID();
         boolean expResult = true;
         boolean result = cDao.deleteComment(commentID);
         assertEquals(expResult, result);

@@ -51,18 +51,16 @@ public class BattleSystemDaoTest {
         int id = 1;
         int id2 = 2;
         
-        int id4 = 7;
-        
 
         String expResult1 = "Vi";
         String expResult2 = "Jayce";
-        String expResult3 = null;
+        
         String result = bDao.getChampName(id).getChampName();
         String result2 = bDao.getChampName(id2).getChampName();
-        BattleSystem result3 = bDao.getChampName(id4);
+        
         assertEquals(expResult2, result2);
         assertEquals(expResult1, result);
-        assertNull(expResult3, result3);
+        
         
         
     }
@@ -75,10 +73,10 @@ public class BattleSystemDaoTest {
         System.out.println("getChampValue");
         int id = 1;
         BattleSystemDao instance = null;
-        double expResult = 52;
+        double expResult = 52.1;
         String name = "Vi";
         double result = bDao.getChampValue(name);
-        assertEquals(expResult, result);
+        assertEquals(expResult, result, 00.00);
         
         
     }
@@ -91,7 +89,7 @@ public class BattleSystemDaoTest {
         System.out.println("getChampPosition");
         int id = 1;
         int id2 = 5;
-        BattleSystemDao instance = null;
+       
         String expResult = "Jung";
         String expResult2 = "Mid";
         String result = bDao.getChampPosition(id);
@@ -109,9 +107,9 @@ public class BattleSystemDaoTest {
         System.out.println("getChampsBasedOnPosition");
         String position = "Top";
         String position2 = "Support";
-        BattleSystemDao instance = null;
-        int expResult = 2;
-        int expResult2 = 1;
+        
+        int expResult = 9;
+        int expResult2 =9;
         
         ArrayList<BattleSystem> result = bDao.getChampsBasedOnPosition(position);
         ArrayList<BattleSystem> result2 = bDao.getChampsBasedOnPosition(position2);

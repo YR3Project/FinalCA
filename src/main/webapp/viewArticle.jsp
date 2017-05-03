@@ -71,41 +71,49 @@
                         </form>
                        </section>
                         <%
-
+                           ReportDao rDao = new ReportDao("swgw");
                            ArrayList<Comments> allComments = new ArrayList(cDao.getCommentsByArticle(artID));
                            for (int j = 0; j < allComments.size(); j++) {
+                               int reports = rDao.getReportsByComment(allComments.get(j).getCommentID());
                        %>
                        <section class id="commentsection">
-                          <h3 class id="commentTitle">Comment</h3>
-                          <p><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
+                          <h3 class id="commentTitle"><a id="AccountLink" href="viewUser.jsp?user=<%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%>">
                                <%=author.GetAuthorByID((allComments.get(j)).getcAuthor())%> 
                                <img src="<%=author.GetProfPicPath((allComments.get(j)).getcAuthor())%>" height="20" width="20" /></a> 
-                               on <%=(allComments.get(j)).getDate()%></p>
-                          <div id="CommentText">
-                          <%=(allComments.get(j).getCommentText())%>
-                          </div>
+                               on <%=(allComments.get(j)).getDate()%></h3> <%if(a2 == 1){%> <h5> <%= reports %> Report<%if(reports != 1){ %>s<% }%></h5> <%}%>
+                          <p><%=(allComments.get(j).getCommentText())%></p>
                        </section>
                        <%
-                       if (allComments.get(j).getcAuthor() == successUser2.getUserID() && a2 == 1) {
+                       if (allComments.get(j).getcAuthor() == successUser2.getUserID() || a2 == 1) {
                        %>
                        <section>
                        <form name="delc" action="FrontController" method="post">
-                           <p>
                            <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
-                           </p>
 
                            <input type="submit" value="Delete Comment" />
 
-                           <p>
                            <input type="hidden" name="action" value="delComm" />
-                           </p>
                        </form>
                        </section>    
-                       <%
-                        }
-                        }
+                           <%
+                               }
+                               if (Value4 != null) {
+                               %>
+                           <section>
+                       <form name="report" action="FrontController" method="post">
+                           <input type="hidden" name="commID" value="<%=allComments.get(j).getCommentID()%>" />
+                            <input type="hidden" name="artID" value="<%=artID%>" />
+                           <input type="submit" value="Report" />
+                           <input type="hidden" name="action" value="repComm" />
+                       </form>
+                       </section> 
+                           <%
+                               }
+                               
+                        } 
                         if (Value4 != null) {
                     %>
+                    
                     <section class id="leavecommentsection">
 
                     <h3 class id="leavecomment">Leave a Comment</h3>
@@ -125,7 +133,7 @@
                     </section>
                          
                         <%  
-                            
+                            }
                             Users currentuser = new Users();
                             Object currentobject = session.getAttribute("CurrentUser");
                             if (currentobject != null) {
@@ -166,7 +174,7 @@
                         
                         }
                         }
-                        }
+                        
                         
 
                         

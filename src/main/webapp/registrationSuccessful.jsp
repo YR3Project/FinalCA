@@ -18,13 +18,14 @@ Author Aleks,Ben
 
      
     <body>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div id="wrapper">
         <header>
-                 <br />
-                 <br />
-                 <br />
-                 <br />
-                 <br />    
+   
         <h1>Successful registered in User</h1>
         <%@ include file="Includes/nav.jsp" %>
         </header>
@@ -40,7 +41,7 @@ Author Aleks,Ben
             <p>
                 Congratulations on successful Registering into are service <%=(successRegUser.getUserName())%>.
             </p>
-            
+          <div style="overflow-x:auto;"> 
           <table id="userTable">
             <tr>
                 <th>UserName</th>
@@ -57,6 +58,7 @@ Author Aleks,Ben
               }  
             %>
         </table>
+        </div>
         
         <%
            

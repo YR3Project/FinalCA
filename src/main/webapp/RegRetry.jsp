@@ -37,8 +37,18 @@ Authors Aleks, Ben
             if (Value != null)
             {
                 String SecurityMeassage = (String) Value;
-            
+                if(!(SecurityMeassage == "")){
             %>
+             <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> <%=SecurityMeassage%>.
+            </div>
+            <%
+                }
+                }
+                session.removeAttribute("Complexity");
+                session.setAttribute("Complexity", "");
+                %>
             
             
             <form name="reg" action="FrontController" method="post" onsubmit="return validateForm();">
@@ -61,17 +71,7 @@ Authors Aleks, Ben
                 <input type="hidden" name ="action" value="register" />
                 
             </form>
-            
-            
-            <%
-              }  
-            %>
 
-        
-        <%
-           
-            session.removeAttribute("Complexity");
-         %>
         </article>
          <%@ include file="Includes/footer.jsp" %>
     </div> 

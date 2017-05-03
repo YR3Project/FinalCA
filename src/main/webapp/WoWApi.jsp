@@ -17,15 +17,10 @@
 
     </head>
 
-    
+    <%@ include file="Includes/Carousel.html" %> 
     <body>
         <div id="wrapper">
             <header>
-                 <br />
-                 <br />
-                 <br />
-                 <br />
-                 <br />
                 <%@ include file="Includes/nav.jsp" %>
                 <h1>World of Warcraft Legion</h1>
             </header>
@@ -48,7 +43,18 @@
             String url = "http://render-api-eu.worldofwarcraft.com/static-render/eu/" + character.getThumbnail();
             WOWRootObject rItems = new WOWRootObject();
             CharacterItem charItems = rItems.getItems(realm, name);
+            Mounts mounts = new Mounts();
+            MountsObject mo = new MountsObject();
             
+            mounts = mo.getMount(realm, name);
+            int arraySize = mounts.getName().size();
+            
+            
+            Pets pets = new Pets();
+            PetsObject po = new PetsObject();
+            
+            pets = po.getPets(realm, name);
+            int petArraySize = pets.getName().size();
             %>
             
             <div class="Articles">
@@ -91,9 +97,29 @@
                     <p><%=charItems.getLegName()%></p>
                     
                     
-               </center> 
-            </div>   
-            
+               
+                    <h3 id="title">Mounts</h3>
+                        <%
+                        for(int i = 0; i < arraySize; i++)
+                        {
+                        %>
+                        <P> <%=mounts.getName().get(i).toString()%> <br />
+                        <%
+                        }
+                        
+                        %>
+                        <h3 id="title">Pets</h3>
+                       <%
+                        for(int i = 0; i < petArraySize; i++)
+                        {
+                        %>
+                        <P> <%=pets.getName().get(i).toString()%> <br />
+                        <%
+                        }
+                        
+                        %>
+                    </div>
+                </center> 
             </section>
             </article>
             <%@ include file="Includes/footer.jsp" %>

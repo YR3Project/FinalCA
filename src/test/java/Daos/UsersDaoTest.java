@@ -53,14 +53,18 @@ public class UsersDaoTest {
      * Test of LogingInUser method, of class UsersDao.
      */
     @Test
-    public void testLogingInUser() {
+    public void testLogingInUser() throws NoSuchAlgorithmException {
         System.out.println("LogingInUser");
         String workingName = "ChrisJunit2";
+        String getEmailName = null;
+        String getEmailName2 = null;
         String password = "Password1";
-        //Testing for case senitivity 
-        String testName1 = "chrisJUNIT";
-        String testName2 = "CHRISJUNIT";
-        String testName3 = "chrisjunit";
+        //Testing if it's case sensitive 
+        String testName1 = "CHRISJUNIT2";
+        
+        //Testing for email
+        String testEmail = "junit@gmail.com";
+        String testEmail2 = "JUNIT@gmail.com";
        
         
         
@@ -69,33 +73,67 @@ public class UsersDaoTest {
         boolean result2 = false;
         boolean result3 = false;
         boolean result4 = false;
-        boolean result5 = false;
-        Users u = uDao.LogingInUser(workingName, password);
-        Users u2 = uDao.LogingInUser(testName1, password);
-        Users u3 = uDao.LogingInUser(testName2, password);
-        Users u4 = uDao.LogingInUser(testName3, password);
         
-        if(u != null) {
-            result2 = true;
-            assertEquals(expResult, result);
+        
+        //All from the login command used to get the password
+        Users one = uDao.getUserbyName(workingName);
+        
+                        if(testEmail.contains("@"))
+                        {
+                            
+                            getEmailName = uDao.GetName(testEmail);
+                        }
+                        if(testEmail2.contains("@"))
+                        {
+                            getEmailName2 = uDao.GetName(testEmail);
+                        }
+                        String Duedate = one.getDue();
+                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                        Date createdate = new Date();
+                        
+                        
+                        
+                        byte[] salt = uDao.GetCAlSalt(workingName);
+                            
+                        MessageDigest md = MessageDigest.getInstance("SHA-512");
+			md.update(salt);
+			byte[] bytes = md.digest(password.getBytes());
+			
+                        StringBuilder sb = new StringBuilder();
+			
+                        for(int i=0; i< bytes.length ;i++)
+			{
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+			}
+			String generatedPassword = sb.toString();
+        Users u = uDao.LogingInUser(workingName, generatedPassword);
+        Users u2 = uDao.LogingInUser(testName1, generatedPassword);
+        Users u3 = uDao.LogingInUser(getEmailName, generatedPassword);
+        Users u4 = uDao.LogingInUser(getEmailName2, generatedPassword);
+        if(u != null)
+        {
+            result = true;
+            
         }
+        //Checking if user can log in regardless of case
         if(u2 != null)
         {
             result2 = true;
-            assertEquals(expResult, result2);
-        }if(u3 != null)
+        }
+        if(u3 != null)
         {
             result3 = true;
-            assertEquals(expResult, result3);
         }
         if(u4 != null)
         {
             result4 = true;
-            assertEquals(expResult, result4);
         }
-       
-      
         
+       
+        assertEquals(expResult, result);
+        assertEquals(expResult, result2);
+        assertEquals(expResult, result3);
+        assertEquals(expResult, result4);
     }
 
     /**
@@ -118,17 +156,25 @@ public class UsersDaoTest {
     @Test
     public void testGetUserbyName() {
         System.out.println("getUserbyName");
-        String name = "ChrisJunit";
-        
+        String name = "ChrisTest";
+        String testName = "NameDoesNotExist";
         boolean expResult = true;
+        
         boolean result = false;
+        boolean result2 = true;
         Users u = uDao.getUserbyName(name);
+        Users u2 = uDao.getUserbyName(testName);
         if(u != null)
         {
             result = true;
         }
+        if(u2 == null)
+        {
+            result2 = true;
+        }
+        
         assertEquals(expResult, result);
-       
+        assertTrue(result2);
     }
 
     /**
@@ -137,9 +183,9 @@ public class UsersDaoTest {
     @Test
     public void testGetName() {
         System.out.println("GetName");
-        String email = "beartrap15@gmail.com";
+        String email = "ben.rose76@gmail.com";
        
-        String expResult = "chips97";
+        String expResult = "BenRose";
         String result = uDao.GetName(email);
         assertEquals(expResult, result);
         
@@ -151,9 +197,9 @@ public class UsersDaoTest {
     @Test
     public void testGetEmail() {
         System.out.println("GetEmail");
-        String name = "chips97";
+        String name = "BenRose";
         
-        String expResult = "beartrap15@gmail.com";
+        String expResult = "ben.rose76@gmail.com";
         String result = uDao.GetEmail(name);
         assertEquals(expResult, result);
         
@@ -167,8 +213,9 @@ public class UsersDaoTest {
     @Test
     public void testRegisterUser() throws NoSuchAlgorithmException, NoSuchProviderException {
         System.out.println("RegisterUser");
-        String uname = "ChrisJunit2";
+        String uname = "ChrisJunit23";
         String pass = "Password1";
+        String country = "Ireland";
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] salt = getSalt();
 			md.update(salt);
@@ -181,7 +228,7 @@ public class UsersDaoTest {
                             sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
 			}
 			String generatedPassword = sb.toString();
-        String email = "junit@gmaill.com";
+        String email = "junitTest@gmaill.com";
          DateFormat df = new SimpleDateFormat("dd/MM/yy");
                         Date createdate = new Date();
                         Date expiredate = new Date();
@@ -192,7 +239,7 @@ public class UsersDaoTest {
         
         
         boolean expResult = true;
-        boolean result = uDao.RegisterUser(uname, generatedPassword, email, salt, df.format(createdate), df.format(expiredate));
+        boolean result = uDao.RegisterUser(uname, generatedPassword,country, email, salt, df.format(createdate), df.format(expiredate));
         assertEquals(expResult, result);
        
     }
@@ -203,7 +250,7 @@ public class UsersDaoTest {
     @Test
     public void testGetAuthorByID() {
         System.out.println("GetAuthorByID");
-        int ID = 48;
+        int ID = 29;
         
         String expResult = "BenRose";
         String result = uDao.GetAuthorByID(ID);
@@ -217,18 +264,27 @@ public class UsersDaoTest {
     @Test
     public void testEditProfile() {
         System.out.println("EditProfile");
-        String username = "chips98";
+        String username = "ChrisJunit1";
         String email = "beartrap15@gmail.com";
-        int id = 52;
+        int id = 30;
+        String country = "Germany";
         
         boolean expResult = true;
-        boolean result = uDao.EditProfile(username, email, id);
+        boolean result = uDao.EditProfile(username,country, email, id);
         assertEquals(expResult, result);
-        uDao.EditProfile("chips97", email, id);
+        String getCountry = uDao.getUserbyName("ChrisJunit1").getCountry();
+        String countryCheck ="Germany";
+        
+        assertEquals(countryCheck, getCountry);
+        
+        boolean lastEdit = uDao.EditProfile("ChrisJunit2","Ireland",  "junit@gmail.com", id);
+        
+        String finalCheck = uDao.getUserbyName("ChrisJunit2").getUserName();
+        assertEquals("ChrisJunit2", finalCheck);
         
     }
     //TODO LATER DONT FORGET
-    //MIGHT NOT WORK SINCE I DUNNO HOW TO TEST FOR THIS TRIAL AND ERROR BABY
+    
     /**
      * Test of ChangePassword method, of class UsersDao.
      
@@ -355,4 +411,6 @@ public class UsersDaoTest {
 		//return salt
 		return salt;
     }
+
+    
 }

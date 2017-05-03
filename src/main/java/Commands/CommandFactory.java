@@ -1,4 +1,3 @@
-
 package Commands;
 
 /**
@@ -6,27 +5,27 @@ package Commands;
  * Author Ben , Chris
  */
 public class CommandFactory {
-   public Command createCommand(String action)
-    {
-       switch (action) {
-           case "login":
-               return new LoginCommand();
-           case "register":
-               return new RegisterCommand();
-           case "writeComm":
-               return new WriteCommentCommand();
-           case "edit":
-               return new EditCommand();
-           case "change":
-               return new ChangeCommand();
-           case "postArtc":
-               return new PostArticleCommand();
-           case "editArtc":
-               return new EditArticleCommand();
-           case "delArtc":
-               return new DeleteArticleCommand();
+
+    public Command createCommand(String action) {
+        switch (action) {
+            case "login":
+                return new LoginCommand();
+            case "register":
+                return new RegisterCommand();
+            case "writeComm":
+                return new WriteCommentCommand();
+            case "edit":
+                return new EditCommand();
+            case "change":
+                return new ChangeCommand();
+            case "postArtc":
+                return new PostArticleCommand();
+            case "editArtc":
+                return new EditArticleCommand();
+            case "delArtc":
+                return new DeleteArticleCommand();
             case "delComm":
-               return new DeleteCommentCommand();
+                return new DeleteCommentCommand();
             case "ProPic":
                 return new ProfilePicCommand();
             case "ArtPic":
@@ -39,10 +38,12 @@ public class CommandFactory {
                 return new ForgotPasswordCommand();
             case "delUser":
                 return new DeleteUserCommand();
-           default:
-               break;
-       }
-        
+            case "repComm":
+                return new ReportCommentCommand();
+            default:
+                break;
+        }
+
         return null;
     }
 }
