@@ -78,34 +78,34 @@ public class UsersDaoTest {
         //All from the login command used to get the password
         Users one = uDao.getUserbyName(workingName);
         
-                        if(testEmail.contains("@"))
-                        {
-                            
-                            getEmailName = uDao.GetName(testEmail);
-                        }
-                        if(testEmail2.contains("@"))
-                        {
-                            getEmailName2 = uDao.GetName(testEmail);
-                        }
-                        String Duedate = one.getDue();
-                        DateFormat df = new SimpleDateFormat("dd/MM/yy");
-                        Date createdate = new Date();
-                        
-                        
-                        
-                        byte[] salt = uDao.GetCAlSalt(workingName);
-                            
-                        MessageDigest md = MessageDigest.getInstance("SHA-512");
-			md.update(salt);
-			byte[] bytes = md.digest(password.getBytes());
-			
-                        StringBuilder sb = new StringBuilder();
-			
-                        for(int i=0; i< bytes.length ;i++)
-			{
-				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-			}
-			String generatedPassword = sb.toString();
+	if(testEmail.contains("@"))
+	{
+
+	    getEmailName = uDao.GetName(testEmail);
+	}
+	if(testEmail2.contains("@"))
+	{
+	    getEmailName2 = uDao.GetName(testEmail);
+	}
+	String Duedate = one.getDue();
+	DateFormat df = new SimpleDateFormat("dd/MM/yy");
+	Date createdate = new Date();
+
+
+
+	byte[] salt = uDao.GetCAlSalt(workingName);
+
+	MessageDigest md = MessageDigest.getInstance("SHA-512");
+	md.update(salt);
+	byte[] bytes = md.digest(password.getBytes());
+
+	StringBuilder sb = new StringBuilder();
+
+	for(int i=0; i< bytes.length ;i++)
+	{
+		sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+	}
+	String generatedPassword = sb.toString();
         Users u = uDao.LogingInUser(workingName, generatedPassword);
         Users u2 = uDao.LogingInUser(testName1, generatedPassword);
         Users u3 = uDao.LogingInUser(getEmailName, generatedPassword);
